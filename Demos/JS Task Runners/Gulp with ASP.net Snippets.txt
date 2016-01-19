@@ -25,9 +25,11 @@ h2 {
 ```
 var gulp = require('gulp'),
 var cssmin = require("gulp-cssmin");
+var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task("cssmin", function () {
     gulp.src("css/*.css")
+    .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(gulp.dest("wwwroot/css"));
 });
