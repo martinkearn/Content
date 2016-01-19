@@ -22,16 +22,17 @@ Show the ASP.net > Performance section
 ## Yslow
 Use the add-in to run a test
 
-Grade
-* Look at overall score / grade
-* Look at bad areas
-    * F Add expires headers
-    * F Reduce the number of DOM elements
-    * E Do Not scale images in HTML
-* Look at good areas
-    * A Put CSS at top
-    * B Put javascript at bottom
-    * A minify JavaScript and CSS
+Look at overall score / grade
+
+Look at bad areas
+* F Add expires headers
+* F Reduce the number of DOM elements
+* E Do Not scale images in HTML
+
+Look at good areas
+* A Put CSS at top
+* B Put javascript at bottom
+* A minify JavaScript and CSS
 
 Components
 
@@ -57,11 +58,14 @@ http://babblekids.co.uk
 * Google, Clicky and Azure analytics
 
 Run YSlow
-* Grade
-    * A, 99/100
-    * Google analytics causes 99 instead of 100 because of its frequent cache expiration
-    * Started at 73 and spent 4 hours on it
-* Components
-    * 2 JS, 1 CSS (through bundling)
-* Stats
-    * Only 2 requests / 5.9k on primed cache
+
+Grade
+* A, 99/100
+* Google analytics causes 99 instead of 100 because of its frequent cache expiration
+* Started at 73 and spent 4 hours on it
+
+Components
+* 2 JS, 1 CSS (through bundling)
+
+Stats
+* Only 2 requests / 5.9k on primed cache
