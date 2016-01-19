@@ -4,6 +4,8 @@ gulp.task('default', function () {
 });
 ```
 
+***
+
 ```
 body {
     font-family: Arial;
@@ -21,6 +23,8 @@ h2 {
     font-weight: bold;   
 }
 ```
+
+***
 
 ```
 var gulp = require('gulp'),

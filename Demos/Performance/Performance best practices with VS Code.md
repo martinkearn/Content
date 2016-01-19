@@ -60,11 +60,7 @@ This is a summarised version of [Performance Optimisation and Tuning Lab](https:
 <a href="http://twitter.com/martinkearn"><img class="icon" src="images/twitter.png" /> @MartinKearn</a>
 ```
 
-3.Replace the IMG element with this `<i class="fa fa-twitter fa-lg"></i>`. The finished line should look like:
-
-```
-<a href="http://twitter.com/martinkearn"><i class="fa fa-twitter fa-lg"></i> @MartinKearn</a>
-```
+3.Replace the IMG element with this `<i class="fa fa-twitter fa-lg"></i>`. The finished line should look like ```<a href="http://twitter.com/martinkearn"><i class="fa fa-twitter fa-lg"></i> @MartinKearn</a>```
 
 4.Zoom in on the new icon in your browser and see that it remain crisp and high quality even when fully zoomed in.
 
