@@ -5,48 +5,6 @@ This demo installs gulp into an empty asp.net 5.0 project, creates a gulpfile.js
 ### Pre-reqs
 * Visual Studio 2015 with ASP.NET 5 RC1 or newer
 
-### Code Snippets
-```
-gulp.task('default', function () {
-    console.log('Hello world');
-});
-```
-
-```
-body {
-    font-family: Arial;
-    font-size: 14pt;
-}
-
-h1 {
-    font-size:4rem;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-h2 {
-    font-size:3rem;
-    font-weight: bold;   
-}
-```
-
-```
-var gulp = require('gulp'),
-var cssmin = require("gulp-cssmin");
-
-gulp.task("cssmin", function () {
-    gulp.src("css/*.css")
-    .pipe(cssmin())
-    .pipe(gulp.dest("wwwroot/css"));
-});
-
-gulp.task('csswatch', function() {
-    gulp.watch('css/*.css', ['cssmin']);
-});
-
-gulp.task('default', ['cssmin', 'csswatch']);
-```
-
 ## Create a new project
 Visual Studio 2015 > File > New > Project > Web > ASP.NET Web Application
 
@@ -115,6 +73,11 @@ h2 {
     font-size:3rem;
     font-weight: bold;   
 }
+
+p
+{
+    hyphens: auto;
+}
 ```
 
 ## Minify css
@@ -147,6 +110,31 @@ gulp.task('default', [ 'cssmin' ]);
 ```
 	
 Show the minified css file in wwwroot directory
+
+## Add Autoprefixer
+*Autoprefixer is a plugin that automates the use of CSS vendor prefixes. In this section, we'll look at hyphens which requires prefixes for some IE, Edge and Safari but is not supported on Chrome. See http://caniuse.com/#search=hyphens*
+
+Add 'gulp-autoprefixer' to packages.json and wait for it to restore
+```
+"devDependencies": {
+"gulp": "^3.9.0",
+"gulp-autoprefixer": "3.1.0"
+}
+```
+	
+Add gulp-cssmin plugin to gulpfile.js like this
+```
+var autoprefixer = require('gulp-autoprefixer');
+```
+
+Add this line beneath `gulp.src("css/*.css")` in the css_task
+```
+.pipe(autoprefixer())
+```
+
+Build the project
+
+Show that the minified CSS in wwwroot now includes the various required vendor prefixes
 
 ## Add a watch so it minifies when the css changes
 Add a watch task to gulpfile.js
