@@ -5,6 +5,47 @@ This demo installs gulp into an empty asp.net 5.0 project, creates a gulpfile.js
 ### Pre-reqs
 * Visual Studio 2015 with ASP.NET 5 RC1 or newer
 
+### Code Snippets
+```
+gulp.task('default', function () {
+    console.log('Hello world');
+});
+```
+
+```
+body {
+    font-family: Arial;
+    font-size: 14pt;
+}
+
+h1 {
+    font-size:4rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size:3rem;
+    font-weight: bold;   
+}
+```
+
+```
+var gulp = require('gulp'),
+var cssmin = require("gulp-cssmin");
+
+gulp.task("cssmin", function () {
+    gulp.src("css/*.css")
+    .pipe(cssmin())
+    .pipe(gulp.dest("wwwroot/css"));
+});
+
+gulp.task('csswatch', function() {
+    gulp.watch('css/*.css', ['cssmin']);
+});
+
+gulp.task('default', ['cssmin', 'csswatch']);
+```
 
 ## Create a new project
 Visual Studio 2015 > File > New > Project > Web > ASP.NET Web Application
