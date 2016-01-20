@@ -6,6 +6,7 @@ In this demo, we'll create a very simple font-end website that uses Gulp
 * NPM installed
 * Visual Studio Code installed
 * VSC Lorem extension installed
+* Have the snippets open
 
 ## Setup a project
 Create a folder on the local disk
@@ -161,3 +162,67 @@ h1
 Show the updated minified css in wwwroot
 
 Show the updated Index page
+
+## Snippets
+```
+<h1></h1>
+<p></p>
+<h2></h2>
+<p></p>
+```
+
+```
+body {
+    font-family: Arial;
+    font-size: 14pt;
+}
+h1 {
+    font-size:4rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
+h2 {
+    font-size:2rem;
+    font-weight: bold;   
+}
+```
+```
+var gulp = require('gulp');
+    
+gulp.task('default', function () {
+    console.log('Hello world');
+});
+```
+```	
+gulp.task("css_task", function () {
+    gulp.src("css/*.css")
+    .pipe(minifycss())
+    .pipe(gulp.dest("wwwroot"));
+});
+```
+```
+gulp.task('default', [ 'css_task' ]);
+```
+```
+<link href="./wwwroot/Site.css" rel="stylesheet">
+```
+```
+p
+{
+    hyphens: auto;
+}
+```
+```	
+var autoprefixer = require('gulp-autoprefixer');
+```
+```
+.pipe(autoprefixer())
+```
+```
+gulp.task('csswatch_task', function() {
+	gulp.watch('css/*.css', ['css_task']);
+});
+```
+```
+gulp.task('default', ['css_task', 'csswatch_task']);
+```
