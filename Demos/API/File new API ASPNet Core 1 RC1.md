@@ -6,8 +6,7 @@ Create a new Web API project in ASP.NET Core 1 RC1 and shows some of the key cap
 File > New project > Web Application > Web API
 * Solution: 'ASPNet5'
 * Project 'WebAPI'
-	
-*NOTE: Authentication is not an option yet*
+* *NOTE: Authentication is not an option yet*
 
 Examine the default Project
 
@@ -73,13 +72,20 @@ Open a command prompt (Windows Key + R, type PowerShell, Run as admin)
 Use the cd command to navigate to the project directory
 
 Select the right version of .net
-`Run dnvm use 1.0.0-rc1-final`
+```
+Run dnvm use 1.0.0-rc1-final
+```
 
 Scaffold a migration to create the initial set of tables for your model.
-`dnx ef migrations add MyFirstMigration`
+```
+dnx ef migrations add MyFirstMigration
+```
 
-Apply the new migration to the database. Because your database doesn’t exist yet, it will be created for you before the migration is applied.
-`dnx ef database update`
+Apply the new migration to the database. 
+```
+dnx ef database update
+```
+*NOTE: Because your database doesn’t exist yet, it will be created for you before the migration is applied.*
 
 Have a look in the migrations folder to see the migration
 
