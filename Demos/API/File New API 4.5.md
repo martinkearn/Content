@@ -1,6 +1,6 @@
 
 # File > New API (4.5)
-Create a new Web API project in ASP.net 4.5 and shows some ofteh key capabilities
+Create a new Web API project in ASP.net 4.5 and shows some of the key capabilities
 
 ### Pre reqs
 * Visual Studio 2015
@@ -86,7 +86,7 @@ return db.People.AsQueryable();
 
 Run the application again
 
-Search for people whos name starts is Martin: 
+Search for people whose name starts is Martin: 
 `?$filter=Name eq 'Martin'`
 
 Search for people who are less than 16 years old: 
