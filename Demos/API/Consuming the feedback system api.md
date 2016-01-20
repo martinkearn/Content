@@ -1,5 +1,5 @@
 
-# Building the feedback system API
+# Consuming the feedback system API
 A demo that show how the API for the MSWebDay feedback system was built.
 
 ### Pre-Reqs
@@ -35,7 +35,6 @@ Web Apps > api-MSWebDay > Right-click > Attach debugger
 * Wait for the api website to load
 
 ## Debug the Angular App
-	
 Show public angular app on its own
 * Open a different browser
 * Show the public Angular app
@@ -59,10 +58,37 @@ Submit feedback and walk through the post
 
 Take the time to explore the model binding and step through the code
 
-## (optional) Debug the Windows 'Current event' app
+Clear breakpoints
+
+## Debug the Windows 'Current event' app
 Add break-points on the following paths in the API
 * `Events.GetEvents` - gets the list of events for the list control
 * `CurrentEvent.GetCurrentEvent` - gets the current event
 * `CurrentEvent.PostCurrentEvent` - updates the current event
 
-Use the app, catch the requests and talk through them
+Run the app
+
+Talk through these GET requests needed to load the initial app
+* `Events.GetEvents` - gets the list of events for the list control
+* `CurrentEvent.GetCurrentEvent` - gets the current event
+
+Change the current event and talk through these requests
+* `CurrentEvent.PostCurrentEvent` - updates the current event
+* `CurrentEvent.GetCurrentEvent` - gets the current event again to update the ui
+
+Clear breakpoints
+
+## Debug the Office 'Evaluations' app
+Add break-points on the following paths in the API
+* `Events.GetEvents` - gets the list of events for the list control
+* `Evaluations.Get(int EventId)` - gets the evaluations of the event
+
+Run app
+Load the app and talk through
+* `Events.GetEvents` - get the initial list for the drop down
+
+Insert Summary
+* `Evaluations.Get(int EventId)` - gets the evaluations of the event
+
+Insert Evaluations
+* `Evaluations.Get(int EventId)` - gets the evaluations of the event
