@@ -33,23 +33,19 @@ View > Cloud explorer
 
 Web Apps > api-MSWebDay > Right-click > Attach debugger
 * Wait for the api website to load
+
+## Debug the Angular App
 	
 Show public angular app on its own
 * Open a different browser
 * Show the public Angular app
 * http://mswebday.net > feedback
 
-## Debug the Angular App
 Add break-points on the following paths in the API
 * `Events.GetEvents` - to get the list of all events for drop down
 * `CurrentEvent.GetCurrentEvent` - to get the current event details
 * `Questions.GetQuestions` - to get the questions for this event
 * `Evaluations.Post` - to post the users feedback
-		
-As an alternative, these are the break-points required for the 'current event' windows app
-* `Events.GetEvents` - gets the list of events for the list control
-* `CurrentEvent.GetCurrentEvent` - gets the current event
-* `CurrentEvent.PostCurrentEvent` - updates the current event
 
 Ask the audience to start using the app
 
@@ -61,4 +57,12 @@ Talk through each break-point/request for initial load (all GET)
 Submit feedback and walk through the post
 * `Evaluations.Post` - to post the users feedback
 
-Take the time to explore the model binding and step through the cod
+Take the time to explore the model binding and step through the code
+
+## (optional) Debug the Windows 'Current event' app
+Add break-points on the following paths in the API
+* `Events.GetEvents` - gets the list of events for the list control
+* `CurrentEvent.GetCurrentEvent` - gets the current event
+* `CurrentEvent.PostCurrentEvent` - updates the current event
+
+Use the app, catch the requests and talk through them
