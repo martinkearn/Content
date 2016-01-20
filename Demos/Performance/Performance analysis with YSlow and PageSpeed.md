@@ -8,7 +8,10 @@ A demo that shows how to use the YSlow and PageSpeed tools
 * Ensure web dev checklist add-in is installed
 
 ## Open Chrome
-Open chrome to http://www.microsoft.com/en-gb/default.aspx
+Open chrome to a website
+* Ask the audience
+* http://www.lingscars.com/
+* http://www.microsoft.com/en-gb/
 	
 ## Web Dev CheckList
 Use add-in to show quick view
@@ -19,7 +22,7 @@ Show the ASP.net section
 
 Show the ASP.net > Performance section
 
-## Yslow
+## YSlow
 Use the add-in to run a test
 
 Look at overall score / grade
