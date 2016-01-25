@@ -6,7 +6,7 @@ Gulp is one of the more popular of a new(ish) breed of build tools called JavaSc
 
 In this article, we'll go through the basic steps of setting Gulp up from scratch using Visual Studio Code. Sure, IDE's like Visual Studio and the default templates in ASP.NET will have an initial configuration out-of-the-box, but to really understand how this stuff works, it is best to build at least one project up from scratch.
 
-## What does Gulp do
+## What does Gulp do and how does it work?
 
 ## It starts with NPM
 
