@@ -51,3 +51,16 @@ Upload [Martin-Kearn-1.jpg](https://github.com/martinkearn/Content/blob/master/D
 _It is not that bad though, at least Jake looks old too_
 
 Upload [Jake-Gyllenhaal-2.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Jake-Gyllenhaal-2.jpg)
+
+## Sentimental
+_To bring this all together I want to show an Office add-in that uses the Text Analytics API to do sentiment and key phrase analysis on text in Office documents. The add-in is called 'Sentimental' and you can get it from the [Office Store](https://store.office.com/sentimental-WA104379510.aspx?assetid=WA104379510&sourcecorrid=755ae580-2491-436f-8471-7888c38149d7&searchapppos=0)_
+
+Open Excel
+
+Install or activate Sentimental
+
+Write `I love Office, it rocks` in a cell
+
+Analyse
+
+Insert score and key phrases
