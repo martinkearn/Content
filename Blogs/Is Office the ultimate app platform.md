@@ -2,11 +2,7 @@
 # Is Office the ultimate app platform?
 We all know what an app store is, don't we? We use them to fill our phones and tablets with all those lovely little apps. App stores are our 'go to' place to get the latest functionality for our device.
 
-<<<<<<< HEAD
-Also, we all know what Office is.... Office is one of Microsoft's oldest products and has been around since 1990, that makes it 26 years old. As I write this article, I work with people who are younger than Office!
-=======
 Also, we all know what Office is don't we?... Office is one of Microsoft's oldest products and has been around since 1990, that makes it 26 years old. As I write this article, I work with people who are younger than Office!
->>>>>>> origin/master
 
 Office is now available as an 'app' on all sorts of different devices including iOS, Android, Windows, MAC, Web Browsers and of course the classic Windows desktop.
 
