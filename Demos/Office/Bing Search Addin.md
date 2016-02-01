@@ -1,4 +1,6 @@
- #Bing Search add-in
+
+# Bing Search add-in
+This demo show how to add Bing search capabilities to a standard file > new project > office task pane
  
 ## For `Home.html`
 ```
