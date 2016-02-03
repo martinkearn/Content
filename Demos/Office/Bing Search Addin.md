@@ -20,7 +20,7 @@ thisapp.azureServiceKey = "TWFjaGluZUxlYXJuaW5nVGV4dEFuYWx5dGljc1NlcnZpY2VTZW50a
 
 ## Handle get selected data
 
-In `Home.js` in the `getDataFromSelection` function
+In `Home.js` in the `getDataFromSelection` function, replace the function (result) contents with this:
 ```
 getSearchResults(result.value);
 ```
