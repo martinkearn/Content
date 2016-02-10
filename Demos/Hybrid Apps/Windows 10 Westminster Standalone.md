@@ -22,7 +22,7 @@ Create a new Windows JS app
 Delete css, js and winjs folders and default.html
 
 Copy images into app solution
-* From this GitHub repo
+* From this GitHub repo: https://github.com/martinkearn/Content/tree/master/Demos/Hybrid%20Apps/Windows%2010%20Westminster%20Images/Sentimental%20Web
 
 Package manifest
 * Display name > Sentimental
