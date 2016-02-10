@@ -1,12 +1,41 @@
 
-# Windows 10 Westminster
-This script shows the advanced capabilities avaliable via Windows 10 Westminster. It uses a continuation of the ManifoldJS demo plus a new app based on CodePen
+# Windows 10 Westminster Standalone
+This script shows the capabilities available via Windows 10 Westminster. It has no pre-reqs on manifold JS
 
 ### Pre-reqs
-* Complete the [ManifoldJS demo](ManifoldJS.md) 
+* Have a browser open to http://sentimentalweb.azurewebsites.net/
 * Have a browser open to http://codepen.io/seksenov/pen/wBbVyb/?editors=101
 * Have the code snippets open
+* Have the images folder open
 * The [SentimentalWeb](https://github.com/martinkearn/SentimentalWeb) project open in VS code 
+
+## Introduce Sentimental web
+Look at [sentimentalweb.azurewebsites.net](http://sentimentalweb.azurewebsites.net/)
+
+Do analysis on the title text ("Sentimental tells you about the sentiment and key phrases in text. It is really quite awesome.")
+
+Show that it is repsonsive
+
+## Create an initial Windows app
+Create a new Windows JS app
+
+Delete css, js and winjs folders and default.html
+
+Copy images into app solution
+* From this GitHub repo
+
+Package manifest
+* Display name > Sentimental
+* Start page > http://sentimentalweb.azurewebsites.net
+* Add Content URI http://codepen.io/seksenov/pen/wBbVyb/?editors=101 Include, None for WinRT access
+* Visual Assets > background colour `#808080`
+* Visual Assets > get rid of all errors
+
+Run and explore app
+* Function
+* Responsive
+* Icons
+* Start
 
 ## Add Windows code to the Sentimental app
 Explore the [SentimentalWeb](https://github.com/martinkearn/SentimentalWeb) project
@@ -21,12 +50,12 @@ Re-run the app
 * Notification
 * Search and re-pin the tile > it is live
 
-## Create a new Windows JS app
+## Create a new Windows JS app based on Codepen
+Explore http://codepen.io/seksenov/pen/wBbVyb/?editors=101 in browser
+
 Create a new Windows JS app
 
 Delete css, js and winjs folders and default.html
-
-Explore http://codepen.io/seksenov/pen/wBbVyb/?editors=101 in browser
 
 Package manifest
 * Start page > http://codepen.io/seksenov/pen/wBbVyb/?editors=101
