@@ -4,6 +4,7 @@ This demo installs gulp into an ASP.NET Core 1.0 project, creates a gulpfile.js,
 
 ### Pre-reqs
 * Visual Studio 2015 with ASP.NET Core 1.0 RC1 or newer
+* Make sure Visual Studio is using the latest NPM install, which it will not do by default. If this is not done, Autoprefixer will error in the Task Runner Explorer. See how at https://buli.waw.pl/update-node-js-integrated-with-visual-studio-2015/
 
 ## Create a new project
 Visual Studio 2015 > File > New > Project > Web > ASP.NET Web Application
