@@ -89,15 +89,14 @@ Add 'gulp-cssmin' to packages.json and wait for it to restore
 }
 ```
 	
-Add gulp-cssmin plugin to gulpfile.js like this
+Add gulp-cssmin plugin to gulpfile.js below `var gulp = require('gulp');` as follows
 ```
-var gulp = require('gulp'),
 var cssmin = require("gulp-cssmin");
 ```
 	
 Add a task for CSS that pipes to .wwwroot/css
 ```
-gulp.task("cssmin", function () {
+gulp.task("cssmin_task", function () {
     gulp.src("css/*.css")
     .pipe(cssmin())
     .pipe(gulp.dest("wwwroot/css"));
@@ -106,7 +105,7 @@ gulp.task("cssmin", function () {
 	
 Modify default task to include the css task
 ```
-gulp.task('default', [ 'cssmin' ]);
+gulp.task('default', [ 'cssmin_task' ]);
 ```
 	
 Show the minified css file in wwwroot directory
@@ -122,7 +121,7 @@ Add 'gulp-autoprefixer' to packages.json and wait for it to restore
 }
 ```
 	
-Add gulp-cssmin plugin to gulpfile.js like this
+Add gulp-cssmin plugin to gulpfile.js below `var cssmin = require("gulp-cssmin");` like this
 ```
 var autoprefixer = require('gulp-autoprefixer');
 ```
