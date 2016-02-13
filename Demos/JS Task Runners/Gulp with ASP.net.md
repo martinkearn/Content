@@ -1,14 +1,14 @@
 
-# Gulp with ASP.net 5
-This demo installs gulp into an empty asp.net 5.0 project, creates a gulpfile.js, minifies css and deploy to wwwroot on build
+# Gulp with ASP.NET Core 1.0
+This demo installs gulp into an ASP.NET Core 1.0 project, creates a gulpfile.js, minifies css and deploy to wwwroot on build
 
 ### Pre-reqs
-* Visual Studio 2015 with ASP.NET 5 RC1 or newer
+* Visual Studio 2015 with ASP.NET Core 1.0 RC1 or newer
 
 ## Create a new project
 Visual Studio 2015 > File > New > Project > Web > ASP.NET Web Application
 
-ASP.NET 5 Templates > Empty
+ASP.NET Core 1.0 Templates > Empty
 
 ## Add Packages.json (NPM)
 *We need Package.json to be able to add NPM packages to the solution. Package.json is the NPM configuration file.*
