@@ -2,6 +2,8 @@
 # Consuming the feedback system API
 A demo that show how the API for the MSWebDay feedback system was built.
 
+WARNING: When last attempted, Visual Studio crashed when trying to start debugging the remote Azure web app
+
 ### Pre-Reqs
 * API published as debug
 * Have two instances of VS open
