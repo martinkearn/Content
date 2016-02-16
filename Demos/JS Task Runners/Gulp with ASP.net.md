@@ -1,14 +1,15 @@
 
-# Gulp with ASP.net 5
-This demo installs gulp into an empty asp.net 5.0 project, creates a gulpfile.js, minifies css and deploy to wwwroot on build
+# Gulp with ASP.NET Core 1.0
+This demo installs gulp into an ASP.NET Core 1.0 project, creates a gulpfile.js, minifies css and deploy to wwwroot on build
 
 ### Pre-reqs
-* Visual Studio 2015 with ASP.NET 5 RC1 or newer
+* Visual Studio 2015 with ASP.NET Core 1.0 RC1 or newer
+* Make sure Visual Studio is using the latest NPM install, which it will not do by default. If this is not done, Autoprefixer will error in the Task Runner Explorer. See how at https://buli.waw.pl/update-node-js-integrated-with-visual-studio-2015/
 
 ## Create a new project
 Visual Studio 2015 > File > New > Project > Web > ASP.NET Web Application
 
-ASP.NET 5 Templates > Empty
+ASP.NET Core 1.0 Templates > Empty
 
 ## Add Packages.json (NPM)
 *We need Package.json to be able to add NPM packages to the solution. Package.json is the NPM configuration file.*
@@ -89,15 +90,14 @@ Add 'gulp-cssmin' to packages.json and wait for it to restore
 }
 ```
 	
-Add gulp-cssmin plugin to gulpfile.js like this
+Add gulp-cssmin plugin to gulpfile.js below `var gulp = require('gulp');` as follows
 ```
-var gulp = require('gulp'),
 var cssmin = require("gulp-cssmin");
 ```
 	
 Add a task for CSS that pipes to .wwwroot/css
 ```
-gulp.task("cssmin", function () {
+gulp.task("cssmin_task", function () {
     gulp.src("css/*.css")
     .pipe(cssmin())
     .pipe(gulp.dest("wwwroot/css"));
@@ -106,7 +106,7 @@ gulp.task("cssmin", function () {
 	
 Modify default task to include the css task
 ```
-gulp.task('default', [ 'cssmin' ]);
+gulp.task('default', [ 'cssmin_task' ]);
 ```
 	
 Show the minified css file in wwwroot directory
@@ -122,7 +122,7 @@ Add 'gulp-autoprefixer' to packages.json and wait for it to restore
 }
 ```
 	
-Add gulp-cssmin plugin to gulpfile.js like this
+Add gulp-cssmin plugin to gulpfile.js below `var cssmin = require("gulp-cssmin");` like this
 ```
 var autoprefixer = require('gulp-autoprefixer');
 ```
