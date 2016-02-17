@@ -40,19 +40,19 @@ _This demo only really works for Martin Kearn because he apparently looks like J
 Go to <https://www.twinsornot.net>
 
 Upload
-*  [Martin-Kearn-1.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Martin-Kearn-1.jpg)
-*  [Jake-Gyllenhaal.jpg ](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Jake-Gyllenhaal.jpg)
+*  [Twins_Martin.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Twins_Martin.jpg)
+*  [Twins_Jake.jpg ](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Twins_Jake.jpg)
 
 ## HowOld.net
 _It is not all upside for Martin, apparently he looks 6 years older than he is, despite looking like Jake Gyllenhall_
 
 Go to <http://how-old.net>
 
-Upload [Martin-Kearn-1.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Martin-Kearn-1.jpg)
+Upload [HowOld_Martin.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/HowOld_Martin.jpg)
 
 _It is not that bad though, at least Jake looks old too_
 
-Upload [Jake-Gyllenhaal-2.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Jake-Gyllenhaal-2.jpg)
+Upload [HowOld_Jake.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/HowOld_Jake.jpg)
 
 ## Sentimental (optional)
 *Do not show for web day, this is covered in the hybrid talk*
