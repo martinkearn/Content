@@ -106,3 +106,31 @@ POST in Postman
 GET in Postman
 * GET
 * http://localhost:2265/api/People
+
+### Snippets
+
+public class Person
+{
+    [Key]
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public int Age { get; set; }
+}
+
+
+
+
+
+Run dnvm use 1.0.0-rc1-final
+
+dnx ef migrations add MyFirstMigration
+
+dnx ef database update
+
+
+
+
+{
+    "FirstName":"Bob",
+    "Age":35 
+}

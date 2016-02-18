@@ -122,3 +122,39 @@ Copy `Access_Token`
 
 Do a GET to /api/People
 * Authorization header: Authorization: bearer {access token}
+
+### Snippets
+
+public class Person
+{
+    [Key]
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    Public int Age { get; set; }
+}
+
+
+Install-Package Microsoft.AspNet.WebApi.OData
+
+
+// GET: api/People
+[EnableQueryAttribute]
+public IQueryable<Person> GetPeople()
+{
+return db.People.AsQueryable();
+}
+
+
+
+?$filter=Name eq 'Martin'
+
+?$filter=Price lt 16
+
+
+
+Body
+{
+    "Email": "martin.kearn@microsoft.com",
+    "Password": "Password1!",
+    "ConfirmPassword": "Password1!"
+}
