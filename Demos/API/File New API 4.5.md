@@ -11,16 +11,10 @@ File > New project > Web Application > Web API
 * Can use Web api in any asp.net project but if you choose api as the project type it adds a help page
 
 ## Examine the default Project
-Show Read me
-* It is optimised for the type of content the project is for
-
 Look at default ValuesController.cs
 * No model (it is created in line)
 * Show URL example
 * Highlight 'API' route
-	
-App_starts\WebApiConfig.cs
-* Show default route that gets anything that starts with 'api'
 
 Run the API
 * Point out that this is a combined app and includes MVC
@@ -115,7 +109,7 @@ Body
 Do a POST to /Token
 * Body: `form-urlencoded`
 * Grant_type: `password`
-* Username: `martn.kearn@microsoft.com`
+* Username: `martin.kearn@microsoft.com`
 * Password: `Password1!`
 
 Copy `Access_Token`
@@ -125,6 +119,7 @@ Do a GET to /api/People
 
 ### Snippets
 
+```
 public class Person
 {
     [Key]
@@ -132,29 +127,29 @@ public class Person
     public string FirstName { get; set; }
     Public int Age { get; set; }
 }
+```
 
+`Install-Package Microsoft.AspNet.WebApi.OData`
 
-Install-Package Microsoft.AspNet.WebApi.OData
-
-
+```
 // GET: api/People
 [EnableQueryAttribute]
 public IQueryable<Person> GetPeople()
 {
 return db.People.AsQueryable();
 }
+```
 
 
+`?$filter=Name eq 'Martin'`
 
-?$filter=Name eq 'Martin'
+`?$filter=Price lt 16`
 
-?$filter=Price lt 16
-
-
-
+```
 Body
 {
     "Email": "martin.kearn@microsoft.com",
     "Password": "Password1!",
     "ConfirmPassword": "Password1!"
 }
+```
