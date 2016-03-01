@@ -53,16 +53,25 @@ If all of the above does seem like it is the work of wizards and other magical f
 These APIs are available under two distinct brand names (not sure why, please [tweet me](https://twitter.com/MartinKearn/status/704558494238777345) if you know), they are [Project Oxford](https://www.projectoxford.ai/) and [Cortana Analytics](https://www.microsoft.com/en-gb/server-cloud/cortana-analytics-suite/overview.aspx). Both of these services offer a neatly packaged set of APIs which have been built by Microsoft using the Azure Machine Learning service. Both offer most APIs for free under a certain number of transactions per month (typically 10,000) and paid-for models beyond that. In both cases, the APIs are exposed as simple, well documented REST APIs which can be called by pretty much any programming language on any platform. Project Oxford has a set of [SDKs](https://www.projectoxford.ai/SDK) for Windows, Android, IOS and other platforms.
 
 There are many, many APIs to choose from but some of the more popular ones are
-* **Project Oxford Face API**: 
-* **Project Oxford Computer Vision API**:
-* **Project Oxford Emotion API**:
-* **Project Oxford Speech API**:
-* **Cortana Analytics Text Analytics API**:
-* **Cortana Analytics Recommendations API**:
-* **Cortana Analytics Content Moderator API**:
-* **Cortana Analytics Translator API**:
+* **[Project Oxford Face API](https://www.projectoxford.ai/face)**: Face detection, verification, recognition, grouping, identification and matching in photos
+* **[Project Oxford Computer Vision API](https://www.projectoxford.ai/vision)**: Analyse an image and classify visual content, generate thumbnails and OCR
+* **[Project Oxford Emotion API](https://www.projectoxford.ai/emotion)**: Analyse a picture of a face and detection levels of emotion shown across anger, contempt, disgust, fear, happiness, neutral, sadness, and surprise
+* **[Project Oxford Speech API](https://www.projectoxford.ai/speech)**: Convert spoken audio to text, analyse intent in spoken audio, convert text to spoken audio
+* **[Cortana Analytics Text Analytics API](http://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2?share=1)**: Sentiment analysis, key phrase extraction, topic detection and language detection in text
+* **[Cortana Analytics Recommendations API](http://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2?share=1)**: Frequently bought together recommendations, item to item recommendations and customer to item recommendations
+* **[Cortana Analytics Content Moderator API](http://gallery.cortanaanalytics.com/MachineLearningAPI/Content-Moderator-1?share=1)**: Moderation and analysis of user generated images, text and video. Includes adult content detection
+* **[Cortana Analytics Translator API](http://gallery.cortanaanalytics.com/MachineLearningAPI/Translator-API-1?share=1)**: Lingual translation of text
+
+The idea of these APIs is that as a developer (on any platform), you can integrate some of the intelligence of Machine Learning into your every day applications with little or no understanding of the underlying Machine Learning process.
+
+I myself have written an app in the Office store called ['Sentimental'](https://store.office.com/sentimental-WA104379510.aspx?assetid=WA104379510&sourcecorrid=2dce0934-cd35-4ed2-824f-65352a512837&searchapppos=0) which uses the Cortana Analytics Text Analytics API to do sentiment analysis and key phrase extraction directly from within Office; its pretty cool. There is also a website that does the same thing written in ASP.NET Core: http://sentimentalweb.azurewebsites.net.
+
+I'll be blogging in the coming months on use of specific APIs in both JavaScript and C# so watch this space. 
 
 ## Just for fun - Machine Learning in action
+If you want to ge a quick flavour of how these APIs work, Microsoft have created a set of websites that use combination of these APIs
+
+
 
 ## Resources
 * Azure Machine Learning Service: https://azure.microsoft.com/en-us/services/machine-learning/
