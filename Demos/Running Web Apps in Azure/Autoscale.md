@@ -9,14 +9,14 @@ Open the 'MSWebDayScale' website
 
 Note that it is currently at 1 instance
 
-All Settings > Scale > Scale By > CPU
+All Settings > Scale Out (App Service Plan) > Scale By > CPU
 * Default up to 10 Instances
 * Target 15 > 30 %
 	
 Save
 
 ## Setup a web test
-Open a new instance of visual studio
+Open a new instance of Visual Studio
 
 New > Test > Web Performance and Load test project > OK
 
@@ -36,29 +36,29 @@ Select the ForLoop rule
 
 ## Setup a load test that uses the web test
 Right click project > Add > New > Load Test
+* On premise (runs from local machine)
+* Duration: 10 minutes
 * Do not use think times
-* User count: 250
+* User count: 300
 * Sequential order
 * Add WebTest1
 * Network Mix: Default
 * Counter Sets: Default
-* Duration: 5 minutes
-* Use default test location
 	
 Save
 
 Right-click > Run Load Test
 
-Show the test report
-* Page response time gradually increased
-* Show how processor time was managed as the test progressed
+In Test Results, right-click > View Run
+* Page response time gradually increased, then drops as another server is added
+* Show how the average page time changed as the test progressed
 
 ## Show that Azure site has auto scaled
 Login to azure at https://portal.azure.com
 
 Open the MSWebDayScale website
 
-Show that instance count is now 2
+Show that instance count is now 2 or more
 	
 		
 
