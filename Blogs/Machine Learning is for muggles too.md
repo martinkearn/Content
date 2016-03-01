@@ -24,7 +24,7 @@ Recommendations are just one example, but Machine Learning can help in any scena
 Regardless of the platform being used, Machine Learning follows a relatively simple process.
 
 
-![The high level Machine Learning process](/Images/MLProcess.PNG)
+![The high level Machine Learning process](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/MLProcess.PNG)
 
 The primary goal of the process is to identify a 'Model'. The Model is the main thing that applications can submit requests to in order to gain insight on new data. A person working as the role of a [Data Scientist](https://en.wikipedia.org/wiki/Data_science#Data_scientist) performs the Machine Learning process and will ultimately decide on the right model to use.
 
