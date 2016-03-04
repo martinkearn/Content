@@ -1,12 +1,10 @@
 
 # Using the Project Oxford Emotion API in C# and JavaScript
-Machine Learing is a hot topic at the moment. 
+Machine Learing is a hot topic at the moment and Microsoft has some great tools for making [Machine Learning accessible to developers](http://blogs.msdn.com/b/martinkearn/archive/2016/03/01/machine-learning-is-for-muggles-too.aspx), not just Data Scientists.
 
-Whats cool about this is that Microsoft has some great tools for making [Machine Learning for muggles too](http://blogs.msdn.com/b/martinkearn/archive/2016/03/01/machine-learning-is-for-muggles-too.aspx), not just Data Scientists.
+One of these tools is a set of REST APIs which are collectively called [Project Oxford](https://www.projectoxford.ai/) and [Cortana Analytics](https://www.microsoft.com/en-gb/server-cloud/cortana-analytics-suite/overview.aspx). These services takes some very clever Machine Learning algorithms which Microsoft have already applied to very broad sample data sets to provide models (callable via REST APIs) for common scenarios like [Face Recogniton](https://www.projectoxford.ai/face), [Computer Vision](https://www.projectoxford.ai/vision) and [Speech](https://www.projectoxford.ai/vision).
 
-One of these tools is a set of REST APIs which are collectively called [Project Oxford](https://www.projectoxford.ai/). Project Oxford takes some very clever machine learning algorithms which Microsoft have already applied to very broad sample data sets to provide models (callable via REST APIs) for common scenarios like [Face Recogniton](https://www.projectoxford.ai/face), [Computer Vision](https://www.projectoxford.ai/vision) and [Speech](https://www.projectoxford.ai/vision).
-
-One of the more interesting APIs is the Emotion API which can analyse the emotions shown on a photo. I was very excited about this API when I first heard about it (I know this because I uploaded a selfie to it and it told me I was excited) so I thought I'd set to work on a little sample which shows how to use it in my two favourite languages C# and JavaScript.
+One of the more interesting APIs is the [Emotion API](https://www.projectoxford.ai/emotion) which can analyse the emotions shown on a photo. I was very excited about this API when I first heard about it (I know this because I uploaded a selfie to it and it told me I was excited) so I thought I'd set to work on a little sample which shows how to use it in my two favourite languages C# and JavaScript.
 
 ## How does the Emotion API work?
 The emotion API works by taking an image which contains a face as an input and returns JSON result set which looks something like this:
@@ -39,7 +37,7 @@ The JSON above is the result set for the image below which is my 3-year-old daug
 
 As you can see from the data, the API recognised her face (it can actually support up to 64 faces in a single image) and has analysed her emotions in the picture.
 
-Madison's primary emotion was Contempt for which she scored 57%, then Disgust which was 22% and a light smattering of Anger at 10%. In case you are wondering, this is what a 3-year-old with very little respect for her father think when her father tells her she cannot have _another_ piece of chocolate.
+Madison's primary emotion was contempt for which she scored 57%, then disgust which was 22% and a light smattering of anger at 10%. In case you are wondering, this is what a 3-year-old with very little respect for her father thinks when her father tells her she cannot have _another_ piece of chocolate!
 
 I'll spend the rest of the article outlining how you work with the API. You can find code samples in both C# and JavaScript in this GitHub repo: https://github.com/martinkearn/Project-Oxford-Emotion-API-sample. If anyone wants to implement the API in another language or technology (Windows UWP, IOS, Android, Office add-ins, PHP, Node, Powershell, Whatever-floats-yer-boat.js), I'm very open to pull requests! :)
 
@@ -178,6 +176,7 @@ The Project Oxford APIs are very simple to get started with and use in your appl
 I plan to do similar articles on other Project Oxford and Cortana Analytic APIs. Please use the comments if there ae particular APIs you'd like to see example of.
 
 ### Resources
+* [Emotion API](https://www.projectoxford.ai/emotion)
 * [Project Oxford](https://www.projectoxford.ai/)
 * [Cortana Analytics](https://www.microsoft.com/en-gb/server-cloud/cortana-analytics-suite/overview.aspx)
 * [Machine Learning is for muggles too - my introductory article on Machine Learning](http://blogs.msdn.com/b/martinkearn/archive/2016/03/01/machine-learning-is-for-muggles-too.aspx)
