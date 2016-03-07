@@ -2,9 +2,9 @@
 # Using the Project Oxford Emotion API in C# and JavaScript
 Machine Learing is a hot topic at the moment and Microsoft has some great tools for making [Machine Learning accessible to developers](http://blogs.msdn.com/b/martinkearn/archive/2016/03/01/machine-learning-is-for-muggles-too.aspx), not just Data Scientists.
 
-One of these tools is a set of REST APIs which are collectively called [Project Oxford](https://www.projectoxford.ai/) and [Cortana Analytics](https://www.microsoft.com/en-gb/server-cloud/cortana-analytics-suite/overview.aspx). These services takes some very clever Machine Learning algorithms which Microsoft have already applied to very broad sample data sets to provide models (callable via REST APIs) for common scenarios like [Face Recogniton](https://www.projectoxford.ai/face), [Computer Vision](https://www.projectoxford.ai/vision) and [Speech](https://www.projectoxford.ai/vision).
+One of these tools is a set of REST APIs which are collectively called [Project Oxford](https://www.projectoxford.ai/) and/or [Cortana Analytics](https://www.microsoft.com/en-gb/server-cloud/cortana-analytics-suite/overview.aspx). These services takes some very clever Machine Learning algorithms which Microsoft have already applied to very broad sample data sets to provide models which are callable via REST APIs. These map to common machine Learning scenarios like [Face Recogniton](https://www.projectoxford.ai/face), [Computer Vision](https://www.projectoxford.ai/vision) and [Speech](https://www.projectoxford.ai/vision).
 
-One of the more interesting APIs is the [Emotion API](https://www.projectoxford.ai/emotion) which can analyse the emotions shown on a photo. I was very excited about this API when I first heard about it (I know this because I uploaded a selfie to it and it told me I was excited) so I thought I'd set to work on a little sample which shows how to use it in my two favourite languages C# and JavaScript.
+One of the more interesting APIs is the [Emotion API](https://www.projectoxford.ai/emotion) which can analyse the emotions shown on a photo. I was very excited about this API when I first heard about it. I know this because I uploaded a selfie to it and it told me I was excited. So I thought I'd set to work on a little sample which shows how to use the Emotion API in my two favourite languages C# and JavaScript.
 
 ## How does the Emotion API work?
 The emotion API works by taking an image which contains a face as an input and returns JSON result set which looks something like this:
@@ -37,9 +37,9 @@ The JSON above is the result set for the image below which is my 3-year-old daug
 
 As you can see from the data, the API recognised her face (it can actually support up to 64 faces in a single image) and has analysed her emotions in the picture.
 
-Madison's primary emotion was contempt for which she scored 57%, then disgust which was 22% and a light smattering of anger at 10%. In case you are wondering, this is what a 3-year-old with very little respect for her father thinks when her father tells her she cannot have _another_ piece of chocolate!
+Madison's primary emotion was _contempt_ for which she scored 57%, then _disgust_ which was 22% and a light smattering of _anger_ at 10%. In case you are wondering, this is what a 3-year-old with very little respect for her father thinks when she it told that she cannot have _another_ piece of chocolate!
 
-I'll spend the rest of the article outlining how you work with the API. You can find code samples in both C# and JavaScript in this GitHub repo: https://github.com/martinkearn/Project-Oxford-Emotion-API-sample. If anyone wants to implement the API in another language or technology (Windows UWP, IOS, Android, Office add-ins, PHP, Node, Powershell, Whatever-floats-yer-boat.js), I'm very open to pull requests! :)
+I'll spend the rest of the article outlining how you work with the API. You can find code samples in both C# and JavaScript in my [corresponding GitHub repo](https://github.com/martinkearn/Project-Oxford-Emotion-API-sample). If anyone wants to implement the API in another language or technology (Windows UWP, IOS, Android, Office add-ins, PHP, Node, Powershell, Whatever-floats-yer-boat.js), I'm very open to pull requests! :)
 
 ## Step 1: Get your key
 As with almost any API, your first task is to obtain an API key. This is really easy to do for all Project Oxford APIs.
@@ -48,12 +48,12 @@ You simply go to the API's home page (for the Emotion API it is https://www.proj
 
 Once you are signed in it will ask you to 'request new keys' and subscribe to the API. Most of the Project Oxford APIs have a free pricing tier which permits a number of requests per month for free. Typically it is 10,000 but can vary.
 
-Once subscribed, you will be able to view your key. In most scenarios you only need your 'primary key' which will look something like this `1dd1f4e23a5743139399788aa30a7153`
+Once subscribed, you will be able to view your key. In most scenarios you only need your 'primary key' which will look something like this `1dd1y4e23c5743139329688ba30a7153`
 
 ## Step 2: Make a request
-You need to pass your API key as a `Ocp-Apim-Subscription-Key` header with your request.
+You need to pass your API key as an `Ocp-Apim-Subscription-Key` header with your request.
 
-You'll also need to pass the image in the body. As you'll see in the [API Reference](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa), the API accepts the image in a `application/json` format body (for a POST request) which is a URL to the image. The JSON in this case looks like this
+You'll also need to pass the image in the body. As you'll see in the [API Reference](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa), the image is accepted in a `application/json` format body (for a POST request) which is a URL to the image. The JSON in this case looks like this
 ```
 { "url": "http://example.com/picture.jpg" }
 ```
@@ -62,12 +62,10 @@ The API also accepts a binary image file in `application/octet-stream` format. T
 ##Step 3. Do something awesome with the JSON
 Once you have a JSON response, you can now use the data in your application as you would any other JSON result set.
 
-Typically you'll need to parse it to an object first
-
 ##Code samples
-As mentioned at the top, I have implemented the Emotion API with both the URL and the File request options in both C# (via ASP.Net Core 1.0) and JavaScript with JQuery. You can see these implementations in my [Project-Oxford-Emotion-API-sample](https://github.com/martinkearn/Project-Oxford-Emotion-API-sample).
+As mentioned at the top, I have implemented the Emotion API with both the URL and the File request options in both C# (via ASP.Net Core 1.0) and JavaScript with JQuery. You can see these implementations in my [Project-Oxford-Emotion-API-sample Github Repo](https://github.com/martinkearn/Project-Oxford-Emotion-API-sample).
 
-However for completeness here are the main sections of code that you';ll need
+For completeness, here are the main sections of code that you';ll need
 
 ### JavaScript with JQuery File/Octet-Stream Sample
 This is a full HTML file. You should be able to copy and paste this into a HTML file and it will work
@@ -173,7 +171,7 @@ public class HomeController : Controller
 ## In Summary
 The Project Oxford APIs are very simple to get started with and use in your applications. Hopefully the sample in this article and the accompanying [GitHub Repository](https://github.com/martinkearn/Project-Oxford-Emotion-API-sample) will help you get up and running.
 
-I plan to do similar articles on other Project Oxford and Cortana Analytic APIs. Please use the comments if there ae particular APIs you'd like to see example of.
+I plan to do similar articles on other Project Oxford and Cortana Analytic APIs. Please use the comments if there are particular APIs you'd like to see examples of.
 
 ### Resources
 * [Emotion API](https://www.projectoxford.ai/emotion)
