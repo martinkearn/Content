@@ -43,7 +43,7 @@ Look at images
 Package Manifest
 * Start page
 * Content URIs
-* WinRT Allow All
+* WinRT - set to 'none' by default
 
 Run and demonstrate the app
 * Splash screen
