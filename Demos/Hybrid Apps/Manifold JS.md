@@ -35,7 +35,7 @@ Explore the zip file
 * Chrome
 * Firefox
 
-(a backup zip is stored in C:\Users\marti\Downloads\ManifoldJS Sentimental)
+(a backup zip is stored here https://github.com/martinkearn/Content/blob/master/Demos/Hybrid%20Apps/ManfoldJS_SentimentalWeb.zip)
 
 ## Explore Windows 10 app
 Look at images
@@ -43,7 +43,7 @@ Look at images
 Package Manifest
 * Start page
 * Content URIs
-* WinRT Allow All
+* WinRT - set to 'none' by default
 
 Run and demonstrate the app
 * Splash screen
