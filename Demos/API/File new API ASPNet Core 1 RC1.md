@@ -1,6 +1,6 @@
 
 # File > New API (ASP.NET Core 1 RC1)
-Create a new Web Application project in ASP.NET Core 1 RC1 and shows some of the key capabilities and issues at this stage. Compare to the Web API porject template to show how that is even more lacking
+Create a new Web Application project in ASP.NET Core 1 RC1 and shows some of the key capabilities and issues at this stage. Compare to the Web API project template to show how that is even more lacking
 
 ## Create a 'Web Application' project
 File > New project > Web Application > ASP.NET Web Application
