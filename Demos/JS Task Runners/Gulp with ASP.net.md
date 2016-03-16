@@ -118,7 +118,8 @@ Add 'gulp-autoprefixer' to packages.json and wait for it to restore
 ```
 "devDependencies": {
 "gulp": "^3.9.0",
-"gulp-autoprefixer": "3.1.0"
+"gulp-cssmin": "^0.1.7",
+"gulp-autoprefixer": "^3.1.0"
 }
 ```
 	
