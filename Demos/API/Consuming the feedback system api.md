@@ -57,12 +57,13 @@ Talk through each break-point/request for initial load (all GET)
 	
 Submit feedback and walk through the post
 * `Evaluations.Post` - to post the users feedback
+* _Optional_ - Capture the first POSTed evaluation, look up the user id and award a prize. Post man has a saved query called 'Contacts GET by ID'
 
 Take the time to explore the model binding and step through the code
 
-Clear breakpoints
-
 ## Debug the Windows 'Current event' app
+Clear breakpoints (Debug > Delete All breakpoints)
+
 Add break-points on the following paths in the API
 * `Events.GetEvents` - gets the list of events for the list control
 * `CurrentEvent.GetCurrentEvent` - gets the current event
@@ -78,9 +79,9 @@ Change the current event and talk through these requests
 * `CurrentEvent.PostCurrentEvent` - updates the current event
 * `CurrentEvent.GetCurrentEvent` - gets the current event again to update the ui
 
-Clear breakpoints
-
 ## Debug the Office 'Evaluations' app
+Clear breakpoints (Debug > Delete All breakpoints)
+
 Add break-points on the following paths in the API
 * `Events.GetEvents` - gets the list of events for the list control
 * `Evaluations.Get(int EventId)` - gets the evaluations of the event
