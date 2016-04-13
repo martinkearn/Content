@@ -37,7 +37,7 @@ Use the cd command to navigate to the project directory
 
 Select the right version of .net
 ```
-dnvm use 1.0.0-rc1-final
+dnvm use 1.0.0-rc1-update1
 ```
 
 Scaffold a migration to create the initial set of tables for your model.
