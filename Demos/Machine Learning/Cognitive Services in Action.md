@@ -1,6 +1,6 @@
 
-# Project Oxford in Action
-This demo shows some of the capabilities of Project Oxford by using the live demo site and some of the spin-off sites created to show-case the APIs
+# Cognitive Services in Action
+This demo shows some of the capabilities of Cognitive Services by using the live demo site and some of the spin-off sites created to show-case the APIs
 
 ### Pre-reqs
 * Have easy access to the supporting files folder
@@ -10,7 +10,7 @@ This demo shows some of the capabilities of Project Oxford by using the live dem
 ## Emotion API
 Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
 
-Go to <https://www.projectoxford.ai>
+Go to <https://www.microsoft.com/cognitive-services>
 
 Use the Emotion API 'Live Demo' to analyse the emotion
 
