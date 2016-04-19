@@ -10,14 +10,15 @@ This demo shows some of the capabilities of Cognitive Services by using the live
 ## Emotion API
 Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
 
-Go to <https://www.microsoft.com/cognitive-services>
+Go to https://www.microsoft.com/cognitive-services/en-us/emotion-api
+* or just search for "Microsoft Cognitive" and go from there
 
-Use the Emotion API 'Live Demo' to analyse the emotion
+Scroll down the Emotion API page and use the live demo section to analyse photo
 
 The primary emotions here are:
-* 46% contempt
-* 29% disgust
-* 17 anger
+* 61% contempt
+* 20% disgust
+* 9% anger
 
 _This is what happens when you tell a three-year-old who has no respect for her father that she cannot have another piece of chocolate_
 
@@ -40,8 +41,9 @@ _This demo only really works for Martin Kearn because he apparently looks like J
 Go to <https://www.twinsornot.net>
 
 Upload
-*  [Twins_Martin.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Twins_Martin.jpg)
-*  [Twins_Jake.jpg ](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Twins_Jake.jpg)
+* [Twins_Martin.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Twins_Martin.jpg)
+* [Jake.jpg ](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning/Supporting%20Files/Jake.jpg)
+* Should get a result of around 90% - #besties
 
 ## HowOld.net
 _It is not all upside for Martin, apparently he looks 6 years older than he is, despite looking like Jake Gyllenhall_
@@ -49,10 +51,12 @@ _It is not all upside for Martin, apparently he looks 6 years older than he is, 
 Go to <http://how-old.net>
 
 Upload [HowOld_Martin.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/HowOld_Martin.jpg)
+* Result should be 42 (actual age 36)
 
 _It is not that bad though, at least Jake looks old too_
 
-Upload [HowOld_Jake.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/HowOld_Jake.jpg)
+Upload [Jake.jpg](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning/Supporting%20Files/Jake.jpg)
+* Result should be 43 (actual age 35)
 
 ## Sentimental (optional)
 *Do not show for web day, this is covered in the hybrid talk*
