@@ -20,7 +20,7 @@ NPM Configuration file (search "NPM")
 * Leave the default name, "package.json"
 
 ## Add Gulp NPM package
-Add `"gulp": "^3.9.0"` to package.json in the `devdependencies` section
+Add `"gulp": "^3.9.1"` to package.json in the `devdependencies` section
 
 Save the file and look for the `Dependencies` "restoring" in Solution Explorer
 
@@ -46,10 +46,9 @@ gulp.task('default', function () {
 Solution Explorer > Right-click gulpfile.js > Task Runner Explorer
 
 Right-click 'default' > Bindings > After build
+* Note the comment at the top of gulpfile.js
 
 Build the solution and show "hello world" in console (shown in task runner explorer)
-
-Note the comment at the top of gulpfile.js
 
 ## Add a CSS file to the project
 New folder called 'CSS
@@ -85,7 +84,7 @@ p
 Add 'gulp-cssmin' to packages.json and wait for it to restore
 ```
 "devDependencies": {
-"gulp": "^3.9.0",
+"gulp": "^3.9.1",
 "gulp-cssmin": "^0.1.7"
 }
 ```
@@ -112,12 +111,14 @@ gulp.task('default', [ 'cssmin_task' ]);
 Show the minified css file in wwwroot directory
 
 ## Add Autoprefixer
-*Autoprefixer is a plugin that automates the use of CSS vendor prefixes. In this section, we'll look at hyphens which requires prefixes for some IE, Edge and Safari but is not supported on Chrome. See http://caniuse.com/#search=hyphens*
+*Autoprefixer is a plugin that automates the use of CSS vendor prefixes. In this section, we'll look at hyphens which requires prefixes for some IE, Edge and Safari but is not supported on Chrome.*
+
+Explain about the `hyphens` css property using http://caniuse.com/#feat=css-hyphens
 
 Add 'gulp-autoprefixer' to packages.json and wait for it to restore
 ```
 "devDependencies": {
-"gulp": "^3.9.0",
+"gulp": "^3.9.1",
 "gulp-cssmin": "^0.1.7",
 "gulp-autoprefixer": "^3.1.0"
 }
@@ -140,14 +141,14 @@ Show that the minified CSS in wwwroot now includes the various required vendor p
 ## Add a watch so it minifies when the css changes
 Add a watch task to gulpfile.js
 ```
-gulp.task('csswatch', function() {
-    gulp.watch('css/*.css', ['cssmin']);
+gulp.task('csswatch_task', function () {
+    gulp.watch('css/*.css', ['cssmin_task']);
 });
 ```
 	
 Update the default task to include the watch
 ```
-gulp.task('default', ['cssmin', 'csswatch']);
+gulp.task('default', ['cssmin_task', 'csswatch_task']);
 ```
 	
 Build once so that the watch is running
@@ -181,25 +182,30 @@ h2 {
     font-size:3rem;
     font-weight: bold;   
 }
+
+p
+{
+    hyphens: auto;
+}
 ```
 
 ***
 
 ```
-var gulp = require('gulp'),
+var gulp = require('gulp');
 var cssmin = require("gulp-cssmin");
 var autoprefixer = require('gulp-autoprefixer');
 
-gulp.task("cssmin", function () {
+gulp.task("cssmin_task", function () {
     gulp.src("css/*.css")
     .pipe(autoprefixer())
     .pipe(cssmin())
     .pipe(gulp.dest("wwwroot/css"));
 });
 
-gulp.task('csswatch', function() {
-    gulp.watch('css/*.css', ['cssmin']);
+gulp.task('csswatch_task', function () {
+    gulp.watch('css/*.css', ['cssmin_task']);
 });
 
-gulp.task('default', ['cssmin', 'csswatch']);
+gulp.task('default', ['cssmin_task', 'csswatch_task']);
 ```
