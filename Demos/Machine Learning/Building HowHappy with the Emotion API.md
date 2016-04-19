@@ -1,13 +1,15 @@
 # Building HowHappy with the Emotion API
-This demo will show how HowHappy.co.uk was created using ASP.Net core 1.0 and the Microsoft Cognitive Services Emotion API
+This demo will show how HowHappy.co.uk was created using ASP.Net core 1.0, JavaScript and the Microsoft Cognitive Services Emotion API
 
 ### Pre Reqs
 * Visual Studio 2015
 * ASP.NET Core 1.0 RC1 or later
 * Copy of https://github.com/martinkearn/How-Happy GitHub Repo
+* Visit HowHappy.co.uk to wake it up
 
 ## Explore the site
 Open HowHappy.co.uk
+* People can go to the website themselves, it is live
 
 Upload `audience_2500.jpg` or `a-justin-bieber-concert-summed-up-in-one-picture-21677-1283366665-16.jpg`
 
@@ -24,19 +26,21 @@ ASP.NET's new form tag helper
 
 Input for file selection
 * Standard input
-* JavaScript to show selected file in label
+
+JavaScript file (site.js)
+* asp-append-version
 
 ## Home Controller > Result
-IFormFile parameter
-
-Use of Session to store file and scores
+Use of Session to store emotion data
 * This enables change emotion without re-calling the api
 * New way to work with Session in ASP.Net core: `byte[]` in and out
 * `Microsoft.AspNet.Session"` nuget package required
 
-Image dimensions
-* No .net core way to do this right now
-* Need to use `System.Drawing.Image` from asp.net 4.x
+GetEmotionData
+* Coginitive service api call
+* Uses HttpClient (a nuget package)
+* Ocp-Apim-Subscription-Key
+* Stream file content
 
 GetFaces
 * Deserialise JSON to .net class
@@ -49,14 +53,11 @@ Set stuff based on emotion
 * Icon
 * Order of list
 
-Viewmodel
-
-## Result.cshtml
+## Index.cshtml for result
 Tag helpers
-* Form
 * Select - bound to Model.Emotions which is a select list
 
-Razor to set CSS, positioning etc based on data
+JavaScript for UI
 
 Bootstrap tooltip and pop-over classes
 
