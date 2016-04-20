@@ -21,7 +21,7 @@ Look at [manifoldjs.com](http://manifoldjs.com/)
 
 Go through steps of generating ManifoldJS via website, but do not actually creat packages
 
-Show manifold NPM install in command prompt 
+Show manifold NPM install in command prompt (but do not execute)
 * `npm install -g manifoldjs`
 
 Create packages via command prompt 
