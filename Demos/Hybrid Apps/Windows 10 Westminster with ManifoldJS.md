@@ -17,11 +17,11 @@ Enable WinRT access in package manifest
 
 Re-run the app
 * Do an analysis
-* Popup
+* Pop-up
 * Notification
 * Search and re-pin the tile > it is live
 
-## Create a new Windows JS app
+## Create a new Windows JS app (optional)
 Create a new Windows JS app
 
 Delete css, js and winjs folders and default.html
@@ -34,13 +34,13 @@ Package manifest
 * Add Content URI http://*.codepen.io/ Include, All for WinRT access
 * Show toast notification
 
-## Enable camera capture
+## Enable camera capture (optional)
 Copy the `function cameraCapture()` code below `systemAlertCommandInvokedHandler()` in the JS section
 
 Use the camera capture button
 * Save is not implemented
 
-## Defaut and Live Tiles
+## Default and Live Tiles (optional)
 Open Package.appxmanifest > Visual assets
 
 Copy images from C:\Users\marti\OneDrive\Work\NDC\HostedWebApp\images or https://github.com/martinkearn/WinDevHOLs/tree/master/04.%20Edge%20and%20Web%20Apps/04.%20Lab.%20Solution/HostedWebApp/images

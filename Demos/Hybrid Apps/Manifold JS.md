@@ -10,9 +10,9 @@ This script shows the basic operation of ManifoldJS through both the website and
 ## Introduce Sentimental web
 Look at [sentimentalweb.azurewebsites.net](http://sentimentalweb.azurewebsites.net/)
 
-Do a analysis on the title text ("Sentimental tells you about the sentiment and key phrases in text. It is really quite awesome.")
+Do analysis on the title text ("Sentimental tells you about the sentiment and key phrases in text. It is really quite awesome.")
 
-Show that it is repsonsive
+Show that it is responsive
 
 Look at manifest file: http://sentimentalweb.azurewebsites.net/manifest.webmanifest
 
@@ -27,7 +27,7 @@ Show manifold NPM install in command prompt
 Create packages via command prompt 
 * `manifoldjs http://sentimentalweb.azurewebsites.net -d C:\DemoDump\Manifold`
 
-While the NPM command is runnig show the android app by projecting via the Windows camera app
+While the NPM command is running show the android app by projecting via the Windows camera app
 
 Explore the zip file
 * Android project
