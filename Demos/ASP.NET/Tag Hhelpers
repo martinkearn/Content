@@ -1,0 +1,18 @@
+# ASP.net Tag Helpers
+A demo that shows the built-in tag helpers and how they compare to teh old 4.x Htmlhelpers. We also create a new tag helper that converts Epoch date/timne to human readabledate time.
+
+### Pre-reqs
+* Have the default 4.x template with a person scafolded open: https://github.com/martinkearn/DefaultWebFrameworks/tree/master/ASPNet4.5.2/ASPNet452
+* Postman to show the SO API and Epoch time
+
+## Built-in tag helpers
+
+## Compare to 4.x html helpers
+
+## Create new EpochTagHelper class
+
+## View Imports
+
+## Markup
+
+## Extend to support date format
