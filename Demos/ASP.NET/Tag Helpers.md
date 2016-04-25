@@ -119,7 +119,7 @@ Build the solution
 
 Go back to Index.cshtml
 
-Add `299379600` within the `<epoch>` tag to look like this
+Add `299442480` within the `<epoch>` tag to look like this
 ```
 <epoch>299379600</epoch>
 ```
