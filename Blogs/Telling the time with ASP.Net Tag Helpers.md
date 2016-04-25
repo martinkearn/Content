@@ -19,7 +19,7 @@ This code will generate a simple HTML label who's inner text is bound to the `mo
 
 You'll notice that there is a big difference between the razor mark-up and the HTML that gets rendered for what seems to be a fairly simple, common-place element. There are a few key problems here:
 
-*Verboseness*: The HtmlHelper is actually longer than the resulting Html. This means there is more code to write and more places to go wrong
-*Complexity*: HtmlHelpers have their own unique code syntax, which means you have to learn them in order to understand how to use them fully
-*Tooling*: All of the tooling investments that have been made in Visual Studio around Html editing (things like css class selection, element completion, intellisense) are ignored for htmlhelpers
-*Html*: HtmlHelpers are not standard Html, which means that if the code is contributed to by a non asp.net developer (for exaMple, Designers or Front-end Developers), they will be confused. The example above is obviously a label, but you might see things like `@Html.EditorFor` where the type of Html control rendered depends on the type for the property it is bound to
+* *Verboseness*: The HtmlHelper is actually longer than the resulting Html. This means there is more code to write and more places to go wrong
+* *Complexity*: HtmlHelpers have their own unique code syntax, which means you have to learn them in order to understand how to use them fully
+* *Tooling*: All of the tooling investments that have been made in Visual Studio around Html editing (things like css class selection, element completion, intellisense) are ignored for htmlhelpers
+* *Html*: HtmlHelpers are not standard Html, which means that if the code is contributed to by a non asp.net developer (for exaMple, Designers or Front-end Developers), they will be confused. The example above is obviously a label, but you might see things like `@Html.EditorFor` where the type of Html control rendered depends on the type for the property it is bound to
