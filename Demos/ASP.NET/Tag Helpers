@@ -7,7 +7,7 @@ A demo that shows the built-in tag helpers and how they compare to teh old 4.x H
 * Postman to show the SO API and Epoch time
 
 ## Built-in tag helpers
-Open the ASP.net core 1 project with the Perosn scafolded (or create it)
+Open the ASP.net core 1 project with the Person scafolded (or create it)
 
 Open Views > People > Create.cshtml page
 
@@ -35,8 +35,20 @@ Open Views > Shared > _Layout.cshtml
 * asp-append-version
 
 ## Compare to 4.x html helpers
+Show how we used to do this in 4.x .... by using Htmlhelpers and point out how ugly this is
 
-## Create new EpochTagHelper class
+Open the ASP.net 4.x project with Person scafolded (or create it)
+
+`@using (Html.BeginForm())`
+
+`@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })`
+
+`@Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })`
+
+`@Html.ActionLink("Back to List", "Index")`
+
+## Create new EpochTagHelper
+Create a new ASP.et Core 1 'Web Application' project
 
 ## View Imports
 
