@@ -3,9 +3,36 @@ A demo that shows the built-in tag helpers and how they compare to teh old 4.x H
 
 ### Pre-reqs
 * Have the default 4.x template with a person scafolded open: https://github.com/martinkearn/DefaultWebFrameworks/tree/master/ASPNet4.5.2/ASPNet452
+* Have the default Core 1 template with a person scafolded open: https://github.com/martinkearn/DefaultWebFrameworks/tree/master/ASPNetCoreRC1/ASPNetCoreRC1
 * Postman to show the SO API and Epoch time
 
 ## Built-in tag helpers
+Open the ASP.net core 1 project with the Perosn scafolded (or create it)
+
+Open Views > People > Create.cshtml page
+
+`<form asp-action`
+* Example of decortaing existing HTML flags with asp.net functions
+
+`<div asp-validation-summary`
+* Choose how the form shoudl be validated
+
+`<label asp-for`
+
+`<input `asp-for`
+
+`<a asp-action`
+
+Open Views > Shared > _Layout.cshtml
+
+`<environment>`
+* Example of new tag
+* Uses the `environment` environmental variable to differnetaiet where to get CSS. 
+* Can be set differently on hosting provider (i.e. azure) 
+
+`<link>`
+* asp-fallback-href
+* asp-append-version
 
 ## Compare to 4.x html helpers
 
