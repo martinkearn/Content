@@ -1,6 +1,15 @@
 # ASP.net Tag Helpers
 A demo that shows the built-in tag helpers and how they compare to teh old 4.x Htmlhelpers. We also create a new tag helper that converts Epoch date/timne to human readabledate time.
 
+Tag Helpers are an update to what we used to use HtmlHelpers for; a way of rendering a server-side output within your razor mark-up. 
+
+Htmlhelpers were messy and limited, but Tag Helpers are much more aligned to standard HTML which means that tooling and integration becomes a lot easier.
+
+Three types of Tag Helper:
+* Target existing elements and make changes. For example, adding something to an <input>
+* Define new elements such as <foo> that do their own thing
+* Define elements with no output like the built-in <environment>
+
 ### Pre-reqs
 * Have the default 4.x template with a person scafolded open: https://github.com/martinkearn/DefaultWebFrameworks/tree/master/ASPNet4.5.2/ASPNet452
 * Have the default Core 1 template with a person scafolded open: https://github.com/martinkearn/DefaultWebFrameworks/tree/master/ASPNetCoreRC1/ASPNetCoreRC1
@@ -11,26 +20,26 @@ Open the ASP.net core 1 project with the Person scafolded (or create it)
 
 Open Views > People > Create.cshtml page
 
-`<form asp-action`
-* Example of decortaing existing HTML flags with asp.net functions
+Show `<form asp-action`
+* Example of decorating existing HTML flags with asp.net functions
 
-`<div asp-validation-summary`
+Show `<div asp-validation-summary`
 * Choose how the form shoudl be validated
 
-`<label asp-for`
+Show `<label asp-for`
 
-`<input `asp-for`
+Show `<input `asp-for`
 
-`<a asp-action`
+Show `<a asp-action`
 
 Open Views > Shared > _Layout.cshtml
 
-`<environment>`
+Show `<environment>`
 * Example of new tag
 * Uses the `environment` environmental variable to differnetaiet where to get CSS. 
 * Can be set differently on hosting provider (i.e. azure) 
 
-`<link>`
+Show `<link>`
 * asp-fallback-href
 * asp-append-version
 
@@ -39,13 +48,13 @@ Show how we used to do this in 4.x .... by using Htmlhelpers and point out how u
 
 Open the ASP.net 4.x project with Person scafolded (or create it)
 
-`@using (Html.BeginForm())`
+Show `@using (Html.BeginForm())`
 
-`@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })`
+Show `@Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })`
 
-`@Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })`
+Show `@Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })`
 
-`@Html.ActionLink("Back to List", "Index")`
+Show `@Html.ActionLink("Back to List", "Index")`
 
 ## Create new EpochTagHelper
 _Now we are going to create a tag helper to convert epoch time to human readable time_
@@ -143,4 +152,3 @@ Update the `<epoch>` to include a date formatter
 ```
 
 Re-run and show nicely formatted date
- 
