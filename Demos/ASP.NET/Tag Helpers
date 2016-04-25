@@ -48,10 +48,72 @@ Open the ASP.net 4.x project with Person scafolded (or create it)
 `@Html.ActionLink("Back to List", "Index")`
 
 ## Create new EpochTagHelper
-Create a new ASP.et Core 1 'Web Application' project
+_Now we are going to create a tag helper to convert epoch time to human readable time_
+
+Explain Epoch time using https://en.wikipedia.org/wiki/Unix_time and the stack overflow API
+* In Postman, do a GET to https://api.stackexchange.com/2.2/questions?order=desc&sort=activity&tagged=asp.net-mvc6&site=stackoverflow 
+
+Create a new ASP.net Core 1 project
+* Use the 'Empty' template
+* Don't need authnetication but does not matter either way
+
+Create new folder called `TagHelpers`
+
+Add new class called `EpochTagHelper`
+
+Set the class to inherit from `TagHelper`
+* Resolve using statement
+
+Add the 'ProcessAsync` function as follows:
+```
+public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
+{
+    output.Content.SetContent("fictional race of small, mammaloid bipeds");
+}
+```
 
 ## View Imports
+Open Views > _ViewImports.cshtml
 
-## Markup
+Add `@addTagHelper "*, epoch"`
+
+Point out that `@addTagHelper "*, Microsoft.AspNet.Mvc.TagHelpers"` is already there and would not be in an empty project
+
+Open `project.json` to show that `Microsoft.AspNet.Mvc.TagHelpers` is already added as a nuget package
+* You'd have to manually add this to an empty project
+
+## Basic Markup
+Open Views > Home > Index.cshtml
+
+Create a `<h1>` at the top
+
+In the `<h1>` add `<epoch></epoch>`
+* Note the green code highlighting
+
+Run the project and show the tag helper
+
+## Do the Epoch date conversion
+Open TagHelpers > EpochTagHelper.cs
+
+Add the folloiwng code with in the `ProcessAsync` function
+```
+var childContentRaw = (await output.GetChildContentAsync()).GetContent();
+
+var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+var display = epoch.AddSeconds(Convert.ToDouble(childContentRaw));
+
+output.Content.SetContent(display.ToString());
+```
+
+Go back to Index.cshtml
+
+Add `299379600` within the `<epoch>` tag to look like this
+```
+<epoch>299379600</epoch>
+```
+
+Re-run and show that the page renders a human readable date
+*The exact Epoch that i was born!
 
 ## Extend to support date format
