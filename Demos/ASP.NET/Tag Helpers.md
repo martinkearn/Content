@@ -6,7 +6,7 @@ Tag Helpers are an update to what we used to use HtmlHelpers for; a way of rende
 Htmlhelpers were messy and limited, but Tag Helpers are much more aligned to standard HTML which means that tooling and integration becomes a lot easier.
 
 Three types of Tag Helper:
-* Target existing elements and make changes. For example, adding something to an <input>
+* Target existing elements and make changes. For example, adding something to an <input
 * Define new elements such as <foo> that do their own thing
 * Define elements with no output like the built-in <environment>
 
