@@ -121,7 +121,7 @@ Go back to Index.cshtml
 
 Add `299442480` within the `<epoch>` tag to look like this
 ```
-<epoch>299379600</epoch>
+<epoch>299442480</epoch>
 ```
 
 Re-run and show that the page renders a human readable date
@@ -148,7 +148,7 @@ Go back to Index.cshtml
 
 Update the `<epoch>` to include a date formatter
 ```
-<epoch Formatter="dd MMM yyy">299379600</epoch>
+<epoch Formatter="dd MMM yyy">299442480</epoch>
 ```
 
 Re-run and show nicely formatted date
