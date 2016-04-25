@@ -106,6 +106,8 @@ var display = epoch.AddSeconds(Convert.ToDouble(childContentRaw));
 output.Content.SetContent(display.ToString());
 ```
 
+Build the solution
+
 Go back to Index.cshtml
 
 Add `299379600` within the `<epoch>` tag to look like this
@@ -117,3 +119,28 @@ Re-run and show that the page renders a human readable date
 *The exact Epoch that i was born!
 
 ## Extend to support date format
+_What if we wanted to have better control over the formatting of the date ... for example show it as a short date string?_
+
+Open TagHelpers > EpochTagHelper.cs
+
+Add a public property as follows
+```
+public string Formatter { get; set; }
+```
+
+Add `Formatter` to the `ToString()` method on the final line so it looks like this
+```
+output.Content.SetContent(displayDateTime.ToString(Formatter));
+```
+
+Build the solution
+
+Go back to Index.cshtml
+
+Update the `<epoch>` to include a date formatter
+```
+<epoch Formatter="dd MMM yyy">299379600</epoch>
+```
+
+Re-run and show nicely formatted date
+ 
