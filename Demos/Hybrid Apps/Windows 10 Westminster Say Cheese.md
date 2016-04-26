@@ -6,45 +6,57 @@ This script shows the advanced capabilities available via Windows 10 Westminster
 * Have a browser open to http://codepen.io/MartinKearn/pen/dMqdOo
 * Have the code snippets open
 
+## Explore Codepen in browser
+Explore http://codepen.io/MartinKearn/pen/dMqdOo in browser
+
 ## Create a new Windows JS app
 Create a new Windows JS app
-* Call it 'say cheese'
+* Templates > Other Languages > JavaScript > Windows > Universal > Blank App (Windows Universal)
+* Call it "Say Cheese"
+* Accept default target versions
 
-Delete css, js and winjs folders and default.html
-
-Explore http://codepen.io/MartinKearn/pen/dMqdOo in browser
+Delete css, js folders and index.html
 
 Package manifest
 * Start page > http://codepen.io/MartinKearn/pen/dMqdOo
 * Add Content URI http://codepen.io/MartinKearn/pen/dMqdOo Include, All for WinRT access
 * Add Content URI http://*.codepen.io/ Include, All for WinRT access
-* Show toast notification
+
+Open Package.appxmanifest > Visual assets
+
+Copy images from C:\Users\mkearn\OneDrive\Work\WooWeb Worcester\AppImages to the images folder
+* Delete the default StoreLogo.png
+* Set short name to "Say Cheese"
+* Set Square 71x71 to `images\Square71x71Logo.png`
+* Slash Screen background colour to `yellow`
 
 ## Enable camera capture
+Run the app
+
 Copy the `function cameraCapture()` code snippet to the JS section
 
-Use the camera capture button
+Use the 'Say cheese' button and save the image
 
 Go to C:\Users\mkearn\AppData\Local\Packages and find the most recent package
 
-Now go to the LocalCache folder and show the photo has been saved
+Now go to the `LocalState` folder and show the photo has been saved
 
-## Default and Live Tiles
-Open Package.appxmanifest > Visual assets
 
-Copy images from C:\Users\mkearn\OneDrive\Work\WooWeb Worcester\AppImages
-
-Set images
-
-All Image Assets > Background colour to `yellow`
-
+## Enable live tile
 Run
 
 Find and pin the app to start
+* Show static tile on start meu
 
 Add the `updateTile()` JavaScript snippet just below the `cameraCapture()` function.
+* Show how the `cameraCapture` function calls it
 
-Click the 'Update tile' button and wait up to 20 second to see the photo update on your start menu
+Click the 'Say cheese' button again
+* Make sure it is a square
+* Save the image
+
+Wait up to 20 second to see the photo update on your start menu
+* Picture and text
 
 ## Snippets
 
@@ -58,8 +70,7 @@ function cameraCapture() {
     var captureUI = new Windows.Media.Capture.CameraCaptureUI();
 
     //Set the format of the picture to be captured (.png, .jpg, ...) 
-    captureUI.photoSettings.format =
-      Windows.Media.Capture.CameraCaptureUIPhotoFormat.png;
+    captureUI.photoSettings.format = Windows.Media.Capture.CameraCaptureUIPhotoFormat.png;
 
     //Pop up the camera UI to take a picture 
     captureUI.captureFileAsync(
