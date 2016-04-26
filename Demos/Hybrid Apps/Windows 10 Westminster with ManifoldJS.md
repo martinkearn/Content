@@ -4,7 +4,6 @@ This script shows the advanced capabilities available via Windows 10 Westminster
 
 ### Pre-reqs
 * Complete the [ManifoldJS demo](ManifoldJS.md) 
-* Have a browser open to http://codepen.io/seksenov/pen/wBbVyb/?editors=101
 * Have the code snippets open
 * The [SentimentalWeb](https://github.com/martinkearn/SentimentalWeb) project open in VS code 
 
