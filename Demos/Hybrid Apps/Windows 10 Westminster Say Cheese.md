@@ -1,6 +1,6 @@
 
 # Windows 10 Westminster Say Cheese
-This script shows the advanced capabilities available via Windows 10 Westminster based on CodePen (say cheese edition)
+This script shows the advanced capabilities available via Windows 10 Westminster based on CodePen using the "say cheese" app (camera and live tile)
 
 ### Pre-reqs
 * Have a browser open to http://codepen.io/MartinKearn/pen/dMqdOo
@@ -12,20 +12,23 @@ Explore http://codepen.io/MartinKearn/pen/dMqdOo in browser
 ## Create a new Windows JS app
 Create a new Windows JS app
 * Templates > Other Languages > JavaScript > Windows > Universal > Blank App (Windows Universal)
-* Call it "Say Cheese"
+* Call it "SayCheese"
 * Accept default target versions
 
-Delete css, js folders and index.html
+Delete 
+* `css` folder
+* `js` folder 
+* contents of `images` folder
+* index.html
 
 Package manifest
 * Start page > http://codepen.io/MartinKearn/pen/dMqdOo
 * Add Content URI http://codepen.io/MartinKearn/pen/dMqdOo Include, All for WinRT access
 * Add Content URI http://*.codepen.io/ Include, All for WinRT access
 
-Open Package.appxmanifest > Visual assets
-
 Copy images from C:\Users\mkearn\OneDrive\Work\WooWeb Worcester\AppImages to the images folder
-* Delete the default StoreLogo.png
+
+Open Package.appxmanifest > Visual assets
 * Set short name to "Say Cheese"
 * Set Square 71x71 to `images\Square71x71Logo.png`
 * Slash Screen background colour to `yellow`
@@ -35,7 +38,7 @@ Run the app
 
 Copy the `function cameraCapture()` code snippet to the JS section
 
-Use the 'Say cheese' button and save the image
+Use the 'Say Cheese' button and save the image
 
 Go to C:\Users\mkearn\AppData\Local\Packages and find the most recent package
 
@@ -43,7 +46,7 @@ Now go to the `LocalState` folder and show the photo has been saved
 
 
 ## Enable live tile
-Run
+Run the app again if it was stopped
 
 Find and pin the app to start
 * Show static tile on start meu
@@ -52,7 +55,7 @@ Add the `updateTile()` JavaScript snippet just below the `cameraCapture()` funct
 * Show how the `cameraCapture` function calls it
 
 Click the 'Say cheese' button again
-* Make sure it is a square
+* Make sure it is a square (Important, tile will not work otherwise)
 * Save the image
 
 Wait up to 20 second to see the photo update on your start menu
@@ -60,7 +63,7 @@ Wait up to 20 second to see the photo update on your start menu
 
 ## Snippets
 
-http://codepen.io/seksenov/pen/wBbVyb/?editors=101
+http://codepen.io/MartinKearn/pen/dMqdOo
 
 http://*.codepen.io/
 
@@ -86,7 +89,6 @@ function cameraCapture() {
           }).then(function() {
             updateTile();
           });
-
       });
   }
 }
@@ -97,7 +99,6 @@ function updateTile() {
   if (typeof Windows !== 'undefined' && typeof Windows.UI !== 'undefined' &&
     typeof Windows.UI.Notifications !== 'undefined') {
     var notifications = Windows.UI.Notifications;
-    var currentTime = new Date();
     var tileText = "Greetings from Windows Westminster";
 
     //150x150 Square tile
@@ -109,7 +110,6 @@ function updateTile() {
     tileSquareText[0].appendChild(tileSquareContent.createTextNode('Greetings from Windows Westminster'));
     tileSquareImage[0].setAttribute('src', 'ms-appdata:///local/PhotoFromWestminster.jpg');
     var tileSquareNotification = new notifications.TileNotification(tileSquareContent);
-    tileSquareNotification.expirationTime = new Date(currentTime.getTime() + 20 * 1000);
     notifications.TileUpdateManager.createTileUpdaterForApplication().update(tileSquareNotification);
     console.log('Finished updating the 150x150 tile');
 
