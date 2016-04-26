@@ -1,27 +1,12 @@
 
-# Windows 10 Westminster with ManifoldJS
-This script shows the advanced capabilities available via Windows 10 Westminster. It uses a continuation of the ManifoldJS demo plus a new app based on CodePen (say cheese edition)
+# Windows 10 Westminster Say Cheese
+This script shows the advanced capabilities available via Windows 10 Westminster based on CodePen (say cheese edition)
 
 ### Pre-reqs
-* Complete the [ManifoldJS demo](ManifoldJS.md) 
-* Have a browser open to http://codepen.io/seksenov/pen/wBbVyb/?editors=101
+* Have a browser open to http://codepen.io/MartinKearn/pen/dMqdOo
 * Have the code snippets open
-* The [SentimentalWeb](https://github.com/martinkearn/SentimentalWeb) project open in VS code 
 
-## Add Windows code to the Sentimental app
-Explore the [SentimentalWeb](https://github.com/martinkearn/SentimentalWeb) project
-* Look at the Windows JS at the bottom of Index.
-* Look at the Windows.js file
-
-Enable WinRT access in package manifest
-
-Re-run the app
-* Do an analysis
-* Pop-up
-* Notification
-* Search and re-pin the tile > it is live
-
-## Create a new Windows JS app (optional)
+## Create a new Windows JS app
 Create a new Windows JS app
 * Call it 'say cheese'
 
@@ -35,7 +20,7 @@ Package manifest
 * Add Content URI http://*.codepen.io/ Include, All for WinRT access
 * Show toast notification
 
-## Enable camera capture (optional)
+## Enable camera capture
 Copy the `function cameraCapture()` code snippet to the JS section
 
 Use the camera capture button
@@ -44,7 +29,7 @@ Go to C:\Users\mkearn\AppData\Local\Packages and find the most recent package
 
 Now go to the LocalCache folder and show the photo has been saved
 
-## Default and Live Tiles (optional)
+## Default and Live Tiles
 Open Package.appxmanifest > Visual assets
 
 Copy images from C:\Users\mkearn\OneDrive\Work\WooWeb Worcester\AppImages
