@@ -21,30 +21,42 @@ Re-run the app
 * Notification
 * Search and re-pin the tile > it is live
 
+## Explore Codepen in browser (Optional)
+Explore http://codepen.io/seksenov/pen/wBbVyb/?editors=101 in browser
+
 ## Create a new Windows JS app (optional)
 Create a new Windows JS app
+* Templates > Other Languages > JavaScript > Windows > Universal > Blank App (Windows Universal)
+* Call it "Codepen"
+* Accept default target versions
 
 Delete css, js and winjs folders and default.html
-
-Explore http://codepen.io/seksenov/pen/wBbVyb/?editors=101 in browser
 
 Package manifest
 * Start page > http://codepen.io/seksenov/pen/wBbVyb/?editors=101
 * Add Content URI http://codepen.io/seksenov/pen/wBbVyb/?editors=101 Include, All for WinRT access
 * Add Content URI http://*.codepen.io/ Include, All for WinRT access
-* Show toast notification
+
+Run the app and show toast notification
+* Click the 'Toast Notification' button
+
+Keep the app running
 
 ## Enable camera capture (optional)
-Copy the `function cameraCapture()` code below `systemAlertCommandInvokedHandler()` in the JS section
+Copy the `function cameraCapture()` code snippet below `systemAlertCommandInvokedHandler()` in the JS section
 
 Use the camera capture button
 * Save is not implemented
 
-## Default and Live Tiles (optional)
+Close the app
+
+## Default and Live Tiles (optional - skip if tiles have been shown via Sentimental)
 Open Package.appxmanifest > Visual assets
 
-Copy images from C:\Users\marti\OneDrive\Work\NDC\HostedWebApp\images or https://github.com/martinkearn/WinDevHOLs/tree/master/04.%20Edge%20and%20Web%20Apps/04.%20Lab.%20Solution/HostedWebApp/images
-Set images
+Copy images from `C:\Users\mkearn\Documents\GitHub\WinDevHOLs\04. Edge and Web Apps\04. Lab. Solution\HostedWebApp\images` or https://github.com/martinkearn/WinDevHOLs/tree/master/04.%20Edge%20and%20Web%20Apps/04.%20Lab.%20Solution/HostedWebApp/images
+* Overwrite existing
+
+Set images in package.appxmanifest
 * Square 71x71 - scale 200
 * Square 150x150 - scale 200
 * Square 44x33 - scale 200
