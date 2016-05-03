@@ -62,12 +62,12 @@ You should get a 200/OK response. and you should see a load of stuff in the 'Res
 
 ![Thumbnail response in test console](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/ComputerVisionThumbsResponse.PNG)
 
-##Code samples
+## Code samples
 As mentioned at the top, I have implemented the the Computer Vision Thumbnail API both the URL and the File request options in both C# (via ASP.Net Core 1.0) and JavaScript with JQuery. You can see these implementations in my [Cognitive-Computer-Vision-Thumbnails-Sample Github Repo](https://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample).
 
 For completeness, here are the main sections of code that you'll need
 
-###C# File/Octet-Stream sample (ASP.NET Core 1.0)
+### C# File/Octet-Stream sample (ASP.NET Core 1.0)
 This is a C# example using ASP.NET Core 1.0 MVC. This is not the full code, but an extract from the main 'Home' controller. See the [GitHub Repository](ttps://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample) for the full, working sample which also includes an example using URL
 ```
 public class HomeController : Controller
