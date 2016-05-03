@@ -32,16 +32,19 @@ Once you are signed in it will ask you to 'request new keys' and subscribe to th
 Once subscribed, you will be able to view your key. In most scenarios you only need your 'primary key' which will look something like this `982f5abd67b74434935027f65a41a4bd`
 
 ## Step 2: Make a request
-Once you have your key, you can go ahead and make the request in your app. The API requires several things attached to your request in order to work, they are:
+Once you have your key, you can go ahead and make the request in your app. The API requires several things attached to your request in order to work, they are as follows
 
-### Ocp-Apim-Subscription-Key header
-When you sign up to the API, you'll get an API key. You need to pass this with your request as a header called `Ocp-Apim-Subscription-Key`. This is a common approach amongst all Cognitive Services APIs.
+### The Endpoint
+The API endpoint is https://api.projectoxford.ai/vision/v1.0/generateThumbnail
 
 ### Query Parameters
 The API requires three query parameters, they are:
 * `width`: The width (in px) that you want you thumbnail to be
 * `height`: The height (in px) that you want you thumbnail to be
 * `smartCropping`: A boolean value. If true, the api will apply smart cropping to center the thumbnail on the 'region of interest'. If false, it will just crop to the center. This is an optional value
+
+### Ocp-Apim-Subscription-Key header
+When you sign up to the API, you'll get an API key. You need to pass this with your request as a header called `Ocp-Apim-Subscription-Key`. This is a common approach amongst all Cognitive Services APIs.
 
 ### Body
 You'll also need to pass the original image in the body. As you'll see in the [API Reference](https://dev.projectoxford.ai/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), the image is accepted in a `application/json` format body which is a URL to an image online. If you want an image to test with you can use [this one](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/OffCenterMartin.png). The JSON in this case looks like this
@@ -57,7 +60,7 @@ There is a great [test console](https://dev.projectoxford.ai/docs/services/56f91
 
 You should get a 200/OK response. and you should see a load of stuff in the 'Response Content' which looks like corrupt data, but that is actually the binary data for your thumbnail image.
 
-![Thumbnail repsonse in test console](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/OffCenterMartinThumbs.PNG)
+![Thumbnail response in test console](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/ComputerVisionThumbsResponse.PNG)
 
 ##Code samples
 As mentioned at the top, I have implemented the the Computer Vision Thumbnail API both the URL and the File request options in both C# (via ASP.Net Core 1.0) and JavaScript with JQuery. You can see these implementations in my [Cognitive-Computer-Vision-Thumbnails-Sample Github Repo](https://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample).
