@@ -20,7 +20,7 @@ It will then do its magic and return to you an image smartly cropped to the dime
 
 To get started with the API, have a look at the demo application [here](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) (scroll to the bottom). This lets you use sample image or upload your own and see how the API smart crops them to a bunch of pre-defined sizes.
 
-![My thumbnails](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/Emotion_Thumb.jpg)
+![My thumbnails](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/OffCenterMartinThumbs.PNG)
 
 ## Step 1: Get your key
 As with almost any API, your first task is to obtain an API key. This is really easy to do for all Cognitive Services APIs.
@@ -56,6 +56,8 @@ The API also accepts a binary image file in `multipart/form-data` format. This i
 There is a great [test console](https://dev.projectoxford.ai/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb/console) for the API, which lets you try out your parameters and test the results without writing any code. The inputs are exactly the same as the ones defined above.
 
 You should get a 200/OK response. and you should see a load of stuff in the 'Response Content' which looks like corrupt data, but that is actually the binary data for your thumbnail image.
+
+![Thumbnail repsonse in test console](https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/OffCenterMartinThumbs.PNG)
 
 ##Code samples
 As mentioned at the top, I have implemented the the Computer Vision Thumbnail API both the URL and the File request options in both C# (via ASP.Net Core 1.0) and JavaScript with JQuery. You can see these implementations in my [Cognitive-Computer-Vision-Thumbnails-Sample Github Repo](https://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample).
