@@ -88,6 +88,10 @@ Upload another file to 'originals'
 * Open the file
 
 ## Computer Vision blob trigger
+Do a quick demo of the Thumbnails api at https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
+* Use `UglyMartin.jpg`
+* Show with and without smart cropping
+
 Add and talk through the following code 
 
 ```
