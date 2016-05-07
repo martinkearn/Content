@@ -132,12 +132,34 @@ public class HomeController : Controller
 
 If you want to display the image in your view you can simply do this `<img src="@ViewData["thumbnailImage"]" />`
 
-### JavaScript with JQuery File/Octet-Stream Sample
-I'm still working on this but having trouble decoding the byte array. The code is here: https://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample/blob/master/Javascript%20JQuery/URLExample.html
+### JavaScript File/Url Sample
+This example does the same thing but with JavaScript and this time we use a Url to an image rather than uploading a binary file. The code is here: https://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample/blob/master/Javascript%20Xhr/URLExample.html
 
-It is open source so if you can help me, please do! :)
-
-I'll update this article when I've got it working
+```
+<html>
+<body>
+    <div id="response"></div>
+    <img id="thumbnail">
+    <script type="text/javascript">
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+            var response = document.querySelector('#response');
+            var img = new Image();
+            var url = window.URL || window.webkitURL;
+            img.src = url.createObjectURL(this.response);
+            response.appendChild(img);
+            }
+        }
+        xhr.open('POST', 'https://api.projectoxford.ai/vision/v1.0/generateThumbnail?width=250&height=250&smartCropping=true');
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Ocp-Apim-Subscription-Key", "382f5abd65f74494935027f65a41a4bc");
+        xhr.responseType = 'blob';
+        xhr.send('{"url": "https://oxfordportal.blob.core.windows.net/emotion/recognition1.jpg"}');
+    </script>
+</body>
+</html>
+```
 
 ## In Summary
 The Cognitive Services APIs are very simple to get started with and use in your applications. Hopefully the sample in this article and the accompanying [GitHub Repository](https://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample) will help you get up and running with the Computer Vision API.
