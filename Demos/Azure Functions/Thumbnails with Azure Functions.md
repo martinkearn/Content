@@ -89,7 +89,7 @@ Upload another file to 'originals'
 
 ## Computer Vision blob trigger
 Do a quick demo of the Thumbnails api at https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
-* Use `OffCenterMartin.jpg`
+* Use `OffCenterMartin.jpg` or `YoungSmileyMartin.jpg`
 * Show with and without smart cropping
 * Show it side-by-side with the original
 
