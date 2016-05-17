@@ -28,3 +28,17 @@
 [Cognitive Services in Action](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nL0NvZ25pdGl2ZSUyMFNlcnZpY2VzJTIwaW4lMjBBY3Rpb24ubWQ%3d)
 
 [Building HowHappy with the Emotion API](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nL0J1aWxkaW5nJTIwSG93SGFwcHklMjB3aXRoJTIwdGhlJTIwRW1vdGlvbiUyMEFQSS5tZA%3d%3d)
+
+***
+### Performance
+
+[Performance analysis with YSlow and PageSpeed](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvUGVyZm9ybWFuY2UvUGVyZm9ybWFuY2UlMjBhbmFseXNpcyUyMHdpdGglMjBZU2xvdyUyMGFuZCUyMFBhZ2VTcGVlZC5tZA%3d%3d)
+
+***
+### Hybrid
+
+[A Look at ManifoldJS](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvSHlicmlkJTIwQXBwcy9NYW5pZm9sZCUyMEpTLm1k)
+
+[Windows 10 Westminster with ManifoldJS ](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvSHlicmlkJTIwQXBwcy9XaW5kb3dzJTIwMTAlMjBXZXN0bWluc3RlciUyMHdpdGglMjBNYW5pZm9sZEpTLm1k)
+
+[Office add-ins ](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvSHlicmlkJTIwQXBwcy9PZmZpY2UlMjBBZGQtaW5zLm1k)
