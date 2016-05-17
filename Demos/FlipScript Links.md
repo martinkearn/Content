@@ -21,3 +21,10 @@
 [Autoscale in Azure](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvUnVubmluZyUyMFdlYiUyMEFwcHMlMjBpbiUyMEF6dXJlL0F1dG9zY2FsZS5tZA%3d%3d)
 
 [Using Azure storage](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvUnVubmluZyUyMFdlYiUyMEFwcHMlMjBpbiUyMEF6dXJlL1VzaW5nJTIwQXp1cmUlMjBTdG9yYWdlLm1k)
+
+***
+### Machine Learning
+
+[Cognitive Services in Action](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nL0NvZ25pdGl2ZSUyMFNlcnZpY2VzJTIwaW4lMjBBY3Rpb24ubWQ%3d)
+
+[Building HowHappy with the Emotion API](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nL0J1aWxkaW5nJTIwSG93SGFwcHklMjB3aXRoJTIwdGhlJTIwRW1vdGlvbiUyMEFQSS5tZA%3d%3d)
