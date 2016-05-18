@@ -74,6 +74,11 @@ GET in Postman
 * GET
 * http://localhost:2265/api/People
 
+Request XML response
+* Add header: ACCEPT: application/xml
+* Show XML response
+
+
 ## Add a Web API project to show where it is lacking right now
 Right-click Solution > Add > New Project > Web > ASP.NET Core Web Application (.NET Core)
 * Web API template
