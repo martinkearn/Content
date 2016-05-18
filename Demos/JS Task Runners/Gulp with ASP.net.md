@@ -3,13 +3,11 @@
 This demo installs gulp into an ASP.NET Core 1.0 project, creates a gulpfile.js, minifies css and deploy to wwwroot on build
 
 ### Pre-reqs
-* Visual Studio 2015 with ASP.NET Core 1.0 RC1 or newer
+* Visual Studio 2015 with ASP.NET Core 1.0 RC2 or newer
 * Make sure Visual Studio is using the latest NPM install, which it will not do by default. If this is not done, Autoprefixer will error in the Task Runner Explorer. See how at https://buli.waw.pl/update-node-js-integrated-with-visual-studio-2015/
 
 ## Create a new project
-Visual Studio 2015 > File > New > Project > Web > ASP.NET Web Application
-
-ASP.NET Core 1.0 Templates > Empty
+Visual Studio 2015 > File > New > Project > Web > ASP.NET Core Web Application (.NET Core) > Empty
 
 ## Add Packages.json (NPM)
 *We need Package.json to be able to add NPM packages to the solution. Package.json is the NPM configuration file.*
@@ -51,7 +49,7 @@ Right-click 'default' > Bindings > After build
 Build the solution and show "hello world" in console (shown in task runner explorer)
 
 ## Add a CSS file to the project
-New folder called 'CSS
+New folder called 'CSS'
 
 New css file called 'stylesheet.css'
 
