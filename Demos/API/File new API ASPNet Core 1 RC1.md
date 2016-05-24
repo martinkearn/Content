@@ -1,12 +1,12 @@
 
-# File > New API (ASP.NET Core 1 RC1)
-Create a new Web Application project in ASP.NET Core 1 RC1 and shows some of the key capabilities and issues at this stage. Compare to the Web API project template to show how that is even more lacking
+# File > New API (ASP.NET Core 1 RC2)
+Create a new Web Application project in ASP.NET Core 1 RC2 and shows some of the key capabilities and issues at this stage. Compare to the Web API project template to show how that is even more lacking
 
 ## Create a 'Web Application' project
-File > New project > Web Application > ASP.NET Web Application
+File > New Project > Web > ASP.NET Core Web Application (.NET Core)
 * Web Application template
 * Call it 'WebApplication'
-* *NOTE: There is a security option*
+* *NOTE: There is a security option which includes individual accounts*
 	
 ## Add a Model and scaffold a controller
 Add Person model
@@ -22,11 +22,16 @@ public class Person
 	
 Rebuild project
 
-New > Scaffolded item > API Controller with actions using entity framework
+Right-click Controllers > New Scaffolded Item > API Controller with actions using entity framework
 * Choose Person (webapi.models)
 * Use existing data context
-* Async
-* *NOTE: This is almost identical to the 4.5 scaffolding*
+* *NOTE: This is almost identical to the 4.5 scaffolding but without the choices about Async*
+
+Explore the 'PeopleController'
+* `ApplicationDbContext` Dependancy injection for DB contexzt
+* `[HttpGet("{id}")]` / `[FromRoute] int id`
+* `[FromBody] Person person`
+* Code inside action almost identical for 4.x
 
 ## Enable Entity Framework Migrations
 *NOTE: The Entity Framework migrations experience is still work-in-progress. These steps will be removed for release but required right now*
@@ -35,19 +40,14 @@ Open a command prompt (Windows Key + R, type CMD, Run as admin)
 
 Use the cd command to navigate to the project directory
 
-Select the right version of .net
-```
-dnvm use 1.0.0-rc1-update1
-```
-
 Scaffold a migration to create the initial set of tables for your model.
 ```
-dnx ef migrations add MyFirstMigration
+dotnet ef migrations add Initial
 ```
 
 Apply the new migration to the database. 
 ```
-dnx ef database update
+dotnet ef database update
 ```
 *NOTE: Because your database doesn’t exist yet, it will be created for you before the migration is applied.*
 
@@ -74,11 +74,16 @@ GET in Postman
 * GET
 * http://localhost:2265/api/People
 
+Request XML response
+* Add header: ACCEPT: application/xml
+* Show XML response
+
+
 ## Add a Web API project to show where it is lacking right now
-Right-click Solution > Add > New Project
+Right-click Solution > Add > New Project > Web > ASP.NET Core Web Application (.NET Core)
 * Web API template
 * Call it 'WebAPI'
-* *NOTE: Authentication is not an option yet*
+* *NOTE: Authentication is avaliable, but not for individual accounts*
 
 Examine the default Project
 
@@ -106,11 +111,9 @@ public class Person
 }
 ```
 
-`dnvm use 1.0.0-rc1-final`
+`dotnet ef migrations add Initial`
 
-`dnx ef migrations add MyFirstMigration`
-
-`dnx ef database update`
+`dotnet ef database update`
 
 ```
 {
