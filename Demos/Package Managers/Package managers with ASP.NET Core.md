@@ -90,3 +90,6 @@ Explore `node_modules` on disk to see two copies of JQuery beneath TypeIt and Fo
 * _NOTE_ This is due to NPM's nested dependency approach
 
 ## Browserify
+_NOTE_ Browseify is one of the most popular NPM packages and is used to package and concatenate front-end NPM packages to be consumed in a browser. This package resolves many of the short-comings of NPM for front-end packages
+
+https://hacks.mozilla.org/2014/08/browserify-and-gulp-with-react/
