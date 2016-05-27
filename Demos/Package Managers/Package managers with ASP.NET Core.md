@@ -39,9 +39,9 @@ Explore the `References` section
 
 Project > Right-click > Add > New Item > Search for `NPM` > Add `package.json`
 
-Add Gulp directly to packages.json
+Add Brocoli directly to packages.json
 
-* `"gulp": "^3.9.1"`
+* `"broccoli-cli": "^1.0.0"`
 * Save and notice dependencies being restored
 
 Explore NPM dependency tree. Dependencies > npm > gulp > all its sub-dependancies
