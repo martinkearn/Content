@@ -42,3 +42,10 @@
 [Windows 10 Westminster with ManifoldJS ](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvSHlicmlkJTIwQXBwcy9XaW5kb3dzJTIwMTAlMjBXZXN0bWluc3RlciUyMHdpdGglMjBNYW5pZm9sZEpTLm1k)
 
 [Office add-ins ](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvSHlicmlkJTIwQXBwcy9PZmZpY2UlMjBBZGQtaW5zLm1k)
+
+***
+### Azure Functions
+
+[Thumbnails with Azure Functions](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvQXp1cmUlMjBGdW5jdGlvbnMvVGh1bWJuYWlscyUyMHdpdGglMjBBenVyZSUyMEZ1bmN0aW9ucy5tZA%3d%3d)
+
+[Thumbnails with Azure Functions (Quick version)](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvQXp1cmUlMjBGdW5jdGlvbnMvVGh1bWJuYWlscyUyMHdpdGglMjBBenVyZSUyMEZ1bmN0aW9ucyUyMFFVSUNLLm1k)
