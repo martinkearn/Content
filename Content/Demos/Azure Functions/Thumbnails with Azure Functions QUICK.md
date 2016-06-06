@@ -40,8 +40,6 @@ Do a quick demo of the Thumbnails api at https://www.microsoft.com/cognitive-ser
 * Show with and without smart cropping
 * Show it side-by-side with the original
 
-_Optional_ Could show a simple upload of a file to `orginals` and it showing up in log to land the concept
-
 ## Computer Vision blob trigger
 New Function > `BlobTrigger C#`
 * Path = `originals/{name}`
