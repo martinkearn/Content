@@ -23,7 +23,13 @@
 [Using Azure storage](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvUnVubmluZyUyMFdlYiUyMEFwcHMlMjBpbiUyMEF6dXJlL1VzaW5nJTIwQXp1cmUlMjBTdG9yYWdlLm1k)
 
 ***
-### Machine Learning
+### Machine Learning & Cognitive Services
+
+[Better Parenting](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0JldHRlciUyMFBhcmVudGluZy5tZA%3d%3d)
+
+[Getting started with Cognitive Services](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0dldCUyMFN0YXJ0ZWQlMjB3aXRoJTIwQ29nbml0aXZlJTIwU2VydmljZXMubWQ%3d)
+
+[Face API with UWP](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0ZhY2UlMjBBUEklMjB3aXRoJTIwVVdQLm1k)
 
 [Cognitive Services in Action](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nL0NvZ25pdGl2ZSUyMFNlcnZpY2VzJTIwaW4lMjBBY3Rpb24ubWQ%3d)
 
