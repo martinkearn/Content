@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>How Happy Lite - Face Model</Title>
+      <Author>Microsoft Corp.</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>hhlfacemodel</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp" Delimiter="$"><![CDATA[    public class Face
+    {
+        public FaceRectangle faceRectangle { get; set; }
+        public Scores scores { get; set; }
+    }
+
+    public class FaceRectangle
+    {
+        public int height { get; set; }
+        public int left { get; set; }
+        public int top { get; set; }
+        public int width { get; set; }
+    }
+
+    public class Scores
+    {
+        public double anger { get; set; }
+        public double contempt { get; set; }
+        public double disgust { get; set; }
+        public double fear { get; set; }
+        public double happiness { get; set; }
+        public double neutral { get; set; }
+        public double sadness { get; set; }
+        public double surprise { get; set; }
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
