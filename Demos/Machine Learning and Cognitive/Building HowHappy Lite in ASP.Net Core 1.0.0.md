@@ -53,7 +53,7 @@ Explore the model a little:
 * Face contains the bounds of a rectangle highlighting the face in the orginal image
 * Score for each emotion
 
-## Controller
+## Update the Controller
 Open Controllers\Home
 
 Add `hhlc1` snippet
@@ -71,3 +71,5 @@ Add `hhlc3` below `var responseString...`
 
 Add `hhlc4` above the closing `}`
 * This returns the `Faces` object as json to the view
+
+## Run it
