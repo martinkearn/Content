@@ -36,4 +36,6 @@ Clear everything in wwwroot\js\site.js
 Add the snippet `hhl-js`
 
 Breifly explore the code
-* Handles form submit event via Ajax
+* `SubmitForm` Handles form submit event via Ajax
+* `ShowImage` Paints the uploaded image
+* `ProcessResult` Uses the JSON received back from MVC controller to paint rectangles and data over image
