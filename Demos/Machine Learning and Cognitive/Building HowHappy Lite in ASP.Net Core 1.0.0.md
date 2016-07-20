@@ -39,3 +39,35 @@ Breifly explore the code
 * `SubmitForm` Handles form submit event via Ajax
 * `ShowImage` Paints the uploaded image
 * `ProcessResult` Uses the JSON received back from MVC controller to paint rectangles and data over image
+
+## Add Face Model
+Create a `Models` folder
+
+Create a class called `Face.cs`
+
+Remove the default `Face` class
+
+Add `hhlfacemodel` snippet below `namespace hhl.Models {`
+
+Explore the model a little:
+* Face contains the bounds of a rectangle highlighting the face in the orginal image
+* Score for each emotion
+
+## Controller
+Open Controllers\Home
+
+Add `hhlc1` snippet
+* Add the main `Result` action
+* Gets the file from submitted form
+
+Add `hhlc2` snippet below `var file...`
+* Resolve all using statements using the first option in the lightbulb
+* This uses http client to make the API call to Cognitive Services
+
+Add `hhlc3` below `var responseString...`
+* Resolve all using statements using the first option in the lightbulb
+* Converts JSON received from CS api to the faces model
+* Orders the faces by happiness
+
+Add `hhlc4` above the closing `}`
+* This returns the `Faces` object as json to the view
