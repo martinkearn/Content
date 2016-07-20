@@ -35,6 +35,8 @@
 
 [Building HowHappy with the Emotion API](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nL0J1aWxkaW5nJTIwSG93SGFwcHklMjB3aXRoJTIwdGhlJTIwRW1vdGlvbiUyMEFQSS5tZA%3d%3d)
 
+[Building HowHappy Lite with the Emotion API and ASP.Net core](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0J1aWxkaW5nJTIwSG93SGFwcHklMjBMaXRlJTIwaW4lMjBBU1AuTmV0JTIwQ29yZSUyMDEuMC4wLm1k)
+
 ***
 ### Performance
 
