@@ -24,9 +24,12 @@ Layout references (top)
 Show what /wwwroot/js/OfficeApp.js does
 
 ## Create Office app
-Create new Office taskpane app
+Create new Excel Add-in App
+* File New > Visual C# > Office/SharePoint > Web Add-ins > Excel Add-in
+* Add new functionalities to Excel
 
-Set the source: http://sentimentalweb.azurewebsites.net/
+Update Manifest.xml
+* Replace `~remoteAppUrl/Home.html` with `https://sentimentalweb.azurewebsites.net`
 
 Launch and use in excel
 
