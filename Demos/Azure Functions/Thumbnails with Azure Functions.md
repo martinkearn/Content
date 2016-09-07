@@ -82,14 +82,14 @@ public static void Run(Stream myBlob, Stream outputBlob, TraceWriter log)
 Wait for "Compilation succeeded"
 
 Upload another file to 'originals'
-* Use `Laura.jpg`
+* Use `OffCenterMartin.jpg`
 * Watch the log and wait for "Function completed"
 * Show the blob has been copied to 'thumbs'
 * Open the file
 
 ## Computer Vision blob trigger
 Do a quick demo of the Thumbnails api at https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
-* Use `OffCenterMartin.jpg` or `YoungSmileyMartin.jpg`
+* Use `GoPez.jpg` or `YoungSmileyMartin.jpg`
 * Show with and without smart cropping
 * Show it side-by-side with the original
 
