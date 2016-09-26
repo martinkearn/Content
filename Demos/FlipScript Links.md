@@ -37,6 +37,8 @@
 
 [Building HowHappy Lite with the Emotion API and ASP.Net core](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0J1aWxkaW5nJTIwSG93SGFwcHklMjBMaXRlJTIwaW4lMjBBU1AuTmV0JTIwQ29yZSUyMDEuMC4wLm1k)
 
+[Predict car sale price with Azure ML studio](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL01MJTIwU3R1ZGlvJTIwQ2FyJTIwU2FsZXMubWQ%3d)
+
 ***
 ### Performance
 
