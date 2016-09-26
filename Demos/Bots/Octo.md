@@ -19,7 +19,7 @@ Search for an add 'Octo' (look for the green Ocado icon)
 **"Hi Octo"**
 * Knows you the user is from Skype. Is able to look-up their account details in the background
 
-Show architecture slides
+**Show architecture slides**
 1. A bot
 2. Hosted on the web somewhere
 3. Published and connected to Microsoft Bot Framework
@@ -30,21 +30,21 @@ Show architecture slides
 * Knows user's preferences (Mondays) and available slots so is able to provide personalised information back
 * Rich 'cards' with buttons
 
-Show architecture slides
+**Show architecture slides**
 6. Bot is connected to Ocado API
 7. Cognitive Services LUIS
 
-Show Cognitive Portal > LUIS
+**Show Cognitive Portal > LUIS**
 * Weather
 * How is the weather in London tomorrow?
 
 **"No no no, that is no good"**
 * Sentiment Analysis via Cognitive Services Text Analytics API
 
-Show architecture slides
+**Show architecture slides**
 8. Cognitive Services text Analytics - Sentiment
 
-Show Cognitive Portal > Text Analytics API
+**Show Cognitive Portal > Text Analytics API**
 * Enter the same text into the sample app to see negative sentiment
 
 **"How about Tuesday?"** 
@@ -76,10 +76,10 @@ The previous section pulled up the user's shopping lists in response to booking 
 * The Cognitive Recommendations API can look the beers that are already in the list and make 'Item to item recommendations' and 'Personalized user recommendations'. 
 * It is also able to check the Ocado API for offers and up-sell
 
-Show architecture slides
+**Show architecture slides**
 9. Cognitive Service Recommendations API
 
-Show Cognitive Portal > Recommendations
+**Show Cognitive Portal > Recommendations**
 
 **"London pride"**
 * Remembering context of the dialog
@@ -96,10 +96,10 @@ Show Cognitive Portal > Recommendations
 **"OK, bye"**
 * Code personality into the bot
 
-Show architecture slides
+**Show architecture slides**
 10. Other channels > Skype
 
-Add 'Octo' in skype and start a dialog
+**Add 'Octo' in skype and start a dialog**
 * Hi
 * Show my lists
 * Help
