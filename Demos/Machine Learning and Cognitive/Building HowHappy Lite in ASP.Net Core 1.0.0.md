@@ -10,13 +10,13 @@ This demo goes from a new project to a lite version of the How Happy application
 ## Show the main How Happy website in action
 HowHappy.co.uk
 
-Upload a photo of the crowd
+Take a photo of the audience and upload a photo of the crowd
 
 Use the luis prompt to ask for other emotions
-* Show me the happy faces
-* Show me all the sad people
-* Who are the surprised people
-* Who are the angry people
+* Who is the happiest one here
+* Show me all the angry people
+* Who is the 3rd most surprised person
+* Show me the least happy person
 
 ## New Project
 Open Visual Studio
@@ -110,7 +110,7 @@ Add `hhlc6` below the closing `}` for teh luid httpclient
 * This returns the sorted list of faces as json
 
 ## Run it
-* Show me the happy faces
-* Show me all the sad people
-* Who are the surprised people
-* Who are the angry people
+* Who is the happiest one here
+* Show me all the angry people
+* Who is the 3rd most surprised person
+* Show me the least happy person
