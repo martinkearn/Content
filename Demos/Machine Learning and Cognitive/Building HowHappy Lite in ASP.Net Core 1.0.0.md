@@ -110,7 +110,7 @@ Add `hhlc6` below the closing `}` for teh luid httpclient
 * This returns the sorted list of faces as json
 
 ## Run it
-Show me the happy faces
-Show me all the sad people
-Who are the surprised people
-Who are the angry people
+* Show me the happy faces
+* Show me all the sad people
+* Who are the surprised people
+* Who are the angry people
