@@ -73,15 +73,17 @@ Explore the model a little:
 ## Explore the Luis Model
 Go to https://www.luis.ai/
 
-Explore the intents, entities and utterances
+Explore the intents, entities
 
-Add a new utterance
+Review labels, shwo how entities are marked and the intent is labelled
+
+add a new utterance "who are the angry ones"
 
 Train
 
-Publish
+Publish > Update published application
 
-Show the json via the browser (in the publish screen)
+Use the Query to add a test query "who are the happy ones"
 
 ## Update the Controller
 Open Controllers\Home
