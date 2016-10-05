@@ -14,16 +14,13 @@
       <Shortcut>hhlc3</Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp" Delimiter="$"><![CDATA[            //get faces
-            var responseArray = JArray.Parse(responseString);
-            foreach (var faceResponse in responseArray)
-            {
-                var face = JsonConvert.DeserializeObject<Face>(faceResponse.ToString());
-                faces.Add(face);
-            }
-
-            //sort faces by happiness
-            faces = faces.OrderByDescending(o => o.scores.happiness).ToList();]]></Code>
+      <Code Language="csharp" Delimiter="$"><![CDATA[                //get faces
+                var responseArray = JArray.Parse(responseString);
+                foreach (var faceResponse in responseArray)
+                {
+                    var face = JsonConvert.DeserializeObject<Face>(faceResponse.ToString());
+                    faces.Add(face);
+                }]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>

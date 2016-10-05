@@ -18,20 +18,21 @@
             var faces = new List<Face>();
             using (var httpClient = new HttpClient())
             {
-                var _apiKey = "1dd1f4e23a5743139399788aa30a7153";
-                var _apiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
+                var _emotionApiKey = "1dd1f4e23a5743139399788aa30a7153";
+                var _emotionApiUrl = "https://api.projectoxford.ai/emotion/v1.0/recognize";
 
                 //setup HttpClient with content
-                httpClient.BaseAddress = new Uri(_apiUrl);
-                httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _apiKey);
+                httpClient.BaseAddress = new Uri(_emotionApiUrl);
+                httpClient.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", _emotionApiKey);
                 var content = new StreamContent(file.OpenReadStream());
                 content.Headers.ContentType = new MediaTypeWithQualityHeaderValue("application/octet-stream");
 
                 //make request
-                var responseMessage = await httpClient.PostAsync(_apiUrl, content);
+                var responseMessage = await httpClient.PostAsync(_emotionApiUrl, content);
 
                 //read response as a json string
                 var responseString = await responseMessage.Content.ReadAsStringAsync();
+
 
             }]]></Code>
     </Snippet>

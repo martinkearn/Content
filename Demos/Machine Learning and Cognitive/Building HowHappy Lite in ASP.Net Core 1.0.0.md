@@ -6,9 +6,10 @@ This demo goes from a new project to a lite version of the How Happy application
 * The snippets contained [here](https://github.com/martinkearn/Content/tree/master/Demos/Machine%20Learning%20and%20Cognitive/HowHappyLiteSnippets) imported into Visual Studio
 * ASP.Net Core 1.0.0 with tooling preview 2 or higher
 * A picture of a group of people (see supporting files if you can't take one)
+* The How Happy project for local running
 
 ## Show the main How Happy website in action
-HowHappy.co.uk
+HowHappy.co.uk (or run locally as it is down at the moment)
 
 Take a photo of the audience and upload a photo of the crowd
 
@@ -29,7 +30,7 @@ Clear everything in Views/Home/Index.cshtml
 
 Add the snippet `hhlindex`
 
-Breifly explore the code
+Briefly explore the code
 * A bit of style to draw the rectangles
 * A form that posts the image and luis query to the MVC controller
 * A DIV to display the results

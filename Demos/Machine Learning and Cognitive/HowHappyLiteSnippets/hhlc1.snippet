@@ -19,7 +19,9 @@
         {
             //get file from form data
             var file = Request.Form.Files[0];
-
+            var luisQuery = String.IsNullOrEmpty(Request.Form["luisquery"].ToString()) ?
+                "Show me all the happy people" :
+                Request.Form["luisquery"].ToString();
 
 
 

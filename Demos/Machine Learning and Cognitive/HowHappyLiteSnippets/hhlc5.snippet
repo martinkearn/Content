@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+      <Title>How Happy Lite - Controller 5</Title>
+      <Author>Microsoft Corp.</Author>
+      <Description>
+      </Description>
+      <HelpUrl>
+      </HelpUrl>
+      <Shortcut>hhlc5</Shortcut>
+    </Header>
+    <Snippet>
+      <Code Language="csharp" Delimiter="$"><![CDATA[                //sort faces by emotion entity
+                var entity = luisResult.entities.Where(o => o.type.Contains("emotion::")).FirstOrDefault();
+                var emotion = entity.type.Substring(9);
+                switch (emotion)
+                {
+                    case "happiness":
+                        faces = faces.OrderByDescending(o => o.scores.happiness).ToList();
+                        break;
+                    case "anger":
+                        faces = faces.OrderByDescending(o => o.scores.anger).ToList();
+                        break;
+                    case "contempt":
+                        faces = faces.OrderByDescending(o => o.scores.contempt).ToList();
+                        break;
+                    case "disgust":
+                        faces = faces.OrderByDescending(o => o.scores.disgust).ToList();
+                        break;
+                    case "fear":
+                        faces = faces.OrderByDescending(o => o.scores.fear).ToList();
+                        break;
+                    case "neutral":
+                        faces = faces.OrderByDescending(o => o.scores.neutral).ToList();
+                        break;
+                    case "sadness":
+                        faces = faces.OrderByDescending(o => o.scores.sadness).ToList();
+                        break;
+                    case "surprise":
+                        faces = faces.OrderByDescending(o => o.scores.surprise).ToList();
+                        break;
+                }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

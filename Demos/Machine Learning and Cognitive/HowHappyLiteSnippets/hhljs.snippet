@@ -6,7 +6,7 @@
         <SnippetType>Expansion</SnippetType>
       </SnippetTypes>
       <Title>How Happy Lite - JS</Title>
-      <Author>martinkearn@live.co.uk</Author>
+      <Author>Microsoft Corp.</Author>
       <Description>
       </Description>
       <HelpUrl>
@@ -14,8 +14,26 @@
       <Shortcut>hhljs</Shortcut>
     </Header>
     <Snippet>
-      <Code Language="javascript" Delimiter="$"><![CDATA[$(document).ready(function () {
+      <Code Language="javascript" Delimiter="~"><![CDATA[
+$(document).on('change', '.btn-file :file', function () {
+    var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+    input.trigger('fileselect', [numFiles, label]);
+});
+
+$(document).ready(function () {
+    //set initial form visibility
+    $("#form-file-input").show();
+    $("#form-submit-button").show();
+    $("#intro-text").show();
+    $("#Emotion").hide();
+
     $("#upload-button").click(function (evt) {
+        SubmitForm();
+    });
+
+    $("#Emotion").change(function (evt) {
         SubmitForm();
     });
 
@@ -29,8 +47,12 @@
         for (var i = 0; i < file_data.length; i++) {
             fd.append("file_" + i, file_data[i]);
         }
+        var other_data = $('form').serializeArray();
+        $.each(other_data, function (key, input) {
+            fd.append(input.name, input.value);
+        });
 
-        //get emotion data
+        //get data
         $.ajax({
             type: "POST",
             url: "/home/Result",

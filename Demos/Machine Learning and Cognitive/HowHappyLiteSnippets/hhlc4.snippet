@@ -14,7 +14,29 @@
       <Shortcut>hhlc4</Shortcut>
     </Header>
     <Snippet>
-      <Code Language="csharp" Delimiter="$"><![CDATA[            return Json(faces);]]></Code>
+      <Code Language="csharp" Delimiter="$"><![CDATA[            //get luis data
+            var luisResult = new LuisResult();
+            using (var httpClient = new HttpClient())
+            {
+                var _luisApiKey = "d004b0b064694dd1bec537e3629863fb";
+                var _luisApiAppId = "203dc1be-487f-4aff-b873-2ffa25e4e86b";
+                var _luisApiUrl = "https://api.projectoxford.ai/luis/v1/application?";
+
+                //setup HttpClient
+                httpClient.BaseAddress = new Uri(_luisApiUrl);
+                var queryUrl = _luisApiUrl + "id=" + _luisApiAppId + "&subscription-key=" + _luisApiKey + "&q=" + UrlEncoder.Default.Encode(luisQuery);
+
+                //make request
+                var responseMessage = await httpClient.GetAsync(queryUrl);
+
+                //read response as a json string
+                var responseString = await responseMessage.Content.ReadAsStringAsync();
+
+                //deserialise json to luis response
+                luisResult = JsonConvert.DeserializeObject<LuisResult>(responseString);
+
+
+            }]]></Code>
     </Snippet>
   </CodeSnippet>
 </CodeSnippets>
