@@ -9,6 +9,8 @@ Microsoft's vision include is about three bold ambitions:
 
 AI is central all of these ambitions and technologies like Azure Machine Learning Cortana Analytics, Cognitive Services and the Microsoft Bot Framework here today and ready for you to start building artificial intelligence into your applications.
 
+
+
 ## The AI track at Future Decoded
 [Future Decoded](https://futuredecoded.microsoft.com) is Microsoft's annual UK event which brings together business and technical people from across the UK to learn about the latest in Microsoft technology and the partner ecosystem that surrounds it.
 
