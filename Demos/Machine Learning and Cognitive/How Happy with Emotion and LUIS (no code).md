@@ -24,11 +24,17 @@ Upload the same photo
 Explore the JSON result and face rectangles
 
 ## Explore the Luis Model
-Go to https://www.luis.ai/
+Go to https://www.microsoft.com/cognitive-services/en-us/language-understanding-intelligent-service-luis
+
+Use the built-in weather bot to search for
+* how is the weather in birmingham
+* Will it rain in london tomorrow
+
+Go to https://www.luis.ai/ via the get started link
 
 Explore the intents, entities
 
-Review labels, shwo how entities are marked and the intent is labelled
+Review labels, show how entities are marked and the intent is labelled
 
 Add a new utterance "who are the angry ones"
 
