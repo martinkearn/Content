@@ -1,4 +1,4 @@
-# How Happy
+# How Happy with Emotion and LUIS (no code)
 This demo will demonstrate the HowHappy.co.uk website as a basis for showing the emotion API and LUIS API from Microsoft Cogniive Services
 
 ### Pre Reqs
