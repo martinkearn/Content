@@ -64,3 +64,12 @@ bot.dialog('/', function (session) {
 2. Open the 'Microsoft Bot Framework Channel Emulator' and set the Bot Url `http://localhost:3978/api/messages`
 
 3. Say "hello" in the emulator, await a repsonse and explore the JSON that gets sent back and forth
+
+## Show the publish section of the Bot dashboard
+
+1. Talk through the idea that this would be deployed as a web application via Azure App Service or similar
+ * Anything that has a public endpoint
+ 
+2. Go to https://dev.botframework.com/bots
+
+3. Open a bot and see how it has been published via various channels
