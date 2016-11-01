@@ -5,6 +5,8 @@ Takes about 10 minutes.
 
 ### Pre Reqs
 * A good quality, portable microphone
+* The Obama clip loaded in groove
+* The GUID joke in notepad
 
 ### Screens and apps
 * Edge > Cognitive
