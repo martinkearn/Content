@@ -99,9 +99,9 @@ A deep dive demo fo all the APIs and mst of the function in the Cognitive Servie
 6. Get a volenteer to do some faces
 
 7. Open `VideoFrameAnalysis` in Visual Studio
- * Add `e0643cb1a6404b6bbfd7b6fb20f67963` for the face key
- * Add `1dd1f4e23a5743139399788aa30a7153` for the emotion key
- * Add `382f5abd65f74494935027f65a41a4bc` for the computer vision key
+ * Add `077bcd15b2004f3a99e4f947e28d09e7` for the face key
+ * Add `276eed1a9dd946b7878ddaf021f6a962` for the emotion key
+ * Add `e30877e92235415ab3af0ad7a7c12b62` for the computer vision key
  * Set to call api every 1 seconds
  * Save
  * Start camera
