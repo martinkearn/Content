@@ -10,11 +10,12 @@ A deep dive demo fo all the APIs and mst of the function in the Cognitive Servie
 * Edge > Cognitive, HowHappy, Twins, HowOld
 * Visual Studio > https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/
 * Windows Camera app
+* Modern skype app
 
 ## Computer Vision > Analyse
 1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
 
-2. Use the webcam to take a photo of leturn
+2. Use the webcam to take a photo of lecturn (coffee cups are good)
 
 3. Upload the photo and analyse
   * Description
