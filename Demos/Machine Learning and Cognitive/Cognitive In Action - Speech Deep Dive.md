@@ -1,7 +1,7 @@
 # Cognitive Services Speech APIs
 A deep dive demo of all the APIs and most of the functions in the Cognitive Services Speech category
 
-Takes about 20 minutes.
+Takes about 10 minutes.
 
 ### Pre Reqs
 * A good quality, portable microphone
