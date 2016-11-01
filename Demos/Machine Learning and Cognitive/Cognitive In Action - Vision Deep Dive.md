@@ -52,3 +52,19 @@ Talking points
  * Save
  * Start camera
  * Cycle through modes (Faces = face api, Emotion = emotion api, Tags = computer vision)
+
+## Computer Vision > Read text in images
+1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api and scroll to the `Read text in images` section
+
+2. Take a photo of the event lanyard or any printed text
+
+3. Upload and show text and json results
+
+## Computer Vision > Generate Thumbnails
+1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api and scroll to the `Generate a thumbnail` section
+
+2. Use some of the stock portal image
+
+3. Toggle smart cropping on and off
+
+4. Open Skype and Use Smart Thumbnails bot to resize `SmartCropping.jpg` to 400x100 and then 100x400 with smart cropping
