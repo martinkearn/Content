@@ -68,3 +68,17 @@ Talking points
 3. Toggle smart cropping on and off
 
 4. Open Skype and Use Smart Thumbnails bot to resize `SmartCropping.jpg` to 400x100 and then 100x400 with smart cropping
+
+## Emotion > Recognize Emotions in Images
+1. Go to https://www.microsoft.com/cognitive-services/en-us/emotion-api and scroll to the `Recognize Emotions in Images` section
+
+2. Take a photo of the audience
+
+3. Upload and show the faces
+
+4. Repeat in http://HowHappy.co.uk
+
+## Emotion > Recognize Emotions in Video
+1. Go to https://www.microsoft.com/cognitive-services/en-us/emotion-api and scroll to the `Recognize Emotions in Video` section
+
+2. Play the default video in the portal
