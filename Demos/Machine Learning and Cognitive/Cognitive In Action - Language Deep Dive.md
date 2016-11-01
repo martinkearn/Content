@@ -80,6 +80,7 @@ Takes about 20 minutes.
 ## Web Language Model
 Talking points:
  * Language models trained on massive amount sof web data
+ * Trained on Bing en-US data
  
 1. Scroll down the list an talk to each feature
  * Joint porbabilities - predicte when words are used together i.e. "natural language processing"
