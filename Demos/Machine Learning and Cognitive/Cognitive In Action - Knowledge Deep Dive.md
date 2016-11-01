@@ -28,11 +28,24 @@ Talking point
 2. Search Bing for "artificial intelligence"
 
 3. Copy the wikipedia preview text into the portal.
-  * Note how "AI" is linked to eth entity "artificial intelligence"
+  * Note how "AI" is linked to the entity "artificial intelligence"
   * Explore JSON to see how the instances of "AI" are associated with the entities "artifical intelligence"
   
 "Artificial intelligence is intelligence exhibited by machines. In computer science, an ideal "intelligent" machine is a flexible rational agent that perceives its environment and takes actions that maximize its chance of success at some goal. Colloquially, the term "artificial intelligence" is applied when a machine mimics "cognitive" functions that humans associate with other human minds, such as "learning" and "problem solving". As machines become increasingly capable, facilities once thought to require intelligence are removed from the definition. For example, optical character recognition is no longer perceived as an exemplar of "artificial intelligence" having become a routine technology. Capabilities currently classified as AI include successfully understanding human speech, competing at a high level in strategic game systems, self-driving cars, and interpreting complex data. AI is also considered a danger to humanity if it progresses unabatedly. AI research is divided into subfields that focus on specific problems or on specific approaches or on the use of a particular tool or towards satisfying particular applications."
 
+## Knowledge Exploration Service
+Talking point
+  * Enable interactive search experiences over structured data via natural language inputs. 
+  * Add inteligent search features (like on bing) to your own data
+
+1. Go to https://www.microsoft.com/cognitive-services/en-us/knowledge-exploration-service
+
+2. Talk to each function
+ * Natural Language Understanding - converts natural language queries to structured queries
+ * Query Auto-completion
+ * Structured Query Evaluation - advanced search query
+ * Attribute Histograms - visuals enabling faceted search experience
+  
 ## Recommendations API
 1. Go to https://www.microsoft.com/cognitive-services/en-us/recommendations-api
 
