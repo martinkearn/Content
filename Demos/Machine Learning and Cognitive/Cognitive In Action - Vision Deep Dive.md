@@ -6,6 +6,11 @@ A deep dive demo fo all the APIs and mst of the function in the Cognitive Servie
 * Clone https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/, set the 'LiveCameraSample' as the default project and run app at least once
 * Visual Studio 2015
 
+### Screens and apps
+* Edge > Cognitive, HowHappy, Twins, HowOld
+* Visual Studio > https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/
+* Windows Camera app
+
 ## Computer Vision > Analyse
 1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
 
