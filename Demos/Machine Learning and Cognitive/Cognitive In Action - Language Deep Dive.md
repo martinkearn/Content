@@ -1,7 +1,7 @@
 # Cognitive Services Language APIs
 A deep dive demo of all the APIs and mst of the function in the Cognitive Services Language category
 
-Takes about 20 minutes.
+Takes about 12 minutes, including the LUIS video.
 
 ### Pre Reqs
 * Windows Translator app installed
