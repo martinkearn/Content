@@ -14,14 +14,16 @@ A deep dive demo fo all the APIs and mst of the function in the Cognitive Servie
 ## Computer Vision > Analyse
 1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
 
-2. Upload the photo and analyse
+2. Use the webcam to take a photo of leturn
+
+3. Upload the photo and analyse
   * Description
   * Tags
   * Adult / racy
   * Categories
   * Colours
   
-3. Repeat with a stock portal image
+4. Repeat with a stock portal image
  
 ## Computer Vision > Recognise Celebs
 1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api and scroll to the `Recognize celebrities` section
