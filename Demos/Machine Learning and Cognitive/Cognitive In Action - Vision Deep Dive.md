@@ -30,28 +30,11 @@ A deep dive demo fo all the APIs and mst of the function in the Cognitive Servie
 5. Repeat for `Donald Trump` (or ask for suggestions)
 
 ## Computer Vision > Analyze video in near real-time
-Talking points
-* Use any of the computer vision APIs with videos by splitting the frames
-* We'll use a Windows UWP app to show this in action
-
----
-
 1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api and scroll to the `Analyze video in near real-time` section
 
 2. Play the beach video
 
-3. Go to https://www.microsoft.com/cognitive-services/en-US/subscriptions to show keys for Face, Emotion and Computer Vision
-
-4. Get a volenteer to do some faces
-
-5. Open `VideoFrameAnalysis` in Visual Studio
- * Add `e0643cb1a6404b6bbfd7b6fb20f67963` for the face key
- * Add `1dd1f4e23a5743139399788aa30a7153` for the emotion key
- * Add `382f5abd65f74494935027f65a41a4bc` for the computer vision key
- * Set to call api every 1 seconds
- * Save
- * Start camera
- * Cycle through modes (Faces = face api, Emotion = emotion api, Tags = computer vision)
+3. We'll do more with this later
 
 ## Computer Vision > Read text in images
 1. Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api and scroll to the `Read text in images` section
@@ -82,3 +65,36 @@ Talking points
 1. Go to https://www.microsoft.com/cognitive-services/en-us/emotion-api and scroll to the `Recognize Emotions in Video` section
 
 2. Play the default video in the portal
+
+## Face
+1. Go to https://www.microsoft.com/cognitive-services/en-us/face-api and scroll to the `Recognize Emotions in Video` section
+
+2. Take selfie
+
+3. Upload and analyse
+
+4. Show Face Verification, Face Identification, Similar Face Searching, Face Grouping in portal
+
+5. Jake demos with https://www.twinsornot.net/ and http://how-old.net/ see [Cognitive Services in Action](https://github.com/martinkearn/Content/blob/master/Demos/Machine%20Learning%20and%20Cognitive/Cognitive%20Services%20in%20Action.md)
+
+## Video
+1. Go to https://www.microsoft.com/cognitive-services/en-us/video-api
+
+2. Use the built-in videos to show Stabilize shaky videos, Detect and track faces, Detect motion, Generate video thumbnails
+
+3. Scroll to the `Analyze video in near real-time` section
+
+4. Show the default video
+
+5. Go to https://www.microsoft.com/cognitive-services/en-US/subscriptions to show keys for Face, Emotion and Computer Vision
+
+6. Get a volenteer to do some faces
+
+7. Open `VideoFrameAnalysis` in Visual Studio
+ * Add `e0643cb1a6404b6bbfd7b6fb20f67963` for the face key
+ * Add `1dd1f4e23a5743139399788aa30a7153` for the emotion key
+ * Add `382f5abd65f74494935027f65a41a4bc` for the computer vision key
+ * Set to call api every 1 seconds
+ * Save
+ * Start camera
+ * Cycle through modes (Faces = face api, Emotion = emotion api, Tags = computer vision)
