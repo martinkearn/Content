@@ -3,7 +3,7 @@ A deep dive demo fo all the APIs and mst of the function in the Cognitive Servie
 
 ### Pre Reqs
 * A good quality, portable web cam, set as the default camera
-* Clone https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/, add Face, Emotion and Computer Vision keys to app.config, set the 'LiveCameraSample' as the default project and run app at least once
+* Clone https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/, set the 'LiveCameraSample' as the default project and run app at least once
 * Visual Studio 2015
 
 ## Computer Vision > Analyse
@@ -42,4 +42,13 @@ Talking points
 
 3. Go to https://www.microsoft.com/cognitive-services/en-US/subscriptions to show keys for Face, Emotion and Computer Vision
 
-3. Open `VideoFrameAnalysis` in Visual Studio
+4. Get a volenteer to do some faces
+
+5. Open `VideoFrameAnalysis` in Visual Studio
+ * Add `e0643cb1a6404b6bbfd7b6fb20f67963` for the face key
+ * Add `1dd1f4e23a5743139399788aa30a7153` for the emotion key
+ * Add `382f5abd65f74494935027f65a41a4bc` for the computer vision key
+ * Set to call api every 1 seconds
+ * Save
+ * Start camera
+ * Cycle through modes (Faces = face api, Emotion = emotion api, Tags = computer vision)
