@@ -1,6 +1,8 @@
 # Cognitive Services Vision APIs
 A deep dive demo fo all the APIs and mst of the function in the Cognitive Serviecs Vision category
 
+Takes about 20 minutes.
+
 ### Pre Reqs
 * A good quality, portable web cam, set as the default camera
 * Clone https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/, set the 'LiveCameraSample' as the default project and run app at least once
