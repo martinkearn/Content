@@ -1,5 +1,5 @@
+# Key demos
 
-## MS Web Day
 ### JavaScript Task Runners
 
 [Building with Gulp in ASP.NET Core 1.0](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvSlMlMjBUYXNrJTIwUnVubmVycy9HdWxwJTIwd2l0aCUyMEFTUC5uZXQubWQ%3d)
@@ -24,6 +24,14 @@
 
 ***
 ### Machine Learning & Cognitive Services
+
+[Cognitive Vision Deep Dive](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0NvZ25pdGl2ZSUyMEluJTIwQWN0aW9uJTIwLSUyMFZpc2lvbiUyMERlZXAlMjBEaXZlLm1k)
+
+[Cognitive Speech Deep Dive](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0NvZ25pdGl2ZSUyMEluJTIwQWN0aW9uJTIwLSUyMFNwZWVjaCUyMERlZXAlMjBEaXZlLm1k)
+
+[Cognitive Language Deep Dive](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0NvZ25pdGl2ZSUyMEluJTIwQWN0aW9uJTIwLSUyMExhbmd1YWdlJTIwRGVlcCUyMERpdmUubWQ%3d)
+
+[Cognitive Knowledge Deep Dive](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0NvZ25pdGl2ZSUyMEluJTIwQWN0aW9uJTIwLSUyMEtub3dsZWRnZSUyMERlZXAlMjBEaXZlLm1k)
 
 [Better Parenting](http://flipscript.azurewebsites.net/home/viewer/aHR0cHM6Ly9naXRodWIuY29tL21hcnRpbmtlYXJuL0NvbnRlbnQvYmxvYi9tYXN0ZXIvRGVtb3MvTWFjaGluZSUyMExlYXJuaW5nJTIwYW5kJTIwQ29nbml0aXZlL0JldHRlciUyMFBhcmVudGluZy5tZA%3d%3d)
 
