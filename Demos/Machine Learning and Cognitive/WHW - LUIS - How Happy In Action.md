@@ -1,6 +1,7 @@
 # Web Hack Wednesday - LUIS - How Happy In Action
 This is the demo script for the first demo from the LUIS Web Hack Wednesday episode.
 
+## Demo HowHappy
 1. Open [HowHappy.co.uk](http://HowHappy.co.uk)
 
 2. Upload [a-justin-bieber-concert-summed-up-in-one-picture-21677-1283366665-16.jpg ](https://github.com/martinkearn/Content/raw/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/a-justin-bieber-concert-summed-up-in-one-picture-21677-1283366665-16.jpg)
