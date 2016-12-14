@@ -4,6 +4,7 @@ This is the demo script for the second demo from the LUIS Web Hack Wednesday epi
 ### Pre-Reqs
 * Pre-import the [How Happy Luis Model](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/How%20Happy.json) into your Luis Subscription
 
+## Explore Luis.AI
 1. Open [Luis.AI](https://www.luis.ai) and `edit` the HowHappy Model
 
 2. Intents
