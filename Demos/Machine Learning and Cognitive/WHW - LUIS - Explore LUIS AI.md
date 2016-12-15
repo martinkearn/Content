@@ -1,4 +1,4 @@
-# Web Hack Wednesday - LUIS - HExplore LUIS.AI
+# Web Hack Wednesday - LUIS - Explore LUIS.AI
 This is the demo script for the second demo from the LUIS Web Hack Wednesday episode.
 
 ### Pre-Reqs
