@@ -15,18 +15,13 @@ Right click > Open With Code
 
 Create Index.html
 
-Copy this basic code to the HTML doc
+Copy this basic code to the HTML doc (or use the `Lorum` extension in VS Code
 ```
-<h1></h1>
-<p></p>
-<h2></h2>
-<p></p>
+<h1>Sit minim ad ex qui consectetur adipisicing nisi reprehenderit quis Lorem et irure tempor laborum.</h1>
+<p>Lorem do non ea mollit nulla adipisicing voluptate commodo deserunt. Eiusmod sit id eiusmod tempor qui esse commodo duis dolor in culpa sint. Occaecat aliqua deserunt fugiat proident magna consectetur nisi irure. Dolore non eiusmod nostrud magna elit. Pariatur ad anim pariatur velit anim reprehenderit culpa commodo esse. Sit labore magna incididunt Lorem est sunt fugiat commodo anim sit. Veniam dolore enim officia sit nisi dolor.</p>
+<h2>Labore laboris ad veniam nostrud.</h2>
+<p>Exercitation magna adipisicing cillum labore pariatur nisi aliquip ullamco veniam velit culpa. Adipisicing ea sint adipisicing ea aliquip minim velit minim ullamco sunt. Dolor eiusmod adipisicing incididunt magna. Elit ex mollit proident do fugiat duis tempor nulla ex aliqua veniam aliqua. Culpa minim mollit eu do aliquip.</p>
 ```
-
-Use the Lorem extension to add some html
-* Place cursor in `H1`
-* F1 > type 'Lorem' > 'Insert a line'
-* Populate the full code with lines and paragraphs as appropriate
 
 Create a folder called 'CSS'
 
