@@ -4,8 +4,7 @@ In this demo, we'll create a very simple font-end website that uses Gulp
 ### Pre Reqs
 * NPM installed
 * Visual Studio Code installed
-* VSC Lorem extension installed
-* Have the snippets open
+* Have the snippets open in notepad or the VS code snippet files imported
 * Gulp installed globally: `npm install -g gulp`
 
 ## Setup a project
