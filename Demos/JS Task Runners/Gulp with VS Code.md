@@ -1,4 +1,3 @@
-
 # Gulp with VS Code
 In this demo, we'll create a very simple font-end website that uses Gulp
 
@@ -7,6 +6,7 @@ In this demo, we'll create a very simple font-end website that uses Gulp
 * Visual Studio Code installed
 * VSC Lorem extension installed
 * Have the snippets open
+* Gulp installed globally: `npm install -g gulp`
 
 ## Setup a project
 Create a folder on the local disk
