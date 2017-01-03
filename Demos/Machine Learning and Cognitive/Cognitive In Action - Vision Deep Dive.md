@@ -62,6 +62,15 @@ Takes about 20 minutes.
 
 4. Open Skype and Use Smart Thumbnails bot to resize `SmartCropping.jpg` to 400x100 and then 100x400 with smart cropping
 
+## Content Moderator
+1. Go to https://www.microsoft.com/cognitive-services/en-us/content-moderator
+
+2. Talk to each of the topics
+ * Image Moderation
+ * Text Moderation
+ * Video Moderation
+ * Human Review
+
 ## Emotion > Recognize Emotions in Images
 1. Go to https://www.microsoft.com/cognitive-services/en-us/emotion-api and scroll to the `Recognize Emotions in Images` section
 
