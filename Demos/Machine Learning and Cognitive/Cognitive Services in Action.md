@@ -22,19 +22,6 @@ The primary emotions here are:
 
 _This is what happens when you tell a three-year-old who has no respect for her father that she cannot have another piece of chocolate_
 
-## MyMoustache.net (optional)
-*Skip if time contsrained*
-
-_Built on the Face API_
-
-As the audience to a volunteer who wears a moustache.
-* If someone comes forward, take a photo using the Windows camera app
-* If no-one comes forward use [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Moustache1.jpg)
-
-Go to <https://www.mymoustache.net>
-
-Upload the photo and discuss results
-
 ## TwinsOrNot.net
 _This demo only really works for Martin Kearn because he apparently looks like Jake Gyllenhaal_
 
