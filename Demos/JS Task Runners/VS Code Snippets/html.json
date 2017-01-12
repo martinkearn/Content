@@ -1,0 +1,28 @@
+{
+/*
+	 // Place your snippets for HTML here. Each snippet is defined under a snippet name and has a prefix, body and 
+	 // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	 // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	 // same ids are connected.
+	 // Example:
+	 "Print to console": {
+		"prefix": "log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	}
+
+*/
+	 "html-basic-body": {
+		"prefix": "html-lorum-body",
+		"body": [
+			"<h1>Sit minim ad ex qui consectetur adipisicing nisi reprehenderit quis Lorem et irure tempor laborum.</h1>",
+			"<p>Lorem do non ea mollit nulla adipisicing voluptate commodo deserunt. Eiusmod sit id eiusmod tempor qui esse commodo duis dolor in culpa sint. Occaecat aliqua deserunt fugiat proident magna consectetur nisi irure. Dolore non eiusmod nostrud magna elit. Pariatur ad anim pariatur velit anim reprehenderit culpa commodo esse. Sit labore magna incididunt Lorem est sunt fugiat commodo anim sit. Veniam dolore enim officia sit nisi dolor.</p>",
+			"<h2>Labore laboris ad veniam nostrud.</h2>",
+			"<p>Exercitation magna adipisicing cillum labore pariatur nisi aliquip ullamco veniam velit culpa. Adipisicing ea sint adipisicing ea aliquip minim velit minim ullamco sunt. Dolor eiusmod adipisicing incididunt magna. Elit ex mollit proident do fugiat duis tempor nulla ex aliqua veniam aliqua. Culpa minim mollit eu do aliquip.</p>"
+		],
+		"description": "Creates a basic Lorum Ipsum body with a H1 and H2"
+	}
+}
