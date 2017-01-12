@@ -53,7 +53,7 @@ Examine usage schema
 * API Ref > Upload a usage file
 
 ## Create a project
-Go to `Recommendation UI (Beta)`
+Go to `Recommendation UI (Beta)` on the Recommendatiosn API website
 
 Login using the api key
 
@@ -66,4 +66,46 @@ Create `Recommendations build` and note Build ID
 Create `FBT build` and note Build ID
 
 _The builds will take a while so leave them running_
+
+## Examine the API
+Navigate to `API reference` on the Recommendations API website.
+
+Look at `Get item-to-item recommendations`
+* For regular item-to-item recommendations and FBT
+
+Look at `Get user-to-item recommendations`
+* For personalised item recommendations and FBT
+
+Click on `SDK` from the Recommendations API website
+* This apps covers build and catalog management which represents most of the other API functions
+
+## Use the API test console
+Go to `API Reference > Get Item to item recommendation > Open API Testing Console`
+
+Use these `Query parameters`
+* Model ID = 61b5f30d-de8a-4a9c-b026-058081095ef9 (from recommendations ui)
+* itemIds = 20442203 (from catalog text file)
+* numberOfResults = 5
+* minimalScore = 0
+* buildId = 1600480 (from recommendations UI - default to active)
+* Final URI: https://westus.api.cognitive.microsoft.com/recommendations/v4.0/models/61b5f30d-de8a-4a9c-b026-058081095ef9/recommend/item?itemIds=20442203&numberOfResults=5&minimalScore=0&buildId=1600480
+
+Use these `Headers`
+* Ocp-Apim-Subscription-Key = 48905f53e07a46138cc413cd04efb325 (API key)
+
+Look for the `200/OK` result
+
+Change the existing request to FBT by changing the `Build ID` query paremeter to `1600485`
+
+## Inspect the Books App
+Run and use the books web app via Visual Studio
+
+Look through code of app
+* Books repository to load CSV. 
+    * Uses .net core DI repository model
+* Recommendations repository
+    * GetITIItems - helper for standard HttpClient call using the ITI build id from app settings
+    * GetFBTItems - helper for standard HttpClient call using the FBT build id from app settings
+
+
 
