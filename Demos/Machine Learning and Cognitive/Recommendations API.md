@@ -51,3 +51,19 @@ Examine catalog schema
 		
 Examine usage schema
 * API Ref > Upload a usage file
+
+## Create a project
+Go to `Recommendation UI (Beta)`
+
+Login using the api key
+
+Create a new project and note `Model ID`
+
+Upload catalog & usage files
+
+Create `Recommendations build` and note Build ID
+
+Create `FBT build` and note Build ID
+
+_The builds will take a while so leave them running_
+
