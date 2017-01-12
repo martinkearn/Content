@@ -45,6 +45,20 @@ Talking point
  * Query Auto-completion
  * Structured Query Evaluation - advanced search query
  * Attribute Histograms - visuals enabling faceted search experience
+ 
+## QandA Maker
+Talking point
+  * Create a FAQ service from existing content  
+
+1. Go to https://www.microsoft.com/cognitive-services/en-us/qnamaker
+
+2. Use the portal application under 'Bot Framework FAQ'
+ * Based on the doucmentation on https://qnamaker.ai/Documentation/faqs
+
+3. Talk to each function
+ * Extract questions and answers - automatically extracts questions and answers from content
+ * Test, train and publish - GUI based add, edit, move, publish
+ * Integrates with other APIs and solutions - Very easy to use the Bot Framework and LUIS to create QandA bots
   
 ## Recommendations API
 1. Go to https://www.microsoft.com/cognitive-services/en-us/recommendations-api
