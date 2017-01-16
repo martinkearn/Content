@@ -45,10 +45,24 @@ _It is not that bad though, at least Jake looks old too_
 Upload [Jake.jpg](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning/Supporting%20Files/Jake.jpg)
 * Result should be 43 (actual age 35)
 
-## Sentimental (optional)
-*Do not show for web day, this is covered in the hybrid talk*
+## LiveCameraSample Windows App
+_You can use any of the computer vision apis with video by uploading specific frames. This is a Windows UWP app that does exactly that_
 
-_To bring this all together I want to show an Office add-in that uses the Text Analytics API to do sentiment and key phrase analysis on text in Office documents. The add-in is called 'Sentimental' and you can get it from the [Office Store](https://store.office.com/sentimental-WA104379510.aspx?assetid=WA104379510&sourcecorrid=755ae580-2491-436f-8471-7888c38149d7&searchapppos=0)_
+Open Visual Studio > VideoFrameAnalysis solution
+
+Run the app
+
+Start camera
+
+Cycle through all modes:
+* Faces: Gender, age and camera angle
+* Emotions: Emotion
+* Emotion with face detect: (need to research what this does)
+* Tags: Uses Computer Vision api to tag the image (show it several random objects)
+* Celebrities: Point camera at the Celebs.pdf
+
+## Sentimental
+_This is an Office add-in that uses the Text Analytics API to do sentiment and key phrase analysis on text in Office documents. The add-in is called 'Sentimental' and you can get it from the [Office Store](https://store.office.com/sentimental-WA104379510.aspx?assetid=WA104379510&sourcecorrid=755ae580-2491-436f-8471-7888c38149d7&searchapppos=0)_
 
 Open Excel
 
