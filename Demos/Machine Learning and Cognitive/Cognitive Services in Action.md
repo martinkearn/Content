@@ -4,8 +4,11 @@ This demo shows some of the capabilities of Cognitive Services by using the live
 
 ### Pre-reqs
 * Have easy access to the supporting files folder
-* Ideally a machine with a webcam
+* A high quality webcam on a cable
 * The camera app open
+* Celebs.pdf open
+* Picture of Madison open
+* Props for computer vision api: Stuffed Monkey, Scissors, Coffee Cup, Phone
 
 ## Emotion API
 Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
@@ -58,7 +61,7 @@ Cycle through all modes:
 * Faces: Gender, age and camera angle
 * Emotions: Emotion
 * Emotion with face detect: (need to research what this does)
-* Tags: Uses Computer Vision api to tag the image (show it several random objects)
+* Tags: Uses Computer Vision api to tag the image (show it props like stuffed teddy, scissors, coffee cup)
 * Celebrities: Point camera at the Celebs.pdf
 
 ## Sentimental
