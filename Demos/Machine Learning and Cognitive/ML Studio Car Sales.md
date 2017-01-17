@@ -102,7 +102,7 @@ Point out API key
 
 Click `Request/response` to see API help page with endpoint inputs/outputs and sample code
 
-Request/Response > Test (preview)
+Click `Test (preview)` and apply the folloiwng data
 * make = `audi`
 * fuel = `diesel`
 * doors =  `four`
@@ -112,5 +112,6 @@ Request/Response > Test (preview)
 * engine-size = `150`
 * bhp = `150`
 * mpg = `55`
-* price = `21500`
+* price = `23000`
 * Observe scored label is £20,914
+    * We know the model is right because it is an Audi and therefore it is overpriced
