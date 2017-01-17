@@ -67,7 +67,7 @@ Go to `API Reference > Get Item to item recommendation > Open API Testing Consol
     * Used for item-to-item and FBT recommendations
 
 Use these `Query parameters`
-* Model ID = 61b5f30d-de8a-4a9c-b026-058081095ef9 (from recommendations ui)
+* Model ID = bb2afe4c-e122-47ab-b739-da2004043481 (from recommendations ui)
 * itemIds = 20442203 (from catalog text file)
 * numberOfResults = 5
 * minimalScore = 0
@@ -75,7 +75,7 @@ Use these `Query parameters`
 * Final URI: https://westus.api.cognitive.microsoft.com/recommendations/v4.0/models/61b5f30d-de8a-4a9c-b026-058081095ef9/recommend/item?itemIds=20442203&numberOfResults=5&minimalScore=0&buildId=1600480
 
 Use these `Headers`
-* Ocp-Apim-Subscription-Key = 48905f53e07a46138cc413cd04efb325 (API key)
+* Ocp-Apim-Subscription-Key = 2ac6eeb97db243c6a735797b1b396308 (API key)
 
 Look for the `200/OK` result
 
