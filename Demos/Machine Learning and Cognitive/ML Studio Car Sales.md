@@ -6,6 +6,7 @@ Time: Approx 10 minutes
 
 ### Pre Reqs
 * Have `Car price data.csv` avaliable. A modified version of one of the Azure sample data sets
+* Have a printed version of ![ML Car Sales Finished Experiment](https://github.com/martinkearn/Content/tree/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/ML Car Sales Finished Experiment.png "ML Car Sales Finished Experiment")
 
 ## Create an experiment and load data
 Sign into https://studio.azureml.net
@@ -20,11 +21,12 @@ Visualize the dataset (Right-click the output port > Visualise)
 
 ## Preproces data
 
-Remove the `normalized-losses` column
+Remove the `normalized-losses` and `weight` columns
 * Drag the Data Transformation > `Select Columns in Dataset` module
 * Connect to the `Car price data.csv`
 * `Launch column selector`
 * With Rules > All Columns > Exclude `normalized-losses`
+* With Rules > All Columns > Exclude `weight`
 
 Clean data by removing rows with missing values
 * Drag the Transforms > `Clean missing data` module
@@ -33,28 +35,19 @@ Clean data by removing rows with missing values
 
 Run the experiment and observe green ticks
 
-## Define features
-Defining features is a way of filtering the data to focus on the features (the attributes of a car in our case) that are of interest.
-
-Exclude weight
-* Drag the Data Transformation > `Select Columns in Dataset` module
-* Connect to the left port of `Clean missing data`
-* `Launch column selector`
-* With Rules > No Columns > Include > `make fuel doors body drive engine-size bhp mpg price` (everything apart from weight)
-
 ## Choose an ML algorithm
 Now we'll apply an ML algorithm to our cleaned, filtered data
 
 Split training and testing data into two sections
-* Drag the Data Transformation > Sample & Split > Split Data module
-* Connect to output of `Select Columns in Dataset`
+* Drag the Data Transformation > Sample & Split > `Split Data` module
+* Connect to output of `Clean Missing Data`
 * `Fraction of rows in the first output dataset` to 0.75
 
 Run the experiment (this allows the cleaning modules to pass definitions down the workflow)
 
 Add Linear Regression algorithm
 * Drag the Machine Learning > Initialize Model > Regression > `Linear Regression` module
-* PLace next to the `split data` module
+* PLace next to the `Split data` module
 
 Train the model
 * Drag the Machine Learning > Train > `Train Model` module
