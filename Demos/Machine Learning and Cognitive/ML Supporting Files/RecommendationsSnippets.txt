@@ -1,0 +1,9 @@
+Model ID: bb2afe4c-e122-47ab-b739-da2004043481
+
+'Lion the Witch and the Wardrobe' Item ID: 20442203
+
+Recommendation Build ID: 1601293
+
+FBT Build ID: 1601294	
+
+API Key: 2ac6eeb97db243c6a735797b1b396308
