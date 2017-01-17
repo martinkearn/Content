@@ -6,7 +6,7 @@ Time: Approx 10 minutes
 
 ### Pre Reqs
 * Have `Car price data.csv` avaliable. A modified version of one of the Azure sample data sets
-* Have a printed version of ![ML Car Sales Finished Experiment.png](https://github.com/martinkearn/Content/tree/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/ML Car Sales Finished Experiment.png)
+* Have a printed version of ![ML Car Sales Finished Experiment.png](https://github.com/martinkearn/Content/blob/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/ML%20Car%20Sales%20Finished%20Experiment.PNG)
 
 ## Create an experiment and load data
 Sign into https://studio.azureml.net
