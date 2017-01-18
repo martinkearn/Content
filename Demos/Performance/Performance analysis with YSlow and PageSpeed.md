@@ -54,11 +54,11 @@ Examine suggestions
 
 Show Mobile and Desktop tabs
 
-## Babble Kids
-http://babblekids.co.uk
-* Full ecommerce ASP.net MVC 5 Database driven via EF on shared Azure instance
+## MartinK.me
+http://martink.me
+* ASP.net Core 1.0 MVC Database driven via EF on shared Azure instance
 * Images, Responsive (big DOM), JavaScript
-* Google, Clicky and Azure analytics
+* Google analytics
 
 Run YSlow
 
