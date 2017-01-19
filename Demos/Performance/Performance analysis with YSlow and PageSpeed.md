@@ -1,4 +1,3 @@
-
 # Performance analysis with YSlow and PageSpeed
 A demo that shows how to use the YSlow and PageSpeed tools
 
@@ -10,7 +9,7 @@ A demo that shows how to use the YSlow and PageSpeed tools
 ## Open Chrome
 Open chrome to a website
 * Ask the audience
-* http://www.lingscars.com/
+8* http://www.lingscars.com/
 * http://www.microsoft.com/en-gb/
 	
 ## Web Dev CheckList
@@ -21,7 +20,6 @@ Open the 'more info' site
 Show the ASP.net section
 
 Show the ASP.net > Performance section
-
 ## YSlow
 Use the add-in to run a test
 
@@ -54,21 +52,22 @@ Examine suggestions
 
 Show Mobile and Desktop tabs
 
-## Babble Kids
-http://babblekids.co.uk
-* Full ecommerce ASP.net MVC 5 Database driven via EF on shared Azure instance
+## MartinK.me
+http://martink.me
+* ASP.net Core 1.0 MVC Database driven via EF on shared Azure instance
 * Images, Responsive (big DOM), JavaScript
-* Google, Clicky and Azure analytics
+* Google analytics
 
 Run YSlow
 
 Grade
-* A, 99/100
-* Google analytics causes 99 instead of 100 because of its frequent cache expiration
+* A, 98/100
+* Google analytics causes because of its frequent cache expiration
+* Cookie free domains because i coudl not be bothered setting up a subdomain
 * Started at 73 and spent 4 hours on it
 
 Components
-* 2 JS, 1 CSS (through bundling)
+* 1 JS, 1 CSS (through bundling)
 
 Stats
-* Only 2 requests / 5.9k on primed cache
+* Only 2 requests / 9.5k on primed cache
