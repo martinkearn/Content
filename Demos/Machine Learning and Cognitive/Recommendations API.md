@@ -3,24 +3,10 @@ This demo will show how to work with the Cognitive Recommendations API.
 
 ### Pre-reqs
 * Edge
-    * Amazon.co.uk - not signed in
     * Cognitive Home
 * Notepad open with API key in it: 2ac6eeb97db243c6a735797b1b396308
 * `books_catalog_large.txt` and `books_usage_large.txt` avaliable
 * Visual Studio open with this repo: https://github.com/martinkearn/Cognitive-Samples/tree/master/Recommendations/ASP.NET%20Core%201.0%20C%23
-
-## Show Recommendations on Amazon.co.uk
-Go to Amazon.co.uk
-
-Search for `Forza Horizon 3 (xbox one)`
-
-Show `Frequently bought together`
-
-Show `Customers who bought this item also bought` - we called this "item to item recommendations"
-
-Login to Amazon.co.uk
-
-Go to `Home > Related to products you viewed > More > Your recently viewed items and featured recommendations`
 
 ## Review Cognitive Recommendations website
 Open the Cognitive Services website
@@ -36,12 +22,6 @@ Talk to
 Examine our books catalog file `books_catalog_large.txt`
 
 Examine our books usage file `books_usage_large.txt`
-
-Examine catalog schema
-* API Ref > Upload a catalog file to a model
-		
-Examine usage schema
-* API Ref > Upload a usage file
 
 ## Examine Recommendations UI project
 Go to `Recommendation UI (Beta)` on the Recommendations API website
