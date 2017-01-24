@@ -26,17 +26,17 @@ Examine our books usage file `books_usage_large.txt`
 ## Examine Recommendations UI project
 Go to `Recommendation UI (Beta)` on the Recommendations API website
 
-Login using the api key: 2ac6eeb97db243c6a735797b1b396308
+Login using the api key: `2ac6eeb97db243c6a735797b1b396308`
 
 Open `Books` project
 
 Explore the UI
-    * Catalog upload
-    * Usage upload
-    * FBT Build with ID
-    * Score build
-    * Recommendations build with ID
-    * Model ID
+* Catalog upload
+* Usage upload
+* FBT Build with ID
+* Score build
+* Recommendations build with ID
+* Model ID
 
 _Uploads and builds take a long time so we won't do this in the demo_
 
@@ -44,7 +44,6 @@ _Uploads and builds take a long time so we won't do this in the demo_
 Navigate to `API reference` on the Recommendations API website.
 
 Go to `API Reference > Get Item to item recommendation > Open API Testing Console`
-    * Used for item-to-item and FBT recommendations
 
 Use these `Query parameters`
 * Model ID = bb2afe4c-e122-47ab-b739-da2004043481 (from recommendations ui)
@@ -60,9 +59,6 @@ Use these `Headers`
 Look for the `200/OK` result
 
 Change the existing request to FBT by changing the `Build ID` query paremeter to `1601294`
-
-Go back to the `API reference` on the Recommendations API website
-    * All other functions to do with uploading new data and managing builds
 
 ## Inspect the Books App and Code
 Go to http://recommendationsapi.azurewebsites.net/
