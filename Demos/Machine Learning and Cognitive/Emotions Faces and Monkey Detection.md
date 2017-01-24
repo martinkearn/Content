@@ -1,20 +1,27 @@
 
-# Cognitive Services in Action
+# Emotions, Faces and Monkey Detection
 This demo shows some of the capabilities of Cognitive Services by using the live demo site and some of the spin-off sites created to show-case the APIs
 
 ### Pre-reqs
 * Have easy access to the supporting files folder
 * A high quality webcam on a cable
 * The camera app open
-* Celebs.pdf open
 * Picture of Madison open
-* Props for computer vision api: Stuffed Monkey, Scissors, Coffee Cup, Phone
+* Props for computer vision api: Xamarin Stuffed Monkey, Pens, Coffee Cup, Phone etc
+
+## Computer Vision API
+Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
+
+Show built-in pictures
+
+Take photo of lecturn, upload it, talk to results
+
+_More on this later_
 
 ## Emotion API
 Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
 
 Go to https://www.microsoft.com/cognitive-services/en-us/emotion-api
-* or just search for "Microsoft Cognitive" and go from there
 
 Scroll down the Emotion API page and use the live demo section to analyse photo
 
@@ -61,7 +68,7 @@ Cycle through all modes:
 * Faces: Gender, age and camera angle
 * Emotions: Emotion
 * Emotion with face detect: (need to research what this does)
-* Tags: Uses Computer Vision api to tag the image (show it props like stuffed teddy, scissors, coffee cup)
+* Tags: Uses Computer Vision api to tag the image (show it props like Xamarin stuffed money, pens, coffee cup)
 * Celebrities: Point camera at the Celebs.pdf
 
 ## Sentimental
