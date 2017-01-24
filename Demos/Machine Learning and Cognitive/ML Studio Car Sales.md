@@ -14,40 +14,44 @@ Datasets > New > From Local File >  `Car price data.csv`
 
 Experiments > New > Black experiment
 
+## Add data set
+
 Drag `Car price data.csv` to the canvas (Saved Datasets > My Datasets)
 
 Visualize the dataset (Right-click the output port > Visualise)
 
-## Pre-process data
+## Remove the normalized-losses column
+Drag the Data Transformation > `Select Columns in Dataset` module
 
-Remove the `normalized-losses` column
-* Drag the Data Transformation > `Select Columns in Dataset` module
-* Connect to the `Car price data.csv`
-* `Launch column selector`
+Connect to the `Car price data.csv`
+
+Launch `column selector`
 * With Rules > All Columns > Exclude `normalized-losses`
 
-Clean data by removing rows with missing values
-* Drag the Transforms > `Clean missing data` module
-* Connect to the `Select Columns in Dataset` module
-* Cleaning mode = "Remove entire row"
+## Clean data - remove rows
+Drag the Transforms > `Clean missing data` module
+
+Connect to the `Select Columns in Dataset` module
+
+Cleaning mode = "Remove entire row"
 
 Run the experiment and observe green ticks
 
-## Choose an ML algorithm
-Now we'll apply an ML algorithm to our cleaned, filtered data
+## Split data
+Drag the Data Transformation > Sample & Split > `Split Data` module
 
-Split training and testing data into two sections
-* Drag the Data Transformation > Sample & Split > `Split Data` module
-* Connect to output of `Clean Missing Data`
-* `Fraction of rows in the first output dataset` to 0.75
+Connect to output of `Clean Missing Data`
+
+`Fraction of rows in the first output dataset` to 0.75
 
 Run the experiment (this allows the cleaning modules to pass definitions down the workflow)
 
-Add Linear Regression algorithm
-* Drag the Machine Learning > Initialize Model > Regression > `Linear Regression` module
-* PLace next to the `Split data` module
+## Add Linear Regression
+Drag the Machine Learning > Initialize Model > Regression > `Linear Regression` module
 
-Train the model
+PLace next to the `Split data` module
+
+## Train the model on Price
 * Drag the Machine Learning > Train > `Train Model` module
 * Connect the left input to `Linear regression`
 * Connect the right input to the left output of `Split Data`
@@ -56,24 +60,28 @@ Train the model
 
 Run the experiment. This will use 75% of our data to train the model
 
-## Predict prices
+## Score the model
 We now need to score out model by comparing the model we've train against the remaining 25% of data to see how accurate the price prediction is
 
-Score the model
-* Drag the Machine Learning > Score > `Score Model` module
-* Connect the left input to `Train Model`
-* Connect the right input to right output of `Split data`
+Drag the Machine Learning > Score > `Score Model` module
+
+Connect the left input to `Train Model`
+
+Connect the right input to right output of `Split data`
 
 Run the experiment
 
 Visualise the output of `Score Model`
 * Compare `price` to `scored label` (the predicted price given other data)
 
-Evaluate the model
-* Drag the Machine Learning > Evaluate > `Evaluate Model` module
-* Connect the left input to `Score model`
-* Run the experiment
-* Visualise the output and observe error rates
+## Evaluate the model
+Drag the Machine Learning > Evaluate > `Evaluate Model` module
+
+Connect the left input to `Score model`
+
+Run the experiment
+
+Visualise the output and observe error rates
 
 NOTE
 * Mean Absolute Error (MAE): The average of absolute errors (an error is the difference between the predicted value and the actual value).
