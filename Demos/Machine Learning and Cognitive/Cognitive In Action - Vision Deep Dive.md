@@ -1,16 +1,15 @@
 # Cognitive Services Vision APIs
-A deep dive demo fo all the APIs and mst of the function in the Cognitive Serviecs Vision category
+A deep dive demo of all the APIs and most of the function in the Cognitive Services Vision category
 
 Takes about 20 minutes.
 
 ### Pre Reqs
 * A good quality, portable web cam, set as the default camera
-* Clone https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/, set the 'LiveCameraSample' as the default project and run app at least once
-* Visual Studio 2015
+* Computer Vision 'LiveCameraSample' app built and pinned to Start.
+* Props for computer vision api: Xamarin Stuffed Monkey, Pens, Coffee Cup, Phone etc
 
 ### Screens and apps
 * Edge > Cognitive, HowHappy, Twins, HowOld
-* Visual Studio > https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/
 * Windows Camera app
 * Modern skype app
 

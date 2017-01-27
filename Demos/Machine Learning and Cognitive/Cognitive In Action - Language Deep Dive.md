@@ -1,5 +1,5 @@
 # Cognitive Services Language APIs
-A deep dive demo of all the APIs and mst of the function in the Cognitive Services Language category
+A deep dive demo of all the APIs and most of the functions in the Cognitive Services Language category
 
 Takes about 12 minutes, including the LUIS video.
 
@@ -79,7 +79,7 @@ Takes about 12 minutes, including the LUIS video.
  
 ## Web Language Model
 Talking points:
- * Language models trained on massive amount sof web data
+ * Language models trained on massive amounts of web data
  * Trained on Bing en-US data
  
 1. Scroll down the list an talk to each feature
