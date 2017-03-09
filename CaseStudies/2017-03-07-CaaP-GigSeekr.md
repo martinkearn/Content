@@ -144,8 +144,19 @@ a user might follow a flow like this
 8.  The flow going go on like this endlessly with no clear exit point
 
 There was a requirement to support these endless flows between the 6 primary
-logical locations listed below: \* Artist \* List of Artists \* Event \* List of
-Events \* Venue \* List of Venues
+logical locations listed below: 
+
+-   Artist
+
+-   List of Artists
+
+-   Event
+
+-   List of Events
+
+-   Venue
+
+-   List of Venues
 
 Each of these logical locations has their own list of LUIS intents which should
 be supported; some of which are unique to a logical location (for example "show
@@ -236,7 +247,7 @@ To address this problem, we created our own ‘Location’ entity which we train
 with a phrase list of the top 1000 towns and cities in the UK (sorted by
 population).
 
-You can download the CSV file we used for the phrase list here.
+You can download the CSV file we used for the phrase list which contains the top 1000 UK place names [here](https://raw.githubusercontent.com/martinkearn/Content/master/CaseStudies/media/Top1000UKCities.txt).
 
 ### Proactive notifications from an external service
 
