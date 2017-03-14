@@ -1,6 +1,6 @@
 ---
 date: "2017-03-07"
-title: GigSeekr - live music discovery via a bot
+title: "GigSeekr: Live music discovery via a bot"
 author: Martin Kearn
 ---
 
@@ -53,41 +53,41 @@ Using social media and conversational-UI was a natural fit for the sort of
 queries that GigSeekr want to allow users to make. Before the hack, GigSeekr
 planned to tackle the following scenarios.
 
-Search for an artist
+-   Search for an artist
 
--   Search for an artist \> Artist details
+    -   Search for an artist \> Artist details
 
--   When are they next performing
+    -   When are they next performing
 
--   Where are they next performing
+    -   Where are they next performing
 
--   When are they next performing near me
+    -   When are they next performing near me
 
--   Search for similar artists
+    -   Search for similar artist
 
-Search for a location
+-   Search for a location
 
--   Locations near me \> Location details with address etc
+    -   Locations near me \> Location details with address etc
 
--   Artists performing near me with a time frame i.e. "which bands are playing
-    near me this weekend"
+    -   Artists performing near me with a time frame i.e. "which bands are
+        playing near me this weekend”
 
-Proactive notifications of favourite artists
+-   Proactive notifications of favorite artists
 
--   Tell me when 'artist' are playing near me next \> bot proactively alerts
-    user
+    -   Tell me when 'artist' are playing near me next \> bot proactively alerts
+        user
 
-Bot Plumbing
+-   Bot Plumbing
 
--   Implementation of a help dialog
+    -   Implementation of a help dialog
 
--   Implementation of a triage dialog and routing between dialogs
+    -   Implementation of a triage dialog and routing between dialogs
 
-Cognitive Services
+-   Cognitive Services
 
--   LUIS for natural language processing, intent and entity extraction
+    -   LUIS for natural language processing, intent and entity extraction
 
--   Recommendation API to make artist recommendations
+    -   Recommendation API to make artist recommendations
 
 Solution and Steps
 ------------------
@@ -144,7 +144,7 @@ a user might follow a flow like this
 8.  The flow going go on like this endlessly with no clear exit point
 
 There was a requirement to support these endless flows between the 6 primary
-logical locations listed below: 
+logical locations listed below:
 
 -   Artist
 
@@ -195,16 +195,16 @@ commands, both base ones and ones that are specific to the logical location.
 
 The search LUIS model has the following entities:
 
--   Artist: i.e. Metallica, Muse, Frank Turner
+-   **Artist**: i.e. Metallica, Muse, Frank Turner
 
--   ArtistType: i.e. Band, Solo Artist, Singer/Songwriter
+-   **ArtistType**: i.e. Band, Solo Artist, Singer/Songwriter
 
--   Genre: i.e Pop, Folk, Country
+-   **Genre**: i.e Pop, Folk, Country
 
--   Location: i.e. London, Birmingham, Glasgow (see more on why this exists in
-    the LUIS Geography section)
+-   **Location**: i.e. London, Birmingham, Glasgow (see more on why this exists
+    in the LUIS Geography section)
 
--   Venue: i.e. Cavern Club, The Live Lounge, The Deaf Institute
+-   **Venue**: i.e. Cavern Club, The Live Lounge, The Deaf Institute
 
 During the initial testing for the LUIS, we struggled to have LUIS differentiate
 between entities with any usable accuracy, especially artist and venue as many
@@ -228,30 +228,75 @@ https://convert.town/column-to-comma-separated-list
 LUIS has a range of built-in entities for common things such as DateTime,
 Currency, Ordinals etc. One of the built-in entities which we wanted to use was
 Geography which is supposed to be able to identify names of towns, cities,
-postal code (zip codes) and lat//long coordinates.
+postal code (zip codes) and latitude and longitude coordinates.
 
 Geography was key to GigSeekr’s requirement in order to support the
 location-based queries such as
 
--   Who is playing in Worcester tonight
+-   “Who is playing in Worcester tonight”
 
--   Are there any singer/songwritiers in Birmingham on Saturday
+-   “Are there any singer/songwritiers in Birmingham on Saturday”
 
 Upon testing the built-in Geography entity, we found that it worked well for USA
 locations and major cities such as London, but failed to recognize even large UK
 towns and cities such as Leeds, Oxford, Bristol. This meant that the built-in
 Geography entity was useless for GigSeekr because we needed to be able to
-identify even small towns and villages.
+identify even small towns and villages within the UK.
 
 To address this problem, we created our own ‘Location’ entity which we trained
 with a phrase list of the top 1000 towns and cities in the UK (sorted by
 population).
 
-You can download the CSV file we used for the phrase list which contains the top 1000 UK place names [here](https://raw.githubusercontent.com/martinkearn/Content/master/CaseStudies/media/Top1000UKCities.txt).
+You can download the CSV file we used for the phrase list which contains the top
+1000 UK place names
+[here](https://raw.githubusercontent.com/martinkearn/Content/master/CaseStudies/media/Top1000UKCities.txt).
 
 ### Proactive notifications from an external service
 
-### Recommendation API training
+### Recommendation API: Representing ratings as usage
+
+Recommendations is a core concept in GigSeekr’s vision for live music discovery.
+Having tried various approaches to recommendations, including a custom Machine
+Learning experiment, GigSeekr were keen to evaluate the [Microosft Cognitive
+Services Recommendations
+API](https://www.microsoft.com/cognitive-services/en-us/recommendations-api) to
+see whether it could provide artist-to-artist recommendation to support bot
+utterances such as “Show me artists like Metallica”.
+
+GigSeekr have lots of data on artists and how users have interacted with
+artists, including:
+
+-   **User Favorite data from Pepper**: Within the [Pepper
+    app](http://www.pepper.so/), users have an ability to mark artists as
+    favorite with up to 3 stars (1 being the lowest, 3 the highest)
+
+-   **Web Analytics**: The web analytics show where users have visited artist
+    profile pages.
+
+The Recommendations API takes a catalog of items (artists in our case) and usage
+as a flat CSV file that maps a unique user ID to a unique user ID. The first
+challenge with this was how to represent the 1-3 star rating in Pepper as a flat
+list of usage events in the usage file required by the Recommendation API
+because a 3 star rating is clearly a stronger recommendation that 1 star.
+
+To resolve this, we took the approach that a 3 star rating meant 3 usage events,
+1 star meant 1 usage event etc. We then created a very simple Windows Console
+application to take the Pepper data and convert it to a CSV in a suitable format
+for the Recommendations API. Where a user had given an artist 3 stars in Pepper,
+we simple represented that as three distinct usage events, effectively inserting
+the same row three times.
+
+### Recommendation API: Defining catalog features
+
+Once the catalog and usage files had been uploaded to the Recommendations API,
+we could get results, but only for the top 2% of the catalog. To resolve this,
+we started looking to define features. Feature are additional data points in the
+catalog which the machine learning processes could use to differentiate between
+artists.
+
+The obvious example was artist genre. GigSeekr maintain a list of 22 music
+genres (Rock, Blues, Pop etc) and each artist has 18 point which can be split
+amongst suitable genres.
 
 ### Getting the user's location
 
