@@ -1,7 +1,14 @@
 ---
-date: "2017-03-07"
-title: "GigSeekr: Live music discovery via a bot"
-author: Martin Kearn
+layout: post
+title:  "GigSeekr: Live Music Discovery via a Bot"
+author: "Martin Kearn"
+author-link: "http://martink.me"
+date:   2017-03-15
+categories: [Conversations as a Platform, Cognitive Services]
+color: "blue"
+excerpt: GigSeekr used the Microsoft Bot Framework and Cognitive Services to build a live music discovery bot
+language: [English]
+verticals: [Consumer Products & Services]
 ---
 
 During Feburary 2017, Microsoft worked with GigSeekr to produce a bot that would
@@ -30,8 +37,7 @@ Core Team
 
 -   Lilian Kasem (\@liliankasem)
 
-Customer profile
-----------------
+## Customer Profile
 
 [GigSeeker](http://www.gigseekr.com/) is focussed on providing information about
 live music events & venues as well as artists performing within the UK and
@@ -251,8 +257,6 @@ You can download the CSV file we used for the phrase list which contains the top
 1000 UK place names
 [here](https://raw.githubusercontent.com/martinkearn/Content/master/CaseStudies/media/Top1000UKCities.txt).
 
-### Proactive notifications from an external service
-
 ### Recommendation API: Representing ratings as usage
 
 Recommendations is a core concept in GigSeekr’s vision for live music discovery.
@@ -286,7 +290,7 @@ for the Recommendations API. Where a user had given an artist 3 stars in Pepper,
 we simple represented that as three distinct usage events, effectively inserting
 the same row three times.
 
-### Recommendation API: Defining catalog features
+### Recommendation API: Defining Catalog Features
 
 Once the catalog and usage files had been uploaded to the Recommendations API,
 we could get results, but only for the top 2% of the catalog. To resolve this,
@@ -295,13 +299,29 @@ catalog which the machine learning processes could use to differentiate between
 artists.
 
 The obvious example was artist genre. GigSeekr maintain a list of 22 music
-genres (Rock, Blues, Pop etc) and each artist has 18 point which can be split
-amongst suitable genres.
+genres (Rock, Blues, Pop etc) and each artist has 18 points which can be split
+amongst suitable genres. For example some artists may have all 18 points on one
+genre and other may be more split.
 
-### Getting the user's location
+In order to use genre in the recommendations API, we needed to boil the data
+down to a primary genre which we could set as the category for the artist. We
+did this using a very simple Windows Console application which simply took the
+highest scoring genre and set that as the category.
 
-Conclusion
-----------
+The app turned this kind of data:
+
+`401,Blink-182,0,0,0,0,0,0,0,0,0,0,0,8,0,0,0,10,0,0,0`
+
+Into this:
+
+`401,Blink-182,Rock`
+
+Just this simple change made an improvement to the catalog and enabled
+recommendations for 6% of artists.
+
+Going forward, GigSeekr plan to add many more features to the artist catalog.
+
+## Conclusion
 
 GigSeekr have been able to make a great start with their bot and hope to have it
 avaliable via Skype, Facebook and Cortana shortly.
