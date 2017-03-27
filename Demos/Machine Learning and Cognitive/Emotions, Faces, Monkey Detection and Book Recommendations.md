@@ -84,7 +84,7 @@ Analyse
 
 Insert score and key phrases
 
-## How Happy
+## HowHappy.co.uk
 Show the main How Happy website in action
 * Take a photo of the audience and upload a photo of the crowd
 * Use the luis prompt to ask for other emotions
