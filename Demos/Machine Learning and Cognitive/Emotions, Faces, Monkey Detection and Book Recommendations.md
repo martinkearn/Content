@@ -1,5 +1,5 @@
 
-# Emotions, Faces and Monkey Detection
+# Emotions, Faces, Monkey Detection and Book Recommendations
 This demo shows some of the capabilities of Cognitive Services by using the live demo site and some of the spin-off sites created to show-case the APIs
 
 ### Pre-reqs
@@ -83,3 +83,43 @@ Write `I love Office, it rocks` in a cell
 Analyse
 
 Insert score and key phrases
+
+## How Happy
+Show the main How Happy website in action
+* Take a photo of the audience and upload a photo of the crowd
+* Use the luis prompt to ask for other emotions
+    * Who is the happiest one here
+    * Show me all the angry people
+    * Who is the 3rd most surprised person
+    * Show me the least happy person
+
+Explore the Luis Model
+* Go to https://www.luis.ai/ via the get started link
+* Explore the intents, entities
+* Review labels, show how entities are marked and the intent is labelled
+* Add a new utterance "who are the angry ones"
+* Train
+* Publish > Update published application
+* Use the Query to add a test query "who are the happy ones"
+
+Re-query the website
+* Who is the happiest one here
+* Show me all the angry people
+* Who is the 3rd most surprised person
+* Show me the least happy person
+
+Explain the results in more depth in context of the intents, entities and emotion api
+
+## Recommendations
+Open the Cognitive Services website
+
+Navigate to `Knowledge > Recommendations`
+
+Talk to
+* Frequently Bought Together (FBT) recommendations
+* Item to item recommendations. i.e., what amazon calls "Customers who liked this product also liked these other products"
+* Personalized user recommendations
+
+Go to http://recommendationsapi.azurewebsites.net/
+
+Use the app to explore books and their recommendations
