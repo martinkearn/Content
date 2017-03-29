@@ -35,7 +35,8 @@ The MacMillan website has a wide range of information about cancer and the
 services that Macmillan can offer. The website is backed up by a phone line
 which operates 9:00 \> 20:00 Monday-Friday.
 
-TO DO, get some visitor stats
+The website serves and average of 1.1 million unique users each month and an
+average of 4.4 million page views.
 
 There are problems associated with the current services:
 
@@ -92,6 +93,14 @@ MacMillan would also like to capture responses to the conversation and feed it
 through to CRM.
 
 There are three main interactions within the bot flow, they are as follows
+
+![MacMillan bot flow](media/c72b484105210a5a620f55af61832414.jpg)
+
+MacMillan bot flow
+
+MacMillan bot flow
+
+MacMillan bot flow
 
 ### What type of information?
 
@@ -165,6 +174,14 @@ on the entities and intent from LUIS and the choice from the initial ‘type of
 information’ dialog. This approach worked well and gave a high level of
 accuracy.
 
+Here are some example inputs to the Q&AMaker service:
+
+-   Breast Cancer Symptoms
+
+-   Brain Tumour Understanding
+
+-   Chemotherapy financial support
+
 There is a question about what value the Q&A maker service adds here as it is
 effectively being used as a knowledge base. There are several benefits:
 
@@ -183,8 +200,16 @@ Services QandA
 Maker](https://www.microsoft.com/cognitive-services/en-us/qnamaker) was used to
 generate a FAQ service based on website data.
 
-TO DO, have MacMillan provide a quote as to why they chose the bot framework and
-Microsoft vs other options
+The use of Microsoft technology was a natural and obvious choice for MacMillan
+...
+
+>   "We use a Microsoft stack at our core so the use of the Microsoft Bot
+>   Fraemwork and Microsoft Cognitive Services was a natural extension to our IT
+>   estate. As an architectural principle we are in favour of using
+>   software/platform-as-a-service as a first choice rather thanbuilding our own
+>   software. Both the Bot Framework and Cognitive Services gives us a great
+>   heads start with a very low cost of entry." Nick Palmer, Senior Applications
+>   Developer, MacMillan
 
 [Microsoft Cognitive Services Language Understanding Intelligent Service
 (LUIS)](https://www.microsoft.com/cognitive-services/en-us/luis-api/documentation/home)
@@ -193,9 +218,10 @@ handing off to the Q&A maker service.
 
 To Do: architecture diagram
 
-### LUIS Phrase List for Cancer Type
+### LUIS Phrase List for Improved Recognition
 
-### Q&A Maker for keyword search
+A Phrase List feature was used to increase the accuracy for LUIS’s capability to
+identify Cancer Types.
 
 Conclusion
 ----------
