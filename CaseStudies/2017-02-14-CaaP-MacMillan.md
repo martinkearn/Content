@@ -21,8 +21,7 @@ Core Team
 Partner Profile
 --------------
 
-MacMillan are a charity that provide information and support for people affectedby cancer. You can see more about their services at
-<https://www.macmillan.org.uk>
+MacMillan are a charity that provide information and support for people affectedby cancer. You can see more about their services at <https://www.macmillan.org.uk>
 
 Problem Statement
 -----------------
@@ -33,53 +32,37 @@ The website serves an average of 1.1 million unique users each month and an aver
 
 There are problems associated with the current services:
 
--   The phone line is an expensive operation. There would be significant cost
-    savings in offloading some of the phone line traffic to other, more cost
-    effective interfaces
+-   The phone line is an expensive operation. There are significant cost savings in offloading some of the phone line traffic to other, more cost-effective interfaces.
 
 -   The website is vast and users often have difficuty finding the right information. Users are often in a heightened emotional state when interacting with the website as they may have recently been diagnosed with cancer. The typical age of users is older than most website and users may be less comfortable navigating a large website
 
--   Many of the calls to the help desk result in agents directing the users to
-    the right place on the website.
+-   Many of the calls to the help desk result in agents directing the users to the right place on the website.
 
--   The phone line is only open 9:00 \> 20:00 Monday-Friday
+-   The phone line is only open 9:00 until 20:00 Monday-Friday
 
-MacMillan want to make it easier and quicker for users to access information
-when and how they need to. This includes making website information more
-discoverable and providing a backfill for times when the phone line is either
-closed or busy.
+MacMillan want to make it easier and quicker for users to access information when and how they need to. This includes making website information more discoverable and providing a backfill for times when the phone line is either closed or busy.
 
-MacMillan also want to make it easy for user to request a call from a human.
+MacMillan also want to make it easy for users to request a call back from a human.
 
-When users are using a non-human interface, Macmillan would like to do a human
-hand-off for scenarios that require it. For example if someone says "I really
-want to talk to someone", the interface should broker a conversation with a real
+When users are using a non-human interface, Macmillan would like to do a human hand-off for scenarios that require it. For example if someone says "I really want to talk to someone", the interface should broker a conversation with a real
 human.
 
 Solution and Steps
 ------------------
 
-The solution was a bot focussed on answering frequently asked questions and
-guiding people to the relevant part of the Macmillan website via a
-conversational user interface.
+The solution was a bot focussed on answering frequently asked questions and guiding people to the relevant part of the Macmillan website via a conversational user interface.
 
-The bot will help people find the information they are looking for by either
-providing information directly via the bot or by linking to the relevant place
-online.
+The bot will help people find the information they are looking for by either providing information directly via the bot or by linking to the relevant place online.
 
-The following quote explains why MacMillan see bots as an importnat new channel for their users ...
+The following quote explains why MacMillan see bots as an important new channel for their users ...
 
 >   "The Macmillan web site contains a huge range of information and resources to support people affected by cancer; however the specific resources that are most relevant to an individual can take time to navigate to and find. We have evidence that significant numbers of people will instead call our Macmillan Support Line (MSL), that operates between 9AM and 8PM, Monday to Friday, and ask for the information that way instead. We therefore see a natural opportunity to leverage 'Conversation as a Platform' technology, to allow people to 'ask' us for the information they require - both as a way to triage requests that may otherwise end up coming through to MSL, and to offer a more guided and natural search experience for people during the hours when the Support Line is not available. A combination of chat bot and AI technolgies such as natural language recognition should allow us to achieve this."
 <cite>Nick Palmer, Senior Applications Developer, MacMillan</cite>
 
-The focus area in terms of source information will be on the 'Information and
-Support' section of the website which caters for people asking for information
-about cancer as opposed to donating, volunteering or finding out about
-Macmillan. Going forward the bot may explore these areas too, but MacMillan are
-keen to execute well on a small, specific area first.
+The focus area in terms of source information will be on the 'Information and Support' section of the website which caters for people asking for information about cancer as opposed to donating, volunteering or finding out about
+Macmillan. Going forward the bot may explore these areas too, but MacMillan are keen to execute well on a small, specific area first.
 
-MacMillan would also like to capture responses to the conversation and feed it
-through to CRM.
+MacMillan would also like to capture responses to the conversation and feed it through to CRM.
 
 There are three main interactions within the bot flow, they are as follows
 
@@ -88,10 +71,7 @@ There are three main interactions within the bot flow, they are as follows
 
 ### What type of information?
 
-The first interaction the user has with the bot is around ascertaining what sort
-of information the user is looking for. This is implemented by a
-`PromptDialog.Choice` which presents the main types of information MacMillan
-offer:
+The first interaction the user has with the bot is around ascertaining what sort of information the user is looking for. This is implemented by a `PromptDialog.Choice` which presents the main types of information MacMillan offer:
 
 -   **Understanding**: what cancer is
 
@@ -105,17 +85,13 @@ offer:
 
 -   **Resources**: publications to order, download and print
 
-Each of the above choices map to a specific section of the MacMillan website
-beneath the ‘Information and support’ section:
-<http://www.macmillan.org.uk/information-and-support/index.html>
+Each of the above choices map to a specific section of the MacMillan website beneath the ‘Information and support’ section: <http://www.macmillan.org.uk/information-and-support/index.html>
 
 The response to this choice is stored and kept for later in the conversation.
 
 ### Intent and Keywords
 
-The second interaction is the bot asking the users for more information about
-what they are looking for. This utterance is passed to a LUIS model which is
-trained as follows:
+The second interaction is the bot asking the users for more information about what they are looking for. This utterance is passed to a LUIS model which is trained as follows:
 
 Intents:
 
@@ -143,19 +119,12 @@ Entities
 
 ### Q&A Maker
 
-The original intentions was to direct the Q&AMaker service at the various parts
-of the MacMillan website have it work out the questions and answers. However,
-early experimentation informed us that this approach was not going to work well
-because the website is not structured in question and answer format and is very
-deep with lots of individual pages, therefore the service did not do a good job
-of extracting the questions which resulted in poor results.
+The original intention was to direct the Q&AMaker service at the various parts of the MacMillan website have it work out the questions and answers. However, early experimentation informed us that this approach was not going to work well
+because the website is not structured in question and answer format and is very deep with lots of individual pages, therefore the service did not do a good job of extracting the questions which resulted in poor results.
 
-However, when questions and answers were manually added with links to the
-relevant web page in the answer, the results become more accurate and usable.
+However, when questions and answers were manually added with links to the relevant web page in the answer, the results become more accurate and usable.
 
-To increase accuracy, MacMillan implemented questions in a keyword format based
-on the entities and intent from LUIS and the choice from the initial ‘type of
-information’ dialog. This approach worked well and gave a high level of
+To increase accuracy, MacMillan implemented questions in a keyword format based on the entities and intent from LUIS and the choice from the initial ‘type of information’ dialog. This approach worked well and gave a high level of
 accuracy.
 
 Here are some example inputs to the Q&AMaker service:
@@ -178,18 +147,12 @@ effectively being used as a knowledge base. There are several benefits:
 Technical Delivery
 ------------------
 
-The bot was written using the [Microsoft Bot
-Fraemwork](https://dev.botframework.com/) with C\#. 
+The bot was written using the [Microsoft Bot Fraemwork](https://dev.botframework.com/) with C\#. 
 
-The [Microsoft Cognitive
-Services QandA
-Maker](https://www.microsoft.com/cognitive-services/en-us/qnamaker) was used to
+The [Microsoft Cognitive Services QandA Maker](https://www.microsoft.com/cognitive-services/en-us/qnamaker) was used to
 generate a FAQ service based on website data.
 
-[Microsoft Cognitive Services Language Understanding Intelligent Service
-(LUIS)](https://www.microsoft.com/cognitive-services/en-us/luis-api/documentation/home)
-was also used to triage enquiries and gather some background information before
-handing off to the Q&A maker service.
+[Microsoft Cognitive Services Language Understanding Intelligent Service (LUIS)](https://www.microsoft.com/cognitive-services/en-us/luis-api/documentation/home) was also used to triage enquiries and gather some background information before handing off to the Q&A maker service.
 
 The use of Microsoft technology was a natural and obvious choice for MacMillan
 ...
@@ -203,8 +166,7 @@ This is the high level solution architecture.
 
 ### LUIS Phrase List for Improved Recognition
 
-A Phrase List feature was used to increase the accuracy for LUIS’s capability to
-identify `CancerType` and `PABC` (Person Affected By Cancer) entities.
+A Phrase List feature was used to increase the accuracy for LUIS’s capability to identify `CancerType` and `PABC` (Person Affected By Cancer) entities.
 
 This is an example of the phrase list configuration (taken from the LUIS JSON export)
 
