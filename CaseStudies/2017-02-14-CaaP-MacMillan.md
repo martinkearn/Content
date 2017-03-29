@@ -4,14 +4,11 @@ title: MacMillan Cancer Support
 author: Martin Kearn
 ---
 
-MacMillan are a charity that provide information and support for people affected
-by cancer.
+MacMillan are a charity that provide information and support for people affected by cancer.
 
-MacMillan wants to make the vast array of information on their website more
-acessible both in terms of discovery and access at different times of day.
+MacMillan wants to make the vast array of information on their website more acessible both in terms of discovery and access at different times of day.
 
-Their solution was to use the Microsoft Bot Fraemwork with the Microsoft
-Cognitive Services QandA maker to create a FAQ bot.
+Their solution was to use the Microsoft Bot Fraemwork with the Microsoft Cognitive Services QandA maker to create a FAQ bot.
 
 Core Team
 
@@ -21,22 +18,18 @@ Core Team
 
 -   Nick Palmer
 
-Parter Profile
+Partner Profile
 --------------
 
-MacMillan are a charity that provide information and support for people affected
-by cancer. You can see more about their services at
+MacMillan are a charity that provide information and support for people affectedby cancer. You can see more about their services at
 <https://www.macmillan.org.uk>
 
 Problem Statement
 -----------------
 
-The MacMillan website has a wide range of information about cancer and the
-services that Macmillan can offer. The website is backed up by a phone line
-which operates 9:00 \> 20:00 Monday-Friday.
+The MacMillan website has a wide range of information about cancer and the services that Macmillan can offer. The website is backed up by a phone line which operates 9:00 \> 20:00 Monday-Friday.
 
-The website serves and average of 1.1 million unique users each month and an
-average of 4.4 million page views.
+The website serves an average of 1.1 million unique users each month and an average of 4.4 million page views.
 
 There are problems associated with the current services:
 
