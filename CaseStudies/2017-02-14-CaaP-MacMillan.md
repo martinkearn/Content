@@ -44,14 +44,7 @@ There are problems associated with the current services:
     savings in offloading some of the phone line traffic to other, more cost
     effective interfaces
 
--   The website is vast and users often have difficuty finding the right
-    information. This is down to several reasons:
-
-    -   Users are often in a heightened emotional state when interacting with
-        the website as they may have recently been diagnosed with cancer
-
-    -   The typical age of users is older than most website and users may be
-        less comfortable navigating a large website
+-   The website is vast and users often have difficuty finding the right information. Users are often in a heightened emotional state when interacting with the website as they may have recently been diagnosed with cancer. The typical age of users is older than most website and users may be less comfortable navigating a large website
 
 -   Many of the calls to the help desk result in agents directing the users to
     the right place on the website.
@@ -81,7 +74,10 @@ The bot will help people find the information they are looking for by either
 providing information directly via the bot or by linking to the relevant place
 online.
 
-TO DO, have Macmillan provide a quote as to why they are looking at bots
+The following quote explains why MacMillan see bots as an importnat new channel for their users ...
+
+>   "The Macmillan web site contains a huge range of information and resources to support people affected by cancer; however the specific resources that are most relevant to an individual can take time to navigate to and find. We have evidence that significant numbers of people will instead call our Macmillan Support Line (MSL), that operates between 9AM and 8PM, Monday to Friday, and ask for the information that way instead. We therefore see a natural opportunity to leverage 'Conversation as a Platform' technology, to allow people to 'ask' us for the information they require - both as a way to triage requests that may otherwise end up coming through to MSL, and to offer a more guided and natural search experience for people during the hours when the Support Line is not available. A combination of chat bot and AI technolgies such as natural language recognition should allow us to achieve this."
+<cite>Nick Palmer, Senior Applications Developer, MacMillan</cite>
 
 The focus area in terms of source information will be on the 'Information and
 Support' section of the website which caters for people asking for information
@@ -94,13 +90,8 @@ through to CRM.
 
 There are three main interactions within the bot flow, they are as follows
 
-![MacMillan bot flow](media/c72b484105210a5a620f55af61832414.jpg)
+![MacMillan bot flow](https://github.com/martinkearn/Content/raw/master/CaseStudies/media/MacMillanBotFlow.JPG)
 
-MacMillan bot flow
-
-MacMillan bot flow
-
-MacMillan bot flow
 
 ### What type of information?
 
@@ -145,17 +136,17 @@ Intents:
 
 Entities
 
--   **Cancer Type**: the type of cancer that the user wants information about.
+-   **CancerType**: the type of cancer that the user wants information about.
     For example, ‘Breast Cancer’, ‘Brain cancer’
 
--   **Treatment**: the types of treatment the user wants information about. For
+-   **TreatmentType**: the types of treatment the user wants information about. For
     example, ‘surgery’, ‘radiotherapy’, ‘chemotherapy’. See
     <http://www.macmillan.org.uk/information-and-support/treating/index.html#162757>
 
--   **Symptoms**: the symptoms users may want to explore
-
--   **Support Type**: the type of support the user wants information about. For
+-   **SupportType**: the type of support the user wants information about. For
     example: financial support, emotional support
+
+-   **PABC**: the person affected by cancer in relation to the user. For example 'mom', 'dad', 'sister'
 
 ### Q&A Maker
 
@@ -195,39 +186,56 @@ Technical Delivery
 ------------------
 
 The bot was written using the [Microsoft Bot
-Fraemwork](https://dev.botframework.com/) with C\#. The [Microsoft Cognitive
+Fraemwork](https://dev.botframework.com/) with C\#. 
+
+The [Microsoft Cognitive
 Services QandA
 Maker](https://www.microsoft.com/cognitive-services/en-us/qnamaker) was used to
 generate a FAQ service based on website data.
-
-The use of Microsoft technology was a natural and obvious choice for MacMillan
-...
-
->   "We use a Microsoft stack at our core so the use of the Microsoft Bot
->   Fraemwork and Microsoft Cognitive Services was a natural extension to our IT
->   estate. As an architectural principle we are in favour of using
->   software/platform-as-a-service as a first choice rather thanbuilding our own
->   software. Both the Bot Framework and Cognitive Services gives us a great
->   heads start with a very low cost of entry." Nick Palmer, Senior Applications
->   Developer, MacMillan
 
 [Microsoft Cognitive Services Language Understanding Intelligent Service
 (LUIS)](https://www.microsoft.com/cognitive-services/en-us/luis-api/documentation/home)
 was also used to triage enquiries and gather some background information before
 handing off to the Q&A maker service.
 
-To Do: architecture diagram
+The use of Microsoft technology was a natural and obvious choice for MacMillan
+...
+
+>   "We use a Microsoft stack at our core so the use of the Microsoft Bot Framework and Microsoft Cognitive Services was a natural extension to our IT estate. As an architectural principle we are in favour of using software/platform-as-a-service as a first choice rather thanbuilding our own software. Both the Bot Framework and Cognitive Services gives us a great heads start with a very low cost of entry."
+<cite>Nick Palmer, Senior Applications Developer, MacMillan</cite>
+
+This is the high level solution architecture.
+
+![high level solution architecture](https://github.com/martinkearn/Content/raw/master/CaseStudies/media/MacMillanBotArchitecture.JPG)
 
 ### LUIS Phrase List for Improved Recognition
 
 A Phrase List feature was used to increase the accuracy for LUIS’s capability to
-identify Cancer Types.
+identify `CancerType` and `PABC` (Person Affected By Cancer) entities.
+
+This is an example of the phrase list configuration (taken from the LUIS JSON export)
+
+```
+"model_features": [
+    {
+      "name": "CancerType",
+      "mode": true,
+      "words": "Adrenal gland tumours,Anal cancer,Bile duct cancer,Cholangiocarcinoma,Bladder cancer,Blood cancers,Bone cancer,Bowel cancer,Brain tumours,Brain cancer,Breast cancer,Cervical cancer,Colon and rectal cancer,Colorectal cancer,Eye cancer,Ocular Melanoma,Fallopian tube cancer,Gall bladder cancer,Head and neck cancer,Kaposi ' s sarcoma,Kidney cancer,Renal cancer,Larynx cancer,Leukaemia,Liver cancer,Lung cancer,Lymph node cancer,Lymphoma,Melanoma,Mesothelioma,Multiple endocrine neoplasia 1,Multiple endocrine neoplasia 2,Myeloma,Neuroendocrine tumours,Oesophageal cancer,Ovarian cancer,Pancreatic cancer,Parathyroid gland tumours,Penis cancer,Peritoneal cancer,Prostate cancer,Pseudomyxoma peritonei,Skin cancer,Soft tissue sarcomas,Spinal cord tumours,Stomach cancer,Testicular cancer,Thymus cancer,Thymoma,Thymic Carcinoma,Thyroid cancer,Trachea cancer,Uterine cancer,Vagina cancer,Vulva cancer,Womb cancer,Endometrial cancer",
+      "activated": true
+    },
+    {
+      "name": "PABC",
+      "mode": true,
+      "words": "Dad,Mum,Father,Mother,Aunt,Uncle,Sister,Relative,Granddad,Grandfather,Grandmother,Nan,Brother,Cousin,Friend",
+      "activated": true
+    }
+  ],
+```
 
 Conclusion
 ----------
+MacMillan have been able to quickly start the journey toward a production bot that will help users navigate the content on their website and get teh support they need at times that suit them.
 
 Next Steps
 ----------
-
-Additional Resources
---------------------
+The next steps for macMillan is to productionise the bot and integrate it into the MacMillan CRM system such that the call back scenario can be fully implemented.
