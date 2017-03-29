@@ -191,6 +191,10 @@ Conclusion
 ----------
 MacMillan have been able to quickly start the journey toward a production bot that will help users navigate the content on their website and get teh support they need at times that suit them.
 
+This sketch note outlines the overall theme of the bot
+
+![MacMillan Microsoft hack sketch note](https://github.com/martinkearn/Content/raw/master/CaseStudies/media/MacMillanSketchNote.JPG)
+
 Next Steps
 ----------
 The next steps for macMillan is to productionise the bot and integrate it into the MacMillan CRM system such that the call back scenario can be fully implemented.
