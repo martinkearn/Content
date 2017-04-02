@@ -160,6 +160,8 @@ The use of Microsoft technology was a natural and obvious choice for MacMillan
 >   "We use a Microsoft stack at our core so the use of the Microsoft Bot Framework and Microsoft Cognitive Services was a natural extension to our IT estate. As an architectural principle we are in favour of using software/platform-as-a-service as a first choice rather thanbuilding our own software. Both the Bot Framework and Cognitive Services gives us a great heads start with a very low cost of entry."
 <cite>Nick Palmer, Senior Applications Developer, MacMillan</cite>
 
+A preview version of the web chat bot channel is avaliable at http://macmillanbotsite.azurewebsites.net/
+
 This is the high level solution architecture.
 
 ![high level solution architecture](https://github.com/martinkearn/Content/raw/master/CaseStudies/media/MacMillanBotArchitecture.JPG)
