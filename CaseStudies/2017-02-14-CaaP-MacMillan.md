@@ -1,38 +1,45 @@
 ---
-date: "2017-03-27"
-title: MacMillan Cancer Support
-author: Martin Kearn
+layout: post
+title:  "MacMillan: Making Cancer Support More Accessible"
+author: "Martin Kearn"
+author-link: "http://martink.me"
+date:   2017-03-27
+categories: [Conversations as a Platform, Cognitive Services]
+color: "blue"
+excerpt: MacMillan build a bot to make cancer support information more accessible
+language: [English]
+verticals: [Consumer Products & Services]
 ---
 
 MacMillan are a charity that provide information and support for people affected by cancer.
 
-MacMillan wants to make the vast array of information on their website more acessible both in terms of discovery and access at different times of day.
+MacMillan wants to make the vast array of information on their website more acessible both in terms of discovery and acceaccessibility at different times of day.
 
-Their solution was to use the Microsoft Bot Fraemwork with the Microsoft Cognitive Services QandA maker to create a FAQ bot.
+Their solution was to use the Microsoft Bot Framework with the Microsoft Cognitive Services Q&A Maker and LUIS services to create a FAQ bot.
 
 Core Team
 
--   Martin Kearn (\@MartinKearn)
+-   Martin Kearn (Microsoft, \@MartinKearn)
 
--   Mohammad Salman
+-   Mohammad Salman (MacMillan)
 
--   Nick Palmer
+-   Nick Palmer (MacMillan)
 
 Partner Profile
 --------------
 
-MacMillan are a charity that provide information and support for people affectedby cancer. You can see more about their services at <https://www.macmillan.org.uk>
+MacMillan are a charity that provide information and support for people affected by cancer. You can see more about their services at <https://www.macmillan.org.uk>
 
 Problem Statement
 -----------------
 
-The MacMillan website has a wide range of information about cancer and the services that Macmillan can offer. The website is backed up by a phone line which operates 9:00 \> 20:00 Monday-Friday.
+The MacMillan website has a wide range of information about cancer and the services that Macmillan can offer. The website is backed up by a phone line which operates 9:00 until 20:00 Monday-Friday.
 
 The website serves an average of 1.1 million unique users each month and an average of 4.4 million page views.
 
-There are problems associated with the current services:
+There are problems associated with the current services which are as follows:
 
--   The phone line is an expensive operation. There are significant cost savings in offloading some of the phone line traffic to other, more cost-effective interfaces.
+-   The phone line is an expensive operation. There are significant cost savings in offloading some of the phone line traffic to more cost-effective interfaces.
 
 -   The website is vast and users often have difficuty finding the right information. Users are often in a heightened emotional state when interacting with the website as they may have recently been diagnosed with cancer. The typical age of users is older than most website and users may be less comfortable navigating a large website
 
@@ -50,19 +57,18 @@ human.
 Solution and Steps
 ------------------
 
-The solution was a bot focussed on answering frequently asked questions and guiding people to the relevant part of the Macmillan website via a conversational user interface.
+The solution was a bot focussed on answering frequently asked questions and guiding people to the relevant part of the MacMillan website via a conversational user interface.
 
 The bot will help people find the information they are looking for by either providing information directly via the bot or by linking to the relevant place online.
 
 The following quote explains why MacMillan see bots as an important new channel for their users ...
 
 >   "The Macmillan web site contains a huge range of information and resources to support people affected by cancer; however the specific resources that are most relevant to an individual can take time to navigate to and find. We have evidence that significant numbers of people will instead call our Macmillan Support Line (MSL), that operates between 9AM and 8PM, Monday to Friday, and ask for the information that way instead. We therefore see a natural opportunity to leverage 'Conversation as a Platform' technology, to allow people to 'ask' us for the information they require - both as a way to triage requests that may otherwise end up coming through to MSL, and to offer a more guided and natural search experience for people during the hours when the Support Line is not available. A combination of chat bot and AI technolgies such as natural language recognition should allow us to achieve this."
+
 <cite>Nick Palmer, Senior Applications Developer, MacMillan</cite>
 
-The focus area in terms of source information will be on the 'Information and Support' section of the website which caters for people asking for information about cancer as opposed to donating, volunteering or finding out about
+The focus area in terms of source information was on the 'Information and Support' section of the website which caters for people asking for information about cancer as opposed to donating, volunteering or finding out about
 Macmillan. Going forward the bot may explore these areas too, but MacMillan are keen to execute well on a small, specific area first.
-
-MacMillan would also like to capture responses to the conversation and feed it through to CRM.
 
 There are three main interactions within the bot flow, they are as follows
 
@@ -117,17 +123,48 @@ Entities
 
 -   **PABC**: the person affected by cancer in relation to the user. For example 'mom', 'dad', 'sister'
 
+Here is an extract from the Intent and Entities section of the LUIS model
+
+```
+  "intents": [
+    {
+      "name": "FindInformation"
+    },
+    {
+      "name": "ArrangeCallback"
+    },    
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [
+    {
+      "name": "CancerType"
+    },
+    {
+      "name": "TreatmentType"
+    },
+    {
+      "name": "SupportType"
+    },        
+    {
+      "name": "PABC"
+    }
+  ],
+```
+
 ### Q&A Maker
 
-The original intention was to direct the Q&AMaker service at the various parts of the MacMillan website have it work out the questions and answers. However, early experimentation informed us that this approach was not going to work well
-because the website is not structured in question and answer format and is very deep with lots of individual pages, therefore the service did not do a good job of extracting the questions which resulted in poor results.
+The original intention was to direct the Q&A Maker service at the various parts of the MacMillan website have it work out the questions and answers. 
+
+Early experimentation informed us that this approach was not going to work well because the website is not structured in question and answer format and is very deep with lots of individual pages, therefore the service did not do a good job of extracting the questions which resulted in poor results.
 
 However, when questions and answers were manually added with links to the relevant web page in the answer, the results become more accurate and usable.
 
 To increase accuracy, MacMillan implemented questions in a keyword format based on the entities and intent from LUIS and the choice from the initial ‘type of information’ dialog. This approach worked well and gave a high level of
-accuracy.
+accuracy when querying the Q&A Maker service.
 
-Here are some example inputs to the Q&AMaker service:
+Here are some example inputs to the Q&A Maker service:
 
 -   Breast Cancer Symptoms
 
@@ -135,32 +172,28 @@ Here are some example inputs to the Q&AMaker service:
 
 -   Chemotherapy financial support
 
-There is a question about what value the Q&A maker service adds here as it is
-effectively being used as a knowledge base. There are several benefits:
+There is a question about what value the Q&A Maker service adds here as it is effectively being used as a knowledge base. However macMillan perceive several benefits of the service even used the in the manual way in which they are using it:
 
--   Compared to web site search, the Q&A maker gives a single answer rather than
-    a long list of results which must then be navigated
+-   Compared to web site search, the Q&A maker gives a single answer rather than a long list of results which must then be navigated
 
--   The portal and manual question authoring is a great feature which
-    non-technical people can manage without affecting the way the bot works
+-   The portal and manual question authoring is a great feature which non-technical people can manage without affecting the way the bot works
 
 Technical Delivery
 ------------------
 
 The bot was written using the [Microsoft Bot Fraemwork](https://dev.botframework.com/) with C\#. 
 
-The [Microsoft Cognitive Services QandA Maker](https://www.microsoft.com/cognitive-services/en-us/qnamaker) was used to
-generate a FAQ service based on website data.
+The [Microsoft Cognitive Services Q&A Maker](https://www.microsoft.com/cognitive-services/en-us/qnamaker) was used to generate a FAQ service based on website data.
 
 [Microsoft Cognitive Services Language Understanding Intelligent Service (LUIS)](https://www.microsoft.com/cognitive-services/en-us/luis-api/documentation/home) was also used to triage enquiries and gather some background information before handing off to the Q&A maker service.
 
-The use of Microsoft technology was a natural and obvious choice for MacMillan
-...
+The use of Microsoft technology was a natural and obvious choice for MacMillan ...
 
->   "We use a Microsoft stack at our core so the use of the Microsoft Bot Framework and Microsoft Cognitive Services was a natural extension to our IT estate. As an architectural principle we are in favour of using software/platform-as-a-service as a first choice rather thanbuilding our own software. Both the Bot Framework and Cognitive Services gives us a great heads start with a very low cost of entry."
+>   "We use a Microsoft stack at our core so the use of the Microsoft Bot Framework and Microsoft Cognitive Services was a natural extension to our IT estate. As an architectural principle we are in favor of using software/platform-as-a-service as a first choice rather than building our own software. Both the Bot Framework and Cognitive Services gives us a great heads start with a very low cost of entry."
+
 <cite>Nick Palmer, Senior Applications Developer, MacMillan</cite>
 
-A preview version of the web chat bot channel is avaliable at http://macmillanbotsite.azurewebsites.net/
+A preview version of the web chat bot channel is available at http://macmillanbotsite.azurewebsites.net/
 
 This is the high level solution architecture.
 
@@ -199,4 +232,10 @@ This sketch note outlines the overall theme of the bot
 
 Next Steps
 ----------
-The next steps for macMillan is to productionise the bot and integrate it into the MacMillan CRM system such that the call back scenario can be fully implemented.
+The next steps for MacMillan ae as follows:
+
+1. Move the existing bot to product quality
+
+2. Integrate it into the MacMillan CRM system such that the call back scenario can be fully implemented
+
+3. Continue to build the Q&A Maker knowledge base
