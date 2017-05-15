@@ -2,9 +2,9 @@
 In this demo, we'll create a very simple font-end website that uses Gulp
 
 ### Pre Reqs
-* NPM installed
+* [NodeJS and NPM installed](https://nodejs.org/en/)
 * Visual Studio Code installed
-* Have the snippets open in notepad or the VS code snippet files imported
+* Have the snippets open in notepad or the VS code snippet files imported [see how(https://code.visualstudio.com/docs/editor/userdefinedsnippets) (the json files are in this repo)
 * Gulp installed globally: `npm install -g gulp`
 
 ## Setup a project
@@ -14,7 +14,7 @@ Right click > Open With Code
 
 Create Index.html
 
-Copy this basic code to the HTML doc (or use the `Lorum` extension in VS Code
+Copy this basic code to the HTML doc (or use the `Lorum` extension in VS Code)
 ```
 <h1>Sit minim ad ex qui consectetur adipisicing nisi reprehenderit quis Lorem et irure tempor laborum.</h1>
 <p>Lorem do non ea mollit nulla adipisicing voluptate commodo deserunt. Eiusmod sit id eiusmod tempor qui esse commodo duis dolor in culpa sint. Occaecat aliqua deserunt fugiat proident magna consectetur nisi irure. Dolore non eiusmod nostrud magna elit. Pariatur ad anim pariatur velit anim reprehenderit culpa commodo esse. Sit labore magna incididunt Lorem est sunt fugiat commodo anim sit. Veniam dolore enim officia sit nisi dolor.</p>
