@@ -29,18 +29,16 @@ This demo shows some of the capabilities of Cognitive Services by using the live
 7. Recommendations - books website
 
 ## Computer Vision API
-Go to https://www.microsoft.com/cognitive-services/en-us/computer-vision-api
+Go to https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/
 
 Show built-in pictures
-
-Take photo of lecturn, upload it, talk to results
 
 _More on this later_
 
 ## Emotion API
 Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
 
-Go to https://www.microsoft.com/cognitive-services/en-us/emotion-api
+Go to https://azure.microsoft.com/en-gb/services/cognitive-services/emotion/
 
 Scroll down the Emotion API page and use the live demo section to analyse photo
 
