@@ -10,60 +10,32 @@ This demo shows some of the capabilities of Cognitive Services by using the live
 * Props for computer vision api: Xamarin Stuffed Monkey, Pens, Coffee Cup, Phone etc
 
 ## Key Steps
-1. Computer Vision Portal
+1. Face API Portal
 
-2. Emotion Portal Maddie
+2. Twins / How Old
 
-3. Live Camera sample
+3. Emotion Portal Maddie
 
-4. Twins / How Old
-
-5. How Happy
+4. How Happy
 * Who is the happiest one here
 * Show me all the angry people
 * Who is the 3rd most surprised person
 * Show me the least happy person
 
-6. Sentimental Office App
+5. Computer Vision Portal
 
-7. Recommendations - books website
+6. Live Camera sample
 
-## Computer Vision API
-Go to https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/
+7. Sentimental Office App
 
-Show built-in pictures
+8. Recommendations - books website
 
-_More on this later_
+## Face API
+Go to Cognitive home page: https://azure.microsoft.com/en-gb/services/cognitive-services/
 
-## Emotion API
-Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
+Use the face API sample app on the home page with a stock image
 
-Go to https://azure.microsoft.com/en-gb/services/cognitive-services/emotion/
-
-Scroll down the Emotion API page and use the live demo section to analyse photo
-
-The primary emotions here are:
-* 61% contempt
-* 20% disgust
-* 9% anger
-
-_This is what happens when you tell a three-year-old who has no respect for her father that she cannot have another piece of chocolate_
-
-## LiveCameraSample Windows App
-_You can use any of the computer vision apis with video by uploading specific frames. This is a Windows UWP app that does exactly that_
-
-Open Visual Studio > VideoFrameAnalysis solution
-
-Run the app
-
-Start camera
-
-Cycle through all modes:
-* Faces: Gender, age and camera angle
-* Emotions: Emotion
-* Emotion with face detect: (need to research what this does)
-* Tags: Uses Computer Vision api to tag the image (show it props like Xamarin stuffed money, pens, coffee cup)
-* Celebrities: Point camera at the Celebs.pdf
+Upload a selfie and see what it says
 
 ## TwinsOrNot.net
 _This demo only really works for Martin Kearn because he apparently looks like Jake Gyllenhaal_
@@ -87,6 +59,20 @@ _It is not that bad though, at least Jake looks old too_
 
 Upload [Jake.jpg](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning/Supporting%20Files/Jake.jpg)
 * Result should be 43 (actual age 35)
+
+## Emotion API
+Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
+
+Go to https://azure.microsoft.com/en-gb/services/cognitive-services/emotion/
+
+Scroll down the Emotion API page and use the live demo section to analyse photo
+
+The primary emotions here are:
+* 61% contempt
+* 20% disgust
+* 9% anger
+
+_This is what happens when you tell a three-year-old who has no respect for her father that she cannot have another piece of chocolate_
 
 ## HowHappy.co.uk
 Show the main How Happy website in action
@@ -113,6 +99,46 @@ Re-query the website
 * Show me the least happy person
 
 Explain the results in more depth in context of the intents, entities and emotion api
+
+## Computer Vision API
+Go to https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/
+
+Show built-in pictures
+
+_More on this later_
+
+## LiveCameraSample Windows App
+_You can use any of the computer vision apis with video by uploading specific frames. This is a Windows UWP app that does exactly that_
+
+Open Visual Studio > VideoFrameAnalysis solution
+
+Run the app
+
+Start camera
+
+Cycle through all modes:
+* Faces: Gender, age and camera angle
+* Emotions: Emotion
+* Emotion with face detect: (need to research what this does)
+* Tags: Uses Computer Vision api to tag the image (show it props like Xamarin stuffed money, pens, coffee cup)
+* Celebrities: Point camera at the Celebs.pdf
+
+## Custom Vision
+_Use the custom vision API to train on items that Americans often call by the wrong name..... giving osmething back_
+
+Show portal at https://azure.microsoft.com/en-gb/services/cognitive-services/custom-vision-service/
+
+Go to https://www.customvision.ai/
+
+Create new projects 'Americanisnts'
+
+Upoad images from ML Supporting Files\Custom Vision\Training Images
+
+Tag the images
+
+Train
+
+Quick test with new images from 
 
 ## Sentimental
 _This is an Office add-in that uses the Text Analytics API to do sentiment and key phrase analysis on text in Office documents. The add-in is called 'Sentimental' and you can get it from the [Office Store](https://store.office.com/sentimental-WA104379510.aspx?assetid=WA104379510&sourcecorrid=755ae580-2491-436f-8471-7888c38149d7&searchapppos=0)_
