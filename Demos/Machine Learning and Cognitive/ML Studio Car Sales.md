@@ -4,29 +4,21 @@ This demo will create a very simple Azure ML experiment which predicts car sale 
 Time: Approx 10 minutes
 
 ### Pre Reqs
-* Have `Car price data.csv` avaliable. A modified version of one of the Azure sample data sets. [get it here](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Car%20price%20data.csv)
+* Have `Car price data normalised losses.csv` avaliable. A modified version of one of the Azure sample data sets. [get it here](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Car%20price%20data.csv)
 * Have a printed version of ![ML Car Sales Finished Experiment.png](https://github.com/martinkearn/Content/raw/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/ML%20Car%20Sales%20Finished%20Experiment.PNG)
 
 ## Create an experiment and load data
 Sign into https://studio.azureml.net
 
-Datasets > New > From Local File >  `Car price data.csv`
+Datasets > New > From Local File >  `Car price data normalised losses.csv`
 
 Experiments > New > Black experiment
 
 ## Add data set
 
-Drag `Car price data.csv` to the canvas (Saved Datasets > My Datasets)
+Drag `Car price data normalised losses.csv` to the canvas (Saved Datasets > My Datasets)
 
 Visualize the dataset (Right-click the output port > Visualise)
-
-## Remove the normalized-losses column
-Drag the Data Transformation > `Select Columns in Dataset` module
-
-Connect to the `Car price data.csv`
-
-Launch `column selector`
-* With Rules > All Columns > Exclude `normalized-losses`
 
 ## Clean data - remove rows
 Drag the Transforms > `Clean missing data` module
@@ -74,21 +66,6 @@ Run the experiment
 Visualise the output of `Score Model`
 * Compare `price` to `scored label` (the predicted price given other data)
 
-## Evaluate the model
-Drag the Machine Learning > Evaluate > `Evaluate Model` module
-
-Connect the left input to `Score model`
-
-Run the experiment
-
-Visualise the output and observe error rates
-
-NOTE
-* Mean Absolute Error (MAE): The average of absolute errors (an error is the difference between the predicted value and the actual value).
-* Root Mean Squared Error (RMSE): The square root of the average of squared errors of predictions made on the test dataset.
-* Relative Absolute Error: The average of absolute errors relative to the absolute difference between actual values and the average of all actual values.
-* Relative Squared Error: The average of squared errors relative to the squared difference between the actual values and the average of all actual values.
-* Coefficient of Determination: Also known as the R squared value, this is a statistical metric indicating how well a model fits the data.
 
 ## Convert to Predictive Experiment
 So far the experiment has just been a 'trainig experiment'. We now need to convert it to a model that can be used to score new data.
