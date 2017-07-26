@@ -10,25 +10,34 @@ This demo shows some of the capabilities of Cognitive Services by using the live
 * Props for computer vision api: Xamarin Stuffed Monkey, Pens, Coffee Cup, Phone etc
 
 ## Key Steps
-1. Face API Portal
+1. Computer Vision Portal - upload own photo
 
-2. Twins / How Old
+2. Face API Portal
 
-3. Emotion Portal Maddie
+3. Twins / How Old
 
-4. How Happy
+4. Emotion Portal Maddie
+
+5. How Happy
 * Who is the happiest one here
 * Show me all the angry people
 * Who is the 3rd most surprised person
 * Show me the least happy person
 
-5. Computer Vision Portal
-
 6. Live Camera sample
 
-7. Sentimental Office App
+7. Custom vision - americanisnts
 
-8. Recommendations - Sportswear
+8. Sentimental Office App
+
+9. Recommendations - Sportswear
+
+## Computer Vision API
+Go to https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/
+
+Show built-in pictures
+
+Take photo and upload
 
 ## Face API
 Go to Cognitive home page: https://azure.microsoft.com/en-gb/services/cognitive-services/
@@ -99,13 +108,6 @@ Re-query the website
 * Show me the least happy person
 
 Explain the results in more depth in context of the intents, entities and emotion api
-
-## Computer Vision API
-Go to https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/
-
-Show built-in pictures
-
-_More on this later_
 
 ## LiveCameraSample Windows App
 _You can use any of the computer vision apis with video by uploading specific frames. This is a Windows UWP app that does exactly that_
