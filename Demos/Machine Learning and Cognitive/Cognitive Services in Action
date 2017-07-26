@@ -1,5 +1,5 @@
 
-# Emotions, Faces, Monkey Detection and Book Recommendations
+# Cognitive Services in Action
 This demo shows some of the capabilities of Cognitive Services by using the live demo site and some of the spin-off sites created to show-case the APIs
 
 ### Pre-reqs
@@ -28,7 +28,7 @@ This demo shows some of the capabilities of Cognitive Services by using the live
 
 7. Sentimental Office App
 
-8. Recommendations - books website
+8. Recommendations - Sportswear
 
 ## Face API
 Go to Cognitive home page: https://azure.microsoft.com/en-gb/services/cognitive-services/
@@ -163,6 +163,9 @@ Talk to
 * Item to item recommendations. i.e., what amazon calls "Customers who liked this product also liked these other products"
 * Personalized user recommendations
 
-Go to http://recommendationsapi.azurewebsites.net/
+Go to http://sportswearshop.azurewebsites.net/
 
-Use the app to explore books and their recommendations
+Use the app to explore sports wear items and their recommendations
+* Item: Outfit, You May Like, Cheaper
+* Cart: You may like, Shipping
+* User: Based on your history
