@@ -89,9 +89,9 @@ function hello(greeting) {
 }
 ```
 
-Type `const elm = document.qs` (qs will intellisense to query selector) > select h1 (`document.querySelector("h1");`)
+Type `const elm = document.qs` > qs will intellisence to `querySelector` > fill out the code to be `document.querySelector("h1");`
 
-Type `const text = '${greeting} world@'` (' is the character that signifies code in markdown)
+Type `const text = '${greeting} world'` (' is the character that signifies code in markdown)
 
 Type `elm.` > choose innerHTML (it knows this is a html element)
 
