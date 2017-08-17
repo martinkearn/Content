@@ -9,6 +9,7 @@ A tour around new features in Visual Studio for web developers
 * [Surface Dial Tools](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.SurfaceDialToolsforVisualStudio)
 * [Web Accessibility Checker](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.WebAccessibilityChecker)
 * Google Chrome with [Web Essentials Chrome Extension](https://chrome.google.com/webstore/detail/web-essentials/mghdcdlpcdiodelbplncnodiiadljhhk)
+* Ideally have a ASP.NET Core Web Application (MVC) project pre-created for the HTML Accessibility Checker step onwards
 
 ## ASP.NET Core Template Pack 2017.3 
 File > New Project > ASP.NET Core Web Application
@@ -38,7 +39,7 @@ Show `UseWebpackDevMiddleware` in `startup.cs`
 
 Run app in browser and explore it (counter, data)
 
-Make a change to `clientApp/app/components/home/home.component.html` and see the browser update on save
+Make a change to header in `clientApp/app/components/counter/counter.component.html` and see the browser update on save
 
 Edit `clientApp/app/components/counter/counter.component.ts` to be
 		
@@ -88,13 +89,13 @@ function hello(greeting) {
 }
 ```
 
-Type `const elm = document.qs` (qs will intellisense to query selector)
+Type `const elm = document.qs` (qs will intellisense to query selector) > select h1 (`document.querySelector("h1");`)
 
 Type `const text = '${greeting} world@'` (' is the character that signifies code in markdown)
 
 Type `elm.` > choose innerHTML (it knows this is a html element)
 
-Open Index and add a `<p></p>`
+Open Index and add a `<h1></h1>`
 
 Run
 
