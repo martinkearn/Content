@@ -2,7 +2,6 @@
 This demo script should work in any of Gigseekr's bot implementations, which include:
 * Skype (can be a bit flaky)
 * Facebook Messenger (best general channel)
-
 * Cortana
 
 Useful commands:
@@ -15,13 +14,12 @@ Get the bot setup as a contact in whichever channel you wish to use:
 * Facebook Messenger: Search for it
 * Cortana: Make sure you are using the US language (Settings > Cortana Language > English (United States)). Then go to Notebook > Skills and search for Gigseekr
 
-Delete the contact and conversation from facebook messenger
+Delete the contact and conversation from Facebook messenger
 
-## Add
+## Add to Facebook
 _This demos best in FB messenger_
 
-Seearch for "Gigseekr" and add the contact
-
+Search for "Gigseekr" and add the contact
 
 ## Find an artist
 Locate an artists and ask questions about them
