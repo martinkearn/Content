@@ -15,7 +15,7 @@ Start the process of signing up
 * Continue to sign up or login with an existing account
 
 ## Sign up to Cognitive
-Search for "Microsoft cognitive sevrices"
+Search for "Microsoft cognitive services"
 
 Show that each API has a test app
 * Show the Computer Vision > Analyse an image sample app
