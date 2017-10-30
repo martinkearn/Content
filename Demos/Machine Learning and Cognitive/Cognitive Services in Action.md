@@ -73,48 +73,20 @@ Show the main How Happy website in action
     * Who is the 3rd most surprised person
     * Show me the least happy person
 
-Explore the Luis Model
-* Go to https://www.luis.ai/ via the get started link
-* Explore the intents, entities
-* Review labels, show how entities are marked and the intent is labeled
-* Add a new utterance "who are the angry ones"
-* Train
-* Publish > Update published application
-* Use the Query to add a test query "who are the happy ones"
-
-Re-query the website
-* Who is the happiest one here
-* Show me all the angry people
-* Who is the 3rd most surprised person
-* Show me the least happy person
-
-Explain the results in more depth in context of the intents, entities and emotion api
-
-## Sentimental
-_This is an Office add-in that uses the Text Analytics API to do sentiment and key phrase analysis on text in Office documents. The add-in is called 'Sentimental' and you can get it from the [Office Store](https://store.office.com/sentimental-WA104379510.aspx?assetid=WA104379510&sourcecorrid=755ae580-2491-436f-8471-7888c38149d7&searchapppos=0)_
-
-Open Excel
-
-Install or activate Sentimental
-
-Write `I love Office, it rocks` in a cell
-
-Analyse
-
-Insert score and key phrases
-
 ## Recommendations
 _Use the Cortana Intelligence Recommendations Solution to show recommendations with a sample web site_
 
-Open the Recommendations solution from https://gallery.cortanaintelligence.com/Tutorial/Recommendations-Solution
+Go to http://aka.ms/SportsShop
+
+Open the links to the Recommendations solution from the footer
 
 Talk to
 * Item to item recommendations. i.e., what amazon calls "Customers who liked this product also liked these other products"
 * Personalized user recommendations
 
-Go to http://aka.ms/SportsShop
+Go back to http://aka.ms/SportsShop
 
-Use the app to explore sports wear items and their recommendations
-* Item (http://sportswearshop.azurewebsites.net/Home/CatalogItem/27549): Outfit, You May Like, Cheaper
+Use the website to explore sports wear items and their recommendations
+* Item (Choose from featured items on home page): Outfit, You May Like, Cheaper, Accessories
 * Cart: You may like, Free shipping over $60 threshold
 * User (use 00012): Based on your history
