@@ -18,23 +18,6 @@ Using 'Analyse an image'
 * Show built-in pictures
 * Take new photo and upload
 
-## Custom Vision
-_Use the custom vision API to train on items that Americans often call by the wrong name..... giving something back_
-
-Show portal at https://azure.microsoft.com/en-gb/services/cognitive-services/custom-vision-service/
-
-Go to https://www.customvision.ai/
-
-Create new projects 'Americanisnts'
-
-Upload images from ML Supporting Files\Custom Vision\Training Images
-
-Tag the images
-
-Train
-
-Quick test with new images from ML Supporting Files\Custom Vision\Test Images 
-
 ## Emotion API
 _Use a picture of Maddie to show the emotion API via the portal_
 
