@@ -73,3 +73,16 @@ Use the website to explore sports wear items and their recommendations
 * Item (Choose from featured items on home page): Outfit, You May Like, Cheaper, Accessories
 * Cart: You may like, Free shipping over $60 threshold
 * User (use 00012): Based on your history
+
+## Q&A Maker with Innocent Drinks
+_Innocent have a great FAQ section on their website, lets use it to show what Q&A Maker can do_
+
+Visit https://www.innocentdrinks.co.uk/us/contact-us/faqs#faq-content and look at some FAQs
+
+Go to https://qnamaker.ai
+
+Create a new service based on https://www.innocentdrinks.co.uk/us/contact-us/faqs#faq-content
+
+Ask "How are the smoothies made"
+* It will give the answer for "How and where are your smoothies made?"
+* Ask "Where are the smoothies made" ...it will give the same answer
