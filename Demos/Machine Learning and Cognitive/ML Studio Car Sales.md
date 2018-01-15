@@ -68,7 +68,7 @@ Visualise the output of `Score Model`
 
 
 ## Convert to Predictive Experiment
-So far the experiment has just been a 'trainig experiment'. We now need to convert it to a model that can be used to score new data.
+So far the experiment has just been a 'training experiment'. We now need to convert it to a model that can be used to score new data.
 
 Run the experiment
 
