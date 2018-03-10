@@ -1,4 +1,4 @@
-# Get Started with Cognitive and Bots
+# Start Cognitive and Bots
 A demo/lab to get people started with cognitive service and bot service.
 
 ### Pre-reqs
@@ -16,7 +16,7 @@ A demo/lab to get people started with cognitive service and bot service.
 
 ## Get a Cognitive Text Analytics key
 * Portal.azure.com
-* New resource > Search 'Text Analytics API' > Create
+* New resource > Search "Text Analytics API" > Create
 * North Europe
 * S0
 * New Resource Group (Hack24)
@@ -26,12 +26,12 @@ A demo/lab to get people started with cognitive service and bot service.
 * Bing search for "cognitive services text analytics api"
 * API > Open API testing console > North Europe. NOTE: key is region specific. Must use the console (and endpoint) for wherever you created your key
 * Go to POST sentiment
-    - Add key to Ocp-Apim-Subscription-Key. NOTE: mandatory header with almost all cognitive services
-	- Language 'en'
+    - Add key to `Ocp-Apim-Subscription-Key`. NOTE: mandatory header with almost all cognitive services
+	- Language en
 	- Text whatever you want
 	- Send and observe JSON result
 * Go to POST key Phrases
-	- Add key to Ocp-Apim-Subscription-Key. NOTE: mandatory header with almost all cognitive services
+	- Add key to `Ocp-Apim-Subscription-Key`
 	- Language 'en'
 	- Text "24 hours of code & creativity in the heart of Nottingham"
 	- Send and observe JSON result has pull out "creativity" "hours of code" as key phrases
@@ -58,8 +58,8 @@ A demo/lab to get people started with cognitive service and bot service.
 * Go back and test in web chat again
 
 ## Explore LUIS
-* Go to http://eu.luis.ai
-		○ NOTE: The 'location you created when setting up the bot service dictates which LUIS endpoint and portal you use). This is the European one. If you model does not show, you may be looking in the wrong portal
+* Go to http://eu.luis.ai. 
+    - NOTE: The 'location you created when setting up the bot service dictates which LUIS endpoint and portal you use). This is the European one. If you model does not show, you may be looking in the wrong portal
 * Scroll to bottom and click 'create luis app'
 * Pick out your model (identify byname)
 
