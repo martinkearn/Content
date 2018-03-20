@@ -4,19 +4,19 @@ This demo will create a very simple Azure ML experiment which predicts car sale 
 Time: Approx 10 minutes
 
 ### Pre Reqs
-* Have `Car price data normalised losses.csv` avaliable. A modified version of one of the Azure sample data sets. [get it here](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Car%20price%20data.csv)
+* Have `Car prices.csv` avaliable. A modified version of one of the Azure sample data sets. [get it here](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Car%20prices.csv)
 * Have a printed version of ![ML Car Sales Finished Experiment.png](https://github.com/martinkearn/Content/raw/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/ML%20Car%20Sales%20Finished%20Experiment.PNG)
 
 ## Create an experiment and load data
 Sign into https://studio.azureml.net
 
-Datasets > New > From Local File >  `Car price data normalised losses.csv`
+Datasets > New > From Local File >  `Car prices.csv` (or use the one that is already there)
 
-Experiments > New > Black experiment
+Experiments > New > Blank experiment
 
 ## Add data set
 
-Drag `Car price data normalised losses.csv` to the canvas (Saved Datasets > My Datasets)
+Drag `Car prices.csv` to the canvas (Saved Datasets > My Datasets)
 
 Visualize the dataset (Right-click the output port > Visualise)
 
