@@ -25,7 +25,7 @@ Drag the Transforms > `Clean missing data` module
 
 Connect to the `Select Columns in Dataset` module
 
-Cleaning mode = "Remove entire row"
+Cleaning mode = `Remove entire row`
 
 Run the experiment and observe green ticks
 
@@ -41,7 +41,7 @@ Run the experiment (this allows the cleaning modules to pass definitions down th
 ## Add Linear Regression
 Drag the Machine Learning > Initialize Model > Regression > `Linear Regression` module
 
-PLace next to the `Split data` module
+Place next to the `Split data` module
 
 ## Train the model on Price
 * Drag the Machine Learning > Train > `Train Model` module
@@ -68,11 +68,11 @@ Visualise the output of `Score Model`
 
 
 ## Convert to Predictive Experiment
-So far the experiment has just been a 'training experiment'. We now need to convert it to a model that can be used to score new data.
+So far the experiment has just been a training experiment. We now need to convert it to a predictive model that can be used to score new data.
 
 Run the experiment
 
-Setup Web Service > Predictive Web Service
+Setup Web Service > `Predictive Web Service`
 
 Run the new predictive experiment (takes approx 30 seconds)
 
