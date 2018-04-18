@@ -1,5 +1,5 @@
-# Predict Car Sale Prices with ML Studio
-This demo will create a very simple Azure ML experiment which predicts car sale prices based on features.
+# Predict Car Prices
+This demo will create a very simple Azure ML Studio experiment which predicts car sale prices based on features.
 
 Time: Approx 10 minutes
 
