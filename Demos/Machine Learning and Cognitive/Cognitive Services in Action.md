@@ -18,14 +18,17 @@ Using 'Analyse an image'
 * Show built-in pictures
 * Take new photo and upload
 
-## Emotion API
+## Custom Vision with Makaton
+http://makaton.azurewebsites.net/
+
+## Face API to show emotion
 _Use a picture of Maddie to show the emotion API via the portal_
 
 Show the [Emotion.jpg](https://github.com/martinkearn/Content/blob/master/Demos/Project%20Oxford/Supporting%20Files/Emotion.jpg)
 
-Go to https://azure.microsoft.com/en-gb/services/cognitive-services/emotion/
+Go to https://azure.microsoft.com/en-gb/services/cognitive-services/face/
 
-Scroll down the Emotion API page and use the live demo section to analyse photo
+Scroll down the Face detection page and use the live demo section to analyse photo
 
 The primary emotions here are:
 * 61% contempt
@@ -33,20 +36,6 @@ The primary emotions here are:
 * 9% anger
 
 _This is what happens when you tell a three-year-old who has no respect for her father that she cannot have another piece of chocolate_
-
-## Face API with Black Radley
-_Use the Black Radley Intelligent exhibit app to show the face API in action ina real-world scenario. _
-
-Run the app and how how it recognizes me as a 30-something-year-old (or even better get someone from the crowd) and gives me a voice description.
-
-Walk away and see how the audio stops
-
-Show a picture of an older person (or get one from the crowd) and not a different audio description.
-
-Show a picture of a child and note a different audio description
-
-## Custom Vision with Makaton
-http://makaton.azurewebsites.net/
 
 ## HowHappy.co.uk
 _Show the HowHappy website which uses the emotion API and LUIS to sort faces in a photo by their emotion_
@@ -58,6 +47,17 @@ Show the main How Happy website in action
     * Show me all the angry people
     * Who is the 3rd most surprised person
     * Show me the least happy person
+
+## Face API with Black Radley
+_Use the Black Radley Intelligent exhibit app to show the face API in action ina real-world scenario. _
+
+Run the app and how how it recognizes me as a 30-something-year-old (or even better get someone from the crowd) and gives me a voice description.
+
+Walk away and see how the audio stops
+
+Show a picture of an older person (or get one from the crowd) and not a different audio description.
+
+Show a picture of a child and note a different audio description
 
 ## Recommendations
 _Use the Cortana Intelligence Recommendations Solution to show recommendations with a sample web site_
