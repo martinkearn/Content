@@ -53,7 +53,7 @@ In your main bot file, you need to setup a `LuisRecognizer` object which you can
 
 In your main bot class (the one that inherits form `IBot`), you can do something like this:
 
-```
+```c#
 var luisRecognizerOptions = new LuisRecognizerOptions { Verbose = true };
 
 var luisModel = new LuisModel(
@@ -67,7 +67,7 @@ var LuisRecognizer = new LuisRecognizer(luisModel, luisRecognizerOptions, null);
 
 This gives you the main `LuisRecognizer` object to work with. Later on in the main bot code you can do something like this to capture the utterance from the user, call Luis and work out the intent.
 
-```
+```c#
 var utterance = dc.Context.Activity.Text?.Trim().ToLowerInvariant();
 
 var luisResult = await LuisRecognizer.Recognize<BankoLuisModel>(utterance, new CancellationToken());
@@ -95,7 +95,7 @@ A `DialogContainer` is similar to a `Dialog` in BFv3 and is essentially a way of
 
 This is a very simple example of a dialog container which simply says "OK, we're done here. What is next?" and exits. You can see more complete examples of the [BalanceDialogContainer.cs](https://github.com/martinkearn/Bot-V4-Banko/blob/master/DialogContainers/BalanceDialogContainer.cs) and [TransferDialogContainer.cs](https://github.com/martinkearn/Bot-V4-Banko/blob/master/DialogContainers/TransferDialogContainer.cs) from my banko example to learn how to structure a `DialogContainer`.
 
-```
+```c#
 public class BalanceDialogContainer : DialogContainer
 {
     public static BalanceDialogContainer Instance { get; } = new BalanceDialogContainer();
@@ -118,7 +118,7 @@ public class BalanceDialogContainer : DialogContainer
 
 You can invoke a `DialogContainer` from your top level intent handler. As an example the switch statement for handling intents may look like this
 
-```
+```c#
 switch (luisResult.TopIntent().intent)
 {
     case BankoLuisModel.Intent.Balance:
@@ -148,7 +148,7 @@ As an example, if a Banko users says _"Transfer £20 from the joint account to m
 
 The `LuisRecognizer` makes it very simple to extract the entities and pass them as an argument to your `DialogContainer` so you can work with them. In the scenario for a money transfer, the code looks like this:
 
-```
+```c#
 case BankoLuisModel.Intent.Transfer:
     var dialogArgs = new Dictionary<string, object>();
     dialogArgs.Add(Keys.LuisArgs, luisResult.Entities);
@@ -161,11 +161,11 @@ If you do pass entities from your main `IBot` to your `DialogContainer`, you'll 
 
 You may typically want to discard entities that do not have values.
 
-Bot state requires that information is stored as `Dictionary<string, object>` so I find it best to implement a static class which accepts your `_Entities` object from the `LuisRecognizer`, validates and converts each entity and returns a `Dictionary<string, object>` full of entities to be stored in bot state. 
+Bot state requires that information is stored as `Dictionary<string, object>` so I find it best to implement a static class which accepts your `_Entities` object from the `LuisRecognizer`, validates and converts each entity and returns a `Dictionary<string, object>` full of entities to be stored in bot state.
 
 In my Banko example, the [LuisValidator.cs](https://github.com/martinkearn/Bot-V4-Banko/blob/master/Helpers/LuisValidator.cs) contains the full details but this snippet should give you the idea. This validates that the AccountLabel entity has a value and if it does it adds the value to a `Dictionary<string, object>` which is returned and stored in Bot state.
 
-```
+```c#
 public static Dictionary<string, object> LuisValidator(BankoLuisModel._Entities entities)
 {
     var result = new Dictionary<string, object>();
@@ -186,7 +186,7 @@ public static Dictionary<string, object> LuisValidator(BankoLuisModel._Entities 
 
 Within the `DialogContainer` you can call the `LuisValidator` and store the results in Bot State. You would typically do this as your first `WaterfallStep`.
 
-```
+```c#
 async (dc, args, next) =>
 {
     // Initialize state.
@@ -203,18 +203,115 @@ async (dc, args, next) =>
     }
 
     await next();
-},
+}
+```
+
+### Resolving date entities
 
 Typically your entities may be simple strings but they could also be more complex types such as DateTime, Money etc.
 
-Luis uses a thing called a 'Resolution' to provide additional data with these kinds of complex entities so that you can resolve the actual values from the words the user said. For example "Saturday" may mean "18th August 2018". 
+Luis uses a thing called a 'Resolution' to provide additional data with these kinds of complex entities so that you can resolve the actual values from the words the user said. For example "Saturday" may mean "18th August 2018".
 
-For these kind of entities you need special validators to get the data you'll need for your bot code.
+Luis return date entities to you using Json which looks a little like the following
 
-### TimexRangeResolver for resolving date entities
+```json
+{
+    "entity": "saturday",
+    "type": "builtin.datetimeV2.date",
+    "startIndex": 32,
+    "endIndex": 39,
+    "resolution": {
+        "values": [
+            {
+                "timex": "XXXX-WXX-6",
+                "type": "date",
+                "value": "2018-08-18"
+            },
+            {
+                "timex": "XXXX-WXX-6",
+                "type": "date",
+                "value": "2018-08-25"
+            }
+        ]
+    }
+}
+```
 
-### A word about currency
+Using this data alone, it is hard to boil this down to `DateTime` object you can work with. Fortunately, there are some helpers built into the BotBuilder SDK to help you.
+
+The first thing you need to get is the `Timex` which is a code that somehow can be resolved to a `DateTime` (I have no idea how this works under the hood).  
+
+Luis actually returns several candidate dates in order of likelihood so you may want to implement some logic to determine the correct date, but in this example I've just taken the first one. 
+
+```c#
+async (dc, args, next) =>
+{
+    // Capture Date to state
+    if (!dc.ActiveDialog.State.ContainsKey(Keys.Date))
+    {
+        var answers = args["Resolution"] as List<DateTimeResult.DateTimeResolution>;
+        var firstAnswer = answers[0];
+        var timex = firstAnswer.Timex;
+		var justDate = timex.Substring(0, timex.IndexOf("T"));
+		var date = Convert.ToDateTime(justDate);
+        dc.ActiveDialog.State[Keys.Date] = date.ToLongDateString();
+    }
+
+    await next();
+},
+```
+
+Once you've implemented the above, you'll have a valid `DateTime` object stored in your bot state which you can use to action the user's request.
+
+For the [Banko](https://github.com/martinkearn/Bot-V4-Banko) implementation, I used a helper function to do the `Timex` conversion just to make things a little neater, see [TransferDialogContainer.cs](https://github.com/martinkearn/Bot-V4-Banko/blob/master/DialogContainers/TransferDialogContainer.cs) and [TimexToDateConverter.cs](https://github.com/martinkearn/Bot-V4-Banko/blob/master/Helpers/TimexToDateConverter.cs).
+
+### Resolving currency entities
+
+Luis has a built in entity type for currency which can accurately capture money however the user references it, for example all of these would resolve to a currency entity:
+
+* "£20"
+* "20.00"
+* "twenty pounds"
+
+This is the Json that comes back from Luis for currency
+
+```json
+"entity": "£20.50",
+"type": "builtin.currency",
+"startIndex": 19,
+"endIndex": 24,
+"resolution": {
+    "unit": "Pound",
+    "value": "20.5"
+}
+```
+
+If you have built your Luis c# model using the [LUISGen tool](https://github.com/Microsoft/botbuilder-tools/tree/master/LUISGen), you will have a very useful `Microsoft.Bot.Builder.Ai.LUIS.Money[]` object to work with. This contains lots of data but to get to the actual amount, you can do a simple validation, much like we did with AccountLabel earlier on.
+
+This is an example of how we can extent the [LuisValidator.cs](https://github.com/martinkearn/Bot-V4-Banko/blob/master/Helpers/LuisValidator.cs) from earlier to validate currency entities and convert to a `Decimal` which is much easier to work with for currency.
+
+```C#
+public static Dictionary<string, object> LuisValidator(BankoLuisModel._Entities entities)
+{
+    var result = new Dictionary<string, object>();
+
+    // Check Money
+    if (entities?.money?.Any() is true)
+    {
+        var number = entities.money.FirstOrDefault().Number;
+        if (number != 0.0)
+        {
+            // LUIS recognizes numbers as doubles. Convert to decimal.
+            result[Keys.Money] = Convert.ToDecimal(number);
+        }
+    }
+}
+```
+
+This is all great if the user provides the currency in their initial utterance, but if you have to capture it via prompts later, you may have a problem .... more on this in the 'NumberPrompt is Int only' section later.
 
 ## Entity Completion via WaterfallStep
+
+[author note .. numberprompt captures int only, not a double]
 
 ## In Summary
