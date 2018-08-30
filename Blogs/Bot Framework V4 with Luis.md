@@ -9,6 +9,8 @@ I did some work on BFv4 a few weeks ago. I wrote about my main initial observati
 
 As with anything I write around emerging technology; this stuff is just a collection of my observations at the time of writing (August 2018). Your mileage may vary.
 
+All the sample code for this article comes from my [Banko bot V4 sample](https://github.com/martinkearn/Bot-V4-Banko) which is a made-up bot based on common banking scenarios. If you want the full sample, please clone from GitHub. Happy to accept pull requests if you can think of improves that remained focused on the job of demonstrating Bot v4 with Luis.
+
 ## BFv4 Luis Options; LuisRecognizer or LuisRecognizerMiddleware
 In BFv4 there are two patterns for using Luis with capabilities that are built into the SDK.
 * `LuisRecognizerMiddleware`: Outlined in [Using LUIS for Language Understanding](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-luis?view=azure-bot-service-4.0&tabs=cs)
@@ -47,8 +49,6 @@ This will give you a c# class which you can use to receive your Luis responses.
 
 
 ### 3: Use a root DialogSet to call Luis and work out intent
-> NOTE: At this point, I'll mention that all the sample code for this article from this point onwards comes from my [Banko bot V4 sample](https://github.com/martinkearn/Bot-V4-Banko). If you want the full sample, please clone that from GitHub.
-
 In your main bot file, you need to setup a `LuisRecognizer` object which you can use to to get top level intents and entities. You can then either handle them directly or spin up a `DialogContainer` to handle each one.
 
 In your main bot class (the one that inherits form `IBot`), you can do something like this:
@@ -308,10 +308,91 @@ public static Dictionary<string, object> LuisValidator(BankoLuisModel._Entities 
 }
 ```
 
-This is all great if the user provides the currency in their initial utterance, but if you have to capture it via prompts later, you may have a problem .... more on this in the 'NumberPrompt is Int only' section later.
+This is all great if the user provides the currency in their initial utterance, but if you have to capture it via prompts later, you may have a problem .... more on this in the 'Capturing currency from the user with NumberPrompt' section later.
 
 ## Entity Completion via WaterfallStep
 
-[author note .. numberprompt captures int only, not a double]
+If the utterance that gets sent to Luis contains all the required entities, you are good to go with the details above around entity validation. However, no two users are the same and not everyone is going to give you everything you need in one go.
+
+Lets examine the concept of a balance transfer; to do a balance transfer, we need 4 bits of information
+
+* **AccountLabel**: The short name of the account the money is to be transferred from
+* **Money**: The amount and currency of the transfer
+* **Date**: The date the transfer should take place
+* **Payee**: The person or company receiving the money
+
+All of the following are potential utterances that Luis will resolve to the Transfer intent and contain one or more of the required entities
+
+- **"I want to make a transfer"**; the Transfer intent without any entities.
+- **"Transfer from the joint account"**; the Transfer intent with the `AccountLabel` entity.
+- **"Transfer £20 from the joint account"**; the Transfer intent with the `AccountLabel` and `Money` entities.
+- **"Transfer £20 from the joint account on Saturday"**; the Transfer intent with the `AccountLabel`, `Money` and `Date` entities.
+- **"Transfer £20 from the joint account to martin kearn on Saturday"**; the Transfer intent with the `AccountLabel`, `Money`, `Date` and `Payee` entities.
+
+If you have used the entity validation approach detailed above, your bot state will contain a `Dictionary<string,object>` containing all the entities that were provided by Luis. However, if you find that that not all your entities are provided, you will need to prompt the user to provide them.
+
+You can use a `WaterfallStep` to prompt the user for a value, capture it and store it in bot state as if it were provided by Luis originally. I find it simplest to implement a different `WaterfallStep` for each message going to or from the user.
+
+The full details of how we can validate, prompt and capture all 4 entities can be found in [TransferDialogContainer.cs](https://github.com/martinkearn/Bot-V4-Banko/blob/master/DialogContainers/TransferDialogContainer.cs) but here is a quick sample for the `AccountLabel` entity.
+
+```c#
+async (dc, args, next) =>
+{
+    // Verify or ask for AccountLabel
+    if (dc.ActiveDialog.State.ContainsKey(Keys.AccountLabel))
+    {
+        await next();
+    }
+    else
+    {
+        var promptOptions = new PromptOptions(){RetryPromptString = "Which account do you want to transfer from? For exmaple Joint, Current, Savings etc"};
+        await dc.Prompt(Keys.AccountLabel,"Which account?", promptOptions);
+    }
+},
+async (dc, args, next) =>
+{
+    // Capture AccountLabel to state
+    if (!dc.ActiveDialog.State.ContainsKey(Keys.AccountLabel))
+    {
+        var answer = (string)args["Value"];
+        dc.ActiveDialog.State[Keys.AccountLabel] = answer;
+    }
+
+    await next();
+},
+```
+
+You'll note that the we are using built in prompts to capture data from the user. IN order for these to work, you'll need to add them, with their validators to the `Dialogs` collection for your `DialogContainer`. To do this you can do something like this at the bottom of the main `DialogContainer` constructor
+
+```c#
+// Add the prompts and child dialogs
+this.Dialogs.Add(Keys.AccountLabel, new Microsoft.Bot.Builder.Dialogs.TextPrompt());
+
+this.Dialogs.Add(Keys.Money, new Microsoft.Bot.Builder.Dialogs.NumberPrompt<int>(Culture.English, Validators.MoneyValidator));
+
+this.Dialogs.Add(Keys.Date, new Microsoft.Bot.Builder.Dialogs.DateTimePrompt(Culture.English, Validators.DateTimeValidator));
+
+this.Dialogs.Add(Keys.Payee, new Microsoft.Bot.Builder.Dialogs.TextPrompt());
+
+this.Dialogs.Add(Keys.Confirm, new Microsoft.Bot.Builder.Dialogs.ConfirmPrompt(Culture.English));
+```
+
+Notice how we're using validators to help the prompt validate the answer given? These can be found in the [Helpers](https://github.com/martinkearn/Bot-V4-Banko/tree/master/Helpers) folder.
+
+### Capturing currency from the user with NumberPrompt
+
+The bot framework provides a nice set of `Prompt` which help you gather specific data types from the user. These are great for entity completion as detailed above, however I encountered an issues with currency which I've not yet been able to resolve.
+
+The best matching `Prompt` for currency is the `NumberPrompt` which captures a number from the user. However this number is returned as an `Int` not a `Double` or `Float` which is required to work with currency.
+
+I've not resolved this issue in my Banko sample, but I suspect that the way you'd tackle this is by creating your own prompt as detailed in [Prompt users for input using your own prompts](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-primitive-prompts?view=azure-bot-service-4.0&tabs=csharp). I'm open to pull requests on [Banko](https://github.com/martinkearn/Bot-V4-Banko) if anyone wants to write that!? :)
 
 ## In Summary
+
+To summarise, there are several options for using Luis with the BFv4 and the right approach will depending on your application. 
+
+For [Banko](https://github.com/martinkearn/Bot-V4-Banko) I elected to use the `LuisRecognizer` because I only wanted to use Luis for top level intent detection and initial entity extraction.
+
+Once you have a Luis response you can use a `DialogContainer` to interact with your user through a series of `WaterfallStep` and `Dialog` objects.
+
+There are some definitive gotchas along the way, but I've tried to capture what I learnt about it in this article, your mileage may vary
