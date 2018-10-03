@@ -138,6 +138,16 @@ The settings are as follows:
 * **botFilePath**: value will look something like `./YourBotFile.bot`
 * **botFileSecret**: value will look something like `zOku/rKiFRa/ISohbv3/1O6k7rhGEsXdV+lAO/8mVBU=`
 
+### Making sure your .BOT file gets deployed in .net projects
+
+In .net bot projects, if you make changes to your .BOT file, it will not get deployed by default when you publish to Azure and your production bot will always use the initial .BOT file
+
+The reason for this is that the .BOT file is marked as `Do not copy` by default which means that it is not treated as content for the application and so never gets deployed. 
+
+To make sure your .BOT file is deployed whenever you publish, set the 'Copy To Output Directory' to `Copy Always` on the file properties of your .BOT file in Visual Studio.
+
+There is a [Stack Overflow post](https://stackoverflow.com/questions/52610698/bot-file-not-getting-deployed-to-azure-bot-service-v4) on this which provides details.
+
 ## Use the Azure template and it is done for you
 
 Well done for getting this far through the article.
