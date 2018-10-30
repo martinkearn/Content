@@ -184,7 +184,7 @@ Talking Points
 
 Demo
 
-Access and Initial Tour
+### Access and Initial Tour
 
 * http://Eu.luis.ai > @microsoft.com account > Banko
   * Talk about the EU domain name
@@ -193,7 +193,7 @@ Access and Initial Tour
 
 
 
-Balance Intent
+### Balance Intent
 
 * Using test UI, ask `What is my balance`
 
@@ -203,7 +203,7 @@ Balance Intent
 
 
 
-Transfer Intent
+### Transfer Intent
 
 * Explore each of the entities
 
@@ -218,7 +218,7 @@ Transfer Intent
 
 
 
-Banko Bot (if available)
+### Banko Bot (if available)
 
 * `what is my balance`
 * `Send Amy Kearn £20`
@@ -238,7 +238,7 @@ Talking Points
 
 Demo
 
-Entity recognition & sentiment
+### Entity recognition & sentiment
 
 * http://aka.ms/CognitiveServices > Language > Text Analytics
 * “I enjoyed going to [London](https://en.wikipedia.org/wiki/London) and looking around the [Excel](https://en.wikipedia.org/wiki/ExCeL_London)” (Make sure Excel is capitalized)
@@ -250,7 +250,7 @@ Entity recognition & sentiment
   * This time, it chose Microsoft Excel
   * Low sentiment score
 
-Language Detection
+### Language Detection
 
 * Now use the translator app to translate “My least favourite application is Excel, I really cannot understand those formulas” to another language and paste in
   * Language detection
@@ -267,7 +267,7 @@ Talking Points
 
 Demo
 
-Create knowledge base
+### Create knowledge base
 
 * http://aka.ms/CognitiveServices > Knowledge > QnA Maker > Trial > Sign In > @Microsoft.com account
 
@@ -282,7 +282,7 @@ Create knowledge base
 
 
 
-Test
+### Test
 
 * `What is Brexit` (what does Brexit mean)
 
@@ -296,7 +296,7 @@ Test
 
 
 
-Settings & Publish
+### Settings & Publish
 
 * Explore the settings
 
@@ -337,3 +337,22 @@ http://aka.ms/CognitiveServices > Scroll Down > Cognitive Services Directory > E
 
 * Anomaly Finder
 
+## Sports Shop Recommendations
+
+_Use the Cortana Intelligence Recommendations Solution to show recommendations with a sample web site_
+
+Talking Points
+
+- Item to item recommendations. i.e., what amazon calls "Customers who liked this product also liked these other products"
+- Personalized user recommendations
+
+Demo
+
+* Go to <http://aka.ms/SportsShop>
+
+* Open the links to the Recommendations solution from the footer
+* Go back to <http://aka.ms/SportsShop>
+* Use the website to explore sports wear items and their recommendations
+  * Item (Choose from featured items on home page): Outfit, You May Like, Cheaper, Accessories
+  * Cart: You may like, Free shipping over $60 threshold
+  * User (use 00012): Based on your history
