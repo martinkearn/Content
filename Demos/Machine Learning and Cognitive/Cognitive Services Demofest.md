@@ -164,7 +164,7 @@ Demo:
 * Martin, English
 * Launch translator app on phone > Conversation icon > Join by scanning QR
 * Have a voice or text conversation
-  * If talking to myself try to say "I have a guinea pig" / "Ich habe ein Meerschweinchen"
+* If talking to myself try to say "I have a guinea pig" / "Ich habe ein Meerschweinchen"
 
 ## Banko LUIS
 
@@ -222,7 +222,6 @@ Demo
 * London and Excel both picked up as named entities
 * Disambiguated between “London excel” and “Microsoft excel”
 * High sentiment score
-
 * “My least favourite application is Excel, I really cannot understand those formulas”
 * This time, it chose Microsoft Excel
 * Low sentiment score
