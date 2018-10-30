@@ -35,7 +35,7 @@ _Computers can see things_
 
 ### Printed Text (Computer Vision)
 
-* http://aka.ms/CognitiveServices > Vision > Computer Vision > Read text in images
+* <http://aka.ms/CognitiveServices> > Vision > Computer Vision > Read text in images
 * Photograph event lanyard with webcam
 * Upload
 * Explore results
@@ -43,7 +43,7 @@ _Computers can see things_
 
 ### Handwritten Text (Computer Vision)
 
-* http://aka.ms/CognitiveServices > Vision > Computer Vision > Read handwritten text from images
+* <http://aka.ms/CognitiveServices> > Vision > Computer Vision > Read handwritten text from images
 * Have someone hand write some pre-prepared sentences on paper
 * Photograph with webcam
 * Upload
@@ -62,7 +62,7 @@ Talking points
 
 Demo
 
-* http://aka.ms/CognitiveServices > Vision > Custom Vision > Getting Started > Sign In (@Microsoft.com)
+* <http://aka.ms/CognitiveServices> > Vision > Custom Vision > Getting Started > Sign In with Microsoft.com
 * Vehicle Registration model
 * Explore images and tags
 * Upload `Registration-Untagged-1.jpg` and tag registration
@@ -79,7 +79,7 @@ Talking Points
 
 Demo:
 
-* http://aka.ms/CognitiveServices > Vision > Custom Vision > Getting Started > Sign In (@Microsoft.com)
+* http://aka.ms/CognitiveServices > Vision > Custom Vision > Getting Started > Sign In with Microsoft.com
 * Bananas-Colour model
 * Explore images and tags
 * Test `Banana Colour 2.jpg`, `Banana Colour 4.jpg`
@@ -111,7 +111,7 @@ _Use the Cognitive portal to show the various Speech API services_
 
 ### Speech-to-text
 
-* http://aka.ms/CognitiveServices > Vision > Speech > Speech-to-Text > Speech transcription
+* <http://aka.ms/CognitiveServices> > Vision > Speech > Speech-to-Text > Speech transcription
 * `Start Recording` and speak the description to the Speech transcription section
 * Also play a sample
 
@@ -124,7 +124,7 @@ Talking points
 
 Demo:
 
-* http://aka.ms/CognitiveServices > Vision > Speech > Speech-to-Text > Custom Speech service: Speech transcription with custom model
+* <http://aka.ms/CognitiveServices> > Vision > Speech > Speech-to-Text > Custom Speech service: Speech transcription with custom model
 * Play `sample sentance 1` and note differences between the baseline and custom speech
 * Play `Sample sentance 4` for custom terminology
 
@@ -139,9 +139,9 @@ Talking points
 
 Demo:
 
-* http://aka.ms/CognitiveServices > Vision > Speech > Text-to-speech > Bring natural voice to your apps
+* <http://aka.ms/CognitiveServices> > Vision > Speech > Text-to-speech > Bring natural voice to your apps
 * Play the various samples
-* http://aka.ms/CognitiveServices > Vision > Speech > Text-to-speech > Text to Speech with custom voice models
+* <http://aka.ms/CognitiveServices> > Vision > Speech > Text-to-speech > Text to Speech with custom voice models
 * Set quality to `Basic` and play `sample voice 2`
 * Set quality to `Standard` and play `sample voice 2`
 * Set quality to `High quality ` and play `sample voice 2` (this is a custom font)
@@ -179,8 +179,7 @@ Demo
 
 ### Access and Initial Tour
 
-* http://Eu.luis.ai > @microsoft.com account > Banko
-  * Talk about the EU domain name
+* <http://Eu.luis.ai> > sign in with microsoft.com account > Banko > Talk about the EU domain name
 * Introduce basic UI
 
 ### Balance Intent
@@ -195,8 +194,7 @@ Demo
 * Look at “balance” intent and explore utterances
 * Switch between entities view on/off
 * Ask `can I move £2. 50 from savings to david kearn on saturday` Inspect result
-* Explore raw Json
-  * Manage > Keys & Endpoints > Starter key > Open in new browser tab > paste utterance after `q=` in address
+* Explore raw Json > Manage > Keys & Endpoints > Starter key > Open in new browser tab > paste utterance after `q=` in address
 
 ### Banko Bot (if available)
 
@@ -219,7 +217,7 @@ Demo
 
 ### Entity recognition & sentiment
 
-* http://aka.ms/CognitiveServices > Language > Text Analytics
+* <http://aka.ms/CognitiveServices> > Language > Text Analytics
 * “I enjoyed going to [London](https://en.wikipedia.org/wiki/London) and looking around the [Excel](https://en.wikipedia.org/wiki/ExCeL_London)” (Make sure Excel is capitalized)
   * London and Excel both picked up as named entities
   * Disambiguated between “London excel” and “Microsoft excel”
@@ -248,10 +246,10 @@ Demo
 
 ### Create knowledge base
 
-* http://aka.ms/CognitiveServices > Knowledge > QnA Maker > Trial > Sign In > @Microsoft.com account
+* <http://aka.ms/CognitiveServices> > Knowledge > QnA Maker > Trial > Sign In > @Microsoft.com account
 * Create a knowledge base
 * Use existing `BrexitFAQ` azure service
-* Add BBC data source https://www.bbc.co.uk/news/uk-politics-32810887
+* Add BBC data source <https://www.bbc.co.uk/news/uk-politics-32810887>
 * Add professional chit-chat
 * `Create your KB`
 * Look at BBC page whilst it is creating
@@ -293,7 +291,7 @@ Demo
 
 ## Cognitive Labs
 
-http://aka.ms/CognitiveServices > Scroll Down > Cognitive Services Directory > Explore Cognitive Services Labs
+<http://aka.ms/CognitiveServices> > Scroll Down > Cognitive Services Directory > Explore Cognitive Services Labs
 
 * Quick description of each one
 * Personality Chat > Demo
