@@ -219,19 +219,19 @@ Demo
 
 * <http://aka.ms/CognitiveServices> > Language > Text Analytics
 * “I enjoyed going to [London](https://en.wikipedia.org/wiki/London) and looking around the [Excel](https://en.wikipedia.org/wiki/ExCeL_London)” (Make sure Excel is capitalized)
-  * London and Excel both picked up as named entities
-  * Disambiguated between “London excel” and “Microsoft excel”
-  * High sentiment score
+* London and Excel both picked up as named entities
+* Disambiguated between “London excel” and “Microsoft excel”
+* High sentiment score
 
 * “My least favourite application is Excel, I really cannot understand those formulas”
-  * This time, it chose Microsoft Excel
-  * Low sentiment score
+* This time, it chose Microsoft Excel
+* Low sentiment score
 
 ### Language Detection
 
 * Now use the translator app to translate “My least favourite application is Excel, I really cannot understand those formulas” to another language and paste in
-  * Language detection
-  * Still does entity recognition
+* Language detection
+* Still does entity recognition
 
 ## Brexit Bot
 
@@ -285,8 +285,8 @@ Demo
 * Search for “Oswald”
 * Note OCR
 * Note Face
-  * Uses the [Cognitive Services Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) to extract text information from the image via OCR, handwriting, and image captioning,
-  * Applies Named Entity Recognition to extract named entities from the documents,
+* Uses the [Cognitive Services Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/) to extract text information from the image via OCR, handwriting, and image captioning,
+* Applies Named Entity Recognition to extract named entities from the documents,
 * Look at Graph
 
 ## Cognitive Labs
@@ -313,6 +313,6 @@ Demo
 * Open the links to the Recommendations solution from the footer
 * Go back to <http://aka.ms/SportsShop>
 * Use the website to explore sports wear items and their recommendations
-  * Item (Choose from featured items on home page): Outfit, You May Like, Cheaper, Accessories
-  * Cart: You may like, Free shipping over $60 threshold
-  * User (use 00012): Based on your history
+* Item (Choose from featured items on home page): Outfit, You May Like, Cheaper, Accessories
+* Cart: You may like, Free shipping over $60 threshold
+* User (use 00012): Based on your history
