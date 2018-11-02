@@ -1,7 +1,9 @@
 ---
-Title:Using .BOT files to access external services in Bot Framework v4  
-Author:Martin Kearn  
-Keywords:BotFrameworkV4,MSBOT CLI  
+title:Using .BOT files to access external services in Bot Framework v4  
+author:Martin Kearn  
+tags:
+- BotFrameworkV4
+- MSBOT CLI  
 ---
 
 # Using .BOT files to access external services in Bot Framework v4
