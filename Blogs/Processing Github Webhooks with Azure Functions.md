@@ -1,6 +1,6 @@
 # Processing Github Webhooks with Azure Functions
 
-I recently had a requirement where I needed to react to a push event on a GitHub repository and do some data processing on what was pushed. 
+I recently had a need to react to a push event on a GitHub repository and do some data processing on what was pushed. 
 
 GitHub expose webhooks for a wide range of events so I looked into using Azure Functions and webhooks to respond to the GitHub push event.
 
@@ -14,23 +14,23 @@ You can get the function code (all 6 lines of it) here <https://github.com/marti
 
 I'll admit to not being 100% sure what a webhook was before doing this research, but it is actually a very simple concept.
 
-A webhook (sometimes called "web callback" or "reverse api") is where a website, service or application issues a HTTP request to some consuming endpoint in response to an event, usually posting data about the event to the consuming endpoint.
+A webhook (sometimes called "web callback" or "reverse api") is where a website, service or application issues a HTTP request to a consuming endpoint in response to an event, usually posting data about the event to the endpoint.
 
-Webhooks enable the consuming endpoint to react to data in near real time without having to poll or run on a timer.
+Webhooks enable the endpoint to react to data in near real time without having to poll or run on a timer.
 
-The example that most people are likely to be familiar with is the Continuous Deployment capabilities between GitHub and Azure which means that code is automatically deployed to Azure when a commit happens on GitHub. This functionality is built on the GitHub web hooks infrastructure.
+The example that most Azure users are likely to be familiar with is the continuous deployment capabilities between GitHub and Azure which means that code is automatically deployed to Azure when a commit happens on GitHub. This functionality is built on the GitHub webhooks infrastructure.
 
 ## Configuring GitHub webhook
 
 GitHub offer webhooks for all sorts of events that could take place in a repository. The [GitHub Developers > Webhooks](https://developer.github.com/webhooks/) documentation is a decent read if you want to get all the details, but the main points/steps are
 
 * You configure a webhook by going to Github > Repository > Settings > Webhooks > Add Webhook
-* The `Payload URL` is the endpoint where you want to receive the webhook's payload. For this example, enter `http://localhost:7071/api/PushCatcher` (we'll change this later but is fine for now)
-* The `Content type` is the format that payload data comes in. `application/json` is probably the best choice for most scenarios
+* The `Payload URL` is the endpoint where you want to receive the webhook's payload. For this example, enter `http://localhost:7071/api/Function1` (we'll change this later but is fine for now)
+* The `Content type` is the format that payload data comes in; `application/json` is probably the best choice for most scenarios
 * You can optionally define a secret to secure the webhook but we don't need that for this scenario
 * You can also choose from a wide range of events that will trigger the webhook. We'll use the default `Just the push event`. You can see all the available events at [GitHub Developers > Event Types & Payloads](https://developer.github.com/v3/activity/events/types/)
 
-Once you save the webhook, it is active by default. Whenever a `push` occurs on the repository, a JSON payload will be sent to the URL you defined in real-time.
+Once you save the webhook, it is active by default which means that whenever a `push` occurs on the repository, a JSON payload will be sent to the `Payload URL` you defined in real-time.
 
 You can click into the webhook and look at Recent Deliveries to see detail of each event, the payload data and the response.
 
@@ -38,11 +38,11 @@ Right now, this will return an 404 error because the payload endpoint has not be
 
 ## Creating the Azure Function
 
-An Azure Function is an obvious candidate for the `Payload URL`, although this could really be any service that accepts a HTTP Post. In Azure you could also use an Azure Logic App or Web API hosted as an App Service.
+An Azure Function is an obvious candidate for the `Payload URL`, although this could be any service that accepts a HTTP Post. For example, in Azure you could also use an Azure Logic App or Web API hosted as an App Service.
 
 We'll stick with Azure Functions as this kind of task is a perfect match for the serverless architecture. 
 
-> **Note**: Azure Functions Webhook mode is only available for version 1.x of the Functions runtime. Webhook mode provides additional validation for webhook payloads. In version 2.x, the base HTTP trigger still works and is the recommended approach for webhooks.
+> **Note**: Azure Functions Webhook mode is only available for version 1.x of the Functions runtime. In version 2.x, the base HTTP trigger still works and is the recommended approach for webhooks.
 
 The simplest way to get started is to follow [Azure Docs > Create your first function using Visual Studio](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio) right up until the 'Publish the project to Azure' section (don't publish to Azure just yet as there are some tips for local debugging I want to cover first).
 
@@ -66,15 +66,15 @@ var repo = payload.repository.name;
 return (ActionResult)new OkObjectResult($"We got data for {commitId} by {owner} on {repo}.");
 ```
 
-You can now run your Function from Visual Studio; it will open a console and start an endpoint like  `http://localhost:7071/api/Function1`. You can test your function by sending a Http POST request to this endpoint using something [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/). 
+You can now run your Function from Visual Studio; it will open a console and start an endpoint which looks like `http://localhost:7071/api/Function1`. You can test your Function by sending a Http POST request to this endpoint using something [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/). 
 
-Make a note of the Function's URL, you will need when setting up NGROK in the next section.
+Make a note of the Function's URL, you will need it when setting up NGROK in the next section.
 
 ## NGrok for local debug
 
 Now we have a Function running locally, we need to debug it against a live GitHub webhook.
 
-We can use [NGROK](https://ngrok.com/) to help us do this. NGROK is a CLI tool which exposes local servers (our Function is effectively a server in this context) to a public internet endpoint via a secure tunnel.
+We can use [NGROK](https://ngrok.com/) to help us do this. NGROK is a tool which exposes local servers (our Function is effectively a server in this context) to a public internet endpoint via a secure tunnel.
 
 To setup NGROK, follow these steps (taken in part from [GitHub Developer > Webhooks > Configuring Your Server](https://developer.github.com/webhooks/configuring/))
 
@@ -91,12 +91,13 @@ We now have a public NGROK endpoint which will forward onto our local server. Th
 
 Now we get to test it all out. Follow these steps:
 
+* You could optionally add a break point in your code if you want to, but you don't have to
 * Run your Function locally
 * Make sure your NGROK console is still running
 * Add any file to the GitHub repository. You should see some status messages happening in your Function and NGROK console windows
 * Go back to the webhook settings > Recent Deliveries section. You should see a green tick followed by a GUID. Click this and go to the `Response` tab.
 
-* You should see that the tab title is `Response 200` which indicates you receive a `200/OK` response from the function
+* You should see that the tab title is `Response 200` which indicates you receive a `200/OK` response from the Function
 * You should also see that the `Body` has details from the GitHub push event in it. It will look something like `We got data for dcd123a0b6b227093c68f6a81336a69062f18f19 by martinkearn on GitHub-Webhook-Function.`
 
 You now have a local Function which is responding to an GitHub webhook via NGROK
@@ -111,15 +112,15 @@ You no longer need NGROK now that the Function is on Azure so replace the `Paylo
 
 ## In Summary
 
-Webhooks offer a very powerful way to respond to events in applications, websites and services such as GitHub in a near real-time fashion because responding to an event is much more efficient than polling an API.
+Webhooks offer a very powerful way to respond to events in applications, websites and services such as GitHub in a near real-time fashion. Webhooks are advantageous because responding to an event is much more efficient than polling an API on a timer or schedule.
 
-Webhooks only work if they have an point to POST their payload to and Azure Functions are an ideal way to create a quick, lightweight endpoint for processing Webhook payloads.
+Webhooks only work if they have an endpoint to POST their payload to and Azure Functions are an ideal way to create a quick, lightweight endpoint for processing Webhook payloads.
 
-Going forward you want to look into how Azure Logic apps could be used to receive a webhook payload and kick off a broader workflow of tasks and functions to process the data.
+Going forward you may want to look into how Azure Logic apps could be used to receive a webhook payload and kick off a broader workflow of tasks to process the data.
 
 Further reading and resources:
 
-* My sample function: <https://github.com/martinkearn/GitHub-Webhook-Function>
+* My sample GitHub Webhook Function: <https://github.com/martinkearn/GitHub-Webhook-Function>
 * Creating an Azure Function in Visual Studio: https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio
 * NGROK: https://ngrok.com/
 * GitHub webhook documentation: https://developer.github.com/webhooks/
