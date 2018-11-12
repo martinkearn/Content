@@ -5,6 +5,7 @@ categories:
   - Test
   - GitHubCMS 
   - One More Tag
+  - another tag
 ---
 
 # Test file
