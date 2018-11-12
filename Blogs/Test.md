@@ -1,6 +1,6 @@
 ---
-title:Test File 
-author:Martin Kearn  
+title: Test File 
+author: Martin Kearn  
 categories:
   - Test
   - GitHubCMS 
