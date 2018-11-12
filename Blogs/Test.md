@@ -1,4 +1,3 @@
----
 author:"Martin Kearn"
 categories: 
   - Test
@@ -6,7 +5,6 @@ categories:
   - "One More Tag"
   - "another tag"
 title:"Test File"
----
 # h1
 some markdown content
 
