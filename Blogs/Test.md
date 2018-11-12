@@ -4,7 +4,6 @@ author: Martin Kearn
 categories: 
   - Test
   - GitHubCMS
-
 # h1
 some markdown content
 
