@@ -4,6 +4,7 @@ author: Martin Kearn
 categories:
   - Test
   - GitHubCMS 
+  - One More Tag
 ---
 
 # Test file
