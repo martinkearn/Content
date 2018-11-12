@@ -1,12 +1,12 @@
---- 
-author: "Martin Kearn"
+---
+author:"Martin Kearn"
 categories: 
   - Test
   - GitHubCMS
   - "One More Tag"
   - "another tag"
-title: "Test File"
-
+title:"Test File"
+---
 # h1
 some markdown content
 
