@@ -7,5 +7,3 @@ categories:
   - One More Tag
   - another tag
 ---
-
-# Test file
