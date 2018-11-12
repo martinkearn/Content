@@ -1,7 +1,7 @@
 ---
 title:Test File 
 author:Martin Kearn  
-tags:
+categories:
 - Test
 - GitHubCMS 
 ---
