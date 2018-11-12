@@ -2,8 +2,8 @@
 title:Test File 
 author:Martin Kearn  
 categories:
-- Test
-- GitHubCMS 
+  - Test
+  - GitHubCMS 
 ---
 
 # Test file
