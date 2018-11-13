@@ -85,13 +85,15 @@ You can then add your MSBot secret and file path as follows.
 ```
 
 In order for your bot code to access the local `secrets.json` file during development, you need to add this to the `Startup` constructor in `Startup.cs` (more on how this works in production/Azure later).
-
-  ```
-  if (env.IsDevelopment())
-  {
-      builder.AddUserSecrets<Startup>(false);
-  }
-  ```
+ 
+<pre>
+<code class="language-csharp">
+if (env.IsDevelopment())
+{
+    builder.AddUserSecrets<Startup>(false);
+}
+</code>
+</pre>
 
 You can then access secrets in your code the way you would do for any typical `AppSettings.json` file. The default bot templates will use something like this in the `ConfigureServices` method in `Startup.cs`.
 
