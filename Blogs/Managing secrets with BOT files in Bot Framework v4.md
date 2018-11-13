@@ -78,26 +78,26 @@ This is a file which is stored outside your project structure on your local mach
 You can then add your MSBot secret and file path as follows. 
 
 ```json
-{
-  "botFilePath": "./YourBotFile.bot",
-  "botFileSecret": "Your MSBot secret, something like zOku/rKiFRa/ISohbv3/1O6k7rhGEsXdV+lAO/8mVBU="
-}
+  {
+    "botFilePath": "./YourBotFile.bot",
+    "botFileSecret": "Your MSBot secret, something like zOku/rKiFRa/ISohbv3/1O6k7rhGEsXdV+lAO/8mVBU="
+  }
 ```
 
 In order for your bot code to access the local `secrets.json` file during development, you need to add this to the `Startup` constructor in `Startup.cs` (more on how this works in production/Azure later).
 
 ```c#
-if (env.IsDevelopment())
-{
-    builder.AddUserSecrets<Startup>(false);
-}
+  if (env.IsDevelopment())
+  {
+      builder.AddUserSecrets<Startup>(false);
+  }
 ```
 
 You can then access secrets in your code the way you would do for any typical `AppSettings.json` file. The default bot templates will use something like this in the `ConfigureServices` method in `Startup.cs`.
 
 ```c#
-var secretKey = Configuration.GetSection("botFileSecret")?.Value;
-var botFilePath = Configuration.GetSection("botFilePath")?.Value;
+  var secretKey = Configuration.GetSection("botFileSecret")?.Value;
+  var botFilePath = Configuration.GetSection("botFilePath")?.Value;
 ```
 
 See [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.1&tabs=windows) for full details on the pattern for managing secrets in .net Core 2.
@@ -111,25 +111,25 @@ For Node/TypeScript, secrets are managed via the `DotEnv` NPM package which is i
 You can create a `.env` file which contains the secrets as follows:
 
 ```json
-{
-  "botFilePath": "./YourBotFile.bot",
-  "botFileSecret": "Your MSBot secret, something like zOku/rKiFRa/ISohbv3/1O6k7rhGEsXdV+lAO/8mVBU="
-}
+  {
+    "botFilePath": "./YourBotFile.bot",
+    "botFileSecret": "Your MSBot secret, something like zOku/rKiFRa/ISohbv3/1O6k7rhGEsXdV+lAO/8mVBU="
+  }
 ```
 
 You can then read the secrets as follows:
 
 ```javascript
-// Import required bot configuration.
-const { BotConfiguration } = require('botframework-config');
+  // Import required bot configuration.
+  const { BotConfiguration } = require('botframework-config');
 
-// Read botFilePath and botFileSecret from .env file.
-const ENV_FILE = path.join(__dirname, '.env');
-const env = require('dotenv').config({ path: ENV_FILE });
+  // Read botFilePath and botFileSecret from .env file.
+  const ENV_FILE = path.join(__dirname, '.env');
+  const env = require('dotenv').config({ path: ENV_FILE });
 
-// Get the .bot file path
-const BOT_FILE = path.join(__dirname, (process.env.botFilePath || ''));
-let botConfig = BotConfiguration.loadSync(BOT_FILE, process.env.botFileSecret);
+  // Get the .bot file path
+  const BOT_FILE = path.join(__dirname, (process.env.botFilePath || ''));
+  let botConfig = BotConfiguration.loadSync(BOT_FILE, process.env.botFileSecret);
 ```
 
 There are many tutorials for using `DotEnv` to manage secrets in Node, simply [do a search for "managing secrets with dotenv"](https://www.bing.com/search?q=managing+secrets+with+dotenv&form=EDGEAR&qs=PF&cvid=6d694ba619b4463191cf2d0d46baf873&cc=GB&setlang=en-US) to see more detail.
