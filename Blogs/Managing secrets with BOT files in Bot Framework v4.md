@@ -176,12 +176,11 @@ An Azure Bot Service created via Azure will have:
 * The secret and path to your .BOT file is also stored in `AppSettings.json` for .net or an `.env` file for Node. However this file should not be committed to source control so make sure you follow the steps in the 'Storing the secret secretly' bit
 
 ## In Summary
+To summarise this article, here are the key take-away points:
 
 * .BOT files are the right way to store secrets and other configuration settings for bots in BFv4.
-
 * .BOT files are language independent and the same approach is used for .net, Node etc
 * .BOT files can and should have their secrets contained within encrypted via the MSBot tool
-
 * Make sure you protect the secret to access your .BOT file and do not commit it to source control. Use the techniques that you would normally use to manage secrets for the language you are using (`secrets.json` for .net or `DotEnv` for Node).
 * If you create your BotService via Azure and use the started code it generates for you, all of this is setup for you, you just need to protect your MSBot secret and file path
 
