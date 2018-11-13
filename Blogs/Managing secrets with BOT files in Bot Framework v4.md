@@ -1,3 +1,14 @@
+---
+title: Managing secrets with .BOT files in Bot Framework v4
+author: Martin Kearn
+description: How to securely manage secrets in Bot Framework V4 projects using the all new .BOT file
+image: https://blogs.msdn.microsoft.com/martinkearn/2018/09/27/managing-secrets-with-bot-files-in-bot-framework-v4/
+published: 2018/09/27 09:00:00
+categories: 
+  - Bots
+  - Azure Bot Service
+  - Bot Framework V4
+---
 # Managing secrets with .BOT files in Bot Framework v4
 
 [Bot Framework V4 (BFv4)](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0) was made generally available (GA) as part of the Ignite 2018 announcements (see the [official announcement](https://azure.microsoft.com/en-us/blog/build-conversational-experiences-with-microsoft-bot-framework/)).
