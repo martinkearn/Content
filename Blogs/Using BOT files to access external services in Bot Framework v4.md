@@ -1,8 +1,8 @@
 ---
-title:Using .BOT files to access external services in Bot Framework v4  
-author:Martin Kearn
-description:The way you access external services has changed in Bot Framework V4. We now use .BOT files. This article explains all about it
-image:https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
+title: Using .BOT files to access external services in Bot Framework v4  
+author: Martin Kearn
+description: The way you access external services has changed in Bot Framework V4. We now use .BOT files. This article explains all about it
+image: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
 published: 2018/10/04 09:00:00
 categories: 
   - Azure Bot Service
