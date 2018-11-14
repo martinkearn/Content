@@ -1,11 +1,14 @@
 ---
 title:Using .BOT files to access external services in Bot Framework v4  
-author:Martin Kearn  
-tags:
-- BotFrameworkV4
-- MSBOT CLI  
+author:Martin Kearn
+description:The way you access external services has changed in Bot Framework V4. We now use .BOT files. This article explains all about it
+image:https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
+published: 2018/10/04 09:00:00
+categories: 
+  - Azure Bot Service
+  - Bot Framework V4
+  - Bot Files
 ---
-
 # Using .BOT files to access external services in Bot Framework v4
 
 [Bot Framework V4 (BFv4)](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0) was made generally available (GA) as part of the Ignite 2018 announcements (see the [official announcement](https://azure.microsoft.com/en-us/blog/build-conversational-experiences-with-microsoft-bot-framework/)).
