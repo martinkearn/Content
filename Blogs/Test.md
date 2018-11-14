@@ -12,6 +12,14 @@ categories:
 # h1
 some markdown content
 
+And now for some code ...
+
+```c#
+foreach (var thing in things)
+{
+  var thisThing = thing;
+}
+```
+
 ## h2
-some more markdown
-More text here
+Some markdown text after the code
