@@ -1,4 +1,5 @@
 ---
+key: 1216c8ec-6db0-4b81-96a8-8f127f64821a
 title: Using .BOT files to access external services in Bot Framework v4  
 author: Martin Kearn
 description: The way you access external services has changed in Bot Framework V4. We now use .BOT files. This article explains all about it
