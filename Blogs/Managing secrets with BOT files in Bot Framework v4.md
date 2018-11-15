@@ -8,8 +8,6 @@ type: article
 published: 2018/09/27 09:00:00
 categories: 
   - Bots
-  - Azure Bot Service
-  - Bot Framework V4
 ---
 # Managing secrets with .BOT files in Bot Framework v4
 
