@@ -3,6 +3,8 @@ title: Managing secrets with .BOT files in Bot Framework v4
 author: Martin Kearn
 description: How to securely manage secrets in Bot Framework V4 projects using the all new .BOT file
 image: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
+thumbnail: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
+type: article
 published: 2018/09/27 09:00:00
 categories: 
   - Bots
