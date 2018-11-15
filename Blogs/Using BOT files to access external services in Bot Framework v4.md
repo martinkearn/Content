@@ -183,6 +183,3 @@ I believe this is a bug and have raised an issue in the BotBuilder GitHub reposi
 * Read about encrypting the .BOT file and managing secrets in my article: https://blogs.msdn.microsoft.com/martinkearn/2018/09/27/managing-secrets-with-bot-files-in-bot-framework-v4/
 * Read more about the .BOT file itself: https://github.com/Microsoft/botbuilder-tools/blob/master/packages/MSBot/docs/bot-file.md
 * Read more about the MSBot command line utility: https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot
-
-
-
