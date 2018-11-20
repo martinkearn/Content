@@ -1,3 +1,18 @@
+---
+key: b7efde8a-cb07-4afe-bdf5-ae49ae3003a6
+title: Processing Github Webhooks with Azure Functions
+author: Martin Kearn
+description: WebHooks are an interesting way to approach building a serverless application. learn how I used the GitHub webhooks API with Azure Functions to build this blog
+image: https://msdnshared.blob.core.windows.net/media/2018/11/thumb_2354dfe5-30ea-457f-ac57-194dc2c3c057_200x200_crop_center.jpg
+thumbnail:  https://msdnshared.blob.core.windows.net/media/2018/11/thumb_2354dfe5-30ea-457f-ac57-194dc2c3c057_200x200_crop_center.jpg
+published: 2018/11/07 09:00:00
+type: article
+categories: 
+  - Webhooks
+  - Azure Functions
+  - Serverless
+---
+
 # Processing Github Webhooks with Azure Functions
 
 I recently had a need to react to a push event on a GitHub repository and do some data processing on what was pushed. 
