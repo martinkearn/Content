@@ -1,6 +1,6 @@
 ---
-key: 3f9e0e0a-ad70-4d2a-9ab7-2dbb8140c3b2
-title: Test File
+key: ad907ca4-3812-4eb9-b3b3-f244e743837f
+title: Test File 2
 author: Martin Kearn
 description: A test file used during the development of my Github CMS
 image: http://martink.me/images/MartinKearnProfile4.jpg
@@ -27,7 +27,3 @@ foreach (var thing in things)
 Some markdown text after the code
 
 More content
-
-
-
-Modification 1248
