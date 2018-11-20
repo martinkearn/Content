@@ -1,6 +1,6 @@
 ---
-key: ad907ca4-3812-4eb9-b3b3-f244e743837f
-title: Test File 2
+key: 19468e45-1408-4716-bdfb-52eccd81855f
+title: Test File 3
 author: Martin Kearn
 description: A test file used during the development of my Github CMS
 image: http://martink.me/images/MartinKearnProfile4.jpg
@@ -12,18 +12,4 @@ categories:
   - Example
 ---
 # h1
-some markdown content
-
-And now for some code ...
-
-```c#
-foreach (var thing in things)
-{
-  var thisThing = thing;
-}
-```
-
-## h2
-Some markdown text after the code
-
-More content
+This file has been added
