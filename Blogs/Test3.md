@@ -1,5 +1,4 @@
 ---
-key: 9440ecfd-fc91-4b41-9f7c-77fd859f3c3e
 title: Test3
 author: Martin Kearn
 description: Test3
@@ -12,6 +11,7 @@ categories:
   - Test3
   - edit 1300
   - edit 1401
+  - edit 2042
 ---
 # Test3
 just testing
