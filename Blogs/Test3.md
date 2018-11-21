@@ -9,6 +9,7 @@ type: article
 published: 2018/11/20 21:05:00
 categories: 
   - Test3
+  - edit 1300
 ---
 # Test3
 just testing
