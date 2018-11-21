@@ -10,6 +10,7 @@ published: 2018/11/20 21:00:00
 categories: 
   - Test1
   - Testing
+  - Edit 1206
 ---
 # Test1
 just testing
