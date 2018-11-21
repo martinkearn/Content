@@ -1,5 +1,4 @@
 ---
-key: a981a6bb-c7f7-4e43-bfd0-814dea569f9c
 title: Managing secrets with BOT files in Bot Framework v4
 author: Martin Kearn
 description: How to securely manage secrets in Bot Framework V4 projects using the all new .BOT file
