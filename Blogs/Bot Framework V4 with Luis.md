@@ -1,3 +1,18 @@
+---
+title: Bot Framework v4 with Luis
+author: Martin Kearn
+description: The way you access Luis has changed in Bot Framework V4. Here are some tips based on what I learnt with the preview version
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2018/08/30 09:30:00
+categories: 
+  - Bots
+  - Cognitive Services
+  - Luis
+---
+
 # Bot Framework v4 with Luis
 The [Cognitive Services Language Understanding Intelligence Services (Luis)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/) should be no stranger to bot developers, it enables the all-important natural language processing which means users can converse with your bot in the way they would with another human; by using natural language.
 
