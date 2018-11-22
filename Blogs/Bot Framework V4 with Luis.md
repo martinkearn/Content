@@ -1,7 +1,7 @@
 ---
 title: Bot Framework v4 with Luis
 author: Martin Kearn
-description: The way you access Luis has changed in Bot Framework V4. Here are some tips based on what I learnt with the preview version
+description: The way you access Luis has changed in Bot Framework V4. Here are some tips based on what I learnt with the preview version in July 2018
 image: http://martink.me/images/MartinKearnProfile1.jpg
 thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
 type: article
