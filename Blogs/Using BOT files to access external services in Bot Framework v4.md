@@ -5,6 +5,7 @@ description: The way you access external services has changed in Bot Framework V
 image: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
 thumbnail: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
 type: article
+status: published
 published: 2018/10/04 09:00:00
 categories: 
   - Bots

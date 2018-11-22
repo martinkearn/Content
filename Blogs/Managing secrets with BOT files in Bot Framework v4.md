@@ -5,6 +5,7 @@ description: How to securely manage secrets in Bot Framework V4 projects using t
 image: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
 thumbnail: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
 type: article
+status: published
 published: 2018/09/27 09:00:00
 categories: 
   - Bots
