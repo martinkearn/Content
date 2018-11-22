@@ -1,7 +1,7 @@
 ---
-title: Bot Framework V4: What I learnt in 4 days in July 2018
+title: Bot Framework V4 What I learnt in 4 days in July 2018
 author: Martin Kearn
-description: Bot Framework V4 is on its way and I got the chance to use the preview version. This article is intended as a point-in-time brain dump based on my limited exposure of the new framework and probably only has a shelf life of a few months, but if you are considering a BFv4 bot now, this could be useful.
+description: Bot Framework V4 is on its way and I got the chance to use the preview version. This article is intended as a point-in-time brain dump based on my limited exposure of the new framework and probably only has a shelf life of a few months, but if you are considering a BFv4 bot now, this could be useful
 image: http://martink.me/images/MartinKearnProfile1.jpg
 thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
 type: article
@@ -12,6 +12,7 @@ categories:
 ---
 
 # Bot Framework V4: What I learnt in 4 days in July 2018
+
 I was recently involved in a short, 4-day customer hack based on Microsoft Bot Framework V4 (C# SDK), Azure Bot Service and Language Understanding Intelligence Service (LUIS, part of Cognitive Services).
 
 It was a frustrating yet insightful 4 days and have some observations which might be helpful to anyone else who is thinking about Bot Framework V4 (BFv4), what state it is in right now and whether it is worth seriously looking at yet.
