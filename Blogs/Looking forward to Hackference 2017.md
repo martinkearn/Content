@@ -1,3 +1,18 @@
+---
+title: Looking forward to Hackference 2017
+author: Martin Kearn
+description: I'm very proud to announce that for the third consecutive year, Microsoft are sponsoring Hackference 2017. We'll be helping developers build apps with Microsoft Cognitive Services and Bot Framework
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2017/10/16 09:30:00
+categories: 
+  - Events
+  - Cognitive Services
+  - Bots
+---
+
 # Looking forward to Hackference 2017
 I'm very proud to announce that for the third consecutive year, Microsoft are sponsoring [Hackference 2017](https://2017.hackference.co.uk/).
 
