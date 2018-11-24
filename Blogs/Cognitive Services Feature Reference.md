@@ -1,3 +1,18 @@
+---
+title: The many features of Cognitive Services – Part 1 – Vision
+author: Martin Kearn
+description: Microsoft Cognitive Services is a set of 21 machine learning backed APIs which help you bring all the smarts of machine learning to your app with a simple API call. This article will give a reference of all the features available to you and which API they belong to
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/06/06 09:30:00
+categories: 
+  - Cognitive Services
+  - Computer Vision
+---
+
+# The many features of Cognitive Services – Part 1 – Vision
 Microsoft Cognitive Services is a set of 21 machine learning backed APIs which help you bring all the smarts of machine learning to your app with a simple API call.
 
 There are 21 APIs but each API has several functions, some of which are fairly distinct.
