@@ -13,7 +13,6 @@ categories:
   - Bots
   - Machine Learning
   - Cortana
-  - Quantum
 ---
 
 # AI Services at Future Decoded 2017
