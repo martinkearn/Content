@@ -1,3 +1,19 @@
+---
+title: The Artificial Intelligence track at Future Decoded 2016
+author: Martin Kearn
+description: A preview of the Artificial Intelligence track at Future Decoded 2016.
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/10/06 09:30:00
+categories: 
+  - Events
+  - Cognitive Services
+  - Bots
+  - Machine Learning
+---
+
 # The Artificial Intelligence track at Future Decoded 2016
 
 If you have been to or watched any event this year from Microsoft such as [Build](http://build.microsoft.com/), [Ignite](http://build.microsoft.com/) or [TechDays Online](https://msdn.microsoft.com/en-gb/mt706491.aspx), you'll know that Artificial Intelligence (AI) is core to Microsoft's overall vision for how we'll help every person and organisation on the planet achieve more. 
