@@ -1,3 +1,17 @@
+---
+title: Telling the time with ASP.Net Tag Helpers
+author: Martin Kearn
+description: ASP.Net core has many new features but one of the ones which I'm particularly excited about is the introduction of Tag Helpers. This is simply because it makes my life easier as a developer and makes my code prettier to look at.
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/04/27 09:30:00
+categories: 
+  - ASP.net
+  - Tag Helpers
+---
+
 # Telling the time with ASP.Net Tag Helpers
 ASP.Net core has many new features but one of the ones which I'm particularly excited about is the introduction of Tag Helpers. This is simply because it makes my life easier as a developer and makes my code prettier to look at.
 
