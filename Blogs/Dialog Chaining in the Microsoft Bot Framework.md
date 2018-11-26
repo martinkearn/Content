@@ -1,5 +1,5 @@
 ---
-title: Dialog Chaining in the Microsoft Bot Framework in C#
+title: Dialog Chaining in the Microsoft Bot Framework
 author: Martin Kearn
 description: How to work with multiple dialogs in Bot Framework v3
 image: http://martink.me/images/MartinKearnProfile1.jpg
@@ -11,7 +11,7 @@ categories:
   - Bots
 ---
 
-# Dialog Chaining in the Microsoft Bot Framework in C#
+# Dialog Chaining in the Microsoft Bot Framework in
 The [Microsoft Bot Framework](https://dev.botframework.com/) is a great way to build chat bot applications that can be published to multiple channels such as Skype, Facebook, Kik and more.
 
 You can write your bots once using C# or NodeJS and the Microsoft Bot Framework has SDKs that support both languages. However, there is not complete parity between the SDKs and one of the areas where they differ is around how Dialogs are chained together.
