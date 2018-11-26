@@ -12,7 +12,6 @@ categories:
   - Cognitive Services
   - Bots
   - Machine Learning
-  - Cortana
 ---
 
 # AI Services at Future Decoded 2017
