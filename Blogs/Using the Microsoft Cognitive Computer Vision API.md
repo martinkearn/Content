@@ -1,5 +1,5 @@
 ---
-title: Using the Microsoft Cognitive Computer Vision API in c#
+title: Using the Microsoft Cognitive Computer Vision API
 author: Martin Kearn
 description: I'm continuing to explore Microsoft Cognitive Services, specifically the Computer Vision API in c#
 image: http://martink.me/images/MartinKearnProfile1.jpg
@@ -12,13 +12,13 @@ categories:
   - Computer Vision
 ---
 
-# Using the Microsoft Cognitive Computer Vision API in c#
+# Using the Microsoft Cognitive Computer Vision API
 
 I'm continuing to explore [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services). This is a range of 21 public REST APIs, backed by Machine Learning which you can use in your applications. 
 
 They do incredibly cool things and I've blogged about them before a few times:
 * [Introducing HowHappy.co.uk](https://blogs.msdn.microsoft.com/martinkearn/2016/03/22/introducing-howhappy-co-uk/)
-* [Using the Cognitive Services Emotion API in C# and JavaScript](https://blogs.msdn.microsoft.com/martinkearn/2016/03/07/using-the-project-oxford-emotion-api-in-c-and-javascript/)
+* [Using the Cognitive Services Emotion API in C Sharp and JavaScript](https://blogs.msdn.microsoft.com/martinkearn/2016/03/07/using-the-project-oxford-emotion-api-in-c-and-javascript/)
 * [Machine Learning is for Muggles too!](https://blogs.msdn.microsoft.com/martinkearn/2016/03/01/machine-learning-is-for-muggles-too/)
 
 The one I've been looking at most recently is the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Not because I'm especially interested in computer vision, but because my boss, [Andrew Spooner](https://twitter.com/andspo) is and if he is, I figured I should look at it too! :)
@@ -84,7 +84,7 @@ As mentioned at the top, I have implemented the the Computer Vision Thumbnail AP
 For completeness, here are the main sections of code that you'll need
 
 ### C# File/Octet-Stream sample (ASP.NET Core 1.0)
-This is a C# example using ASP.NET Core 1.0 MVC. This is not the full code, but an extract from the main 'Home' controller. See the [GitHub Repository](ttps://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample) for the full, working sample which also includes an example using URL
+This is a C Sharp example using ASP.NET Core 1.0 MVC. This is not the full code, but an extract from the main 'Home' controller. See the [GitHub Repository](ttps://github.com/martinkearn/Cognitive-Computer-Vision-Thumbnails-Sample) for the full, working sample which also includes an example using URL
 ```
 public class HomeController : Controller
 {
