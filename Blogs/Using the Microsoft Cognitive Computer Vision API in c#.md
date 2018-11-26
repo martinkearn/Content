@@ -1,3 +1,19 @@
+---
+title: Using the Microsoft Cognitive Computer Vision API in c#
+author: Martin Kearn
+description: I'm continuing to explore Microsoft Cognitive Services, specifically the Computer Vision API in c#
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/05/07 09:30:00
+categories: 
+  - Cognitive Services
+  - Computer Vision
+---
+
+# Using the Microsoft Cognitive Computer Vision API in c#
+
 I'm continuing to explore [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services). This is a range of 21 public REST APIs, backed by Machine Learning which you can use in your applications. 
 
 They do incredibly cool things and I've blogged about them before a few times:
