@@ -1,3 +1,18 @@
+---
+title: Smart image resizing with Azure Functions and Cognitive Services Computer Vision
+author: Martin Kearn
+description: Learn how to use the smart image re-sizing feature of the Cognitive Services Computer Vision API inside an Azure Function
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/05/06 09:30:00
+categories: 
+  - Cognitive Services
+  - Computer Vision
+  - Azure Functions
+---
+
 # Smart image resizing with Azure Functions and Cognitive Services Computer Vision
 A few days ago I blogged about [Generating thumbnails with the Cognitive Services Computer Vision API](https://blogs.msdn.microsoft.com/martinkearn/2016/05/03/using-the-microsoft-cognitive-computer-vision-api-in-c-and-javascript/). The article talked about how we can use the [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api) to do _smart_ image resizing in C# and JavaScript.
 
