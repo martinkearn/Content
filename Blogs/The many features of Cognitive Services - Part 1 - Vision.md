@@ -1,3 +1,19 @@
+---
+title: AI Services at Future Decoded 2017
+author: Martin Kearn
+description: Microsoft Cognitive Services is a set of 21 REST APIs that enable developers of any platform or language to add machine learning smarts to their applications. In this article, well explore the many features of the Vision family of APIs
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/06/06 09:30:00
+categories: 
+  - Cognitive Services
+  - Computer Vision
+---
+
+# The many features of Cognitive Services - Part 1 - Vision.md
+
 Microsoft Cognitive Services is a set of 21 REST APIs that enable developers of any platform or language to add machine learning smarts to their applications.
 
 Whilst there are 21 APIs, many of the APIs have several distinct functions within them. For example, the Computer Vision API facilitates the following capabilities:
