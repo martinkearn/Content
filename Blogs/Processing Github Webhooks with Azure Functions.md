@@ -66,7 +66,7 @@ Once you have a standard Function, we can make it respond to a GitHub push event
 Change the function code within the `Run` method as follows (or you can clone my [GitHub-Webhook-Function](https://github.com/martinkearn/GitHub-Webhook-Function) sample from GitHub):
 
 ```c#
-log.LogInformation("C# HTTP trigger function processed a GitHub webhook request.");
+log.LogInformation("HTTP trigger function processed a GitHub webhook request.");
 
 // get payload
 string requestBody = new StreamReader(req.Body).ReadToEnd();

@@ -1,5 +1,18 @@
+---
+title: Using the Project Oxford Emotion API in C Sharp and JavaScript
+author: Martin Kearn
+description: One of the more interesting Cognitive APIs is the Emotion API which can analyse the emotions shown on a photo. I was very excited about this API when I first heard about it. I know this because I uploaded a selfie to it and it told me I was excited. So I thought I'd set to work on a little sample which shows how to use the Emotion API in my two favourite languages C# and JavaScript
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/05/07 09:30:00
+categories: 
+  - Cognitive Services
+  - Emotion API
+---
 
-# Using the Project Oxford Emotion API in C# and JavaScript
+# Using the Project Oxford Emotion API in C Sharp and JavaScript
 Machine Learing is a hot topic at the moment and Microsoft has some great tools for making [Machine Learning accessible to developers](http://blogs.msdn.com/b/martinkearn/archive/2016/03/01/machine-learning-is-for-muggles-too.aspx), not just Data Scientists.
 
 One of these tools is a set of REST APIs which are collectively called [Project Oxford](https://www.projectoxford.ai/) and/or [Cortana Analytics](https://www.microsoft.com/en-gb/server-cloud/cortana-analytics-suite/overview.aspx). These services takes some very clever Machine Learning algorithms which Microsoft have already applied to very broad sample data sets to provide models which are callable via REST APIs. These map to common machine Learning scenarios like [Face Recogniton](https://www.projectoxford.ai/face), [Computer Vision](https://www.projectoxford.ai/vision) and [Speech](https://www.projectoxford.ai/vision).

@@ -1,7 +1,7 @@
 ---
 title: AI Services at Future Decoded 2017
 author: Martin Kearn
-description: A preview of the AI Sercvices track at Future Decoded 2017.
+description: A preview of the AI Services track at Future Decoded 2017.
 image: http://martink.me/images/MartinKearnProfile1.jpg
 thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
 type: article
@@ -12,8 +12,6 @@ categories:
   - Cognitive Services
   - Bots
   - Machine Learning
-  - Cortana
-  - Quantum
 ---
 
 # AI Services at Future Decoded 2017

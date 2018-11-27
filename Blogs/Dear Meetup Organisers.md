@@ -1,3 +1,16 @@
+---
+title: Dear Meetup Organisers
+author: Martin Kearn
+description: I can come and speak at your event. This is how to get hold of me and what i can talk about
+image: http://martink.me/images/MartinKearnProfile1.jpg
+thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+type: article
+status: published
+published: 2016/11/09 09:30:00
+categories: 
+  - Events
+---
+
 # Dear Meetup Organisers
 
 One of the best parts of my job as a technical evangelist at Microsoft is to get out into the local community and get involved in tech meetups, conferences and other local events.
