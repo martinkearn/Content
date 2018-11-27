@@ -6,7 +6,7 @@ image: http://martink.me/images/MartinKearnProfile1.jpg
 thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
 type: article
 status: published
-published: 2017/02/05 09:30:00
+published: 2018/02/05 09:30:00
 categories: 
   - Events
   - Cognitive Services
