@@ -2,8 +2,8 @@
 title: Web Hack Wednesday Series 3
 author: Martin Kearn
 description: After quite a break, series 3 of Web Hack Wednesday will be launching on Wednesday 13th December 2017
-image: https://msdnshared.blob.core.windows.net/media/2017/12/Logo-150x150.jpg
-thumbnail: https://msdnshared.blob.core.windows.net/media/2017/12/Logo-150x150.jpg
+image: https://dummyimage.com/800x600/000/fff&text=placeholder
+thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
 published: 2017/12/12 09:30:00

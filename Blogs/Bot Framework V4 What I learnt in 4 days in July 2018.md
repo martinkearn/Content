@@ -2,8 +2,8 @@
 title: Bot Framework V4 What I learnt in 4 days in July 2018
 author: Martin Kearn
 description: Bot Framework V4 is on its way and I got the chance to use the preview version. This article is intended as a point-in-time brain dump based on my limited exposure of the new framework and probably only has a shelf life of a few months, but if you are considering a BFv4 bot now, this could be useful
-image: http://martink.me/images/MartinKearnProfile1.jpg
-thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+image: https://dummyimage.com/800x600/000/fff&text=placeholder
+thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
 published: 2018/07/17 09:35:00

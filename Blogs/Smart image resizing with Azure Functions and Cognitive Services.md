@@ -2,8 +2,8 @@
 title: Smart image resizing with Azure Functions and Cognitive Services Computer Vision
 author: Martin Kearn
 description: Learn how to use the smart image re-sizing feature of the Cognitive Services Computer Vision API inside an Azure Function
-image: http://martink.me/images/MartinKearnProfile1.jpg
-thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+image: https://dummyimage.com/800x600/000/fff&text=placeholder
+thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
 published: 2016/05/06 09:30:00

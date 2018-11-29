@@ -2,8 +2,8 @@
 title: Is Office the ultimate app platform?
 author: Martin Kearn
 description: Office is now available as an 'app' on all sorts of different devices including iOS, Android, Windows, MAC, Web Browsers and of course the classic Windows desktop.
-image: http://martink.me/images/MartinKearnProfile1.jpg
-thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+image: https://dummyimage.com/800x600/000/fff&text=placeholder
+thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
 published: 2016/02/03 09:30:00

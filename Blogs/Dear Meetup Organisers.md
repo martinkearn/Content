@@ -2,8 +2,8 @@
 title: Dear Meetup Organisers
 author: Martin Kearn
 description: I can come and speak at your event. This is how to get hold of me and what i can talk about
-image: http://martink.me/images/MartinKearnProfile1.jpg
-thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
+image: https://dummyimage.com/800x600/000/fff&text=placeholder
+thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
 published: 2016/11/09 09:30:00
