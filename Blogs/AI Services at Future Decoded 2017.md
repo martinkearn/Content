@@ -1,7 +1,7 @@
 ---
 title: AI Services at Future Decoded 2017
 author: Martin Kearn
-description: A preview of the AI Services track at Future Decoded 2017.
+description: A preview of the AI Services track at Future Decoded 2017
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article

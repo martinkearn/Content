@@ -2,8 +2,8 @@
 title: Hack24 2018 The Microsoft AI For Good Challenge
 author: Martin Kearn
 description: A preview of the AI Sercvices track at Future Decoded 2017.
-image: https://dummyimage.com/800x600/000/fff&text=placeholder
-thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
+image: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/hack24.jpg
+thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/hack24_thumb.jpg
 type: article
 status: published
 published: 2018/02/05 09:30:00
