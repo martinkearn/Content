@@ -3,7 +3,7 @@ title: Introducing HowHappy
 author: Martin Kearn
 description: This week was the annual International Day of Happiness; so i built a website ot see hwo happy you are based on your face using the Cognitive Services Emotion API
 image: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/HowHappyScreenShot.PNG
-thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/HowHappyScreenShot.PNG
+thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/HowHappyScreenShot_thumb.png
 type: article
 status: published
 published: 2016/03/22 09:30:00
