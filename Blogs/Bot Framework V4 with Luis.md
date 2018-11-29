@@ -12,7 +12,9 @@ categories:
   - Cognitive Services
   - Luis
 ---
+
 # Bot Framework v4 with Luis
+
 The [Cognitive Services Language Understanding Intelligence Services (Luis)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/) should be no stranger to bot developers, it enables the all-important natural language processing which means users can converse with your bot in the way they would with another human; by using natural language.
 
 With Bot Framework V3 (BFv3), there is a well prescribed pattern for using Luis in your bot via the `LuisDialog` which gives you a nicely packaged object to work with, abstracts the Luis API call and handles the top level intents.
