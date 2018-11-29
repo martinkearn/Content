@@ -95,7 +95,7 @@ If you want to ge a quick flavour of how these APIs work, Microsoft have created
 ## In summary
 Machine Learning is for boffins too. Especially is you include the ready-to-use APIs that Project Oxford and Cortana Analytics provide. Any developer can get started with these APIs in minutes and add some powerful intelligence to their applications.
 
-I'll be blogging in the coming months on use of specific APIs in both JavaScript and C# so watch this space. 
+I will be blogging in the coming months on use of specific APIs in both JavaScript and C# so watch this space. 
 
 ### Resources
 * Azure Machine Learning Service: https://azure.microsoft.com/en-us/services/machine-learning/
