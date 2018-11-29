@@ -1,7 +1,7 @@
 ---
 title: Using the Microsoft Cognitive Computer Vision API
 author: Martin Kearn
-description: I'm continuing to explore Microsoft Cognitive Services, specifically the Computer Vision API in c#
+description: I continue to explore Microsoft Cognitive Services, specifically the Computer Vision API in .net
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
