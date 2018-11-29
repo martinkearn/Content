@@ -1,9 +1,9 @@
 ---
 title: Recommendations in Bots and Websites
 author: Martin Kearn
-description: Anyone that has ever shopped on Amazon or listened to music on Spotify will be familiar with the concept of recommendations where the user is offered recommendations of items based on browsing history, purchase history and other indicators of how the user has interacted with a product, artist etc.
-image: https://dummyimage.com/800x600/000/fff&text=placeholder
-thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
+description: Anyone that has ever shopped on Amazon or listened to music on Spotify will be familiar with the concept of recommendations where the user is offered recommendations of items based on browsing history, purchase history and other indicators of how the user has interacted with a product, artist etc
+image: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/concierge.jpg
+thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/concierge_thumb.jpg
 type: article
 status: published
 published: 2017/03/06 09:30:00
