@@ -118,6 +118,3 @@ The world of work is changing and the concept of having to be in a specific plac
 However we now face new challenges of loneliness, isolation and lack of connection to our co-workers which we need to consciously put effort in to overcome.
 
 Working for home takes practice and discipline to get right. I hope these tips are helpful to you, I'd love to hear your own suggestions if you have them.
-
-
-
