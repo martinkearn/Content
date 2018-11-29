@@ -2,7 +2,7 @@
 title: How to do a decade of home working
 author: Martin Kearn
 description: I've been working at home for over a decade. It takes practice, discipline and investment. These are some tips and recommendations I can offer from what works and does not work for me
-image: http://martink.me/images/MartinKearnProfile1.jpg
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/20181128_110300186_iOS.jpg
 thumbnail: http://martink.me/images/MartinKearnProfile1.jpg
 type: article
 status: published
