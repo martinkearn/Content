@@ -2,8 +2,8 @@
 title: Using BOT files to access external services in Bot Framework v4  
 author: Martin Kearn
 description: The way you access external services has changed in Bot Framework V4. We now use .BOT files. This article explains all about it
-image: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
-thumbnail: https://news.microsoft.com/uploads/2016/09/Cloud-Security.jpg
+image: https://dummyimage.com/800x600/000/fff&text=placeholder
+thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
 published: 2018/10/04 09:00:00
