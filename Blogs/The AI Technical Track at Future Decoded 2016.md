@@ -1,7 +1,7 @@
 ---
 title: The Artificial Intelligence track at Future Decoded 2016
 author: Martin Kearn
-description: A preview of the Artificial Intelligence track at Future Decoded 2016.
+description: A preview of the Artificial Intelligence track at Future Decoded 2016
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
