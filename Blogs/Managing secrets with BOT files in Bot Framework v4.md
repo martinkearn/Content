@@ -20,7 +20,7 @@ One of the things that is new in the GA version is the inclusion and dependency 
 
 It took me a while to figure this out so I thought I'd capture it here in case someone else is searching for the same thing.
 
-## What is a .BOT file?
+## What is a BOT file?
 
 The .BOT file is not new and ever since BFv4 has been around, we've seen these files.
 
@@ -40,7 +40,7 @@ When I first looked at this, I had a few questions ....
 
 The answer is to use the [MSBot Command Line Tool](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot) to encrypt the secrets in the .BOT file
 
-## The MSBot tool & encryption
+## The MSBot tool and encryption
 
 The [MSBot Command Line Tool](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/MSBot) is a tool built as part of the overall BFv4 release which helps you manage .BOT files.
 
@@ -104,7 +104,7 @@ You can then access secrets in your code the way you would do for any typical `A
 
 See [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.1&tabs=windows) for full details on the pattern for managing secrets in .net Core 2.
 
-### JavaScript/Node/TypeScript
+### JavaScript Node and TpeScript
 
 For Node/TypeScript, secrets are managed via the `DotEnv` NPM package which is installed as follows:
 
