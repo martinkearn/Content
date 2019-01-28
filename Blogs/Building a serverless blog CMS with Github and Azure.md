@@ -13,3 +13,5 @@ categories:
   - Azure Logic Apps
   - Serverless
 ---
+
+# Building a serverless blog CMS with Github and Azure
