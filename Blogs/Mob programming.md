@@ -20,7 +20,7 @@ There were times where we used the 'mob programming' approach and I wanted to sh
 
 ## What is Mob Programming?
 
-Mob programming is the same as [pair programming](https://en.wikipedia.org/wiki/Pair_programming) but with a mob of people rather than just two. In our case, there was five of us; [Jamie Dalton](https://twitter.com/daltskin), [Lynn Orrell](https://twitter.com/Lynn_Orrell), [Martin Simecek](https://twitter.com/deeedx) and Maho Pacheco.
+Mob programming is the same as [pair programming](https://en.wikipedia.org/wiki/Pair_programming) but with a mob of people rather than just two. In our case, there was five of us; [Jamie Dalton](https://twitter.com/daltskin), [Lynn Orrell](https://twitter.com/Lynn_Orrell), [Martin Simecek](https://twitter.com/deeedx) and [Maho Pacheco](https://twitter.com/mictlan).
 
 The basic idea according to [wikipedia](https://en.wikipedia.org/wiki/Mob_programming) is that the 'mob' all work on the same code, at the same time, on the same computer with one person 'driving' and everyone else verbally contributing. 
 
