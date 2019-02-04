@@ -5,8 +5,8 @@ description: Mob programming is like 'pair programming' but with a mob rather th
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/kids-excited-at-a-laptop.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/kids-excited-at-a-laptop-thumb.jpg
 type: article
-status: draft
-published: 2019/02/04 14:00:00
+status: published
+published: 2019/02/04 17:10:00
 categories: 
   - Productivity
   - Visual Studio
