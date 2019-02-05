@@ -5,8 +5,8 @@ description: Mob programming is like 'pair programming' but with a mob rather th
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/kids-excited-at-a-laptop.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/kids-excited-at-a-laptop-thumb.jpg
 type: article
-status: draft
-published: 2019/02/04 14:00:00
+status: published
+published: 2019/02/04 17:10:00
 categories: 
   - Productivity
   - Visual Studio
@@ -20,7 +20,7 @@ There were times where we used the 'mob programming' approach and I wanted to sh
 
 ## What is Mob Programming?
 
-Mob programming is the same as [pair programming](https://en.wikipedia.org/wiki/Pair_programming) but with a mob of people rather than just two. In our case, there was five of us; [Jamie Dalton](https://twitter.com/daltskin), [Lynn Orrell](https://twitter.com/Lynn_Orrell), [Martin Simecek](https://twitter.com/deeedx) and Maho Pacheco.
+Mob programming is the same as [pair programming](https://en.wikipedia.org/wiki/Pair_programming) but with a mob of people rather than just two. In our case, there was five of us; [Jamie Dalton](https://twitter.com/daltskin), [Lynn Orrell](https://twitter.com/Lynn_Orrell), [Martin Simecek](https://twitter.com/deeedx) and [Maho Pacheco](https://twitter.com/mictlan).
 
 The basic idea according to [wikipedia](https://en.wikipedia.org/wiki/Mob_programming) is that the 'mob' all work on the same code, at the same time, on the same computer with one person 'driving' and everyone else verbally contributing. 
 
@@ -47,7 +47,9 @@ In general, I think everyone found the mob programming experience good, but here
 
 **No tasks**: We were coding a bot project which does not always lend itself to being broken down into tasks. Mob programming allowed us to take on bigger tasks as a group rather than trying to distribute the work and integrate it.
 
-**Avoid Git merge hell**: With VS Live Share, the code itself is actually hosted on one persons machine (the 'hoster') which reduces the potential for merge conflicts when the code is committed.
+**Avoid Git merge hell**: With VS Live Share, the code itself is actually hosted on one persons machine (the 'hoster') which reduces the potential for merge conflicts when the code is committed.  On a hack, against the clock, even the best git pros can make mistakes.
+
+**Greenfield projects**: At the start of a project, there will be no structure to how different programmers will approach the task.  Meaning, duplicate code can end up across multiple files - which then needs to be refactored later.  When someone in the mob noticies a pattern or opportunity to split out re-usable code, it can be done from the outset.
 
 **Avoid leaving people behind**: It is quite common on a collaborate coding exercise for folks to get left behind as the more experienced folks push on with the solution. Mob programming can help with this because everyone is seeing the code as it is being written and has the option to contribute. Observing the the code being written really helps with understanding compared to pulling the last commit and trying to work out what changed.
 
@@ -55,11 +57,13 @@ In general, I think everyone found the mob programming experience good, but here
 
 As with any productivity technique, there are always downsides.
 
-**Setup**: VS Live Share has to be installed and setup on every machine and there is a small learning curve on how to use it effectively. It does not take long but it is something to consider.
+**VS Live Share - setup**: VS Live Share has to be installed and setup on every machine and there is a small learning curve on how to use it effectively. It does not take long but it is something to consider.  
+
+**VS Live Share - collaboration**: When you join a team collaboration session, watching the curors blink all over the screen can be a bit confusing at first.  There are some basic concepts around [sharing/joining/co-editing](https://docs.microsoft.com/en-us/visualstudio/liveshare/) it's good to have an understanding of.
 
 **Collaborate and learn vs JFDI**: Mob programming is only suitable for scenarios where you want group input and feel ownership for the code, such as a hack or open hack. Mob programming can potentially slow the more experienced folks down. So if the goal is to JFDI, you might be better to distribute the work and have the more experienced team mates do the more complex bits. (If you don't know what JFDI means, look it up! ;) )
 
-**Debug**: VS Live Share lets you debug the code, but will not show you the application itself or in our case let us all see the Bot Emulator. We resolved this by having a monitor we could all see with this on.
+**Debug**: VS Live Share lets you debug the code, but will not show you the application itself or in our case let us all see the Bot Emulator. We resolved this by having a monitor we could all see with this on.  However, you can look into [sharing a terminal](https://docs.microsoft.com/en-us/visualstudio/liveshare/use/vs#share-a-terminal) to help.
 
 ## What we'd do differently next time
 
@@ -67,10 +71,10 @@ The experience worked very well as a whole but this is what we'd do different ne
 
 **Sync VS Versions**: Though VS Live Share technically works on every version of Visual Studio, one of our group had Visual Studio 2019 (preview) which we think may have caused some issues with it crashing etc
 
-**Multiple mobs**: A mob of five was probably too many in practice for both VS Live Share and the verbal communication that is required. I think a group of three would be the ideal mob size.
+**Multiple mobs**: A mob of five (six is current Live Share maximum) was probably too many in practice for both VS Live Share and the verbal communication that is required. I think a group of three would be the ideal mob size.
 
 ## In Summary
 
 Mob programming is a great way to work in a team and have everyone feel like they are part of the process. If you are at a hackathon or Open Hack, I'd strongly recommend you give it a try.
 
-You don;t have to use [Visual Studio Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share) but I cannot imagine how practical mob programming is without a tool like this.
+You don't have to use [Visual Studio Live Share](https://code.visualstudio.com/blogs/2017/11/15/live-share), you could just  gather around a screen - but all having the full Visual Studio/Code IDE experience on your own machines makes you feel much more involved.
