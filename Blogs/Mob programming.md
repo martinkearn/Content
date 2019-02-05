@@ -2,8 +2,8 @@
 title: Mob Programming
 author: Martin Kearn
 description: Mob programming is like 'pair programming' but with a mob rather than just two folks. I did this recently at a hack and it was great. Here are some tips based on what i learnt
-image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/kids-excited-at-a-laptop.jpg
-thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/kids-excited-at-a-laptop-thumb.jpg
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/peaky.jpg
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/peaky-thumb2.jpg
 type: article
 status: published
 published: 2019/02/04 17:10:00
