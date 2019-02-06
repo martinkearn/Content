@@ -1,5 +1,5 @@
 ---
-title: Using the Stack Overflow API in ASP.NET Core 1.0
+title: Using the Stack Overflow API in ASP.NET Core
 author: Martin Kearn
 description: I recently had the need to use the Stack Overflow API in a web project and it took me a while so I thought I'd capture what I learnt.
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
@@ -12,7 +12,7 @@ categories:
   - Stack Overflow
 ---
 
-# Using the Stack Overflow API in ASP.NET Core 1.0
+# Using the Stack Overflow API in ASP.NET Core
 I recently had the need to use the [Stack Overflow API](http://api.stackexchange.com/) in a web project and it took me a while so I thought I'd capture what I learnt.
 
 ## The Stack Overflow API
