@@ -1,5 +1,5 @@
 ---
-title: Machine Learning is for Muggles too!
+title: Machine Learning is for Muggles too
 author: Martin Kearn
 description: Machine Learning is one of those tech areas which has always seemed just slightly out of reach for me. In this article, I'll demystify machine learning and explain how acessible it is for regular developers
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
@@ -12,7 +12,7 @@ categories:
   - Machine Learning
 ---
 
-# Machine Learning is for Muggles too!
+# Machine Learning is for Muggles too
 Machine Learning is one of those tech areas which has always seemed just slightly out of reach for me. I've always assumed you need a degree in extreme nerdiness from the Boffins university to understand the algorithms and data science that sits behind Machine Learning. Perhaps you need some kind of magic to 'get it' and those of us born without magic (i.e [muggles](https://en.wikipedia.org/wiki/Muggle)) should not attempt to enter this world for fear of smashing our face on [platform 9 3/4](https://en.wikipedia.org/wiki/London_King%27s_Cross_railway_station#Harry_Potter) at London Kings Cross station.
 
 I've discovered of late that this is really not the case. Machine Learning is conceptually fairly simple and Microsoft has some great tools in the [Azure Machine Learning service](https://azure.microsoft.com/en-us/services/machine-learning/), [Project Oxford](https://www.projectoxford.ai/) and [Cortana Analytics](https://www.microsoft.com/en-gb/server-cloud/cortana-analytics-suite/overview.aspx) which makes Machine Learning accessible to us mere muggles. 
