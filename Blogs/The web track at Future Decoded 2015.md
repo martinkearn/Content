@@ -1,5 +1,5 @@
 ---
-title: A preview of the web track at Future Decoded 2015
+title: The web track at Future Decoded 2015
 author: Martin Kearn
 description: A preview of the web track at Future Decoded 2015
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
@@ -12,7 +12,7 @@ categories:
   - Gigs
 ---
 
-# A preview of the web track at Future Decoded 2015
+# The web track at Future Decoded 2015
 
 It is Tuesday 10th November 2015 and Microsoft's premier UK event has started. Future Decoded is a two day event which attracts around 10,000 of the brightest business decision makers, developers, IT pros and partners from across the UK to the Excel centre in London.
 
