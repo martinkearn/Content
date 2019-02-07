@@ -1,5 +1,5 @@
 ---
-title: Serving static files in ASP.net core
+title: Serving static files in ASP dot net core
 author: Martin Kearn
 description: The way you store and serve static files has changed in asp.net core compared to asp.net 4.6. In this article, we'll investigate what has changed
 image: https://dummyimage.com/800x600/000/fff&text=placeholder

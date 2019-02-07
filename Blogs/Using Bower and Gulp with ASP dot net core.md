@@ -1,5 +1,5 @@
 ---
-title: Using Bower and Gulp with ASP.net core
+title: Using Bower and Gulp with ASP dot net core
 author: Martin Kearn
 description: This article will talk you through the basics of how Bower works in the context of ASP.net 5.0 and how you can integrate it into your workflow
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
