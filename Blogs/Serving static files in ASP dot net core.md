@@ -11,7 +11,7 @@ categories:
   - ASP.net core
 ---
 
-# Serving static files in ASP.net core
+# Serving static files in ASP dot net core
 
 This is just a little something that took me a while to figure out with ASP.net 5.0 and is a key example of some of the biggest changes in ASP.net 5.0 in terms of these three areas:
 
