@@ -24,7 +24,7 @@ In ASP.net, the easiest way to store application settings is in the Web.Config f
 
 In you code, you can easily access the settings from Web.Config via [ConfigurationManager.AppSettings](https://msdn.microsoft.com/en-us/library/system.configuration.configurationmanager.appsettings%28v=vs.110%29.aspx).
 
-ConfigurationManager.AppSettings["keyname"];
+`ConfigurationManager.AppSettings["keyname"];`
 
 ## Settings in Azure Web App
 
