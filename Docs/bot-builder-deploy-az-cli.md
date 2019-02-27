@@ -52,7 +52,7 @@ After creating the target Web App Bot, you need to download the bot code from th
 1. Follow the prompts to download the code, and then unzip the folder.
 1. Identify the .bot file and copy it the root of your existing bot project in the same directory as your existing .bot file
 
-### Get the .bot file secret from App Settings in Azure
+### Get the .bot file secret and path from App Settings in Azure
 The .bot you have downloaded from the Azure Web App Bot is partially encrypted. You will need to obtain the secret to be able to develop with this .bot file locally
 1. In the Azure portal, open the **Web App Bot** resource for your bot.
 1. Open the bot's **Application Settings**.
@@ -60,7 +60,7 @@ The .bot you have downloaded from the Azure Web App Bot is partially encrypted. 
 1. Locate the **botFilePath** and copy it's value.
 1. Locate the **botFileSecret** and copy it's value.
 
-### Update the local app settings for the new bot file and secret
+### Update the local app settings for the new .bot file secret and path
 You must now edit your project to reference the new .bot file and it's secret.
 1. In the existing bot project, open your settings file. For C# this will be `appsettings.json`, for JavaScript this will be `.env`
 1. Set the value of `botFilePath` to reflect the **botFilePath** you copied earlier from the App Settings in Azure
