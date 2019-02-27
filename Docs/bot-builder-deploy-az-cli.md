@@ -60,22 +60,15 @@ The .bot you have downloaded from the Azure Web App Bot is partially encrypted. 
 1. Locate the **botFilePath** and copy it's value.
 1. Locate the **botFileSecret** and copy it's value.
 
-### Update the local app settings for the new bot file in for a C# project
-You must now edit your project to reference the new .bot file and it's secret. In a C# project you can do this as follows
-1. In the project, open `appsettings.json`
+### Update the local app settings for the new bot file and secret
+You must now edit your project to reference the new .bot file and it's secret.
+1. In the existing bot project, open your settings file. For C# this will be `appsettings.json`, for JavaScript this will be `.env`
 1. Set the value of `botFilePath` to reflect the **botFilePath** you copied earlier from the App Settings in Azure
 1. Set the value of `botFileSecret` to be the **botFileSecret** you copied earlier from the App Settings in Azure
-1. Save `appsettings.json`
-
-### Update the local app settings for the new bot file in for a JavaScript project
-You must now edit your project to reference the new .bot file and it's secret. In a JavaScript project you can do this as follows
-1. In the project, open `.env`
-1. Set the value of `botFilePath` to reflect the path to your new .bot file
-1. Set the value of `botFileSecret` to be the secret you copied earlier from the App Settings in Azure
-1. Save `.env`
+1. Save the settings file
 
 > [!IMPORTANT]
-> The bot secret can decrypt the .bot file which may contain multiple secrets and should be protected for production use. Use the standard approach for your language to do this
+> The bot secret can decrypt the .bot file which may contain multiple secrets and should be protected for production use. Use the standard approach for your language to protect teh contents of your settings file
 
 ### Setup a repository
 
