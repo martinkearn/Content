@@ -113,10 +113,8 @@ For Node/TypeScript, secrets are managed via the `DotEnv` NPM package which is i
 You can create a `.env` file which contains the secrets as follows:
 
 ```json
-  {
-    "botFilePath": "./YourBotFile.bot",
-    "botFileSecret": "Your MSBot secret, something like zOku/rKiFRa/ISohbv3/1O6k7rhGEsXdV+lAO/8mVBU="
-  }
+  botFilePath = YourBotFile.bot
+  botFileSecret = "Your MSBot secret, something like zOku/rKiFRa/ISohbv3/1O6k7rhGEsXdV+lAO/8mVBU="
 ```
 
 You can then read the secrets as follows:
