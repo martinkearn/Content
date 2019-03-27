@@ -11,7 +11,7 @@ This demo is intended to be delivered by Martin Kearn and relies on pre-built, u
 * Contents of [ML Supporting Files](https://github.com/martinkearn/Content/tree/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files) cloned
 * Printed text for people to copy (handwriting demo)
 * Blanks sheets of paper and pens (handwriting demo)
-* Event lanyard (OCR demo)
+* Event lanyard or something with printed text on (OCR demo)
 * Zooming software
 * Black Radley app installed and configured
 * Photos of young person and old person
@@ -32,11 +32,12 @@ _Computers can see things_
 * Explore results (faces, description, colours)
 * Upload `SexyBill.jpg`
 * Note ‘racy' score
+* Note object detection
 
 ### Printed Text (Computer Vision)
 
 * <http://aka.ms/CognitiveServices> > Vision > Computer Vision > Read text in images
-* Photograph event lanyard with webcam
+* Photograph event lanyard with webcam OR use `GeoffEales.jpg`
 * Upload
 * Explore results
 * Explore JSON
@@ -44,7 +45,7 @@ _Computers can see things_
 ### Handwritten Text (Computer Vision)
 
 * <http://aka.ms/CognitiveServices> > Vision > Computer Vision > Read handwritten text from images
-* Have someone hand write some pre-prepared sentences on paper
+* Have someone hand write some pre-prepared sentences on paper OR use the `Handwriting.jpg`
 * Photograph with webcam
 * Upload
 * Explore results
@@ -63,7 +64,7 @@ Talking points
 Demo
 
 * <http://aka.ms/CognitiveServices> > Vision > Custom Vision > Getting Started > Sign In with Microsoft.com
-* Vehicle Registration model
+* `Car Registrations` model
 * Explore images and tags
 * Upload `Registration-Untagged-1.jpg` and tag registration
 * Train > Observe results
@@ -80,15 +81,15 @@ Talking Points
 Demo:
 
 * http://aka.ms/CognitiveServices > Vision > Custom Vision > Getting Started > Sign In with Microsoft.com
-* Bananas-Colour model
-* Explore images and tags
-* Test `Banana Colour 2.jpg`, `Banana Colour 4.jpg`
 * Bananas-Defect model
-* Test `Banana Crown Rot.jpg`
+* Explore images and tags
+* Test `Banana Crown Rot.jpg`, `Banana Peel Rot.jpg` and `Banana Latex.jpg`
 
 ## Museum of Microsoft Technology
 
 _Use the Black Radley Intelligent exhibit app to show the face API and face lists in action in a real-world scenario_
+
+**Check the app is working, if not, skip**
 
 Talking points
 
@@ -139,8 +140,8 @@ Talking points
 
 Demo:
 
-* <http://aka.ms/CognitiveServices> > Vision > Speech > Text-to-speech > Bring natural voice to your apps
-* Play the various samples
+* <http://aka.ms/CognitiveServices> > Vision > Speech > Text-to-speech > Speak human, not robot
+* Play the various samples under `Neural Text to Speech in action`
 * <http://aka.ms/CognitiveServices> > Vision > Speech > Text-to-speech > Text to Speech with custom voice models
 * Set quality to `Basic` and play `sample voice 2`
 * Set quality to `Standard` and play `sample voice 2`
@@ -219,12 +220,12 @@ Demo
 
 * <http://aka.ms/CognitiveServices> > Language > Text Analytics
 * “I enjoyed going to [London](https://en.wikipedia.org/wiki/London) and looking around the [Excel](https://en.wikipedia.org/wiki/ExCeL_London)” (Make sure Excel is capitalized)
-* London and Excel both picked up as named entities
-* Disambiguated between “London excel” and “Microsoft excel”
-* High sentiment score
+  * London and Excel both picked up as named entities
+  * Disambiguated between “London Excel” and “Microsoft Excel” > click link for Excel
+  * High sentiment score
 * “My least favourite application is Excel, I really cannot understand those formulas”
-* This time, it chose Microsoft Excel
-* Low sentiment score
+  * This time, it chose Microsoft Excel
+  * Low sentiment score
 
 ### Language Detection
 
@@ -246,8 +247,9 @@ Demo
 ### Create knowledge base
 
 * <http://aka.ms/CognitiveServices> > Knowledge > QnA Maker > Trial > Sign In > @Microsoft.com account
+  * Or http://qnamaker.ai
 * Create a knowledge base
-* Use existing `BrexitFAQ` azure service
+* Use existing `QNADemo` azure service
 * Add BBC data source <https://www.bbc.co.uk/news/uk-politics-32810887>
 * Add professional chit-chat
 * `Create your KB`
@@ -257,7 +259,7 @@ Demo
 ### Test
 
 * `What is Brexit` (what does Brexit mean)
-* `What is chequers` (What is the Chequers Plan?)
+* `When are we going to leave the eu` (When is the UK due to leave the UE??)
 * `What is the issue with Northern Ireland` (Why is Northern Ireland such a sticking point?)
 * `How will brexit affect the NHS` (What impact will leaving the EU have on the NHS?)
 * Ask the audience for questions on Brexit
@@ -315,3 +317,4 @@ Demo
 * Item (Choose from featured items on home page): Outfit, You May Like, Cheaper, Accessories
 * Cart: You may like, Free shipping over $60 threshold
 * User (use 00012): Based on your history
+* Search for "predator astroturf" or "aston villa home shirt 2011"
