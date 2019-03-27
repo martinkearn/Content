@@ -106,6 +106,24 @@ Demo:
 * Repeat for older person (in person or photo)
 * Show child's photo
 
+## How Happy
+
+_Use How Happy as a demo of Face API if intelligent museum is not available_
+
+Talking points
+
+* Face API
+
+Demo:
+
+- http://howhappy.azurewebsites.net
+- Take a photo of the audience and upload a photo of the crowd
+- Use the Luis prompt to ask for other emotions 
+  - Who is the happiest one here
+  - Show me all the angry people
+  - Who is the 3rd most surprised person
+  - Show me the least happy person
+
 ## Speech API
 
 _Use the Cognitive portal to show the various Speech API services_
