@@ -68,7 +68,7 @@ You must now edit your project to reference the new .bot file and it's secret.
 1. Save the settings file
 
 > [!IMPORTANT]
-> The bot secret can decrypt the .bot file which may contain multiple secrets and should be protected for production use. Use the standard approach for your language to protect teh contents of your settings file
+> The bot secret can decrypt the .bot file which may contain multiple secrets and should be protected for production use. Use the standard approach for your language to protect the contents of your settings file.
 
 ### Setup a repository
 
