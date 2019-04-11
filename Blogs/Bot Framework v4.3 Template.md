@@ -15,6 +15,16 @@ categories:
 
 # Bot Framework v4.3 Starter Template
 
+> **TLDR**
+>
+> Myself, [Ibrahim Kivanc](https://github.com/ikivanc) and [Martin Simecek](https://github.com/msimecek) created a .net starter bot template which uses v4.3 patterns and common features.
+>
+> Get the VSIX [here](https://github.com/martinkearn/Bot-v4.3-Template/raw/master/vsix/StarterBot.vsix).
+>
+> See the GitHub repo [here](https://github.com/martinkearn/Bot-Starter-Template).
+
+
+
 The latest version of the Bot Framework is v4.3 and it was released in March 2019. You can read about the exciting new features in the [Conversational AI updates for March 2019 Article](https://azure.microsoft.com/en-gb/blog/conversational-ai-updates-for-march-2019/) from the Bot Framework product team.
 
 At the time of writing (11th April 2019), the [templates](https://marketplace.visualstudio.com/items?itemName=BotBuilder.botbuilderv4), [documentation](https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0) and [samples](https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md) had not yet been updated to reflect the new v4.3 patterns and practices.
@@ -44,6 +54,10 @@ The Starter Bot includes the following:
 ## VSIX
 
 You can get the VSIX for the Starter Bot project [here](https://github.com/martinkearn/Bot-v4.3-Template/raw/master/vsix/StarterBot.vsix).
+
+## GitHub Repository
+
+You can browse the GitHub repository for the Starter Bot project [here](https://github.com/martinkearn/Bot-Starter-Template).
 
 
 
