@@ -104,7 +104,7 @@ You can then access secrets in your code the way you would do for any typical `A
 
 See [Safe storage of app secrets in development in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-2.1&tabs=windows) for full details on the pattern for managing secrets in .net Core 2.
 
-### JavaScript Node and TypeScript
+### NodeJS and TypeScript
 
 For Node/TypeScript, secrets are managed via the `DotEnv` NPM package which is installed as follows:
 
