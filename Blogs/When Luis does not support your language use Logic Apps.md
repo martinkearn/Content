@@ -11,6 +11,7 @@ categories:
   - Translation
   - Luis
   - Bots
+  - Multilingual  
 ---
 
 # When Luis does not support your language use Logic Apps
