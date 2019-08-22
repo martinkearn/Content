@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 type: article
 status: draft
-published: 2019/08/22 22:20:00
+published: 2019/08/23 09:00:00
 categories: 
   - Logic Apps
   - Microsoft Graph
@@ -14,6 +14,8 @@ categories:
   - Office 365
   - Serverless
 ---
+
+
 
 # Using Microsoft Graph in Logic Apps
 
