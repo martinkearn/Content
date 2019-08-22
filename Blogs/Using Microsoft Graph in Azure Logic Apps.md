@@ -21,12 +21,6 @@ I recently spent some time trying to perform operations in Azure Active Director
 
 I made mistakes, learnt along the way and share them here for your time-saving enjoyment. This article will give you the background and steps/tips on how to get setup.
 
-I'd like to credit [the 'Logic Apps Active Directory OAuth Authentication for Microsoft Graph' article by Ludvig Falck](https://blog.lfalck.se/logic-app-microsoft-graph-oauth/) which was the most useful resource I found in figuring this all out. 
-
-The article is very good but there are some gaps and the process has moved on a bit, which is why I felt that my own article would be worth writing, but credit should go to Ludvig for pointing me in the right direction.
-
-## What is Microsoft Graph?
-
 [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) is a massively powerful unified graph API which you can use to access data stored in the following Microsoft cloud services:
 
 - Azure Active Directory
@@ -36,15 +30,13 @@ The article is very good but there are some gaps and the process has moved on a 
 - OneDrive
 - Many more
 
-You can interactively explore all the capabilities of Graph via the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) and see the API details in the [API Reference](https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0).
+You can interactively explore all the capabilities of Graph via the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) and see the API details in the [API Reference](https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0). Graph replaces previously separate APIs such as the Azure Active Directory Graph API.
 
-Graph replaces previously separate APIs such as the Azure Active Directory Graph API.
+An [Azure Logic App](https://azure.microsoft.com/en-us/services/logic-apps/) is a no-code business workflow system which lets you integrate Microsoft and other SaaS services in a visual way. Logic Apps are incredibly powerful and core tenant of Microsoft's Serverless platform.
 
-## What is a Logic App?
+I'd like to credit [the 'Logic Apps Active Directory OAuth Authentication for Microsoft Graph' article by Ludvig Falck](https://blog.lfalck.se/logic-app-microsoft-graph-oauth/) which was the most useful resource I found in figuring this all out. 
 
-An [Azure Logic App](https://azure.microsoft.com/en-us/services/logic-apps/) is a no-code business workflow system which lets you integrate Microsoft and other SaaS services in a visual way.
-
-Logic Apps are incredibly powerful and core tenant of Microsoft's Serverless platform.
+The article is very good but there are some gaps and the process has moved on a bit, which is why I felt that my own article would be worth writing, but credit should go to Ludvig for pointing me in the right direction.
 
 ## Specialist Connectors vs HTTP Connector vs Functions
 
@@ -89,17 +81,141 @@ I'll make an assumption that you already have a Logic App created and understand
 
 If you are not yet at this stage, this article is not for you, I suggest you have a look at some of the [Logic App Quickstarts](https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow).
 
+The end result of this Logic App is that we are going to create a `User` using the [Create a user](https://docs.microsoft.com/en-us/graph/api/user-post-users?view=graph-rest-1.0&tabs=http) API.
+
 ### Step 1 - Azure AD App Registration
 
-In order to call the Graph, the Logic Apps needs an Azure AD App Registration. This basically sets the  
+In order to call the Graph, the Logic Apps needs an Azure AD App Registration.
+
+1. Login to the [Azure Portal](https://portal.azure.com/) and go to `Azure Active Directory`. 
+2. Go to `App Registrations` and click `New Registration`
+3. Enter a name, it does not really matter what this is (I called mine "LogicApp")
+4. Choose `Single Tenant`
+5. Choose `Web` as the Redirect URI and set the value to https://localhost/myapp (it does not matter what this is, it will not be used by the Logic App). 
+6. Click `Register`
+
+You'll now have you basic app registration.
 
 ### Step 2 - API Permissions & Grant Consent
 
+The next step is to choose the API permissions that the App has over the Graph. 
+
+Best practice is to follow the least privilege principle and only grant the precise permissions that are required by your application. The permissions that are require will depend on which Graph API call you are going to make. The [Microsoft Graph API Reference](https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0) has a Permissions section at the top of each API reference page which tells you the exact permissions that are required (you need the `Application` permissions).
+
+If you look at the [Create invitation](https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) reference, you'll see that Applications needs:
+
+- `User.Invite.All`
+- `User.ReadWrite.All`
+- `Directory.ReadWrite.All`
+
+To add these permissions to your App Registration, follow these steps:
+
+1. Go to `API permissions` for your App Registration
+2. Click `Add a permission`
+3. Choose `Microsoft Graph`
+4. Choose `Application Permissions`. This is because our Logic App runs as a background service (or "daemon") and has no specific logged in user.
+5. Find and select the permissions above (there is a handy search bar) then click `Add Permissions`
+
+We now need to grant these permissions to the App Registration as an administrator. If we don't do this, the Logic App will fail.
+
+6. Under the `Grant Consent` section, click `Grant Admin consent for (your directory name)` and click `Yes` to confirm. When complete you'll see a green tick next to all the permissions you added.
+
 ### Step 3 - Client Secret
+
+In order for the Logic App to use the App Registration, it will need Client Secret or Certificate.
+
+You can choose to use a certificate for a higher level of assurance, but this article is intended as a simple example and so a client secret is preferred for simplicity. For production systems, ensure you understand the choice of certificate vs client secret.
+
+Use caution when following these steps, because the screen with the secret on is only ever shown once. if you forget or lose it, you'll have to create a new one.
+
+1. Go to `Certificates & secrets` for your App Registration
+2. Click `New client secret`
+3. Add a description your secret. It does not matter what you chose here, I used "clientsecret"
+4. Choose the expiry. It does not really matter which one you choose, but I chose `Never`
+5. Click `Add`
+6. Make a note of the `value` for your secret. It will only be shown on this page, when you navigate away it will be forever partially hidden
+
+At this stage, the Azure AD App Registration is complete.
 
 ### Step 4 - Logic App HTTP action
 
+We now get to the fun bit which is setting up the Logic App. We'll need to copy various value from the App Registration pages in this section so I find it is useful to keep the App Registration page open in a separate browser tab.
 
+We'll now configure the HTTP action in your Logic App to create a guest user (an "Invitation") in Azure Active Directory.
+
+1. In your Logic App click `Add step`
+
+2. Choose the standard `HTTP` action
+
+3. Set the values as follows
+
+   | **Property**    | Value                                                        | Get the value from  / Comment                                |
+   | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+   | Method          | POST                                                         | This will depend on the API call you are making. See the `HTTP request` section of the relevant [Microsoft Graph API Reference](https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) |
+   | URI             | https://graph.microsoft.com/v1.0/invitations                 | See the `HTTP request` section of the relevant [Microsoft Graph API Reference](https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) |
+   | Body            | {"invitedUserEmailAddress": "martinkearn@hotmail.com","inviteRedirectUrl": "http://martink.me/","sendInvitationMessage": "true"} | This is a JSON document. Obviously, you should change the values to suit your own details and in most cases, value will come from the Logic App Dynamic values |
+   | Authentication  | Active Directory OAuth                                       | Choosing this will expose all the other properties below     |
+   | Tenant          | Something like `7435fef9-1754-4686-aed6-7aaa5eb51bab`        | Get this from Azure AD App Registration > Overview > `Directory (tenant) ID` |
+   | Audience        | https://graph.microsoft.com                                  | This is always https://graph.microsoft.com/                  |
+   | Client ID       | Something like `e5f5ab05-15dc-4b46-ab09-40302a054114`        | Get this from Azure AD App Registration > Overview > `Application (client) ID` |
+   | Credential Type | Secret                                                       | See point earlier about secrets vs certificates              |
+   | Secret          | Something like `tKExe[M4M66fjWgr.waluj+iQo*fd6N6`            | This is the value you stored from Step 3 - Client Secret     |
+
+3. `Save` the Logic App
+4. `Run` the Logic App
+5. After a few seconds, you'll see the result which will hopefully show each action with a green tick and if you followed the steps exactly, whatever email address you set for `invitedUserEmailAddress` will now have an email inviting them to join your Active Directory as a guest user.
+
+If you click on `Code view` your Logic App code will look something like this (I changed the values so these exact values will not work)
+
+```json
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "HTTP": {
+                "inputs": {
+                    "authentication": {
+                        "audience": "https://graph.microsoft.com/",
+                        "clientId": "e5f5ab05-15dc-4b46-ab09-40302a054114",
+                        "secret": "tKExe[M4M66fjWgr.waluj+iQo*fd6N6",
+                        "tenant": "7435fef9-1754-4686-aed6-7aaa5eb51bab",
+                        "type": "ActiveDirectoryOAuth"
+                    },
+                    "body": {
+                        "inviteRedirectUrl": "http://martink.me/",
+                        "invitedUserEmailAddress": "martinkearn@hotmail.com",
+                        "sendInvitationMessage": "true"
+                    },
+                    "method": "POST",
+                    "uri": "https://graph.microsoft.com/v1.0/invitations"
+                },
+                "runAfter": {},
+                "type": "Http"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {},
+        "triggers": {
+            "manual": {
+                "inputs": {
+                    "schema": {}
+                },
+                "kind": "Http",
+                "type": "Request"
+            }
+        }
+    }
+}
+```
+
+## In Summary
+
+This was a simple example of creating a guest user account in Azure Active Directory via the Microsoft Graph in a Logic App.
+
+You'll see that we wrote zero code here and used only configuration in Azure AD and Logic Apps.
+
+This pattern can be adapted to call any of the Microsoft Graph APIs which makes it a very powerful approach when building a Serverless application.
 
 ## Further Reading
 
