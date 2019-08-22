@@ -161,7 +161,7 @@ We'll now configure the HTTP action in your Logic App to create a guest user (an
    | Credential Type | Secret                                                       | See point earlier about secrets vs certificates              |
    | Secret          | Something like `tKExe[M4M66fjWgr.waluj+iQo*fd6N6`            | This is the value you stored from Step 3 - Client Secret     |
 
-![The Http action should look like this](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppHttpAADInvitation.JPG)
+![The Http action should look like this](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppHttpAADInvitationRedacted.JPG)
 
 
 
