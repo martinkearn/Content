@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 type: article
 status: draft
-published: 2019/08/22 20:00:00
+published: 2019/08/22 22:00:00
 categories: 
   - Logic Apps
   - Microsoft Graph
@@ -161,9 +161,15 @@ We'll now configure the HTTP action in your Logic App to create a guest user (an
    | Credential Type | Secret                                                       | See point earlier about secrets vs certificates              |
    | Secret          | Something like `tKExe[M4M66fjWgr.waluj+iQo*fd6N6`            | This is the value you stored from Step 3 - Client Secret     |
 
-3. `Save` the Logic App
-4. `Run` the Logic App
-5. After a few seconds, you'll see the result which will hopefully show each action with a green tick and if you followed the steps exactly, whatever email address you set for `invitedUserEmailAddress` will now have an email inviting them to join your Active Directory as a guest user.
+![The Http action should look like this](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppHttpAADInvitation.JPG)
+
+
+
+4. `Save` the Logic App
+
+5. `Run` the Logic App
+
+6. After a few seconds, you'll see the result which will hopefully show each action with a green tick and if you followed the steps exactly, whatever email address you set for `invitedUserEmailAddress` will now have an email inviting them to join your Active Directory as a guest user.
 
 If you click on `Code view` your Logic App code will look something like this (I changed the values so these exact values will not work)
 
