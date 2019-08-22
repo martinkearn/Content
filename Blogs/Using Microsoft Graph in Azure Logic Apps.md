@@ -12,6 +12,7 @@ categories:
   - Microsoft Graph
   - Azure Active Directory
   - Office 365
+  - Serverless
 ---
 
 # Using Microsoft Graph in Logic Apps
@@ -19,6 +20,10 @@ categories:
 I recently spent some time trying to perform operations in Azure Active Directory and Office 365 via Azure Logic Apps. It was clear that [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) is the way this is done, but it can take a while to get setup and accessible via a Logic App. 
 
 I made mistakes, learnt along the way and share them here for your time-saving enjoyment. This article will give you the background and steps/tips on how to get setup.
+
+I'd like to credit [the 'Logic Apps Active Directory OAuth Authentication for Microsoft Graph' article by Ludvig Falck](https://blog.lfalck.se/logic-app-microsoft-graph-oauth/) which was the most useful resource I found in figuring this all out. 
+
+The article is very good but there are some gaps and the process has moved on a bit, which is why I felt that my own article would be worth writing, but credit should go to Ludvig for pointing me in the right direction.
 
 ## What is Microsoft Graph?
 
@@ -75,3 +80,30 @@ This connector lets you call into any HTTP API, passing verbs, request body, hea
 In my experience with Graph, it is this HTTP connector in Logic Apps that made it all possible because it let me setup my own Azure AD App Registration which is needed for the Logic App to run as a service and have the right permissions over the Graph. 
 
 This is where I settled for most of the integrations I needed for my logic app. The rest of this article will be focused on how to configure, authorize and use the built-in Logic App HTTP Connector to call the Graph.
+
+## How to set up Microsoft Graph in Azure Logic Apps
+
+For the remainder of this article I'll walk through the high level steps for setting up the Azure AD app and calling it in your Logic app.
+
+I'll make an assumption that you already have a Logic App created and understand the basics of how Logic App actions work. 
+
+If you are not yet at this stage, this article is not for you, I suggest you have a look at some of the [Logic App Quickstarts](https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow).
+
+### Step 1 - Azure AD App Registration
+
+In order to call the Graph, the Logic Apps needs an Azure AD App Registration. This basically sets the  
+
+### Step 2 - API Permissions & Grant Consent
+
+### Step 3 - Client Secret
+
+### Step 4 - Logic App HTTP action
+
+
+
+## Further Reading
+
+You may find these articles useful.
+
+- [Microsoft Graph Docs > Get access without a user](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_v2_service)
+- [Logic Apps Active Directory OAuth Authentication for Microsoft Graph' article by Ludvig Falck](https://blog.lfalck.se/logic-app-microsoft-graph-oauth/) 
