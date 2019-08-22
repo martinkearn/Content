@@ -15,8 +15,6 @@ categories:
   - Serverless
 ---
 
-
-
 # Using Microsoft Graph in Logic Apps
 
 I recently spent some time trying to perform operations in Azure Active Directory and Office 365 via Azure Logic Apps. It was clear that [Microsoft Graph](https://developer.microsoft.com/en-us/graph/) is the way this is done, but it can take a while to get setup and accessible via a Logic App. 
@@ -173,50 +171,6 @@ We'll now configure the HTTP action in your Logic App to create a guest user (an
 
 6. After a few seconds, you'll see the result which will hopefully show each action with a green tick and if you followed the steps exactly, whatever email address you set for `invitedUserEmailAddress` will now have an email inviting them to join your Active Directory as a guest user.
 
-If you click on `Code view` your Logic App code will look something like this (I changed the values so these exact values will not work)
-
-```json
-{
-    "definition": {
-        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-        "actions": {
-            "HTTP": {
-                "inputs": {
-                    "authentication": {
-                        "audience": "https://graph.microsoft.com/",
-                        "clientId": "e5f5ab05-15dc-4b46-ab09-40302a054114",
-                        "secret": "tKExe[M4M66fjWgr.waluj+iQo*fd6N6",
-                        "tenant": "7435fef9-1754-4686-aed6-7aaa5eb51bab",
-                        "type": "ActiveDirectoryOAuth"
-                    },
-                    "body": {
-                        "inviteRedirectUrl": "http://martink.me/",
-                        "invitedUserEmailAddress": "martinkearn@hotmail.com",
-                        "sendInvitationMessage": "true"
-                    },
-                    "method": "POST",
-                    "uri": "https://graph.microsoft.com/v1.0/invitations"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "contentVersion": "1.0.0.0",
-        "outputs": {},
-        "parameters": {},
-        "triggers": {
-            "manual": {
-                "inputs": {
-                    "schema": {}
-                },
-                "kind": "Http",
-                "type": "Request"
-            }
-        }
-    }
-}
-```
-
 ## In Summary
 
 This was a simple example of creating a guest user account in Azure Active Directory via the Microsoft Graph in a Logic App.
@@ -231,3 +185,4 @@ You may find these articles useful.
 
 - [Microsoft Graph Docs > Get access without a user](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_v2_service)
 - [Logic Apps Active Directory OAuth Authentication for Microsoft Graph' article by Ludvig Falck](https://blog.lfalck.se/logic-app-microsoft-graph-oauth/) 
+
