@@ -5,7 +5,7 @@ description: The Microsoft Graph is the way you programmatically access data sto
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 type: article
-status: draft
+status: published
 published: 2019/08/23 09:00:00
 categories: 
   - Logic Apps
@@ -44,9 +44,9 @@ One of the first things you'll come up against when first investigating Graph in
 
 ### Specialist Logic App Connectors
 
-You can use specific [Logic App Connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list) for things like [Azure AD](https://docs.microsoft.com/en-gb/connectors/azuread/), [Office 365 Users](https://docs.microsoft.com/en-gb/connectors/office365users/) and [SharePoint](https://docs.microsoft.com/en-gb/connectors/sharepointonline/) and even [HTTP with Azure AD](https://docs.microsoft.com/en-us/connectors/webcontents/). 
+You can use specific [Logic App Connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list) for things like [Azure AD](https://docs.microsoft.com/en-gb/connectors/azuread/), [Office 365 Users](https://docs.microsoft.com/en-gb/connectors/office365users/) and [SharePoint](https://docs.microsoft.com/en-gb/connectors/sharepointonline/) and even [HTTP with Azure AD](https://docs.microsoft.com/en-us/connectors/webcontents/).
 
-The connectors are by far the easiest approach because they hide all the authentication complexity. 
+The connectors are by far the easiest approach because they hide all the authentication complexity.
 
 However, connectors may not include all the features of the Graph. Two examples I ran into are as follows:
 
@@ -59,7 +59,7 @@ In my case, I quickly ran into the limitations of these connectors and could onl
 
 As a developer, the temptation is always to write code to do something and in the Azure Serverless world, this code would sit in an [Azure Function](https://azure.microsoft.com/en-gb/services/functions).
 
-Functions are great because not only can they contain custom code, but they have built-in bindings and integrations, including [Microsoft Graph Bindings](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-bindings-microsoft-graph). 
+Functions are great because not only can they contain custom code, but they have built-in bindings and integrations, including [Microsoft Graph Bindings](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-bindings-microsoft-graph).
 
 However, my view here (and it is a view, not a fact; your mileage may vary) is that when you are building Logic Apps, custom code should be the last resort and if you can do something using Logic App's built-in in connector, triggers and actions then, it makes things a lot simpler and easier to maintain.
 
@@ -69,7 +69,7 @@ Logic Apps have a brilliant [HTTP connector](https://docs.microsoft.com/en-us/az
 
 This connector lets you call into any HTTP API, passing verbs, request body, headers and authorization settings.
 
-In my experience with Graph, it is this HTTP connector in Logic Apps that made it all possible because it let me setup my own Azure AD App Registration which is needed for the Logic App to run as a service and have the right permissions over the Graph. 
+In my experience with Graph, it is this HTTP connector in Logic Apps that made it all possible because it let me setup my own Azure AD App Registration which is needed for the Logic App to run as a service and have the right permissions over the Graph.
 
 This is where I settled for most of the integrations I needed for my logic app. The rest of this article will be focused on how to configure, authorize and use the built-in Logic App HTTP Connector to call the Graph.
 
@@ -77,7 +77,7 @@ This is where I settled for most of the integrations I needed for my logic app. 
 
 For the remainder of this article I'll walk through the high level steps for setting up the Azure AD app and calling it in your Logic app.
 
-I'll make an assumption that you already have a Logic App created and understand the basics of how Logic App actions work. 
+I'll make an assumption that you already have a Logic App created and understand the basics of how Logic App actions work.
 
 If you are not yet at this stage, this article is not for you, I suggest you have a look at some of the [Logic App Quickstarts](https://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-first-logic-app-workflow).
 
@@ -87,11 +87,11 @@ The end result of this Logic App is that we are going to create a `User` using t
 
 In order to call the Graph, the Logic Apps needs an Azure AD App Registration.
 
-1. Login to the [Azure Portal](https://portal.azure.com/) and go to `Azure Active Directory`. 
+1. Login to the [Azure Portal](https://portal.azure.com/) and go to `Azure Active Directory`.
 2. Go to `App Registrations` and click `New Registration`
 3. Enter a name, it does not really matter what this is (I called mine "LogicApp")
 4. Choose `Single Tenant`
-5. Choose `Web` as the Redirect URI and set the value to https://localhost/myapp (it does not matter what this is, it will not be used by the Logic App). 
+5. Choose `Web` as the Redirect URI and set the value to https://localhost/myapp (it does not matter what this is, it will not be used by the Logic App).
 6. Click `Register`
 
 You'll now have you basic app registration.
@@ -184,5 +184,4 @@ This pattern can be adapted to call any of the Microsoft Graph APIs which makes 
 You may find these articles useful.
 
 - [Microsoft Graph Docs > Get access without a user](https://developer.microsoft.com/en-us/graph/docs/concepts/auth_v2_service)
-- [Logic Apps Active Directory OAuth Authentication for Microsoft Graph' article by Ludvig Falck](https://blog.lfalck.se/logic-app-microsoft-graph-oauth/) 
-
+- [Logic Apps Active Directory OAuth Authentication for Microsoft Graph' article by Ludvig Falck](https://blog.lfalck.se/logic-app-microsoft-graph-oauth/)
