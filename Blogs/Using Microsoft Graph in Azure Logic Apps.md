@@ -1,12 +1,12 @@
 ---
 title: Using Microsoft Graph in Logic Apps
 author: Martin Kearn
-description: The Microsoft Graph is the way you programmatically access data stored in Azure Active Directory, Office 365 and a bunch of other Microsoft cloud services. Accessing the data in a Logic App is a very powerful way to use this rich API with no code. This article tells you how
+description: The Microsoft Graph is the way you programmatically access data stored in Azure Active Directory, Office 365 and a bunch of other Microsoft cloud services. Accessing the data in a Logic App is a very powerful way to use this rich API with no code. This article tells you how.
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 type: article
 status: published
-published: 2019/08/23 09:00:00
+published: 2019/08/28 09:30:00
 categories: 
   - Logic Apps
   - Microsoft Graph
