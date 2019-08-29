@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 type: article
 status: published
-published: 2019/08/28 09:30:00
+published: 2019/08/29 13:00:00
 categories: 
   - Logic Apps
   - Microsoft Graph
@@ -150,7 +150,7 @@ We'll now configure the HTTP action in your Logic App to create a guest user (an
 3. Set the values as follows
 
    | **Property**    | Value                                                        | Get the value from  / Comment                                |
-   | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+   | :-------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
    | Method          | POST                                                         | This will depend on the API call you are making. See the `HTTP request` section of the relevant [Microsoft Graph API Reference](https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) |
    | URI             | https://graph.microsoft.com/v1.0/invitations                 | See the `HTTP request` section of the relevant [Microsoft Graph API Reference](https://docs.microsoft.com/en-us/graph/api/invitation-post?view=graph-rest-1.0&tabs=http) |
    | Body            | {"invitedUserEmailAddress": "martinkearn@hotmail.com","inviteRedirectUrl": "http://martink.me/","sendInvitationMessage": "true"} | This is a JSON document. Obviously, you should change the values to suit your own details and in most cases, value will come from the Logic App Dynamic values |
@@ -161,9 +161,9 @@ We'll now configure the HTTP action in your Logic App to create a guest user (an
    | Credential Type | Secret                                                       | See point earlier about secrets vs certificates              |
    | Secret          | Something like `tKExe[M4M66fjWgr.waluj+iQo*fd6N6`            | This is the value you stored from Step 3 - Client Secret     |
 
+The setting should look similar to this:
+
 ![The Http action should look like this](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppHttpAADInvitationRedacted.JPG)
-
-
 
 4. `Save` the Logic App
 
