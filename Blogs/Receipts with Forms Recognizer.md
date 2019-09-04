@@ -64,7 +64,7 @@ The response is split into two sections:
 - **recognitionResults**: This is the raw optical character recognition output which contains the same output that you would get from the standard [Computer Vision OCR API](https://azure.microsoft.com/en-gb/services/cognitive-services/computer-vision/#detect-text). This is a series of lines containing identified words with their 'bounding box' which can be used to determine their position within the image. This can be used to find fields that the receipt model does not automatically extract, providing you know where they will appear within the image.
 - **understandingResults**: These are the specifically recognized key/value pairs that the receipt model looks for (merchantName, total etc). This is the `understandingResults` section from [this image](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Receipts/TheCurator-3140.jpg)
 
-![](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Receipts/TheCurator-3140.jpg)
+![](https://raw.githubusercontent.com/martinkearn/Content/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Receipts/TheCurator-3140-Thumb.jpg)
 
 ```json
 "understandingResults": [
