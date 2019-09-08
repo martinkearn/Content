@@ -139,19 +139,65 @@ The response is split into two sections:
 
 You can see the official quick-start steps for testing the service out here: https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/curl-receipts
 
-## Common Errors & pit-falls
+## Results, accuracy & findings
+
+I tested the receipts API with several different receipts from general purpose retailers in UK ranging from major high street stores like Halfords to airport bars and restaurants. You can see them all for yourself in my [GitHub Content respository](https://github.com/martinkearn/Content/tree/master/Demos/Machine%20Learning%20and%20Cognitive/ML%20Supporting%20Files/Receipts)
+
+> NOTE: My testing was done on the preview API in July 2019 and I expect the results and accuracy to improve over time as the service matures. Your mileage may vary!
+
+I found that generally speaking, the API was able to accurately extract some of the `understandingResults` information from each receipt but it was rarely able to extract every field.
+
+I also found that the fields that were identified varied by receipt.
+
+The accuracy was generally good, but not perfect. I noticed some of the following mistakes:
+
+- `Total` being mistaken for `SubTotal`
+- Currency marks being mistaken for numbers
+- Text like table number, order number etc being mistaken for other fields
 
 ## Missing Features
 
-Line item recognition
+The receipts API is a great start but has some missing features for me which would really make it useful and  more complete.
 
-Tips
+### Line item recognition
 
-Resolutions for multiple matches
+The big gap in the existing API is that it does not extract the line items on the receipt as part of the  `understandingResults` data set.
+
+I'd love to see each item extracted into an array with the following properties:
+
+- Item description/sku/title
+- Quantity
+- Total
+
+At the time of writing the only way to deal with line items is to use the basic OCR results (the `recognitionResults`) and build some custom logic to determine line items within the receipt.
+
+The [Analyze Form function](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel) of the Forms Recognizer API can deal with table recognition and extraction so you may be able to combine both functions to get the line items as well as the `understandingResults`. However this requires model training and would not be possible for specific receipt 'shapes'. It would not be possible for all receipts (which is the whole point of the receipts API). 
+
+### Additional fields
+
+In bars and restaurants, a tip is often incorporated into the overall bill and many expenses systems require that this is itemized separately from the overall bill.
+
+It would be helpful if the receipts API were able to extract a tip/gratuity as part of the `understandingResults` data set.
+
+There are other fields that could be extracted too, including:
+
+- Merchant website
+- Cash register number
+- Loyalty programme / customer number
+
+### Resolutions for multiple matches
+
+Other Cognitive Services such as [Luis](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/) uses a concept called Resolutions to provide alternative options for data points that it cannot fully resolve. Resolution empower developers to write logic that chooses the right result for the app based on some business logic.
+
+It would be great to see the receipt API offer a similar feature for the `understandingResults` data set. For example, `Total` and `SubTotal` often get mixed up. If there were Resolutions available, there could be logic that says that `Total` must always be more than `SubTotal` thus allowing the application to pick the right results.
 
 ## In Summary
 
-To do
+The Forms Recognizer is a very powerful new API which is able to extract meaningful information form documents and receipts.
+
+At the time of writing there are limitations which will hopefully get resolved but even with the limitations, the receipts API can form the basis of a receipt data extraction systems.
+
+The fact that the receipt API also give you the OCR results as well as the specially recognized data points mans that you can add logic to extract additional information as required.
 
 ## Further Reading
 
@@ -161,3 +207,4 @@ You may find these resources useful.
 - [Microsoft Azure Docs > Forms Recognizer Overview](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/overview)
 - [Microsoft Azure Docs > Quickstart: Extract receipt data using the Form Recognizer REST API with cURL](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/curl-receipts)
 - [Microsoft Azure Docs > Quickstart: Extract receipt data using the Form Recognizer REST API with Python](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/python-receipts)
+- [Form Recognizer API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel)
