@@ -6,7 +6,7 @@ image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: draft
-published: 2005/12/14 09:30:00
+published: 2019/10/09 09:30:00
 categories: 
 - Cognitive Services
 - Localisation
