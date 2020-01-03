@@ -6,7 +6,7 @@ image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: draft
-published: 2019/10/09 09:30:00
+published: 2020/01/03 16:30:00
 categories: 
 - Cognitive Services
 - Localisation
@@ -25,11 +25,13 @@ QnAMaker is a great service for enabling users to ask 100's of frequently asked 
 2. Create multiple QnAMaker knowledge bases (Kb); one for each language and have your application work out which one to call
 3. Keep a single Kb and use translation
 
-I've worked on several bot projects recently which had requirements for multiple languages and in both cases, we used option 3. This article will discuss the implementation details of keeping a single QnAMaker Kb in your main language and using translation to support multiple languages. We will cover:
+I've worked on several bot projects recently which had requirements for multiple languages and in all cases, we used option 3. 
+
+This article will discuss the implementation details of keeping a single QnAMaker Kb in your main language and using translation to support multiple languages. We will cover:
 
 - The benefits of a single QnAMaker kb in your main language.
 - Using a Logic App to orchestrate the various APIs calls; why and how.
-- How to detect language the user's question is in.
+- How to detect which language the user's question is in.
 - How to translate the question to the language of the QnAMaker Kb.
 - How to translate the QnAMaker Kb answer to language the question was asked in.
 
@@ -46,13 +48,13 @@ This article is accompanied by the [Multilingual-QnAMaker GitHub repo](https://g
 
 The approach used in this article advocates a single QnAMaker Kb which is in your customer's main language. Often, this is English and for the purposes of this article, we'll say that English is the main language but French, Spanish and German language support is also required.
 
-Using multiple KB's is a valid approach but here are some reason I found for not taking that approach...
+Using multiple KB's is a valid approach but here are some reason I found for not taking that approach.
 
 **Maintenance**: QnAMaker can contain up to 2999 knowledge bases, each of which can have up to 25,000 characters of answer text. This is a significant corpus of content and maintaining this across multiple languages is a time consuming human effort, especially if content is regularly updated.
 
-**Cost**: QnAMaker has a cost associated with it and supporting one language will be cheaper than supporting more than one.
+**Cost**: QnAMaker has a cost associated with it, therefore the fewer knowledge bases will be more cost effective.
 
-**Code Complexity**: If you have multiple QnA Kb's for different languages, your bot/application must contain logic to know which Kb to call for answers and it must also store multiple keys and Kb ID's
+**Code Complexity**: If you have multiple QnA Kb's for different languages, your application must contain logic to know which Kb to call for answers and it must also store multiple keys and Kb ID's
 
 All of the above issues can be mitigated by having a single QnA Kb in your main language.
 
@@ -68,7 +70,7 @@ The Translate API is available with platform SDKs as well as regular REST API ca
 
 [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) are wonderful no-code orchestration tool that lets you connect 1000's of different API and services via connectors.
 
-I'm leaning towards always using Logic Apps whenever multiple API's need to be chained together. It removes code from the application layer and improves performance because the APIs call are all made in the Azure datacenter.
+I'm leaning towards always using Logic Apps whenever multiple API's need to be chained together. It removes code from the application layer and improves performance because the APIs call are all made in the Azure data center.
 
 In this particular scenario, we are going to use a Logic App to chain the following tasks:
 
@@ -143,13 +145,31 @@ The QnA answer will be in English and we now need to translate the answer to the
 
 This is the only part of the Logic App which require custom code. The reason for this is that we are unable to select the first Answer in the array of answers returned by QnAMaker using Logic Apps. There may be a way to do this but I could not find it.
 
+To address this requirement, I have written an Azure Function which takes a QNA response as it's body input as well as a parameter called `translateToLanguageCode` which has a value that represents the language code that the answer should be translated to.
+
+The function returns the QBA JSON payload that was passed in but with the answer translated to eth language which was specified.
+
+It is not within scope of this article to talk through the code of this function, but it is very simple and C# and NodeJS code can be seen at the [Multilingual-QnAMaker GitHub repo](https://github.com/martinkearn/Multilingual-QnAMaker/blob/master/LogicApp/TranslateQnALogicApp.json) which accompanies this article.
+
 ### 8. Return the JSON
 
-## Using a Function to translate answers
+Finally, the logic app returns the Json (with the translated answer) to the calling applications.
+
+The end result is exactly eth same as if the application had called QnAMaker directly, however the calling application can call in any supported language and have the answer returned in eth language they call in
+
+### The overall Logic App
+
+This is a screen shot of the designer view for the logic app.
+
+![Logic App designer view](https://github.com/martinkearn/Content/raw/master/Blogs/Images/TranslateQnALogicApp%20-%20Designer%20View.PNG)
+
+
 
 ## In Summary
 
-ToDo
+In summary, the approach outlined in this article is a great way to make sure all user can benefit from the content in your QnAMaker KB in their native language, without having to ensure the overhead of supporting multiple Kb's.
+
+Additionally, this approach is a great example of how a serverless architecture with Logic Apps and Functions can be used in an appropriate way as part of a broader system such as a bot.
 
 ## Further Reading
 
