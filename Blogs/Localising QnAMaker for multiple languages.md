@@ -5,7 +5,7 @@ description: QnAMaker is great unless you need to support multiple languages whe
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Apple-Orange.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Apple-Orange_thumb.jpg
 type: article
-status: draft
+status: published
 published: 2020/01/03 16:30:00
 categories: 
 - Cognitive Services
