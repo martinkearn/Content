@@ -2,8 +2,8 @@
 title: Localising QnAMaker for multiple languages
 author: Martin Kearn
 description: QnAMaker is great unless you need to support multiple languages where there is no built-in solution. In this article, I'll explain how I've implemented localized QnAMaker from a single model with Logic Apps, the Translator Text API and an Azure Function.
-image: https://dummyimage.com/800x600/000/fff&text=placeholder
-thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Apple-Orange.jpg
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Apple-Orange_thumb.jpg
 type: article
 status: draft
 published: 2020/01/03 16:30:00
