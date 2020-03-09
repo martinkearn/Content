@@ -97,7 +97,13 @@ We'll also need to pre-create an QnAMaker and capture the following:
 
 ### 2. HTTP Request Payload Schema
 
-You need to define a JSON payload schema for the HTTP POST which triggers the logic app. This only needs to contain the question so something like this is fine. This will give you a dynamic data property called `question` to use later on.
+(This correlates to the `When Http request is received` step in the logic app below)
+
+You need to define a JSON payload schema for the HTTP POST which triggers the logic app. 
+
+Logic Apps have this neat feature in the HTTP connector which lets you provide some example JSON as the basis for building the JSON schema that the connector will use. To use this, simply click 'Use sample payload to generate schema' and then copy the JSON you expect to POST with the initialisation of the logic app ([read more about this feature](https://docs.microsoft.com/en-us/azure/connectors/connectors-native-reqres)).
+
+This only needs to contain the question so something like this is fine. This will give you a dynamic data property called `question` to use later on.
 
 ```
 {"question":"what is your name?"}
@@ -106,6 +112,8 @@ You need to define a JSON payload schema for the HTTP POST which triggers the lo
 **Top Tip**: Make sure you name each logic app connection as you go along so that it is clear which connection you are using when selecting dynamic content. This is especially true when you have several instances of the same connector.
 
 ### 3. Variables
+
+(This correlates to the `Initialize QuestionLanguage` and `Set QuestionLanguage` steps in the logic app below)
 
 We'll use Logic App variables to store variable things throughout the app. 
 
@@ -117,6 +125,8 @@ You'll need to initialize the following variables:
 
 ### 4. Detect Question Language
 
+(This correlates to the `Detect language (preview)` step in the logic app below)
+
 Use the `Microsoft Translator V2` Logic App connection and add the `key` and `name` from earlier. You'll then be able to choose from three actions:
 
 - Detect language
@@ -127,6 +137,8 @@ Initially we need to detect the language of the `question` dynamic content from 
 
 ### 5. Translate to English
 
+(This correlates to the `Translate question to EN (preview)` step in the logic app below)
+
 The next step is to translate the question to English. For this, we use the `Microsoft Translator V2` Logic App connection again but this time the `Translate text` action. 
 
 Set the `Text` to the `question` dynamic content from the HTTP request connection and set the `Target Language` to English (or whatever language your QnA Kb is in). 
@@ -135,11 +147,25 @@ This will translate the text to English from whatever language the user asked it
 
 ### 6. Get QnA answer
 
+(This correlates to the `Generate Answer (preview)` step in the logic app below)
+
 Next we use the `QnA Maker` Logic App connection to get an answer via the `Generate answer` action. You can use the keys etc from earlier and for the `question` field use the `translated text` dynamic content from the second  `Microsoft Translator V2` connection.
 
 This is the final Logic App in designer view, you can also see the JSON 'code' for it in the [Multilingual-QnAMaker GitHub repo](https://github.com/martinkearn/Multilingual-QnAMaker/blob/master/LogicApp/TranslateQnALogicApp.json) which accompanies this article. 
 
-### 7. Translate the answer
+### 7. Parse the QNA answer to JSON
+
+(This correlates to the `Parse Initial Answer to Json` step in the logic app below)
+
+When you have the answer from QNA, you must parse it to JSON so that we can use it later on as the input body for our custom function.
+
+To do this, you can use the JSON connector to parse the body response from QNA to JSON.
+
+Just like in step 2, we can provide a sample payload to generate the schema from. In this case the payload is a standard response from QNA. You should obtain this response by either looking at the history of previous Logic app executions where you've called QNA, or you can call QNA in a tool like [Postman](https://www.postman.com/) and take the response from there.
+
+### 8. Translate the answer
+
+(This correlates to the `TranslateQNAAnswers` step in the logic app below)
 
 The QnA answer will be in English and we now need to translate the answer to the same language that the user asked the question in.
 
@@ -147,13 +173,15 @@ This is the only part of the Logic App which require custom code. The reason for
 
 To address this requirement, I have written an Azure Function which takes a QNA response as it's body input as well as a parameter called `translateToLanguageCode` which has a value that represents the language code that the answer should be translated to.
 
-The function returns the QBA JSON payload that was passed in but with the answer translated to eth language which was specified.
+The function returns the QNA JSON payload that was passed in but with the answer translated to eth language which was specified.
 
 It is not within scope of this article to talk through the code of this function, but it is very simple and C# and NodeJS code can be seen at the [Multilingual-QnAMaker GitHub repo](https://github.com/martinkearn/Multilingual-QnAMaker/blob/master/LogicApp/TranslateQnALogicApp.json) which accompanies this article.
 
-### 8. Return the JSON
+### 9. Return the JSON
 
-Finally, the logic app returns the Json (with the translated answer) to the calling applications.
+(This correlates to the `Response` step in the logic app below)
+
+Finally, the logic app returns the JSON (with the translated answer) to the calling applications.
 
 The end result is exactly eth same as if the application had called QnAMaker directly, however the calling application can call in any supported language and have the answer returned in eth language they call in
 
