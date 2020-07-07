@@ -17,6 +17,8 @@ categories:
 
 This article covers using a file selector component with Blazor and scanning files for viruses when they are selected.
 
+![Gif showing the solution described in this article.](https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blazor-File-Select-with-Virus-Sc.gif)
+
 The full code that companies this article can be found at https://github.com/martinkearn/Blazor-FileUpload-ClamAV
 
 This solution really just stitches together two awesome third party open source solutions.
