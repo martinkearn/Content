@@ -5,7 +5,7 @@ description: Selecting a file is a very popular things to do on the web. Here is
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus_thumb.jpg
 type: article
-status: draft
+status: published
 published: 2020/07/07 17:10:00
 categories: 
   - Blazor
