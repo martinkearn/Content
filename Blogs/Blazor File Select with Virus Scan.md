@@ -2,8 +2,8 @@
 title: Blazor File Select with Virus Scan
 author: Martin Kearn
 description: Selecting a file is a very popular things to do on the web. Here is how to do it using popular packages for Blazor, including a virus scan.
-image: https://dummyimage.com/800x600/000/fff&text=placeholder
-thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus.jpg
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus_thumb.jpg
 type: article
 status: draft
 published: 2020/07/07 17:10:00
