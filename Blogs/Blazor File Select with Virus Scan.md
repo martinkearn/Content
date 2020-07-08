@@ -1,7 +1,7 @@
 ---
 title: Blazor File Select with Virus Scan
 author: Martin Kearn
-description: Selecting a file is a very popular things to do on the web. Here is how to do it using popular packages for Blazor, including a virus scan.
+description: Uploading a file is a very popular thing to do on the web, but what if it has a virus on it? How do you tell!? Here is how to do it using popular packages for Blazor, including a virus scan with ClamAV.
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus_thumb.jpg
 type: article
@@ -15,13 +15,15 @@ categories:
 
 # Blazor File Select with Virus Scan
 
-This article covers using a file selector component with Blazor and scanning files for viruses when they are selected.
+Uploading a file is a very popular thing to do on the web, but what if it has a virus on it? How do you tell!? 
+
+Here is how to do the upload using popular packages for Blazor, including a virus scan with ClamAV.
 
 ![Gif showing the solution described in this article.](https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blazor-File-Select-with-Virus-Sc.gif)
 
-The full code that companies this article can be found at https://github.com/martinkearn/Blazor-FileUpload-ClamAV
+The full code that accompanies this article can be found at https://github.com/martinkearn/Blazor-FileUpload-ClamAV
 
-This solution really just stitches together two awesome third party open source solutions.
+This solution really just stitches together several awesome third party open source solutions.
 
 The file selector component is provided by a package called **BlazorInputFile**
 
@@ -45,17 +47,19 @@ The simplest way to setup a ClamAV server is to use a docker container.
 
 There are many prebuilt containers available but I used [filefrog/clamav](https://hub.docker.com/r/filefrog/clamav) because it includes all the ClamAV services and is self-updating.
 
-You can host the container in any way you see fit, but for me, the simplest approach was to host using Azure Container Instances (ACI). These are the high level steps on how to do that.
+You can host the container in any way you see fit. I find that the simplest approach is to host using Azure Container Instances (ACI). 
+
+These are the high level steps on how to do that.
 
 1. Create resource > search for "container instances" > Create
 2. Choose a subscription, resource group, container name and location.
-   1. Take note of the Container Name, you'll need it later
+   - Take note of the Container Name, you'll need it later
 3. Choose `Docker Hub or other registry`
 4. Set the Image Type and `Public`
 5. Set `filefrog/clamav` as the Image
 6. Accept all other defaults and click `Next: Networking` (do not create yet - we need to set some other settings)
 7. Set the `DNS Label Name` to be what you put as the Container name in step 2.
-   1. Take note of the full FQDN here. The FQDN will be the DNS label plus the `something.azurecontainer.io` url specified automatically (this will vary based on the location). In my case it is `kearnclamav.uksouth.azurecontainer.io`
+   - Take note of the full FQDN here. The FQDN will be the DNS label plus the `something.azurecontainer.io` url specified automatically (this will vary based on the location). In my case it is `kearnclamav.uksouth.azurecontainer.io`
 8. Add port `3310` as `TCP` (Clam AV works on 3310 by default)
 9. Now click `Review + Create` > `Create`
 
@@ -64,18 +68,20 @@ You can host the container in any way you see fit, but for me, the simplest appr
 In this section, we'll look at the setup of the basic project.
 
 1. Create a Blazor Server project using the standard template. You can follow this tutorial if you have never created a Blazor project before: https://docs.microsoft.com/en-us/aspnet/core/tutorials/build-a-blazor-app?view=aspnetcore-3.1
-2. Install the BlazorInputFile NuGet package. You can follow the steps outlined in this blog article: http://blog.stevensanderson.com/2019/09/13/blazor-inputfile/
-3. Install the nClam NuGet package: `Install-Package nClam`
+   - I believe all this should also work for Blazor Web Assembly but I've not tried it
+2. Install and configure the `BlazorInputFile` NuGet package. 
+   - You can follow the steps outlined in this blog article: http://blog.stevensanderson.com/2019/09/13/blazor-inputfile/
+3. Install the `nClam` NuGet package: `Install-Package nClam`
 
 ## Using BlazorInputFile
 
-When installed, BlazorInputFile is very easy to use; it is basically just a component which you can simply add to the mark-up section of the page where you want to use it:
+When installed, BlazorInputFile is very easy to use; it is basically just a component which you can add to the mark-up section of the page where you want to use it:
 
 ```html
 <InputFile OnChange="HandleFileSelected" />
 ```
 
-You then need to implement the `HandleFileSelected` method which will get the file stream. For now, let just add a basic handler; add this code block to the bottom of your blazor page.
+You then need to implement the `HandleFileSelected` method which will get the file stream when a file is selected. For now, lets just add a basic handler; add this code block to the bottom of your Blazor page.
 
 ```c#
 @code {
@@ -88,7 +94,7 @@ You then need to implement the `HandleFileSelected` method which will get the fi
 }
 ```
 
-Whenever a file is selected in the BlazorInput control, the `file` object will have all the details including the file stream.
+Whenever a file is selected in the BlazorInputFile control, the `file` object will have all the details including the file stream.
 
 If you want to see a visual indication that you have selected a file, you can add this code to the mark-up section of the razor page:
 
@@ -113,7 +119,8 @@ Firstly, we need to define the address for a ClamAV server. This is the FQDN of 
 For speed, you can just hard-code the name if you want to, but it is best practice to use `appsettings.json` and the `IConfiguration` to access the setting like this:
 
 ```c#
-var serverName = Configuration["ClamAVServerName"];
+@inject IConfiguration Configuration //This goes at the top of the file
+var serverName = Configuration["ClamAVServerName"]; //This goes in the Code section
 ```
 
 In any case, lets assume you have a variable called `serverName` which contains the FQDN or IP of the ClamAV container you setup earlier.
@@ -121,11 +128,9 @@ In any case, lets assume you have a variable called `serverName` which contains 
 You can scan the file in two simple lines with nClam:
 
 ```c#
-var clam = new ClamClient(serverName, 3310);
+var clam = new ClamClient(serverName, 3310); //3310 hard coded because that is default for ClamAV
 var scanResult = await clam.SendAndScanFileAsync(file.Data);
 ```
-
- Port 3310 is hard coded because that is the default port for ClamAV.
 
 To do this in the context of the existing `HandleFileSelected` method, you'll need to make it `async` as follows:
 
@@ -158,17 +163,17 @@ You can see the full code at https://github.com/martinkearn/Blazor-FileUpload-Cl
 
 ## Testing for infected files with EICAR test file
 
-One of the challenging aspects of an antivirus scan is how to test it, most people don't just have a virus-infected file hanging around on their desktop!
+One of the challenging aspects of an antivirus scan is how to test it; most people don't just have a virus-infected file hanging around on their desktop!
 
-Luckily, the [European Institute for Computer Antivirus Research](https://en.wikipedia.org/wiki/EICAR_(Research_institute)) (EICAR) and [Computer Antivirus Research Organization](https://en.wikipedia.org/wiki/CARO) (CARO) have teamed up to create a file that most virus scanning software will flag as a virus, however the file is actually harmless. You can read about this here: https://en.wikipedia.org/wiki/EICAR_test_file.
+Luckily, the [European Institute for Computer Antivirus Research](https://en.wikipedia.org/wiki/EICAR_(Research_institute)) (EICAR) and [Computer Antivirus Research Organization](https://en.wikipedia.org/wiki/CARO) (CARO) have created a file that most virus scanning software will flag as a virus, however the file is actually harmless. You can read about this here: https://en.wikipedia.org/wiki/EICAR_test_file.
 
-To use the EICAR test file, simple create a file called something like `EICAR.txt` (the name does not matter) and put this as the contents:
+To use the EICAR test file, simply create a file called `EICAR.txt` (the name does not matter) and put this as the contents:
 
 ```
 X5O!P%@AP[4\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*
 ```
 
-This will will be flagged by most AV systems (ClamAV included) as a virus. Just be careful that you store in somewhere on you computer that is not being scanned by your antivirus software.
+This will will be flagged by most antivirus systems (ClamAV included) as a virus. Just be careful that you store in somewhere on you computer that is not being scanned by your antivirus software.
 
 ## Azure VNET
 
