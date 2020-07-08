@@ -15,9 +15,7 @@ categories:
 
 # Blazor File Select with Virus Scan
 
-Uploading a file is a very popular thing to do on the web, but what if it has a virus on it? How do you tell!? 
-
-Here is how to do the upload using popular packages for Blazor, including a virus scan with ClamAV.
+This article describes how to do a file upload with an antivirus scan using popular packages for Blazor, including a virus scan with nClam and ClamAV.
 
 ![Gif showing the solution described in this article.](https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blazor-File-Select-with-Virus-Sc.gif)
 
