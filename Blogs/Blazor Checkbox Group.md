@@ -1,12 +1,12 @@
 ---
 title: Blazor Checkbox Group
 author: Martin Kearn
-description: Imagine you need to make sure one of a group of checkboxes if checked. It does not matter which one, but it must be one of them. This is how to do it in Blazor.
+description: Imagine you need to ensure at least one checkbox is checked from a group of checkboxes. It does not matter which one, but it must be one of them. This is how to do it in Blazor.
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/CheckboxGroup.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/CheckboxGroup.jpg
 type: article
-status: draft
-published: 2020/09/07 17:10:00
+status: published
+published: 2020/09/07 17:00:00
 categories: 
   - Blazor
   - Forms
@@ -18,7 +18,7 @@ Sometimes in a HTML form you need to present a choice of options and you need th
 
 Examples could include toppings on a pizza or permissions for a user.
 
-In Blazor, you can easily validate against whether a checkbox is selected or not (see [Blazor Forms and Validation](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1)) but validating that at least one of many is checked is a little more involved.
+In Blazor, you can easily validate against whether a checkbox is checked or not (see [Blazor Forms and Validation](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1)) but validating that one of many is checked is a little more involved.
 
 I had this requirement for a project recently and this is how I figured it out.
 
@@ -128,12 +128,17 @@ As well as being required, you can see that I have set a `Range` attribute which
 The clever bit (at least it is clever for me) is that the `get` for `OneChoiceSelected` is:
 
 ```
-return ((ChoiceA) || (ChoiceB) || (ChoiceC));
+get
+{
+	return ((ChoiceA) || (ChoiceB) || (ChoiceC));
+};
 ```
 
-This means that if any of the `bool` properties that are passed in are `true` then  `OneChoiceSelected` is also `true`. If they are all `false`, then so is  `OneChoiceSelected`.
+This means that if any of the `bool` properties are `true` then  `OneChoiceSelected` is also `true`. If they are all `false`, then  `OneChoiceSelected` is also `false`.
 
-The rest of the form is fairly standard Blazor model binding and validation where each choice has its own `<InputCheckBox>`. See [Built-in forms components](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#built-in-forms-components) for details of how this works.
+The rest of the form is standard Blazor model binding and validation where each choice has its own `<InputCheckBox>`. 
+
+See [Built-in forms components](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1#built-in-forms-components) for details of how this works.
 
 ## In Summary
 
