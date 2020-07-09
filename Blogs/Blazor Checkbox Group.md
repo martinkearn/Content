@@ -24,6 +24,8 @@ I had this requirement for a project recently and this is how I figured it out.
 
 You can see the code and a working sample for this article at https://github.com/martinkearn/Blazor-Checkbox-Group, all the code featured in this article is in [Index.razor](https://github.com/martinkearn/Blazor-Checkbox-Group/blob/master/src/Pages/Index.razor).
 
+![A Blazor Checkbox group](https://github.com/martinkearn/Blazor-Checkbox-Group/raw/master/Blazor-Checkbox-Group.gif)
+
 ## The code
 
 This is the full code for the solution. The only other thing you'll need to is add to a standard Blazor template is to add the following to `_Imports.razor`
