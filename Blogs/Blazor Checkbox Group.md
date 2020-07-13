@@ -3,7 +3,7 @@ title: Blazor Checkbox Group
 author: Martin Kearn
 description: Imagine you need to ensure at least one checkbox is checked from a group of checkboxes. It does not matter which one, but it must be one of them. This is how to do it in Blazor.
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/ChecboxGroup.png
-thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/CheckboxGroup_thumb.png
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/ChecboxGroup_thumb.png
 type: article
 status: published
 published: 2020/07/09 17:00:00
