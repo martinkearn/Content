@@ -2,8 +2,8 @@
 title: Fifteen years at Microsoft and still loving it
 author: Martin Kearn
 description: On 12th December 20202 I celebrate 15 years working at Microsoft. This article contains a short reflection, some interesting facts and some predictions that I hope to look back on at my 20 year celebratory blog post.
-image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/forms.jpg
-thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/forms_thumb.jpg
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Microsoft%20Service%20Award%2015%20years.jpg
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Microsoft%20Service%20Award%2015%20years-thumb.jpg
 type: article
 status: draft
 published: 2020/12/11 09:00:00
@@ -38,6 +38,8 @@ As the world was gripped by COVID-19 in 2020, I worked on an emergency project w
 Without doubt, the most fun I've ever had at work was recording the **[Web Hack Wednesday](https://channel9.msdn.com/Shows/Web-Hack-Wednesday)** video series with [Martin Beeby](https://twitter.com/thebeebs). In these 10-20 minutes weekly videos, Martin and I discussed whatever was new and interesting in the world of web development in our own unique and daft way. They were initially published on [Channel9](https://channel9.msdn.com/Shows/Web-Hack-Wednesday) and [YouTube](https://www.youtube.com/channel/UCxfB8nhgGYilj21J9bO_x6Q). This is probably the thing I miss the most about my old role that I wish I could justifiably do now, but it just doe snot fit with my objectives in my current role :(
 
 One of the more interesting "code with" project I've done in recent years was with a chap called [Joe Collins](https://twitter.com/joejcollins) from a small company called [Black Radley]() who had a vision to create an "**Intelligent Museum**". The idea was that as visitors traversed a museum, intelligent devices would identify them, approximate their age and give a tailored audio description of the exhibit, and then detect when they walked away. I thought I'd blogged about this but I cannot find it now, but if you are interested I do have a [slide deck](https://1drv.ms/p/s!ApiDsT2045uZgYv2W6bHU6m2A2IEIOU?e=CtFZfy) with more details.
+
+I built my own **GitHub-based CMS**. The article you are reading right now was written in markdown on my [GitHub Content repo](https://github.com/martinkearn/Content) which uses a combination of logic apps and azure functions to put the article on my [website](http://martink.me/). The system has been up and running for several years now and works brilliantly. It means my content is open source and anyone can submit pull requests. I've always intended to write about this, but never really gotten around to it - perhaps i will by 2025 if it is still running by then?
 
 ## Predictions for 2020 > 2025
 
