@@ -21,13 +21,7 @@ I'm now working in the Commercial Software Engineering (CSE) group working every
 
 I'm not doing as much evangelism/advocacy now compared to 5 years ago (see [Ten years at the best company in the world](http://martink.me/articles/ten-years-at-the-best-company-in-the-world)) and I do kind of miss that stuff, but I feel happier and more secure doing what I'm doing now.
 
-Here are some fun facts compared to my last 5 year milestone in 2015.
-
-|                      | 2015                                                         | 2020                                                         |
-| -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| MSFT stock price     | $54                                                          | $211                                                         |
-| iPhone version       | iPhone 6S                                                    | iPhone 12                                                    |
-| Trending mobile apps | Snapchat, Outlook (yes, Microsoft Outlook), Samsung Pay. Angry Birds 2, Last Pass. Periscope | TikTok, Zoom, NHS Covid-19, Disney +, Starling bank (and all the 'new' banking apps) |
+Microsoft as a company continue to go from strength to strength. The MSFT stock price was just $54 in 2015 but is $211 as I write and that reflects the strong, ethical leadership of Satya Nadella and the rest of the senior leadership team. I have absolute confidence that Microsoft will continue to be a very important company for me, my family, my customers and the world as a whole for many years to come.
 
 ## Highlights
 
