@@ -2,8 +2,8 @@
 title: Integration testing with Pester and PowerShell
 author: Martin Kearn
 description: Pester is a PowerShell based test framework whihc make sit very simple to write integration tests. This article gives and overview and some usefull resources.
-image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Microsoft%20Service%20Award%2015%20years.jpg
-thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Microsoft%20Service%20Award%2015%20years-thumb.jpg
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester.png
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pesterThumb.png
 type: article
 status: draft
 published: 2021/02/17 09:00:00
