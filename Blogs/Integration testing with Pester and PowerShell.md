@@ -28,7 +28,7 @@ In order to perform integration tests, you'll need a thing that simulates real t
 
 According to the docs of WorldClockAPI.com, if I call this URI http://worldclockapi.com/api/json/utc/now, I should expect a json response detailing the time and some other date related information.
 
-If I wanted to integration test this system, I would first send a request to tha http://worldclockapi.com/api/json/utc/now and then assert that the response was what I expected, which in this case is something like this:
+If I wanted to integration test this system, I would first send a request to http://worldclockapi.com/api/json/utc/now and then assert that the response was what I expected, which in this case is something like this:
 
 ```json
 {
@@ -61,7 +61,7 @@ You can see the official overview of Pester at the [Quick Start](https://pester.
 - Each `IT` is accompanied with a [`SHOULD` block](https://pester.dev/docs/commands/Should). `SHOULD` is a keyword that defines the assertion and has many operators such as [`BE`](https://pester.dev/docs/commands/Should#be), [`BEGREATERTHAN`](https://pester.dev/docs/commands/Should#begreaterthan), [`CONTAIN`](https://pester.dev/docs/commands/Should#contain) and many many more
 
 - A [`DESCRIBE`](https://pester.dev/docs/commands/Describe) block is a logical grouping of individual tests. In many cases, a single test file (`something.tests.ps1`) may contains a single describe block.
-- You can use [`BEFOREALL`](https://pester.dev/docs/commands/BeforeAll) to arrange/setup the test and [`AFTERALL`](https://pester.dev/docs/commands/AfterAll) to tear down afterwards
+- You can use `BEFOREALL` to arrange/setup the test and `AFTERALL` to tear down afterwards. See [Setup and teardown](https://pester.dev/docs/usage/setup-and-teardown).
 
 This is a very basic example which asserts that the variable `$number` is equal to 1.
 
@@ -75,6 +75,28 @@ Describe "Number tests" {
     }
 }
 ```
+
+## Building Pester tests for WorldClockAPI.com
+
+Lets put Pester to use and build an integration test for WorldClockAPI.com, you can find the finished `worldclockapi.test.ps1` file published on GitHub: https://github.com/martinkearn/Pester-WorldClockApi.
+
+The first step is to install Pester, using `Install-Module Pester -Force` in a PowerShell console (with administrator rights). Follow this with `Import-Module Pester -PassThru` to ensure that the output is shown in the console.
+
+Create a file called `worldclockapi.test.ps1` and open it in your favourite PowerShell editor (I use [Visual Studio Code](https://code.visualstudio.com/)).
+
+The first step is to setup the basic test structure and call the WorldClockApi. To do this add the following to your file:
+
+```powershell
+Describe 'Test worldclockapi.com' {
+    BeforeAll {
+        $response = Invoke-WebRequest -Method 'GET' -Uri 'http://worldclockapi.com/api/json/utc/now'
+        $responseContent = $response.Content | ConvertFrom-Json
+		Write-Host $responseContent
+    }
+}
+```
+
+
 
 
 
