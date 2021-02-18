@@ -15,18 +15,22 @@ categories:
 
 .I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
 
-The project I was on used Pester and PowerShell to integration test the deployed system was doing what it was supposed to be doing.
+My most recent project used Pester and PowerShell to integration test the deployed system and check it was doing what it was supposed to be doing.
 
 I learnt a lot from this exercise and wanted to share what I learnt here.
 
-## Integration testing; what and why?
-Simply put, integration testing is the act of testing a deployed version of your system to ensure it operates as expected to in its "integrated" state along-side other system components. Integration tests catch bugs that affect how code operates as part of the wider deployed system, which are not possible to catch by testing the system units alone (unit testing).
+## Integration testing; what is it and why bother?
+Simply put, integration testing is the act of testing a deployed version of your system to ensure it operates as it is expected to in its "integrated" state, along-side other system components. 
 
-I [asked Twitter](https://twitter.com/MartinKearn/status/1362020458074435586) to give me some tweet-sized examples of what integration testing is and got some great examples. Here are some of my favourites
+Integration tests catch bugs that affect how code operates as part of the wider deployed system, which are not possible to catch by testing the system units alone (unit testing).
+
+I [asked Twitter](https://twitter.com/MartinKearn/status/1362020458074435586) to give me some tweet-sized examples of integration testing and got some great examples. Here are some of my favourites
 
 - [@Toolan](https://twitter.com/toolan) wrote "*Integration testing: Putting everything together in a sandpit and seeing if it plays nicely with its brothers and sisters.*"
 - [@devinmau](https://twitter.com/devinmau) wrote "*As a football fan, imagine recruiting 11 of the best strikers in the world for the biggest game of your life. Integration testing helps you avoid that disaster!*"
-- There were also some great gifs, including this one from [@Storey247](https://twitter.com/STOREY247). 
+- [@Lee_Alexander](https://twitter.com/Lee_Alexander) wrote "*If an application was a symphony then integration testing would be the orchestra (components) getting together and rehearsing it.*"
+
+There were also some great gifs, including this one from [@Storey247](https://twitter.com/STOREY247). 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Unit tests pass… integration tests fail <a href="https://t.co/RJ0EjKMr71">pic.twitter.com/RJ0EjKMr71</a></p>&mdash; ʎǝɹoʇS ǝʌɐᗡ - ʎǝɹoʇS ǝnɹ⊥ (ノಠ益ಠ)ノ彡┻━┻ (@STOREY247) <a href="https://twitter.com/STOREY247/status/1362134686017978370?ref_src=twsrc%5Etfw">February 17, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
