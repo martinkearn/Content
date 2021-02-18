@@ -6,14 +6,14 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester.png
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pesterThumb.png
 type: article
 status: draft
-published: 2021/02/17 09:00:00
+published: 2021/02/18 11:00:00
 categories: 
   - Pester
   - Testing
   - PowerShell
 ---
 
-OK, I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
+I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
 
 The project I was on used Pester and PowerShell to integration test the deployed system was doing what it was supposed to be doing.
 
@@ -159,7 +159,9 @@ Pester and PowerShell ae a very flexible way to integration test using simple an
 
 For more resources:
 
+- Full sample code: https://github.com/martinkearn/Pester-WorldClockApi
 - Pester website: https://pester.dev
 - Pester GitHub: https://github.com/pester/pester
 - PowerShell docs: https://docs.microsoft.com/en-us/powershell/scripting/how-to-use-docs?view=powershell-7.1
+- More articles from me: http://martink.me/articles
 
