@@ -13,6 +13,8 @@ categories:
   - PowerShell
 ---
 
+
+
 I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
 
 The project I was on used Pester and PowerShell to integration test the deployed system was doing what it was supposed to be doing.
@@ -24,8 +26,8 @@ Simply put, integration testing is the act of testing a deployed version of your
 
 I [asked Twitter](https://twitter.com/MartinKearn/status/1362020458074435586) to give me some tweet-sized examples of what integration testing is and got some great examples. Here are some of my favourites
 
-- [@Toolan](https://twitter.com/toolan) wrote "Integration testing: Putting everything together in a sandpit and seeing if it plays nicely with its brothers and sisters."
-- [@devinmau](https://twitter.com/devinmau) wrote "As a football fan, imagine recruiting 11 of the best strikers in the world for the biggest game of your life. Integration testing helps you avoid that disaster!"
+- [@Toolan](https://twitter.com/toolan) wrote "*Integration testing: Putting everything together in a sandpit and seeing if it plays nicely with its brothers and sisters.*"
+- [@devinmau](https://twitter.com/devinmau) wrote "*As a football fan, imagine recruiting 11 of the best strikers in the world for the biggest game of your life. Integration testing helps you avoid that disaster!*"
 - There were also some great gifs, including this one from [@Storey247](https://twitter.com/STOREY247). 
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Unit tests pass… integration tests fail <a href="https://t.co/RJ0EjKMr71">pic.twitter.com/RJ0EjKMr71</a></p>&mdash; ʎǝɹoʇS ǝʌɐᗡ - ʎǝɹoʇS ǝnɹ⊥ (ノಠ益ಠ)ノ彡┻━┻ (@STOREY247) <a href="https://twitter.com/STOREY247/status/1362134686017978370?ref_src=twsrc%5Etfw">February 17, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
