@@ -13,7 +13,7 @@ categories:
   - PowerShell
 ---
 
- I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
+.I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
 
 The project I was on used Pester and PowerShell to integration test the deployed system was doing what it was supposed to be doing.
 
