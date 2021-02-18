@@ -81,7 +81,7 @@ Describe "Number tests" {
 		$number = 1
     }
     It "Number is equal to 1" {
-    	$number | Should -Be 1
+		$number | Should -Be 1
     }
 }
 ```
