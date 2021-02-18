@@ -82,21 +82,69 @@ Lets put Pester to use and build an integration test for WorldClockAPI.com, you 
 
 The first step is to install Pester, using `Install-Module Pester -Force` in a PowerShell console (with administrator rights). Follow this with `Import-Module Pester -PassThru` to ensure that the output is shown in the console.
 
-Create a file called `worldclockapi.test.ps1` and open it in your favourite PowerShell editor (I use [Visual Studio Code](https://code.visualstudio.com/)).
+Create a file called `worldclockapi.test.ps1` and open it in your favourite PowerShell editor (such as [Visual Studio Code](https://code.visualstudio.com/)).
 
-The first step is to setup the basic test structure and call the WorldClockApi. To do this add the following to your file:
+The first step is to setup the basic test structure and call the WorldClockApi. We do this in a `BeforeAll` section so that we known the response should be there before any tests run. The code within the `BeforeAll` is just basic PowerShell which does a HTTP request to the API to get the response (stored as `$response`) and then converts that response's content to the `$responseContent` object which we can use standard dot notation to drill into and inspect later.
 
 ```powershell
 Describe 'Test worldclockapi.com' {
     BeforeAll {
         $response = Invoke-WebRequest -Method 'GET' -Uri 'http://worldclockapi.com/api/json/utc/now'
         $responseContent = $response.Content | ConvertFrom-Json
-		Write-Host $responseContent
     }
 }
 ```
 
+You can now run this in your PowerShell console using the following command 
 
+`Invoke-Pester -Output Detailed .\worldclockapi.tests.ps1`
+
+There are not `It` blocks yet so there are no tests to pass but as long as there are no errors you are good to continue. The response should look like this.
+
+![Pester result with no tests](https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester-notests.jpg)
+
+We need to add some additional variables to the `BeforeAll` so that we have the current date in various formats to make our assertions later. Add these lines below the `$responseContent` line. Again, these are just standard PowerShell lines which get the current day of the week,  year and month.
+
+```powershell
+$dayOfWeek = (Get-Date).DayOfWeek
+$year = Get-Date -Format "yyyy"
+$month = Get-Date -Format "MM"
+```
+
+Now we have the basic script, we will add a range of tests using the `It` and `Should` keywords. Add the following code beneath the `BeforeAll` closing line.
+
+```powershell
+It "It should respond with 200" {
+	$response.StatusCode | Should -Be 200
+}
+
+It "It should have a null service response" {
+	$responseContent.serviceResponse | Should -BeNullOrEmpty
+} 
+
+It "It should be $dayOfWeek" {
+	$responseContent.dayOfTheWeek | Should -Be $dayOfWeek
+}
+
+It "It should be year $year" {
+	$responseContent.currentDateTime | Should -BeLike "*$year*"
+}
+
+It "It should be month $month" {
+	$responseContent.currentDateTime | Should -BeLike "*$month*"
+}
+
+# These two tests assume you are running this outside daylight savings (during the winter) .. hacky but good way to showcase the syntax ;)
+It "It should not be daylight savings time" {
+	$responseContent.isDayLightSavingsTime | Should -Not -Be $true
+}
+
+It "It should not be daylight savings time another way" {
+	$responseContent.isDayLightSavingsTime | Should -BeFalse
+}
+```
+
+If you re-run the script now, you should get 7 passing tests, whihc should look like this in your console.
 
 
 
