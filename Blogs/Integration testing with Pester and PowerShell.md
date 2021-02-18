@@ -13,9 +13,7 @@ categories:
   - PowerShell
 ---
 
-
-
-I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
+ I'll admit it ..... despite being an IT veteran of 23+ years, I've never really had to deal with integration testing until recently.
 
 The project I was on used Pester and PowerShell to integration test the deployed system was doing what it was supposed to be doing.
 
@@ -152,6 +150,49 @@ It "It should not be daylight savings time another way" {
 If you re-run the script now, you should get 7 passing tests, whihc should look like this in your console.
 
 ![Pester result with severn passing tests](https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester-severntests.jpg)
+
+You can find the full script file on [GitHub](https://github.com/martinkearn/Pester-WorldClockApi/blob/main/WorldClockApi.Tests.ps1) but I've included here for quick reference:
+
+```powershell
+Describe "Test worldclockapi.com" {
+    BeforeAll {
+        $response = Invoke-WebRequest -Method 'GET' -Uri 'http://worldclockapi.com/api/json/utc/now'
+        $responseContent = $response.Content | ConvertFrom-Json
+    }
+
+    It "It should respond with 200" {
+        $response.StatusCode | Should -Be 200
+    }
+    
+    It "It should have a null service response" {
+        $responseContent.serviceResponse | Should -BeNullOrEmpty
+    } 
+    
+    It "It should be the right day of the week" {
+        $dayOfWeek = (Get-Date).DayOfWeek
+        $responseContent.dayOfTheWeek | Should -Be $dayOfWeek
+    }
+    
+    It "It should be the right year" {
+        $year = Get-Date -Format "yyyy"
+        $responseContent.currentDateTime | Should -BeLike "*$year*"
+    }
+    
+    It "It should be the right month" {
+        $month = Get-Date -Format "MM"
+        $responseContent.currentDateTime | Should -BeLike "*$month*"
+    }
+    
+    # These two tests assume you are running this outside daylight savings (during the winter) .. hacky but good way to showcase the syntax ;)
+    It "It should not be daylight savings time" {
+        $responseContent.isDayLightSavingsTime | Should -Not -Be $true
+    }
+    
+    It "It should not be daylight savings time another way" {
+        $responseContent.isDayLightSavingsTime | Should -BeFalse
+    }
+}
+```
 
 ## In Summary
 
