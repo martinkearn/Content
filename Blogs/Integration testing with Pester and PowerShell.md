@@ -73,7 +73,7 @@ You can see the official overview of Pester at the [Quick Start](https://pester.
 - Each `It` is accompanied with a [`Should` block](https://pester.dev/docs/commands/Should). `Should` is a keyword that defines the assertion and has many operators such as [`Be`](https://pester.dev/docs/commands/Should#be), [`BeGreaterThan`](https://pester.dev/docs/commands/Should#begreaterthan), [`Contain`](https://pester.dev/docs/commands/Should#contain) and many many more
 
 - A [`Describe`](https://pester.dev/docs/commands/Describe) block is a logical grouping of individual tests. In many cases, a single test file (`something.tests.ps1`) may contains a single describe block.
-- You can use `BEFOREALL` to arrange/setup the test and `AFTERALL` to tear down afterwards. See [Setup and teardown](https://pester.dev/docs/usage/setup-and-teardown).
+- You can use `BeforeAll` to arrange/setup the test and `AfterAll` to tear down afterwards. See [Setup and teardown](https://pester.dev/docs/usage/setup-and-teardown).
 
 This is a very basic example which asserts that the variable `$number` is equal to 1.
 
@@ -96,7 +96,7 @@ The first step is to install Pester, using `Install-Module Pester -Force` in a P
 
 Create a file called `worldclockapi.test.ps1` and open it in your favourite PowerShell editor (such as [Visual Studio Code](https://code.visualstudio.com/)).
 
-The first step is to setup the basic test structure and call the WorldClockApi. We do this in a `BeforeAll` section so that we known the response should be there before any tests run. The code within the `BeforeAll` is just basic PowerShell which does a HTTP request to the API to get the response (stored as `$response`) and then converts that response's content to the `$responseContent` object which we can use standard dot notation to drill into and inspect later.
+We now need to setup the basic test structure and call the WorldClockApi. We do this in a `BeforeAll` section so that we known the response should be there before any tests run. The code within the `BeforeAll` is just basic PowerShell which does a HTTP request to the API to get the response (stored as `$response`) and then converts that response's content to the `$responseContent` object which we can use standard dot notation to drill into and inspect later.
 
 ```powershell
 Describe 'Test worldclockapi.com' {
