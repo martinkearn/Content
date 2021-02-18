@@ -20,7 +20,15 @@ The project I was on used Pester and PowerShell to integration test the deployed
 I learnt a lot from this exercise and wanted to share what I learnt here.
 
 ## Integration testing; what and why?
-Simply put, integration testing is the act of testing a deployed version of your system to ensure it operates as expected to in its "integrated" state along-side other system components. Integration tests catch bugs that affect how code operates as part of the wider deployed system, which are not possible to catch by testing the system units alone (unit testing) .
+Simply put, integration testing is the act of testing a deployed version of your system to ensure it operates as expected to in its "integrated" state along-side other system components. Integration tests catch bugs that affect how code operates as part of the wider deployed system, which are not possible to catch by testing the system units alone (unit testing).
+
+I [asked Twitter](https://twitter.com/MartinKearn/status/1362020458074435586) to give me some tweet-sized examples of what integration testing is and got some great examples. Here are some of my favourites
+
+- [@Toolan](https://twitter.com/toolan) wrote "Integration testing: Putting everything together in a sandpit and seeing if it plays nicely with its brothers and sisters."
+- [@devinmau](https://twitter.com/devinmau) wrote "As a football fan, imagine recruiting 11 of the best strikers in the world for the biggest game of your life. Integration testing helps you avoid that disaster!"
+- There were also some great gifs, including this one from [@Storey247](https://twitter.com/STOREY247). 
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Unit tests pass… integration tests fail <a href="https://t.co/RJ0EjKMr71">pic.twitter.com/RJ0EjKMr71</a></p>&mdash; ʎǝɹoʇS ǝʌɐᗡ - ʎǝɹoʇS ǝnɹ⊥ (ノಠ益ಠ)ノ彡┻━┻ (@STOREY247) <a href="https://twitter.com/STOREY247/status/1362134686017978370?ref_src=twsrc%5Etfw">February 17, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 In order to perform integration tests, you'll need a thing that simulates real transactions on your system and exercises known system interfaces, then asserts that the outputs are what you expected them to be.
 
@@ -56,11 +64,11 @@ Because it is based on PowerShell, you can use all of the goodness of PowerShell
 
 You can see the official overview of Pester at the [Quick Start](https://pester.dev/docs/quick-start) docs, but here are some of the key principles....
 
-- Individual tests (or assertions) are represented by [`IT` blocks](https://pester.dev/docs/commands/It). In the AAA pattern, these are the assertions that we want to actually test ae true or false. 
+- Individual tests (or assertions) are represented by [`It` blocks](https://pester.dev/docs/commands/It). In the [AAA pattern](https://www.c-sharpcorner.com/UploadFile/dacca2/fundamental-of-unit-testing-understand-aaa-in-unit-testing/), these are the assertions that we want to actually test are true or false. 
 
-- Each `IT` is accompanied with a [`SHOULD` block](https://pester.dev/docs/commands/Should). `SHOULD` is a keyword that defines the assertion and has many operators such as [`BE`](https://pester.dev/docs/commands/Should#be), [`BEGREATERTHAN`](https://pester.dev/docs/commands/Should#begreaterthan), [`CONTAIN`](https://pester.dev/docs/commands/Should#contain) and many many more
+- Each `It` is accompanied with a [`Should` block](https://pester.dev/docs/commands/Should). `Should` is a keyword that defines the assertion and has many operators such as [`Be`](https://pester.dev/docs/commands/Should#be), [`BeGreaterThan`](https://pester.dev/docs/commands/Should#begreaterthan), [`Contain`](https://pester.dev/docs/commands/Should#contain) and many many more
 
-- A [`DESCRIBE`](https://pester.dev/docs/commands/Describe) block is a logical grouping of individual tests. In many cases, a single test file (`something.tests.ps1`) may contains a single describe block.
+- A [`Describe`](https://pester.dev/docs/commands/Describe) block is a logical grouping of individual tests. In many cases, a single test file (`something.tests.ps1`) may contains a single describe block.
 - You can use `BEFOREALL` to arrange/setup the test and `AFTERALL` to tear down afterwards. See [Setup and teardown](https://pester.dev/docs/usage/setup-and-teardown).
 
 This is a very basic example which asserts that the variable `$number` is equal to 1.
@@ -141,5 +149,17 @@ It "It should not be daylight savings time another way" {
 
 If you re-run the script now, you should get 7 passing tests, whihc should look like this in your console.
 
+![Pester result with severn passing tests](https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester-severntests.jpg)
 
+## In Summary
+
+Integration testing is an important tool for ensuring that your various system component work well together in their deployed state. It is usefull at the end of the project but also during development as you are building our components.
+
+Pester and PowerShell ae a very flexible way to integration test using simple and well established PowerShell syntax, cmdlets and the easy to follow syntax of Pester.
+
+For more resources:
+
+- Pester website: https://pester.dev
+- Pester GitHub: https://github.com/pester/pester
+- PowerShell docs: https://docs.microsoft.com/en-us/powershell/scripting/how-to-use-docs?view=powershell-7.1
 
