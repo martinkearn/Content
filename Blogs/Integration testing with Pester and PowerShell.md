@@ -5,7 +5,7 @@ description: Pester is a PowerShell based test framework which makes it very sim
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester.png
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pesterThumb.png
 type: article
-status: draft
+status: published
 published: 2021/02/18 11:00:00
 categories: 
   - Pester
@@ -111,11 +111,11 @@ You can now run this in your PowerShell console using the following command
 
 `Invoke-Pester -Output Detailed .\worldclockapi.tests.ps1`
 
-There are not `It` blocks yet so there are no tests to pass but as long as there are no errors you are good to continue. The response should look like this.
+There are no `It` blocks yet so there are no tests to pass but providing there are no errors, you are good to continue. The response should look like this.
 
 ![Pester result with no tests](https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester-notests.jpg)
 
-Now we have the basic script, we will add a range of tests using the `It` and `Should` keywords. Add the following code beneath the `BeforeAll` closing line. The code is mostly self explanatory. in some of the tests, we have a little bit of PowerShell whihc gets the current data in various formats so we can make assertions against the `$responseContent` object.
+Now we have the basic script, we will add a range of tests using the `It` and `Should` keywords. Add the following code beneath the `BeforeAll` closing line. The code is mostly self explanatory; in some of the tests, we have some PowerShell which gets the current date in various formats so we can make assertions against the `$responseContent` object.
 
 ```powershell
 It "It should respond with 200" {
@@ -151,7 +151,7 @@ It "It should not be daylight savings time another way" {
 }
 ```
 
-If you re-run the script now, you should get 7 passing tests, whihc should look like this in your console.
+If you re-run the script now, you should get 7 passing tests, which should look like this in your console.
 
 ![Pester result with severn passing tests](https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester-severntests.jpg)
 
@@ -201,9 +201,9 @@ Describe "Test worldclockapi.com" {
 
 ## In Summary
 
-Integration testing is an important tool for ensuring that your various system component work well together in their deployed state. It is usefull at the end of the project but also during development as you are building our components.
+Integration testing is an important process for ensuring that your various system component work well together in their deployed state. It is usefull at the end of the project but also during development as you are building our components.
 
-Pester and PowerShell ae a very flexible way to integration test using simple and well established PowerShell syntax, cmdlets and the easy to follow syntax of Pester.
+Pester and PowerShell ae a very flexible way to integration test using simple, well established PowerShell syntax, cmdlets and the easy to follow syntax of Pester.
 
 For more resources:
 
