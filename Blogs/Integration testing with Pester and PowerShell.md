@@ -103,15 +103,7 @@ There are not `It` blocks yet so there are no tests to pass but as long as there
 
 ![Pester result with no tests](https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester-notests.jpg)
 
-We need to add some additional variables to the `BeforeAll` so that we have the current date in various formats to make our assertions later. Add these lines below the `$responseContent` line. Again, these are just standard PowerShell lines which get the current day of the week,  year and month.
-
-```powershell
-$dayOfWeek = (Get-Date).DayOfWeek
-$year = Get-Date -Format "yyyy"
-$month = Get-Date -Format "MM"
-```
-
-Now we have the basic script, we will add a range of tests using the `It` and `Should` keywords. Add the following code beneath the `BeforeAll` closing line.
+Now we have the basic script, we will add a range of tests using the `It` and `Should` keywords. Add the following code beneath the `BeforeAll` closing line. The code is mostly self explanatory. in some of the tests, we have a little bit of PowerShell whihc gets the current data in various formats so we can make assertions against the `$responseContent` object.
 
 ```powershell
 It "It should respond with 200" {
@@ -122,15 +114,18 @@ It "It should have a null service response" {
 	$responseContent.serviceResponse | Should -BeNullOrEmpty
 } 
 
-It "It should be $dayOfWeek" {
+It "It should be the right day of the week" {
+	$dayOfWeek = (Get-Date).DayOfWeek
 	$responseContent.dayOfTheWeek | Should -Be $dayOfWeek
 }
 
-It "It should be year $year" {
+It "It should be the right year" {
+	$year = Get-Date -Format "yyyy"
 	$responseContent.currentDateTime | Should -BeLike "*$year*"
 }
 
-It "It should be month $month" {
+It "It should be the right month" {
+	$month = Get-Date -Format "MM"
 	$responseContent.currentDateTime | Should -BeLike "*$month*"
 }
 
