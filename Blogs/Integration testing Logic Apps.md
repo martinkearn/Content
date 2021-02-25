@@ -33,7 +33,28 @@ Some reader notes...
 >
 > This article is based on Logic Apps with HTTP triggers, but the principles of inspecting action results and identifying runs can apply to any Logic App
 
+## A simple Logic App
 
+I did not want this sample to be about the Logic App so I've deliberately chosen a very simple logic which is HTTP triggered, expecting the following `POST` payload:
+
+```json
+{
+    "location": "Some city",
+    "uniqueid": "Some unique identifyer"
+}
+```
+
+The logic app will then get a weather report for the city specified in the `location` via the [MSN Weather Connector](https://docs.microsoft.com/en-us/connectors/msnweather/) and return it. 
+
+This is the high level flow for the Logic App
+
+
+
+## Triggering the Logic App and asserting completion
+
+## Identifying the Logic App in the run history
+
+## Asserting the output of an Action
 
 ## In Summary
 
