@@ -2,8 +2,8 @@
 title: Integration testing Logic Apps
 author: Martin Kearn
 description: This articles talks through a sample script for integration testing Azure Logic Apps with Pester and PowerShell
-image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pester.png
-thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/pesterThumb.png
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTestingLogicApps.jpg
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTestingLogicApps.jpg
 type: article
 status: draft
 published: 2021/02/25 11:00:00
