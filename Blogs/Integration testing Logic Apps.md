@@ -293,7 +293,7 @@ Context "Check the result of the logic app" {
 
 This will produce the following output in the console.
 
-![Complete Pester integration test for a Logic App](https://github.com/martinkearn/Pester-LogicApp/raw/main/Images/PesterLogicAppIntConsole.jpg)
+![Complete Pester integration test for a Logic App](https://github.com/martinkearn/Content/raw/master/Blogs/Images/PesterLogicAppIntConsole.jpg)
 
 ## In Summary
 
