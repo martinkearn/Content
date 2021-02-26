@@ -172,13 +172,136 @@ Context "Trigger the logic app" {
 
 Following this test, we know that the Logic App has been triggered and successfully completed.
 
-# TO DO - split sample code into two utilities: 1 which gets a logic app run by unique id, one which gets an action output
-
 ## Identifying the Logic App in the run history
 
-## Asserting the output of an Action
+The Logic App completing without errors is a good starting point, but sometimes you need to go a step further and look into the output that was generated to ensure it is as expected. In our case, we expect a weather report for London, United Kingdom (or "GB") because that is the location we asked for via the `location` property of the post body above.
+
+To inspect the output, you first need to identify the logic app run which was triggered by your test. PowerShell gives us [Get-AzLogicAppRunHistory which is a cmdlet to get the run history for a given logic app in the form of a [WorkflowRun object](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.logic.models.workflowrun?view=azure-dotnet). We can use this to get the status and look at the trigger body, which is usefull for identifying a specific run.
+
+Each action of a Logic App (including the trigger) has a concept of [outputs](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#outputs). This is a json document with key detail about what triggered an action, what the inputs/outputs were etc. We can use this to look for Logic App runs that have the same `uniqueid` in the output as the test we are running. That way, we can be sure that the specified run was triggered by the test.
+
+Outputs are accessible on a separate URL that is contained within the `WorkflowRun.Outputs` property.
+
+For long running Logic Apps, you may need some looping logic to keep checking the run history until it finds the correct run or times out.
+
+This code is the basic structure of such a loop which looks for runs where the `uniqueid` property in the output matches one which is passed in. This is in the [Utilities.ps1](https://github.com/martinkearn/Pester-LogicApp/blob/main/PS/Utilities.ps1) file in the GitHub repo supporting this article.
+
+```powershell
+function Get-LogicAppActionResult {
+    param(
+        [Parameter(Mandatory=$true)][string] $UniqueId,
+        [Parameter(Mandatory=$true)][string] $ResourceGroupName,
+        [Parameter(Mandatory=$true)][string] $LogicAppName
+    )
+
+    # Setup variables
+    $timeoutMinutes = 30
+    $start = Get-Date
+
+    # Keep trying until we return or reach timeoutMinutes
+    do {
+        # Get logic app trigger history
+        # NOTE: this will only return the 30 most recent runs, which is not enough if the system is under load. Need to use the NextLink to get the next page. See https://github.com/Azure/azure-powershell/issues/9141
+        $runHistory = Get-AzLogicAppRunHistory -ResourceGroupName $ResourceGroupName -Name $LogicAppName
+
+        # Loop through run history and check each one to see if it matches the uniqueId we are looking for
+        foreach ($run in $runHistory) {
+            # Make sure that we have an output link as there may be failed runs with no output link in the history
+            if ($null -eq $run.Trigger.OutputsLink) {
+                Write-Host 'Detected null - skipping.'
+                continue;
+            }
+
+            # Get the output link document content. Get-AzlogicAppRunHistory just gives us a link to a json document which contains the output links, therefore we have to go and get the json document seperately.
+            $outputLinksContent = (Invoke-WebRequest -Method 'GET' -Uri $run.Trigger.OutputsLink.Uri).Content | ConvertFrom-Json
+
+            # Check that the run is the one we are looking for by matching uniqueId to the passed in parameter
+            if ($outputLinksContent.body.uniqueId -like "*$UniqueId*") {
+
+                # If we have a failed run, we fail the test by throwing
+                if ($run.Status -eq "Failed") {
+                    throw "LogicApp run $UniqueId failed"
+                }
+
+                # If the run succeeded then we can return the run
+                if ($run.Status -eq "Succeeded") {
+                    return $run
+                }
+            }
+        }
+
+        # Snooze
+        Write-Host "Retrying after a 30 second snooze"
+        Start-Sleep -s 30
+        
+    } while ($start.AddMinutes($timeoutMinutes) -gt (Get-Date))
+
+    throw "Timeout for $UniqueId"
+}
+```
+
+## Getting the output of an Action
+
+Getting the run details on its own is only of limited use. In order to really test that the Logic Apps does what it is supposed to do, we need to inspect some of the actions within the Logic App,
+
+The [Get-AzLogicAppRunAction](https://docs.microsoft.com/en-us/powershell/module/az.logicapp/get-azlogicapprunaction?view=azps-5.5.0) cmdlet allows us to inspect a specific action within a given run. 
+
+Much like the run history, actions also have output files which contain a json representation of the output of the action.
+
+This code gets the detail of an action called "Response". This builds on the previous example for getting a run. This would replace the `return $run` line.
+
+```powershell
+# We have a matching run. Get the output from the specified action
+$actionResult = Get-AzLogicAppRunAction -ResourceGroupName $ResourceGroupName -Name $LogicAppName -RunName $run.Name -ActionName "Response"
+if ($null -ne $actionResult.OutputsLink.Uri) 
+{
+    $actionResultContent = (Invoke-WebRequest -Method 'GET' -Uri $actionResult.OutputsLink.Uri).Content | ConvertFrom-Json
+} 
+else {
+    throw "LogicApp run action $ActionName had no content"
+}
+
+return @{
+    Response = $actionResultContent;
+    Run      = $run;
+}
+```
+
+## Asserting on the output of an action
+
+Now we have the output of an action, we can make assertions on its contents.
+
+This sample uses the `Get-LogicAppActionResult` function we covered in the previous two sections.
+
+```powershell
+Context "Check the result of the logic app" {
+    
+    BeforeAll {
+        $actionResult = Get-LogicAppActionResult -ActionName "Response" -UniqueId "$uniqueId" -ResourceGroupName $env:RESOURCEGROUPNAME -LogicAppName $env:LOGICAPPNAME
+        # $actionResult is an object that contains .Response which is the json document that the action returns and .Run which is the Logic App run history
+    }
+
+    It "Is a forecast for GB" {
+        $actionResult.Response.body.responses.source.countryCode | Should -Be "GB"
+    }
+
+    It "Is a forecast for London" {
+        $actionResult.Response.body.responses.source.location | Should -Be "London, London, United Kingdom"
+    }
+}
+```
+
+This will produce the following output in the console.
+
+![Complete Pester integration test for a Logic App](https://github.com/martinkearn/Pester-LogicApp/raw/main/Images/PesterLogicAppIntConsole.jpg)
 
 ## In Summary
+
+For the complete sample, please look at the following GitHub repo: https://github.com/martinkearn/Pester-LogicApp
+
+The code in this article is provided to aid understanding only the GitHub repo should be used for the latest example.
+
+Using pester with PowerShell is a powerful to integration test Logic Apps and ensuring they are producing the results that are expected.
 
 For more resources:
 
