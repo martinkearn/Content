@@ -1,12 +1,12 @@
 ---
-title: Integration testing Logic Apps
+title: Integration testing Logic Apps with Pester and PowerShell
 author: Martin Kearn
 description: This articles talks through a sample script for integration testing Azure Logic Apps with Pester and PowerShell
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTestingLogicApps.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTestingLogicApps.jpg
 type: article
 status: draft
-published: 2021/02/25 11:00:00
+published: 2021/03/01 08:00:00
 categories: 
   - Pester
   - Testing
@@ -27,7 +27,7 @@ We will explore:
 
 Some reader notes...
 
-> This article assumes basic knowledge of Pester, PowerShell, Azure Logic Apps and the principles of integration testing. See [Integration testing with Pester and PowerShell](http://martink.me/articles/integration-testing-with-pester-and-powershell) or  [Azure Logic Apps](https://azure.microsoft.com/en-gb/services/logic-apps/) if you need refreshers on these technologies.
+> This article assumes basic knowledge of Pester, PowerShell, Logic Apps and the principles of integration testing. See [Integration testing with Pester and PowerShell](http://martink.me/articles/integration-testing-with-pester-and-powershell) or  [Azure Logic Apps](https://azure.microsoft.com/en-gb/services/logic-apps/) if you need refreshers on these technologies.
 >
 > The sample code that supports this article is at https://github.com/martinkearn/Pester-LogicApp.
 >
@@ -46,7 +46,7 @@ The repo has the following key files:
 
 ## A simple weather Logic App
 
-I did not want this sample to be about the Logic App, so I've deliberately chosen a very simple logic app which is HTTP triggered, expecting the following `POST` payload:
+I did not want this sample to be about how to build Logic Apps, so I've deliberately chosen a very simple Logic App which is HTTP triggered and expects the following `POST` payload:
 
 ```json
 {
@@ -55,7 +55,7 @@ I did not want this sample to be about the Logic App, so I've deliberately chose
 }
 ```
 
-The logic app will then get a weather report for the city specified in the `location` via the [MSN Weather Connector](https://docs.microsoft.com/en-us/connectors/msnweather/) and return it. 
+The Logic App will get a weather report for the city specified in the `location` via the [MSN Weather Connector](https://docs.microsoft.com/en-us/connectors/msnweather/) and return it. 
 
 ![A simple logic app which gets a weather report for a given city](https://github.com/martinkearn/Content/raw/master/Blogs/Images/WeatherLogicAppOverview.jpg)
 
@@ -67,7 +67,7 @@ For our test to be able to access the Logic App, it needs to know the full trigg
 
 Of course, we cannot store the secret as plain text in the test script so we are going to use environment variables to store and access it. You could also use something like Terraform state here.
 
-For local development purposes, it is handy to store variables in an `.env` file which you can read using the [Set-PsEnv PowerShell Module](https://github.com/rajivharris/Set-PsEnv). This makes any of the variables defined in your `.env` file available via the standard PowerShell syntax for accessing environment variables such as `$env:LOGICAPPURI`.
+For local development purposes, it is handy to store variables in an `.env` file which you can read using the [Set-PsEnv PowerShell Module](https://github.com/rajivharris/Set-PsEnv). This makes any of the variables defined in your local `.env` file available via the standard PowerShell syntax for accessing environment variables such as `$env:LOGICAPPURI`.
 
 You can use Pester's `BeforeDiscovery` utility to load the `.env` file as follows:
 
@@ -81,7 +81,7 @@ BeforeDiscovery {
 }
 ```
 
-We can now optionally build a Pester context section which asserts that the expected variables are present and not null. 
+We can now build a Pester context section which asserts that the expected variables are present and not null. 
 
 ```powershell
 Describe "Logic App Integration Tests" {
@@ -116,7 +116,7 @@ BeforeAll {
 }
 ```
 
-Now we have a unique identifier for the test, we can trigger the Logic App. This example uses a HTTP-triggered Logic App so we can execute a simple HTTP request passing the required body details.
+Now that we have a unique identifier for the test stored in the `$uniqueid` variable, we can trigger the Logic App. This example uses a HTTP-triggered Logic App so we can execute a simple HTTP request passing the required body details.
 
 Logic Apps can operate with [Asynchronous Response](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-actions-triggers#run-actions-in-a-synchronous-operation-pattern) enabled, which is usefull and recommended for long running Logic Apps. In this mode, the Logic App will initially respond with a `202/Accepted` response which includes a header called `location`. The `location` header contains a URI which can be used to obtain final status for the Logic App. You can then poll this URI looking for a `200/OK` response with the response payload.
 
@@ -124,7 +124,7 @@ Without Asynchronous Response enabled, we can expect the Logic App to return `20
 
 In order to support both scenarios, we trigger the Logic App using Pester's `BeforeAll` section (in context of the "Trigger the logic app" context) using a simple `Invoke-WebRequest`. We then look for the presence of the `location` header which will indicate whether to expect a `202` or `200` response.
 
-In the case of a `202` response, we can use one of the utility functions called `Wait-ForLogicAppToComplete` which basically keeps polling the status URI provided in the `location` header looking for a `200` response and returning it when it is found.
+In the case of a `202` response, we can use one of the utility functions in [Utilities.ps1](https://github.com/martinkearn/Pester-LogicApp/blob/main/PS/Utilities.ps1) called `Wait-ForLogicAppToComplete` which basically keeps polling the status URI provided in the `location` header looking for a `200` response and returning it when it is found.
 
 This is the code for the `Wait-ForLogicAppToComplete` utility function:
 
@@ -148,7 +148,7 @@ function Wait-ForLogicAppToComplete {
 }
 ```
 
-Regardless of whether the Logic App is using Asynchronous Response or not, it will eventually result in a 200 status code, which we can assert for using Pester. The final code for the triggering the logic app and checking it completed successfully is as follows:
+Regardless of whether the Logic App is using Asynchronous Response or not, it will eventually result in a `200` status code, which we can assert for using Pester. The final code for the triggering the logic app and checking it completed successfully is as follows:
 
 ```powershell
 Context "Trigger the logic app" {
@@ -176,9 +176,9 @@ Following this test, we know that the Logic App has been triggered and successfu
 
 The Logic App completing without errors is a good starting point, but sometimes you need to go a step further and look into the output that was generated to ensure it is as expected. In our case, we expect a weather report for London, United Kingdom (or "GB") because that is the location we asked for via the `location` property of the post body above.
 
-To inspect the output, you first need to identify the logic app run which was triggered by your test. PowerShell gives us [Get-AzLogicAppRunHistory which is a cmdlet to get the run history for a given logic app in the form of a [WorkflowRun object](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.logic.models.workflowrun?view=azure-dotnet). We can use this to get the status and look at the trigger body, which is usefull for identifying a specific run.
+To inspect the output, you first need to identify the logic app run which was triggered by your test. PowerShell gives us [Get-AzLogicAppRunHistory](https://docs.microsoft.com/en-us/powershell/module/az.logicapp/get-azlogicapprunhistory?view=azps-5.5.0) which is a cmdlet to get the run history for a given Logic App in the form of a [WorkflowRun object](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.logic.models.workflowrun?view=azure-dotnet). We can use this to get the status and look at the trigger body, which is usefull for identifying a specific run.
 
-Each action of a Logic App (including the trigger) has a concept of [outputs](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#outputs). This is a json document with key detail about what triggered an action, what the inputs/outputs were etc. We can use this to look for Logic App runs that have the same `uniqueid` in the output as the test we are running. That way, we can be sure that the specified run was triggered by the test.
+Each action of a Logic App (including the trigger) has a concept of [outputs](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-workflow-definition-language#outputs). This is a json document with key details about what triggered an action, what the inputs/outputs were etc. We can use this to look for Logic App runs that have the same `uniqueid` in the output as the test we are running. That way, we can be sure that the specified run was triggered by the test.
 
 Outputs are accessible on a separate URL that is contained within the `WorkflowRun.Outputs` property.
 
@@ -248,7 +248,7 @@ The [Get-AzLogicAppRunAction](https://docs.microsoft.com/en-us/powershell/module
 
 Much like the run history, actions also have output files which contain a json representation of the output of the action.
 
-This code gets the detail of an action called "Response". This builds on the previous example for getting a run. This would replace the `return $run` line.
+This code gets the detail of an action called "Response"; this is what the Logic App sends back to the calling client, but this approach could be used to get the output of any action. This builds on the previous example for getting a run. This would replace the `return $run` line.
 
 ```powershell
 # We have a matching run. Get the output from the specified action
@@ -271,7 +271,7 @@ return @{
 
 Now we have the output of an action, we can make assertions on its contents.
 
-This sample uses the `Get-LogicAppActionResult` function we covered in the previous two sections.
+This sample uses the `Get-LogicAppActionResult` function from the [Utilities.ps1](https://github.com/martinkearn/Pester-LogicApp/blob/main/PS/Utilities.ps1) file we covered in the previous two sections.
 
 ```powershell
 Context "Check the result of the logic app" {
@@ -301,7 +301,7 @@ For the complete sample, please look at the following GitHub repo: https://githu
 
 The code in this article is provided to aid understanding only the GitHub repo should be used for the latest example.
 
-Using pester with PowerShell is a powerful to integration test Logic Apps and ensuring they are producing the results that are expected.
+Using Pester with PowerShell is a powerful to integration test Logic Apps and ensuring they are producing the results that are expected.
 
 For more resources:
 
