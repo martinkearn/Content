@@ -5,7 +5,7 @@ description: This articles talks through a sample script for integration testing
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTestingLogicApps.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTestingLogicApps.jpg
 type: article
-status: draft
+status: published
 published: 2021/03/01 08:00:00
 categories: 
   - Pester
