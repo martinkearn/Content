@@ -43,11 +43,38 @@ This article seeks to provide an overview of these options to help you understan
 
 The knowledge gained here is built from the experience of building a real-world knowledge mining system which takes millions of videos, digital text files and images, adds business critical enrichments via Cognitive Services before exporting to [Relativity](https://www.relativity.com/) which is an eDiscovery and case management system.
 
+## Azure Cognitive Search
+
+Arguably, Azure Cognitive Search is the natural choice for building a knowledge mining application on Azure. 
+
+Cognitive Search is a system that will index content from a Data Source. This can be binary data such as files on a storage account, relational data in a database or non-relational data stored in something like Azure Cosmos Database.
+
+Through the indexing pipeline, Cognitive Search can use [AI enrichment skills](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-concept-intro) to pass the data to a range of Cognitive Services to be "enriched" and then store the resulting enrichments alongside the search document. When users do a search using the front-end attached to Cognitive Search, they will be searching on the enriched data as well as the origional content.
+
+> "Data" can also mean cracking open the contents of a binary file such as a Word doucment and enriching the text within it
+
+Cognitive Search also has a range of built-in skills which can transform the content as it is indexed, this includes operations like splitting text or shaping data into an expected schema.
+
+Cognitive Search has built-in connections to some Cognitive Services to do things like:
+
+- [Entity extraction with the Text Analytics service](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-skill-entity-recognition)
+- [Image Analysis with the Computer Vision service](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-skill-image-analysis)
+- [Language detection with the Text Analytics service](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-skill-language-detection)
+- [Optical character recognition (OCR) with the Computer Vision service](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-skill-ocr)
+
+If the service you want to use is not available as a cognitive search skill, you can create custom skills which either work with a [web API](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-custom-skill-web-api) (which could be any other Cognitive Service) or an [Azure Machine Learning](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-aml-skill) model.
+
+Cognitive Search applications are built largely by configuring the Cognitive Search pipeline (Data Sources, Indexers, Skillsets) which is undertaken through the portal for most scenarios, but there are some things that can only be done through API calls to the Cognitive Search configuration APIs. You also need to build or connect your front-end to the search APIs provided by the service. all though the service does provide some very basic HTML templates.
+
+There are also accelerator solutions you can use as a starting point:
+
+- [Knowledge Mining Solution Accelerator](https://docs.microsoft.com/en-us/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/)
+- [COVID-19 Search App](https://github.com/liamca/covid19search)
+- [The JFK Files](https://github.com/Microsoft/AzureSearch_JFK_Files), see https://jfk-demo.azurewebsites.net
+
 ## Azure Logic Apps
 
 ## Azure Durable Functions
-
-## Azure Cognitive Search
 
 ## Platform Choice Considerations
 
