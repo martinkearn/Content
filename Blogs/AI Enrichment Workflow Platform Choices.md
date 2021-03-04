@@ -125,6 +125,8 @@ Durable Functions have no built-in observability in terms of where items are in 
 
 Like Logic Apps, Durable Functions do not have any built-in incremental indexing capabilities (like Cognitive Search does).
 
+It is worth noting that it would be possible to build an equivalent Durable Function workflow using regular Functions, a queueing technology such as Service Bus and a storage technology such as Cosmos database. However, you would be losing some of the great advantages that Durable Functions offer around built-in queueing and state management.
+
 ## Platform Choice Considerations
 
 Triggering and incremental indexing
@@ -158,6 +160,8 @@ Unit and integration testing
 
 
 ## In Summary
+
+There is not "right choice" for which platform will work best for your AI-enrichment pipline. each of the platforms listed in this article have their own distinct advantages and disadvantages and it may be that some combination of some/all of them works best for your scenario.
 
 - 
 - More articles from me: http://martink.me/articles
