@@ -98,7 +98,7 @@ Logic Apps do not have code in the traditional sense, but the definition is a JS
 
 An [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) at its simplest level is a piece of code that lives in Azure and can be triggered via a range of [bindings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings?tabs=csharp) and can output its results as a to other systems as an output bindings (including HTTP request and response). 
 
-Functions are a central tenant of Azure's serverless offering and removes the need to worry about servers or infrastructure. Customers pay for Function according to the amount of consumption they use (based on number of executions, execution time, and memory used). This is called a "consumption plan" and is designed to be truly scalable and serverless.
+Functions are a central tenant of Azure's serverless offering and removes the need to worry about servers or infrastructure. Customers pay for Functions according to consumption based on number of executions, execution time, and memory used.
 
 Functions support multiple programming languages including C#, Java, JavaScript, TypeScript and Python.
 
@@ -106,7 +106,7 @@ Functions support multiple programming languages including C#, Java, JavaScript,
 
 Durable Functions have a concept of [Durable Entities](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-entities?tabs=csharp) which are small pieces of state which can be used to track progress or data points for the overall Durable Function orchestration.
 
-State storage, queue management, operation hydration and dehydration, persistence and serialisation are all managed by the Durable Function runtime, see [Data persistence and serialization in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-serialization-and-persistence?tabs=csharp).
+Queue management, state persistence and serialisation are all managed by the Durable Function runtime, see [Data persistence and serialization in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-serialization-and-persistence?tabs=csharp).
 
 Durable Functions can support several popular architectural patterns, including:
 
@@ -119,49 +119,88 @@ Durable Functions can support several popular architectural patterns, including:
 
 Durable Functions make a great choice for AI-enrichment workflows where the workflow is particularly complex, there is a preference of code over configuration or declarative mark-up or where other workflow platforms do not offer the required functionality and would need custom code (typically Functions) to be meet the requirements.
 
-Because Durable Functions are 'just' a Function App they can be source controlled, CI/CD'd and deployed using tool like Terraform very easily. The code lives in a repository and can benefit from all the advantages of Git for collaborative development.
+Because Durable Functions are 'just' a Function App they can be easily source controlled, CI/CD'd and deployed using tool like Terraform. The code lives in a repository and can benefit from all the advantages of Git for collaborative development.
 
 Durable Functions have no built-in observability in terms of where items are in the overall workflow. However, because they are simply code, tools like Application Insights and/or Log Analytics can easily be integrated. Dashboards can be created to give the required views on the data.
 
 Like Logic Apps, Durable Functions do not have any built-in incremental indexing capabilities (like Cognitive Search does).
 
-It is worth noting that it would be possible to build an equivalent Durable Function workflow using regular Functions, a queueing technology such as Service Bus and a storage technology such as Cosmos database. However, you would be losing some of the great advantages that Durable Functions offer around built-in queueing and state management.
+It would be possible to build an equivalent Durable Function workflow using regular Functions, a queueing technology such as Service Bus and a storage technology such as Cosmos database. However, you would be losing some of the great advantages that Durable Functions offer around built-in queueing and state management.
 
 ## Platform Choice Considerations
 
-Triggering and incremental indexing
+When choosing the workflow platform, there are many factors that should be considered; each platform has strengths and weaknesses. 
 
-Code vs config vs declarative mark-up
+This section will discuss some of the key differences of each platform in the context of each main consideration.
 
-Do the built-in skills and connectors cover your requirements
+> For improved readability, Logic Apps will be referred to as "LA", Cognitive Search as "CS" and Durable Functions as "DF" throughout this section.
 
-Long running jobs
+### Code vs config vs declarative mark-up
 
-IaC, CI/CD and deployment
+Each of the three platforms have a very distinct approach in how applications are created. This could be a critical consideration and may force a particular route depending on the technical expertise you have at your disposal.
 
-Collaborative development experience and tooling
+DF is a code-based platform. The advantage is that you have ultimate control and flexibility on the solution, but it also means that you have to code features that LA and CS give you by default. The code can be written in a choice of languages including C# (generally the default and the language where you'll find the most community support), JavaScript, Python and PowerShell. In order to build a workflow platform with DF, you will need developers that can write code using one of these languages.
 
-Monitoring, observability and troubleshooting
+LA is built using declarative mark-up which is configured via the portal and exports as JSON. To build complex workflows with LA, you will need developers that are competent editing JSON files. There is also an additional burden around IaC technologies such as Terraform with LA (see the IaC, CI/CD and deployment section below). For most complex workflows, there will be occasions where you will need custom functionality which typicaly takes the form of an Azure Function (custom code) which is called by the LA; LA's are rarely completely free of code.
 
-Performance, scale and SLA
+CS is configuration based, there is no 'code' technically speaking. The configuration can be mostly undertaken via the Azure Portal but there are areas where the configuration must be undertaken by posting to API with often very complex JSON payloads. Just like LA, CS often requires the creation of a custom skills which typicaly involved an Azure Function (custom code).
 
-Workflow complexity and branching
+Both LA and CS require a learning curve and may be harder to get started with than DF for most developers.
 
-Architectural simplicity (LA requires lots of components, DF is one function app, CS or one search index)
+### Triggering and incremental indexing
 
-Versioning
+One of the key advantages that CS has over both DF and LA is that CS is a search system and so it has a range of options around how it indexes and re-indexes the content.
 
-Portability and containers
+CS can perform incremental indexing on a scheduled basis, which means your end results are always "fresh" and up to date with the latest source data and the enrichments that apply to it. See [How to schedule indexers in Azure Cognitive Search](https://docs.microsoft.com/en-gb/azure/search/search-howto-schedule-indexers).
 
-Cost
+Neither LA or DF have an in-built indexing capabilities. Their workflows are simply triggered in response to an external event such as a HTTP request, a file arriving in storage or a service bus message. They will then execute the workflow, produce the output and stop; they will not re-index that file again until they are re-triggered. It is possible to build re-processing systems that work for both LA and DF, but it is something you have to build and is not provided by the platform.
 
-Unit and integration testing
+CS is a great choice if your source data changes frequently and you require up-to date views on it, both LA and DF are more applicable to static content that is unlikely to change and/or the customer does not have requirements around the "freshness" of the enrichments.
+
+### Do the built-in skills and connectors cover your requirements?
+
+A key advantage that both LA and CS have over DF is that a lot of capabilities are provided by the service and can be used without code. For LA this includes the vast range of connectors and built-in actions, for CS this includes all the built in skills.
+
+Most AI-enrichment pipelines will likely make use of one or more of the built-in enrichment connections/skills. However, the "no code" paradigm breaks down when you need to do something that there is no built-in connector/skill for, for example:
+
+- CS does not have a Video Indexer skill
+- LA (probably) does not have a connector for querying your custom eDiscovery system.
+
+LA certainly has more built in capability than CS but there will usually be at least one point where there is no 'thing' for the functionality you need. In this scenario, you have to use a custom skill for CS or call out to a custom API for LA (usually an Azure Function), which means you are having to write code.
+
+If you are writing code as part of your system, you will require the same skills that you need for DF, in addition to the product specific skills required around CS or LA. On this basis, DF often requires a narrower, more abundant and more affordable skills range to build a typical workflow.
+
+Most C# developers will be able to competently build a DF workflow, but that may not be the case for LA and CS.
+
+### Long running jobs
+
+### IaC, CI/CD and deployment
+
+### Collaborative development experience and tooling
+
+### Monitoring, observability and troubleshooting
+
+### Performance, scale and SLA
+
+### Workflow complexity and branching
+
+### Architectural simplicity (LA requires lots of components, DF is one function app, CS or one search index)
+
+### Versioning
+
+### Portability and containers
+
+### Cost
+
+### Unit and integration testing
 
 
 
 ## In Summary
 
-There is not "right choice" for which platform will work best for your AI-enrichment pipline. each of the platforms listed in this article have their own distinct advantages and disadvantages and it may be that some combination of some/all of them works best for your scenario.
+There is no "best choice" for which platform will work best for your AI-enrichment pipline. Each of the platforms listed in this article have their own distinct advantages and disadvantages and it may be that some combination of some/all of them works best for your scenario.
+
+For some companies, the development skills and experience may be critical, but for others the freshness of the content could be a driving factor; all these consideration must be taken into account when choosing the right workflow platform for your scenario.
 
 - 
 - More articles from me: http://martink.me/articles
