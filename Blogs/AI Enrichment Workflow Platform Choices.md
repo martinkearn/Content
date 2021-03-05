@@ -1,5 +1,5 @@
 ---
-title: AI Enrichment Pipelines - Platform choices and considerations
+title: AI enrichment pipeline platform choices and considerations
 author: Martin Kearn
 description: There are many scenarios where and AI-based enrichment pipline is applicable; anywhere when you need to enrich data with insight from AI services. Azure offers three main ways to do this, Logic Apps, Cognitive Search and Durable Functions. This articles compares and contrasts these platforms to help you decide which one suits your requirements
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/EnrichmentPipline.png
