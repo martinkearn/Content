@@ -195,7 +195,23 @@ If you have enrichment operations which will get anywhere close to exceeding the
 
 DF is theoretically limitless in terms of durations of execution and number of executions.
 
-### IaC, CI/CD and deployment
+### IaC and Deployment
+
+> TLDR: The service for all three platforms can be easily delayed with most IaC providers. However the workflow definition for LA and configuration for CS are both complex to deploy, require specific processes and scripting to get right and will be error prone. DF is very simple to deploy both the service and the application code using IaC.
+
+Any modern, production application is generally deployed using an infrastructure-as-code (IaC) provider such as [Terraform](https://www.terraform.io/), [Pulumi](https://www.pulumi.com/) or [Azure Resource Manager](https://azure.microsoft.com/en-gb/features/resource-manager/). These technologies allow you to write "code" files which deploy infrastructure and application code running on that infrastructure according to the exact specification you define. 
+
+The benefit of IaC technologies is that your application is entirely repeatable and can be deployed to new environments very easily.
+
+With any mainstream IaC provider, it is relatively simple to deploy the core infrastructure to support each of the workflow platforms, however deploying your application "code" is where the choice become more challenging.
+
+LA in particular has a very complex deployment process. When you develop/configure an LA workflow, you export a JSON ARM template which will contain hard-coded references to services. In the case of AI enrichment, it will contain hard-coded references to Cognitive Services and other APIs which the workflow uses. The fact that these references are hard coded means that the same ARM template will not work on a separate deployment, because the exact resource IDs will not be present. 
+
+Some of this complication can be mitigated by using parameters and injecting values into those parameters during deployment, however this process is complex and highly error prone because the version of the ARM template hat is used by the IaC provider will always be different to what the Azure portal exports, so there is always manual "copy and paste" activity to ensure that the IaC parameters are setup correctly.
+
+The CS service can be deployed via any IaC provider. However, because CS is configuration based it is generally configured by a series of API requests which can be encapsulated in a script file with embedded curl requests or you have to build out some other scripted a to deploy the configuration via PowerShell or similar. This means you have to manually build up the deployment and tear down code via a series of API requests.
+
+Contrastingly, DF is very simple to deploy because it is just simple application code which can be built and deployed with appropriate application settings from something like Azure Key Vault generated via deployment. There are well documented patterns and practices for injecting application settings via IaC deployment. There are no special processes or considerations in deploying DF.
 
 ### Collaborative development experience and tooling
 
