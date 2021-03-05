@@ -62,13 +62,13 @@ Cognitive Search has built-in connections to some Cognitive Services to do thing
 
 In addition to the AI enrichment skills, Cognitive Search has a range of built-in skills which can transform the content as it is indexed, this includes operations like splitting text or shaping data into an expected schema.
 
-If the operation you need is not available as a skill, you can create custom skills which either work with a [web API](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-custom-skill-web-api) (which could be any other Cognitive Service r a custom API/Azure Function) or an [Azure Machine Learning](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-aml-skill) model.
+If the operation you need is not available as a skill, you can create custom skills which either work with a [web API](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-custom-skill-web-api) (which could be any other Cognitive Service or a custom API/Azure Function) or an [Azure Machine Learning](https://docs.microsoft.com/en-gb/azure/search/cognitive-search-aml-skill) model.
 
 Cognitive Search applications are built largely by configuring the Cognitive Search pipeline (Data Sources, Indexers, Skillsets) which is undertaken through the portal for most scenarios, but there are some things that can only be done through API calls to the Cognitive Search configuration APIs. You also need to build or connect your front-end to the search APIs provided by the service. all though the service does provide some very basic HTML templates.
 
 The Cognitive Search pipline is largely a linear pipeline where skills are executed one after the other. There are few opportunities for complex conditional logic or branching. This would have to be achieved by some level of pre-processing or custom skills.
 
-The Cognitive Search pipline has a processing timeout of 120 seconds for each document. This make it unsuitable for long running indexing operations.
+The Cognitive Search pipline has a [maximum processing timeout of 230 seconds](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-web-api#skill-parameters) for each custom web API skill request. This make it unsuitable for long running indexing operations.
 
 There are also accelerator solutions you can use as a starting point:
 
@@ -137,6 +137,8 @@ This section will discuss some of the key differences of each platform in the co
 
 ### Code vs config vs declarative mark-up
 
+> TLDR: You will need definitely developers to build DF workflows which are 100% code based. You will probably also need developers for CS and LA which are json and configuration based.
+
 Each of the three platforms have a very distinct approach in how applications are created. This could be a critical consideration and may force a particular route depending on the technical expertise you have at your disposal.
 
 DF is a code-based platform. The advantage is that you have ultimate control and flexibility on the solution, but it also means that you have to code features that LA and CS give you by default. The code can be written in a choice of languages including C# (generally the default and the language where you'll find the most community support), JavaScript, Python and PowerShell. In order to build a workflow platform with DF, you will need developers that can write code using one of these languages.
@@ -149,6 +151,8 @@ Both LA and CS require a learning curve and may be harder to get started with th
 
 ### Triggering and incremental indexing
 
+> TLDR: CS is best suited to content that frequently changes and needs to be fresh. All three are suited to static content that infrequently changes.
+
 One of the key advantages that CS has over both DF and LA is that CS is a search system and so it has a range of options around how it indexes and re-indexes the content.
 
 CS can perform incremental indexing on a scheduled basis, which means your end results are always "fresh" and up to date with the latest source data and the enrichments that apply to it. See [How to schedule indexers in Azure Cognitive Search](https://docs.microsoft.com/en-gb/azure/search/search-howto-schedule-indexers).
@@ -158,6 +162,8 @@ Neither LA or DF have an in-built indexing capabilities. Their workflows are sim
 CS is a great choice if your source data changes frequently and you require up-to date views on it, both LA and DF are more applicable to static content that is unlikely to change and/or the customer does not have requirements around the "freshness" of the enrichments.
 
 ### Do the built-in skills and connectors cover your requirements?
+
+> TLDR: All three platforms will likely require custom code. If you are doing any code, there is an argument that says an all-code solution will be simpler to build, deploy and maintain; which points to DF
 
 A key advantage that both LA and CS have over DF is that a lot of capabilities are provided by the service and can be used without code. For LA this includes the vast range of connectors and built-in actions, for CS this includes all the built in skills.
 
@@ -172,15 +178,28 @@ If you are writing code as part of your system, you will require the same skills
 
 Most C# developers will be able to competently build a DF workflow, but that may not be the case for LA and CS.
 
-### Long running jobs
+### Long running enrichments & scale
+
+> TLDR: CS is not suitable for long running enrichments (over 230 seconds) such as Video Indexer. LA is better but also has limits, DF is theoretically unlimited 
+
+Some types of enrichments may take a very long time. The classic example of this is using Video Indexer to index a very large video file which could take hours to complete.
+
+CS has a [230 second maximum timeout](https://docs.microsoft.com/en-us/azure/search/cognitive-search-custom-skill-web-api#skill-parameters) for custom web API skills. This means it cannot be used for these kind of long running operations. You can work around this by having some kind of pre-processing before the file gets indexed (for example a LA which does the video indexer enrichment and places a json file in the data source that CS indexes), but this can get quite complicated and architecturally muddled.
+
+If you have enrichment operations which will get anywhere close to exceeding the 230 limit of CS (such as Video Indexer or Forms Recognizer), this points in the direction of LA or DF as a better fit.
+
+[LA also has limits](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config), the key ones are as follows:
+
+- Run duration: maximum 90 days
+- Action executions per minute: 100,000 executions (default), 300,000 executions (maximum in high throughput mode)
+
+DF is theoretically limitless in terms of durations of execution and number of executions.
 
 ### IaC, CI/CD and deployment
 
 ### Collaborative development experience and tooling
 
 ### Monitoring, observability and troubleshooting
-
-### Performance, scale and SLA
 
 ### Workflow complexity and branching
 
