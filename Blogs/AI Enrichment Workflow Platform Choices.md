@@ -5,8 +5,8 @@ description: There are many scenarios where and AI-based enrichment pipline is a
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/EnrichmentPipline.png
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/EnrichmentPipline_thumb.png
 type: article
-status: draft
-published: 2021/03/03 08:00:00
+status: published
+published: 2021/03/08 07:00:00
 categories: 
   - Durable Functions
   - Azure Functions
@@ -213,23 +213,39 @@ The CS service can be deployed via any IaC provider. However, because CS is conf
 
 Contrastingly, DF is very simple to deploy because it is just simple application code which can be built and deployed with appropriate application settings from something like Azure Key Vault generated via deployment. There are well documented patterns and practices for injecting application settings via IaC deployment. There are no special processes or considerations in deploying DF.
 
-### Collaborative development experience and tooling
+### Collaborative development experience
+
+> TLDR: DF is very simple, it is just code so git does a great job of managing concurrent developers. CS is also relatively simple if you manage your API JSON payloads as JSON files in git. LA is very complex and concurrent development is not something that is easy to get right.
+
+Unless you have development team of 1, you are likely going to need some processes for managing multiple developers working on the "code" for your application.
+
+Typically this involves using a git repository with branches, pull requests, code reviews and a host of other collaborative development tools. If you are using a git-based repository, there are some gotchas with some of the workflow platforms we are discussing in this article.
+
+DF is very simple; the application is pure code which means it lives in your git repository and you can manage it the same way you would for any code. Git does a great job of managing merge conflicts that occur though collaborative development.
+
+CS is also relatively simple as you will likely store the JSON API request payloads required to configure you application in Git and manage them just like normal code files.
+
+LA is a little more complex. The development process for LA is to make changes to you LA via the portal, export the ARM template (a JSON file) and store that file in Git. If you are using IaC you will also need to edit the file to override the hard-coded values for services that your LA uses with the IaC injected ones. A major gotcha with LA is the the sequence and layout of the code in the JSON can change from one export to another; meaning that if you export the same LA twice without changes you could get two different JSON files. This becomes a major problem when you have multiple people working on the LA concurrently, not only is it very hard to manage merge conflicts in JSON files, but there will almost always be merge conflicts because of the way the file gets re-structured on each export.
+
+The problem above is amplified by the fact that you have a single JSON file per LA and that file tends to be very large so managing merge conflicts gets very tricky.
+
+The reality with LA is that it is only really practical for one person to work on the LA at any given time and you have to devise offline check-out type systems and processes to ensure this happens.
 
 ### Monitoring, observability and troubleshooting
 
-### Workflow complexity and branching
+> All three platforms integration with Azure Monitor for logging, dashboards and application insights. LA has visual monitoring via its portal where you can see the low level details of each run in a visual way, whihc can be very usefull, especially during development.
 
-### Architectural simplicity (LA requires lots of components, DF is one function app, CS or one search index)
+It is important for a production application that you can monitor the system and see what is happening, especially when things go wrong.
 
-### Versioning
+All three platforms can "plug in" to Azure Monitor to give you out-of-the-box insights on the application health. From here you can build dashboards and reports.
 
-### Portability and containers
+However there will be parts of your application's workflow which you want to specifically report on by adding events to the Azure Monitor Logs. For example if a file has been successfully validated before being enriched, you want want to log that so administrators can see how far the file got through the workflow.
 
-### Cost
+DF uses the underlying Functions runtime to easily integration with Application Insights (part of Azure Monitor). You can use the `ILogger` interface to log custom events which will bubble up through Application Insights. See [How to configure monitoring for Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/configure-monitoring?tabs=v2).
 
-### Unit and integration testing
+Because CS is essentially just a service, the default Azure Monitoring integration is generally enough to get visibility of wat is happening in the pipline.
 
-
+LA also uses Azure Monitor for basic monitoring, but has a big advantage over the other two platform with the visual run history that you get with the LA portal. You can dive into a specific run and see exactly what happened in a visual way.
 
 ## In Summary
 
