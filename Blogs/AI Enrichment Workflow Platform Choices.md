@@ -233,7 +233,7 @@ The reality with LA is that it is only really practical for one person to work o
 
 ### Monitoring, observability and troubleshooting
 
-> All three platforms integration with Azure Monitor for logging, dashboards and application insights. LA has visual monitoring via its portal where you can see the low level details of each run in a visual way, whihc can be very usefull, especially during development.
+> TLDR: All three platforms integration with Azure Monitor for logging, dashboards and application insights. LA has visual monitoring via its portal where you can see the low level details of each run in a visual way, whihc can be very usefull, especially during development.
 
 It is important for a production application that you can monitor the system and see what is happening, especially when things go wrong.
 
@@ -247,6 +247,38 @@ Because CS is essentially just a service, the default Azure Monitoring integrati
 
 LA also uses Azure Monitor for basic monitoring, but has a big advantage over the other two platform with the visual run history that you get with the LA portal. You can dive into a specific run and see exactly what happened in a visual way.
 
+### Unit and Integration Testing
+
+> TLDR: True unit testing is only really possible with DF as that is the only platform that has 'units' of code that can be tested. For CS and LA, you will need to lean more on integration testing to assert that the applications is behaving as it should do.
+
+Testing is an important part of any production application and AI enrichment pipelines are no different.
+
+Unit testing is the process of testing units of functionality to ensure they behave as expected. With DF, this is very simple; you write unit tests using whichever testing framework you prefer in the way your normally would do for code. 
+
+CS is difficult conceptually because there are no 'units' as such because it is entirely configuration based, so it is hard to really use unit testing as a concept.
+
+LA is slightly more problematic because there is 'code' in the sense that the application can take different paths, use formulas to compute values and have expected results from actions. However, it is not really possible to unit test specific parts of a LA. You can test the workflow as a whole (see integration testing later) but you cannot really test the actions within a logic app because they will always depends on the other actions around them and the workflow as a whole.
+
+LA does have the capability to test workflows using mock data, which can be usefull, see [Test logic apps with mock data by setting up static results](https://docs.microsoft.com/en-us/azure/logic-apps/test-logic-apps-mock-data-static-results).
+
+In terms of integration testing, all three platforms can be equally testing by simulating inputs and asserting expected outputs using which ever integration testing approach you prefer. You can read more at [Integration testing with Pester and PowerShell](https://martink.me/articles/integration-testing-with-pester-and-powershell).
+
+### Cost and Billing
+
+> TLDR: DF can be the the cheaper option of the 3. However, the platform costs are generally dwarfed by the AI services costs in AI enrichment pipelines and these costs will be the same regardless of platform choice.
+
+Cost is always a factor whenever any application is being created. The three platforms we are discussing all have different billing models and in some scenarios there could be a distinct cost different between them.
+
+Before we dive into the billing models, it is worth calling out that whichever workflow platform you choose, the overall cost of an AI enrichment system will generally be dominated by the AI service themselves (i.e. the Cognitive Services you are using for the enrichments). The platform costs are generally very small compared to the overall system cost, especially if you are suing expensive AI services like Video Indexer.
+
+DF follows the same billing model as Azure Functions which is consumption based which is per-second resource consumption and executions. Consumption plan pricing includes a monthly free grant of 1 million requests and 400,000 GBs of resource consumption per month per subscription in pay-as-you-go pricing across all function apps in that subscription. If you functions are relatively efficient on resources and short running, DF can be a very affordable option. See [Azure functions pricing](https://azure.microsoft.com/en-gb/pricing/details/functions/).
+
+LA is also a pay-for-use billing model based on the usage of connectors and actions. This means that the larger the LA is (i.e. the more actions and connectors it has), the more expensive it will be per run. See [Azure Logic Apps pricing](https://azure.microsoft.com/en-gb/pricing/details/logic-apps/).
+
+Very generally speaking, with a like-for-like functional comparison DF can be cheaper to operate than LA.
+
+CS has various pricing tiers which each offer increasing quotas for things like indexes and document cracking. Like LA, CS costs will increase the more content you index and the more indexes you maintain. See [Azure Cognitive Search pricing](https://azure.microsoft.com/en-us/pricing/details/search/) and [How to estimate and manage costs of an Azure Cognitive Search service](https://docs.microsoft.com/en-us/azure/search/search-sku-manage-costs).
+
 ## In Summary
 
 There is no "best choice" for which platform will work best for your AI-enrichment pipline. Each of the platforms listed in this article have their own distinct advantages and disadvantages and it may be that some combination of some/all of them works best for your scenario.
@@ -255,5 +287,8 @@ For some companies, the development skills and experience may be critical, but f
 
 For further reading, I recommend:
 
+- [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)
+- [Azure Cognitive Search](https://docs.microsoft.com/en-gb/azure/search/search-what-is-azure-search)
+- [Azure Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp)
 - More articles from me: http://martink.me/articles
 
