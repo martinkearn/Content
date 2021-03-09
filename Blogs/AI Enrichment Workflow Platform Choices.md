@@ -20,7 +20,9 @@ categories:
 
 The data could be anything from a database, images, videos, documents or even just JSON. In this context, the term \"AI services\" refers mainly to [Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/) but in theory these services could be substituted with any AI service that provides enrichment including AI services by other vendors and home-grown APIs or machine learning systems.
 
-There are many, many use cases for Cognitive Services in AI enrichment piplines, here are some of the more common ones:
+![AI enrichment pipeline](https://github.com/martinkearn/Content/raw/master/Blogs/Images/AIEnrichmentPipeline.jpg)
+
+There are many, many use cases for Cognitive Services in AI enrichment pipelines, here are some of the more common ones:
 
 -   Getting insights from videos using [Video Indexer](https://docs.microsoft.com/en-us/azure/media-services/video-indexer/)
 
