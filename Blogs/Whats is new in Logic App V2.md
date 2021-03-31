@@ -49,6 +49,8 @@ Logic Apps V2 can be edited in Visual Studio Code using the [Azure Logic Apps fo
 
 >  Developing in VSCode is just an option. You can also develop in the Azure Portal, just like V1. See [Create stateful and stateless workflows in the Azure portal with Azure Logic Apps Preview](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-azure-portal)
 
+![Visual Studio Code with the Azure Logic Apps (preview) extension](https://github.com/martinkearn/Content/raw/master/Blogs/Images/VSCodeLogicAppExtension.jpg)
+
 This extension currently has a few pre-requisites which are:
 
 - [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/)
@@ -68,7 +70,7 @@ The [Create stateful and stateless workflows in Visual Studio Code with the Azur
 - [NGrok](https://dashboard.ngrok.com/get-started/setup) (or similar) which tunnels public endpoints to your localhost
 - [PostMan](https://www.postman.com/) (or similar) which is a tool that can generate HTTP requests
 
-**Designer View**; You'd normally associate VSCode with text editing and whilst you can manually edit the workflow and related files in VS Code, the extension also give you that familiar visual designer that you are used to seeing on the Azure Portal. The designer itself has been tweaked to improve usability compared to V1 but eth basic principle of how it works is the same. As far as I can tell there is no difference between the Portal and VS Code designers in terms of feature parity.
+**Designer View**; You'd normally associate VSCode with text editing and whilst you can manually edit the workflow and related files in VS Code, the extension also give you that familiar visual designer that you are used to seeing on the Azure Portal. The designer itself has been tweaked to improve usability compared to V1 but the basic principle of how it works is the same. As far as I can tell there is no difference between the Portal and VS Code designers in terms of feature parity.
 
 **Node or C#**; When you create a Logic App using the VSCode extension, it creates a Node project. I've not been able to determine the implications of this other than it must use the Node version of the Azure Functions runtime and presumably, any inline code will be JavaScript. However, you can change this to use C# if you prefer; you can convert the project to "use NuGet-based Logic App project". This will generate a `.csproj` file and manage dependencies via NuGet instead. I believe that certain capabilities are only possible with C# Logic Apps, such as [built-in connector authoring](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#enable-built-in-connector-authoring).
 
