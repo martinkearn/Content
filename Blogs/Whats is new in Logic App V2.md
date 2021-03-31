@@ -74,11 +74,39 @@ The [Create stateful and stateless workflows in Visual Studio Code with the Azur
 
 **Node or C#**; When you create a Logic App using the VSCode extension, it creates a Node project. I've not been able to determine the implications of this other than it must use the Node version of the Azure Functions runtime and presumably, any inline code will be JavaScript. However, you can change this to use C# if you prefer; you can convert the project to "use NuGet-based Logic App project". This will generate a `.csproj` file and manage dependencies via NuGet instead. I believe that certain capabilities are only possible with C# Logic Apps, such as [built-in connector authoring](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#enable-built-in-connector-authoring).
 
-## Hosted as an App Service or Container
+## Run anywhere & custom connectors
 
-- Deploys to a "logic app resource" (something like a Function app) which can contain several "workflows"
-- Deploy to Docker container
-- Settings
+One of the other benefits that the move to the Azure Functions runtime brings is flexibility on hosting models; you can run your V2 Logic App anywhere an Azure Function can run, this includes:
+
+- Any network topology
+- Any storage account type
+- Custom domains and private endpoints
+- Docker Containers
+- App Service
+
+One question that may arise with this "run anywhere" model is regarding how connectors works. Connectors are essentially API definitions that access API hosted on Azure. In Logic Apps v2 , there are "built-in" and "azure" connectors. 
+
+**Built-in connectors** are hosted in the same process as the Logic App runtime and provide higher throughput, low latency, and local connectivity. There are built-in connectors for things that have always been built-in to Logic apps such as Control, Data Operations and Requests; however we also have things like Service Bus, SQL Server and Azure Functions.
+
+The interesting thing about built-in connectors is that you can create your own using the Logic Apps connector extensibility model. This mean you can have a built-in connector for any service you require and have that packaged and deployed with your Logic App. Read [Azure Logic Apps Running Anywhere: Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272) for a deeper dive on this.
+
+![Azure Logic App standard built-in connectors](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppPreviewBuiltInConnectors.jpg)
+
+**Azure Connectors** are the same as they always have been and connect you to a wide range of third party service created by Microsoft and others (Outlook.com, Twitter, OneDrive, Dropbox are just a few popular examples). It seems that all the connectors from V1 are also supported on V2.
+
+![Logic App Azure Connectors](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppPreviewAzureConnectors.jpg)
+
+## Deployment options
+
+It is possible to deploy your Logic App directly from the the [Azure Logic Apps for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) extension, just like you may have seen with other Azure publishing features in Visual Studio and Visual Studio Code.
+
+When you publish to Azure, you create a "Logic App resource" on Azure. This is a resource that contains top level settings for your Logic App and one or more workflows. This is a change from V1 because the "Logic App" was both the resource and the workflow combined, but in V2, there is a distinction between the Azure Resource and the workflow that runs inside it; a single Logic App Resource can have multiple workflows. This is very similar to the way you would have a Function App Resource which contains multiple functions.
+
+Just like Azure Functions, the Application Settings required by your Logic App (`local.settingsjson`) map to the Application Settings section of the Logic App Resource. This is a more standard way to manage settings compared to the bespoke model from Logic Apps V1.
+
+Just like Azure Functions, you can choose from an Premium or App Service (dedicated) hosting model. These models directly to relate to the equivalent Azure Functions hosting models, read more at [Azure Functions hosting options](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale). Logic Apps do not currently support the entry-level "consumption" hosting plan offered with Azure Functions.
+
+![Logic App Preview Resource](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppsPreviewResource.jpg)
 
 ## Stateful and Stateless options
 
@@ -103,5 +131,8 @@ For further reading, I recommend:
 - [Overview: Azure Logic Apps Preview](https://docs.microsoft.com/en-gb/azure/logic-apps/logic-apps-overview-preview)
 - [Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension](https://docs.microsoft.com/en-gb/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code)
 - [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+- [Azure Logic Apps Running Anywhere: Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272)
+- [Azure Logic Apps Running Anywhere - Built-In Service Bus Trigger: batching and session handling](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-service-bus-trigger/ba-p/2079995)
+- [Azure Logic Apps Running Anywhere – Monitor with Application Insights – part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849) and [Azure Logic Apps Running Anywhere – Monitor with Application Insights – part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 -   More articles from me: http://martink.me/articles
 
