@@ -74,7 +74,7 @@ The [Create stateful and stateless workflows in Visual Studio Code with the Azur
 
 **Node or C#**; When you create a Logic App using the VSCode extension, it creates a Node project. I've not been able to determine the implications of this other than it must use the Node version of the Azure Functions runtime and presumably, any inline code will be JavaScript. However, you can change this to use C# if you prefer; you can convert the project to "use NuGet-based Logic App project". This will generate a `.csproj` file and manage dependencies via NuGet instead. I believe that certain capabilities are only possible with C# Logic Apps, such as [built-in connector authoring](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#enable-built-in-connector-authoring).
 
-## Run anywhere & custom connectors
+## "Run anywhere" and custom connectors
 
 One of the other benefits that the move to the Azure Functions runtime brings is flexibility on hosting models; you can run your V2 Logic App anywhere an Azure Function can run, this includes:
 
