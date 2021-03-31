@@ -45,11 +45,32 @@ This is a significant improvement in Logic Apps V2 because previously, the "code
 
 ## Visual Studio Code for local development and debugging
 
-- Extension & pre-reqs
-- NGrok
-- Code view vs designer view
-- Breakpoints
-- Node or C#
+Logic Apps V2 can be edited in Visual Studio Code using the [Azure Logic Apps for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) extension. 
+
+>  Developing in VSCode is just an option. You can also develop in the Azure Portal, just like V1. See [Create stateful and stateless workflows in the Azure portal with Azure Logic Apps Preview](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-azure-portal)
+
+This extension currently has a few pre-requisites which are:
+
+- [Visual Studio Code 1.30.1 (January 2019) or higher](https://code.visualstudio.com/)
+- [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
+- [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+- [Azure Functions Core Tools 3.0.3245 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3245)
+- [Azure Storage Emulator](https://docs.microsoft.com/azure/storage/common/storage-use-emulator) 
+
+I'm a Windows user so have no been able to check but my understanding is that there are some addition hoops you have to jump through on Mac or Linux operating systems.
+
+The [Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code) document talks through the "getting started" process and will get you up and running so I wont cover that here. I will cover what I think are some of the highlights that this local development experience unlocks compared to V1.
+
+**Development Lifecycle**; Firstly, not only is it really nice to be able to use and IDE rather than a browser to develop the logic app, but it actually makes the whole development lifecycle so much simpler, especially if you are working in a team. Because you are editing a locally stored set of files, you can use source control and all the great advantages hat come with that. 
+
+**Running & Debugging**; You can run and more importantly debug your logic app directly from Visual Studio. This is made possible by the switch to using the Azure Functions runtime which already has a great local debug experience. You can also set breakpoints within the workflow JSON itself so you can see exactly what is going on in your Logic App (currently this only applies to Actions, not Triggers). In order to make local debugging possible, you will need a few additional tools:
+
+- [NGrok](https://dashboard.ngrok.com/get-started/setup) (or similar) which tunnels public endpoints to your localhost
+- [PostMan](https://www.postman.com/) (or similar) which is a tool that can generate HTTP requests
+
+**Designer View**; You'd normally associate VSCode with text editing and whilst you can manually edit the workflow and related files in VS Code, the extension also give you that familiar visual designer that you are used to seeing on the Azure Portal. The designer itself has been tweaked to improve usability compared to V1 but eth basic principle of how it works is the same. As far as I can tell there is no difference between the Portal and VS Code designers in terms of feature parity.
+
+**Node or C#**; When you create a Logic App using the VSCode extension, it creates a Node project. I've not been able to determine the implications of this other than it must use the Node version of the Azure Functions runtime and presumably, any inline code will be JavaScript. However, you can change this to use C# if you prefer; you can convert the project to "use NuGet-based Logic App project". This will generate a `.csproj` file and manage dependencies via NuGet instead. I believe that certain capabilities are only possible with C# Logic Apps, such as [built-in connector authoring](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code#enable-built-in-connector-authoring).
 
 ## Hosted as an App Service or Container
 
