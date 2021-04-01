@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppPr
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppPreview-thumb.jpg
 type: article
 status: draft
-published: 2021/03/30 07:00:00
+published: 2021/04/01 16:00:00
 categories: 
   - Logic Apps
   - Serverless
@@ -63,9 +63,9 @@ I'm a Windows user so have no been able to check but my understanding is that th
 
 The [Create stateful and stateless workflows in Visual Studio Code with the Azure Logic Apps (Preview) extension](https://docs.microsoft.com/en-us/azure/logic-apps/create-stateful-stateless-workflows-visual-studio-code) document talks through the "getting started" process and will get you up and running so I wont cover that here. I will cover what I think are some of the highlights that this local development experience unlocks compared to V1.
 
-**Development Lifecycle**; Firstly, not only is it really nice to be able to use and IDE rather than a browser to develop the logic app, but it actually makes the whole development lifecycle so much simpler, especially if you are working in a team. Because you are editing a locally stored set of files, you can use source control and all the great advantages hat come with that. 
+**Development Lifecycle**; Firstly, not only is it really nice to be able to use and IDE rather than a browser to develop the Logic App, but it actually makes the whole development lifecycle so much simpler, especially if you are working in a team. Because you are editing a locally stored set of files, you can use source control and all the great advantages hat come with that. 
 
-**Running & Debugging**; You can run and more importantly debug your logic app directly from Visual Studio. This is made possible by the switch to using the Azure Functions runtime which already has a great local debug experience. You can also set breakpoints within the workflow JSON itself so you can see exactly what is going on in your Logic App (currently this only applies to Actions, not Triggers). In order to make local debugging possible, you will need a few additional tools:
+**Running & Debugging**; You can run and more importantly debug your Logic App directly from Visual Studio. This is made possible by the switch to using the Azure Functions runtime which already has a great local debug experience. You can also set breakpoints within the workflow JSON itself so you can see exactly what is going on in your Logic App (currently this only applies to Actions, not Triggers). In order to make local debugging possible, you will need a few additional tools:
 
 - [NGrok](https://dashboard.ngrok.com/get-started/setup) (or similar) which tunnels public endpoints to your localhost
 - [PostMan](https://www.postman.com/) (or similar) which is a tool that can generate HTTP requests
@@ -100,31 +100,52 @@ The interesting thing about built-in connectors is that you can create your own 
 
 It is possible to deploy your Logic App directly from the the [Azure Logic Apps for Visual Studio Code (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurelogicapps) extension, just like you may have seen with other Azure publishing features in Visual Studio and Visual Studio Code.
 
-When you publish to Azure, you create a "Logic App resource" on Azure. This is a resource that contains top level settings for your Logic App and one or more workflows. This is a change from V1 because the "Logic App" was both the resource and the workflow combined, but in V2, there is a distinction between the Azure Resource and the workflow that runs inside it; a single Logic App Resource can have multiple workflows. This is very similar to the way you would have a Function App Resource which contains multiple functions.
+When you publish to Azure, you create a "Logic App resource" on Azure. This is a resource that contains top level settings for your Logic App and one or more workflows. This is a change from V1 because the "Logic App" was both the resource and the workflow combined, but in V2, there is a distinction between the Azure Resource and the workflow that runs inside it; a single Logic App Resource can have multiple workflows. This is very similar to the way you would have a Function App Resource which contains multiple Functions.
 
-Just like Azure Functions, the Application Settings required by your Logic App (`local.settingsjson`) map to the Application Settings section of the Logic App Resource. This is a more standard way to manage settings compared to the bespoke model from Logic Apps V1.
+Just like Azure Functions, the Application Settings required by your Logic App (`local.settings.json`) map to the Application Settings section of the Logic App Resource. This is a more standard way to manage settings compared to the bespoke model from Logic Apps V1.
 
 Just like Azure Functions, you can choose from an Premium or App Service (dedicated) hosting model. These models directly to relate to the equivalent Azure Functions hosting models, read more at [Azure Functions hosting options](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale). Logic Apps do not currently support the entry-level "consumption" hosting plan offered with Azure Functions.
 
 ![Logic App Preview Resource](https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppsPreviewResource.jpg)
 
+The story around deployment infrastructure-as-code (IaC) technologies such as Terraform or Pullumi is less clear at this stage as the preview docs do not specifically talk about it. Certainly it does not look like there is a Terraform provider for the new Logic App Resource (an update equivalent of [azurerm_logic_app_workflow](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/logic_app_workflow)), so doing a full deployment including the workflow itself is not going to be simple at this time.
+
+Just like everything on Azure, it is possible to export the Logic App Resource and workflow definition as an ARM template is the same way you could do for V1. This enables deployment using something like an Azure DevOps pipeline.
+
+You can read more about deploying the ARM template as follows:
+
+- Deploying with Azure DevOps: https://github.com/Azure/logicapps/tree/master/azure-devops-sample
+- Deploying with GitHub actions: https://github.com/Azure/logicapps/tree/master/github-sample
+
 ## Stateful and Stateless options
 
-## Better networking options
+Logic Apps v1 were stateful. This means that each action, trigger and step of the workflow was internally persisted. This meant that the workflow could be long running and were highly durable. Stateful workflows offer high levels of resiliency in the case of outages and can be easily re-run.
 
-- because it is built on functions, it gets all the networking options form functions
+Logic Apps V2 offers two workflow types, stateful and stateless.
 
-## Application Insights for monitoring and tracing
+Stateful workflows are basically the same as they were in V1, but stateless is a new concept for V2.
 
-## Connections, actions, triggers seem the same
+Stateless workflows only store "state" in memory and are not durable in eth same way that stateful workflows are. As a result, stateless workflows have shorter runs that are typically no longer than 5 minutes, faster performance with quicker response times, higher throughput, and reduced running costs because the run details and history aren't kept in external storage.
 
-- New built in connectors (Azure Service Bus, Azure Event Hubs, SQL Server, and MQ)
+Read more at [Stateful and stateless workflows](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview-preview#stateful-and-stateless-workflows).
+
+## Other observations
+
+As well as the "big ticket" items I've already talked about, there are a few smaller observations I've made around Logic Apps V1.
+
+Because V2 is built on Azure Functions, it gets all the networking options from Functions. This means you can make a Logic App part of a VPN, which was a friction point with V1.
+
+There seems to be tight, built-in integration with Applications Insights for monitoring and logging.
+
+Connections, actions, triggers seem the same as they were in V1. This means that the vast array of third party integrations should all still work with V2.
 
 ## In Summary
 
 The move to using the Functions Runtime as the base for Logic Apps v2 is a very smart move in my opinion; it enables a lot of great features "for free" and bring the Azure serverless story together more.
 
-Local development in Visual Studio Code is a bug win as we now have a proper development experience whihc can be manage by git (or some other source control) just like any other code artefact.
+Local development in Visual Studio Code is a big win as we now have a proper development experience which can be manage by git (or some other source control) just like any other code artefact.
+
+The introduction of the the stateless Logic App type will enable niche scenario that require super fast, highly scalable Logic Apps.
 
 For further reading, I recommend:
 
