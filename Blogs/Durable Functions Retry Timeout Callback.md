@@ -48,7 +48,7 @@ The endpoint itself is a combination of the function's host, the instance ID and
 
 `http://localhost:7071/runtime/webhooks/durabletask/instances/3f733347b1cd44d1af699e8993a68b7f/raiseEvent/{eventName}?taskHub=TestHubName&connection=Storage&code=MahkwEx2o9sEZKMoDAG8dfWihFNm6Pa1DxdcNuQRlXr7PivLT/9rlA==`
 
-It is possible to obtain this url, complete with the task hub, function code (auth key) and other details from any client function by using the `IDurableOrchestrationClient.CreateHttpManagementPayload` method. This method requires an instance Id but you can pass any value which can be swapped out later (clients will not have the orchestration's instance Id until they invoke the orchestration whihc is why a temporary value is required). 
+It is possible to obtain this url, complete with the task hub, function code (auth key) and other details from any client function by using the `IDurableOrchestrationClient.CreateHttpManagementPayload` method. This method requires an instance Id but you can pass any value which can be swapped out later (clients will not have the orchestration's instance Id until they invoke the orchestration which is why a temporary value is required). 
 
 The method will produce a url with `{eventname}` where the external event name should go, but you can easily swap this for your real event name using string manipulation.
 
