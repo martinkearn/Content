@@ -17,17 +17,15 @@ categories:
 
 Like any workflow system, it is common for Durable Functions to need to call external systems and handle retry and timeout scenarios. It is also common for the external systems to carry out long running tasks which need to call back to the Durable Function when they are done.
 
-In this article, we'll discuss patterns and a sample for achieving all of these features with Durable Functions, based on a real-world customer scenario.
+In this article, we'll discuss patterns and examples for achieving all of these features with Durable Functions, based on a real-world customer scenario.
 
 The article assume a working knowledge of Durable Functions; if you don't already have that, you may benefit from reading [Durable Functions Overview](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp) first.
 
-There is a working companion sample that goes with this article available at GitHub:  [Durable-Function-Retry-Timeout-Callback](https://github.com/martinkearn/Durable-Function-Retry-Timeout-Callback)
+There is an open-source companion repository that goes with this article available at GitHub:  [Durable-Function-Retry-Timeout-Callback](https://github.com/martinkearn/Durable-Function-Retry-Timeout-Callback)
 
 ## The scenario
 
-The customer scenario that lead to this article was a Durable Function which needed to execute jobs on [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/). In this particular scenario, the Databricks jobs were based on user-driven job logic and configurations, so the chances on users defining incorrect data which might trigger an error code from Databricks was relatively high. 
-
-Because of the long running nature of the Databricks jobs, the system was designed so that Databricks itself calls back to the Durable Function when the job has completed rather than the Durable Function polling Databricks for status.
+The customer scenario that inspired this article was a Durable Function which needed to execute jobs on [Azure Databricks](https://docs.microsoft.com/en-us/azure/databricks/). Because of the long running nature of the Databricks jobs, the system was designed so that Databricks itself calls back to the Durable Function when the job has completed rather than the Durable Function polling Databricks for status.
 
 The customer wanted the Durable Function system to work with a set of configuration values for each job that defined:
 
@@ -36,11 +34,11 @@ The customer wanted the Durable Function system to work with a set of configurat
 
 Durable Functions are very well suited to these kinds of requirements because Durable Function allows for long-running operations (see [Human interaction and timeouts in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-phone-verification?tabs=csharp)). Durable Functions also allows complex retry logic to be coded using standard code conventions such as `do/while` loops and `try/catch` blocks.
 
-Though the example given is based around using Databricks, it can apply to any external system that has long-running operations.
+Though the example given is based on Databricks, it can apply to any external system that has long-running operations.
 
 ## Call-back and timeout
 
-Durable Functions has a great way to call and external system and wait for a call-back, this is called "wait for external event" and is explained in details at [Handling external events in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-external-events?tabs=csharp).
+Durable Functions has a great way to call external systems and wait for a call-back, this is called "wait for external event" and is explained in details at [Handling external events in Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-external-events?tabs=csharp).
 
 The basic gist is that an orchestration function can use the `WaitForExternalEvent` method of the function context to tell the function to wait until an external request is received on a specific endpoint.
 
@@ -50,11 +48,11 @@ The endpoint itself is a combination of the function's host, the instance ID and
 
 `http://localhost:7071/runtime/webhooks/durabletask/instances/3f733347b1cd44d1af699e8993a68b7f/raiseEvent/{eventName}?taskHub=TestHubName&connection=Storage&code=MahkwEx2o9sEZKMoDAG8dfWihFNm6Pa1DxdcNuQRlXr7PivLT/9rlA==`
 
-It is possible to obtain this url, complete with the task hub, function code (auth key) and other details from any client function by using the `IDurableOrchestrationClient.CreateHttpManagementPayload` method. This method requires an instance ID but you can pass any value which can be swapped out later (clients will not have the instance Id until they invoke the orchestration). 
+It is possible to obtain this url, complete with the task hub, function code (auth key) and other details from any client function by using the `IDurableOrchestrationClient.CreateHttpManagementPayload` method. This method requires an instance Id but you can pass any value which can be swapped out later (clients will not have the orchestration's instance Id until they invoke the orchestration whihc is why a temporary value is required). 
 
 The method will produce a url with `{eventname}` where the external event name should go, but you can easily swap this for your real event name using string manipulation.
 
-You can then pass this value through to the orchestration as part of its payload. The orchestration can replace the temporary instance ID and event name and then you have the full call-back uri which can be passed to your external system.
+You can then pass this value through to the orchestration as part of its payload. The orchestration can replace the temporary instance Id and event name and then you have the full call-back uri which can be passed to your external system.
 
 See the [`HttpStartClient.cs`](https://github.com/martinkearn/Durable-Function-Retry-Timeout-Callback/blob/main/RetryTimeoutCallback/FunctionApp/Clients/HttpStartClient.cs) from this articles associated sample repo for an example of how this is done.
 
@@ -63,11 +61,13 @@ See the [`HttpStartClient.cs`](https://github.com/martinkearn/Durable-Function-R
 Once the external system has been triggered (with the call back uri as a parameter), the function can wait for call-back by using this code
 
 ````c#
-var callbackTimeSpan = new TimeSpan(0, 0, 30);
+var callbackTimeSpan = new TimeSpan(0, 0, 180);
 var callBackSuccess = await context.WaitForExternalEvent<bool>("callbackEventname", callbackTimeSpan);
 ````
 
-This will make the function wait for a request to the call-back uri until the `callbackTimeSpan` has passed. If the time span does pass (i.e. the external system does not call back in time), the function will throw a `TimeoutException` which you can handle using something like a `try/catch` block.
+This will make the function wait for a request to the call-back uri until the `callbackTimeSpan` has passed.
+
+If the time span does pass (i.e. the external system does not call back in time), the function will throw a `TimeoutException` which you can handle using something like a `try/catch` block.
 
 Notice that the result of the `WaitForExternalEvent` can be typed so that a specific object is expected with the call-back. In this simple example, we just look for a Boolean which is stored in the `callBackSuccess` variable.
 
@@ -125,7 +125,7 @@ This allows us to see status at any time. In this example we see one attempt whi
 
 Durable Functions are a very powerful platform which allow you to produce complex looping, retry and timeout logic using regular code constructs.
 
-In this article and associated sample you can see how a Durable Function can call and external system, passing a call-back uri and wait for the external system to call-back, governed by timeout and retry limits.
+In this article and associated sample you can see how a Durable Function can call an external system, pass a call-back uri and wait for the external system to call-back, governed by timeout and retry limits.
 
 - Wait for external event: https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-external-events
 - Durable Entities: https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-entities
