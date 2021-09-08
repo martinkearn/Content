@@ -5,8 +5,8 @@ description: How to use Durable Functions to call external systems with retry an
 image: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/Retry.jpg
 thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/Retry_thumb.jpg
 type: article
-status: draft
-published: 2021/09/07 16:00:00
+status: published
+published: 2021/09/08 14:00:00
 categories: 
   - Durable Functions
   - Azure Functions
