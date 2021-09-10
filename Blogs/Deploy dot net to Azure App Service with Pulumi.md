@@ -5,8 +5,8 @@ description: Pulumi is an Infrastructure-as-code platform that facilitates deplo
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blocks.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blocks-Thumb.jpg
 type: article
-status: draft
-published: 2021/09/10 14:00:00
+status: published
+published: 2021/09/10 13:00:00
 categories: 
   - Blazor
   - Azure Functions
@@ -14,27 +14,27 @@ categories:
   - IaC
 ---
 
-.[Pulumi](https://www.pulumi.com/) is an infrastructure-as-code (IaC) platform that facilitates deployment of cloud resources and applications using familiar programming languages such as C#, Typescript, Python and Go. Pulumi is probably the main current alternative to [Terraform](https://www.terraform.io/) for cloud deployment.
+.[Pulumi](https://www.pulumi.com/) is an infrastructure-as-code (IaC) platform that facilitates deployment of cloud resources and applications using familiar programming languages such as C#, Typescript, Python and Go. Right now, Pulumi is probably the alternative to [Terraform](https://www.terraform.io/) for cloud deployment.
 
-Having never touched Pulumi before, I spent a few days learning about it and seeing if I could deploy a .net 6 Blazor Server application and an Azure Function to Azure App Services (PaaS, not container) using C#. While the Pulumi examples/tutorials are usefull, I found that there was not anything that covered exactly what I wanted to do, which is why I set about creating my own by patching various examples together.
+Having never touched Pulumi before, I spent a few days learning about it to see if I could deploy a .net 6 Blazor Server application and an Azure Function to Azure App Services (PaaS, not container) using C#. While the Pulumi examples/tutorials are usefull, I did not find anything that covered exactly what I wanted to do, which is why I set about creating my own exmaple by patching various examples together.
 
 The whole process was remarkably easy, but there were a few areas which I spent time researching, so this article is designed to help anyone else who is new to Pulumi working with .net and Azure.
 
-I'm not going to waste your time trying to explain how Pulumi works, the best way to get that information is simply to use the Pulumi "Getting Started" tutorials which you can find at [Get Started with Azure](https://www.pulumi.com/docs/get-started/azure/). In addition to these simple tutorials, Pulumi provide a bunch of open-source examples on GitHub at https://github.com/pulumi/examples.
+I'm not going try to explain how Pulumi works, the best way to get that information is simply to use the Pulumi "Getting Started" tutorials which you can find at [Get Started with Azure](https://www.pulumi.com/docs/get-started/azure/). In addition to these simple tutorials, Pulumi provide a bunch of open-source examples on GitHub at https://github.com/pulumi/examples.
 
 Any code I reference in this article can be found on GitHub at https://github.com/martinkearn/Pulumi-Playpen.
 
 ## Deployment zip and WEBSITE_RUN_FROM_PACKAGE
 
-One of the simplest ways to publish your .net code to Azure is to publish to a ZIP file and set the Azure App Service to run from that zip file. This approach is outlined in detail here: [Run your app from a ZIP package](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package#create-a-project-zip-package) or [Run your Azure Functions from a package](https://docs.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package) for Azure Functions.
+One of the simplest ways to publish your .net code to Azure is to publish to a zip file and set the Azure App Service to run from that zip file. This approach is outlined in detail here: [Run your app from a ZIP package](https://docs.microsoft.com/en-us/azure/app-service/deploy-run-package#create-a-project-zip-package) or [Run your Azure Functions from a package](https://docs.microsoft.com/en-us/azure/azure-functions/run-functions-from-deployment-package) for Azure Functions.
 
-This approach seems to be the favour approach for most Pulumi examples and follows several high level steps:
+This approach seems to be the favoured approach for most Pulumi examples and follows several high level steps:
 
 1. You need to start with the published output of your application. For .net you can get this by running `dotnet publish` in the CLI, this will output the published application to `{project root folder}\bin\Debug\net6.0\publish`. Please note:
    1. This step is a pre-requisite; Pulumi does not do it for you. Typically you can make this part of your CI pipeline or post-build steps.
    2. The `Debug` can also be `Release` depending on your configuration
    3. The `net6.0` is for .net 6 projects but could also be `net5.0` or `netcoreapp3.1`.
-2. The simplest place to put your ZIP in Azure is in an Azure Storage Account Blob Container. This code (which would be in your Pulumi stack) deploys a resource group, storage account and blob container in Azure:
+2. The simplest place to host your ZIP is in an Azure Storage Blob Container. This code (which would be in your Pulumi stack) deploys a resource group, storage account and blob container in Azure:
 
 ```c#
 // Create resource group
@@ -74,9 +74,9 @@ var blob = new Blob($"myapp.zip", new BlobArgs
 });
 ```
 
-> **Setting the right path**: It is important to make sure you set the path correctly for the `new FileArchive`. The path should be from the location of the Pulumi stack .cs file. In this example, the application itself is a separate project in the same solution so we use `..\\` to go up one level and then set the path from there
+> **Setting the right path**: It is important to make sure you set the path correctly for the `new FileArchive`. The path should be from the location of the Pulumi stack .cs file. In this example, the `myapp` application itself is a separate project in the same solution so we use `..\\` to go up one level and then set the path from there
 
-4. We need to create a SAS URL for the ZIP file in storage so that the app service can access it without any addition keys or connection strings. To do this, I created a helper method as follows:
+4. We need to create a SAS URL for the ZIP file in storage so that the app service can access it without any additional keys or connection strings. To do this, I created a helper method as follows:
 
 ```c#
 public static class OutputHelpers
@@ -109,17 +109,17 @@ public static class OutputHelpers
 }
 ```
 
-This is called in the main stack as follows:
+This helper is called in the main stack as follows:
 
 ```c#
 // Generate SAS url for the function output zip in storage
 var deploymentZipBlobSasUrl = OutputHelpers.SignedBlobReadUrl(blob, container, storageAccount, resourceGroup);
 ```
 
-5. The final step is to set the `WEBSITE_RUN_FROM_PACKAGE` application setting on the Azure App Service to point to the SAS URL for the ZIP in storage. You can do this using the `SiteConfigArgs` property of `WebApp`
+5. The final step is to set the `WEBSITE_RUN_FROM_PACKAGE` application setting on the Azure App Service to point to the SAS URL for the zip in storage. You can do this using the `SiteConfigArgs` property of `WebApp`
 
 ```c#
-// Rest of the code is ommited deliberatley. See the later sections for how to creat ethe App Service Plan and App Service
+// Rest of the code is ommited deliberatley. See the later sections for how to create the App Service Plan and App Service
 SiteConfig = new SiteConfigArgs
 {
     AppSettings = new[]
@@ -140,10 +140,10 @@ Deploying a .net 6 Blazor Server app is really very simple once you've done the 
 
 Any .net application is generally hosted as an [Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/overview) and all App Services needs and [App Service plan](https://docs.microsoft.com/en-us/azure/app-service/overview-hosting-plans). 
 
-The following code creates a shared App Service Plan, but you should make sure you set the `Tier` and `Name` to match the SKU you want to use and the SKU that is compatible with the type of App Service you want to use, see more on this in the "Deploying Azure Function" section.
+The following code creates an App Service Plan on the "shared" tier, but you should make sure you set the `Tier` and `Name` to match the SKU you want to use and the SKU that is compatible with the type of App Service you want to use, see more on this in the "Deploying Azure Function" section.
 
 - `Name` maps to the accepted values for the `sku` from the [az appservice plan create CLI](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest).
-- `Tier` maps to the overall tier for the service plan which can be `Free`, `Shared`, `Basic`, `Standard` or `Premium` (I've not been able to find an official reference to this in the Pulumi docs)
+- `Tier` maps to the overall tier for the service plan which can be `Free`, `Shared`, `Basic`, `Standard` or `Premium` (I've not been able to find an official reference to these values in the Pulumi docs)
 
 ```c#
 // Create app service plan for app
@@ -158,7 +158,7 @@ var appServicePlan = new AppServicePlan("appserviceplan", new AppServicePlanArgs
 });
 ```
 
-You can now create the App service itself and set it to run from the ZIP you created earlier.
+You can now create the App service itself and set it to run from the zip you created earlier.
 
 ```c#
 // Create app service. Set WEBSITE_RUN_FROM_PACKAGE to use the zip in storage
@@ -187,7 +187,7 @@ Just like Blazor Server, deploying a .net Azure Function is also fairly simple o
 
 Azure Functions deploy to Azure App Service but use some special configurations setting to make them a Function App Service rather than a regular App Service.
 
-Firstly, the app service will need to be set to be one of the service plan types that are compatible with Azure Functions, typically the consumption plan is used which is set by `Tier = Dynamic` and `Name = Y1`.
+Firstly, the App Service will need to be set to use one of the service plan types that are compatible with Azure Functions, typically the consumption plan is used which is set by `Tier = Dynamic` and `Name = Y1`.
 
 ```c#
 // Create app service plan for function app
@@ -206,7 +206,7 @@ The `name` maps to the accepted values of the `sku` property on [az functionapp 
 
 >  I have raised an issue for this: https://github.com/Azure/azure-cli/issues/19527.
 
-I have not been able to determine exactly what the `Tier` maps to, but I assume that "dynamic" means a consumption plan. The [Pulumi docs](https://www.pulumi.com/docs/reference/pkg/azure-native/web/appserviceplan/#skudescription) are equally vague.
+I have not been able to determine exactly what the `Tier` maps to, but I assume that "dynamic" means a consumption plan. The [Pulumi docs](https://www.pulumi.com/docs/reference/pkg/azure-native/web/appserviceplan/#skudescription) are equally vague in this regard.
 
 We can now create the App Service itself. Notice that we need to define the `Kind` which is what determines that it is a Function App Service. We also need to add additional application settings to tell the App Service about the function runtime. These settings are for a Function Runtime V3 .net function.
 
@@ -246,11 +246,11 @@ var app = new WebApp($"myfunctionappservice", new WebAppArgs
 
 ## In summary
 
-Pulumi is a very nice toolset that lets you provision cloud resource and code using the same programming language you use to writ ethe application itself.
+Pulumi is a very nice toolset that lets you provision cloud resources and applications using familiar programming languages.
 
 I found that compared to Terraform, the learning curve was much less and I was able to achieve my objectives very quickly compared to the first few days I spent with Terraform.
 
-This article and companying GitHub repo fills the gaps in the Pulumi docs around deploying .net applications to Azure.
+This article and associated GitHub repo fills the gaps in the Pulumi docs around deploying .net applications to Azure App Service.
 
 Here are some resource that you may find useful.
 
