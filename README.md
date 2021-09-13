@@ -1,6 +1,8 @@
 # Content
-Where I author new blog articles, demo scripts etc. Basically anything that is not code. This repository is the source for all my articles on [MartinK.me](https://martink.me).
+Where I author new blog articles, demo scripts etc.
 
-Feel free to suggest updates and send pull requests.
+This repository is the source for all my articles on [MartinK.me](https://martink.me).
+
+Feel free to suggest updates via issues or even send pull requests.
 
 Some content may be out of date, I only tend to update it just before I need it.
