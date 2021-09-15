@@ -20,7 +20,7 @@ In Visual Studio, review the solution
 
 Functions (like all .net application) can be deployed as a ZIP file in storage and the app service can run from the ZIP file. This is typicaly approach with most IaC platforms.
 
-1. `cd ..\Function`
+1. `cd C:\git\Pulumi-Playpen\CSharpFunctionDemo\function`
 2. `dotnet publish`
 3. Add code to create a blob container to `MyStack.cs`
 
@@ -49,7 +49,7 @@ var blob = new Blob($"function.zip", new BlobArgs
 ```
 
 5. `cd ..\Infrastructure`
-6. `pulumi up`, then choose `yes`
+6. `pulumi up`, follow steps to create a stack, then choose `yes` to perform update
 7. Go to Azure portal and explore the function.zip file in storage
 
 ## Deploy the Function App Service
