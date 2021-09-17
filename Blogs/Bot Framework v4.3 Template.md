@@ -17,7 +17,7 @@ categories:
 
 > **TLDR**
 >
-> Myself, [Ibrahim Kivanc](https://github.com/ikivanc) and [Martin Simecek](https://github.com/msimecek) created a .net starter bot template which uses v4.3 patterns and common features.
+> Myself, [Ibrahim Kivanc](https://github.com/ikivanc) and [Martin Simecek](https://github.com/msimecek) created a starter bot template for .net which uses v4.3 patterns and common features.
 >
 > Get the VSIX [here](https://github.com/martinkearn/Bot-v4.3-Template/raw/master/vsix/StarterBot.vsix).
 >
