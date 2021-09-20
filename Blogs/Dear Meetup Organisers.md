@@ -21,6 +21,6 @@ I have a range of talks which you can see on the [speaking page](http://martink.
 
 If you are looking for something different, I'm part of a broader team that cover pretty much any technology that has a loose connection to Microsoft so if I don't have anything that suits your group, I'm sure [my colleagues](http://aka.ms/technicalspeakers) do.
 
-I'm based in Worcester so groups in Worcester, Birmingham, and the West Midlands generally are perfect but I'm also happy to travel to most places in the UK too, especialy for larger groups. If I'm too far away, I have a colleagues that are scattered all over the UK, you can see them all on our [Microsoft UK Technical Speakers site](http://aka.ms/technicalspeakers).
+I'm based in Worcester so groups in Worcester, Birmingham, and the West Midlands generally are perfect but I'm also happy to travel to most places in the UK too, especially for larger groups. If I'm too far away, I have a colleagues that are scattered all over the UK, you can see them all on our [Microsoft UK Technical Speakers site](http://aka.ms/technicalspeakers).
 
 So, if you are running a meet-up, ideally with a typical attendance of over 35 people and think you'd like someone form Microsoft to come and speak or get involved in your event, please [contact me](http://martink.me/) or one of [my colleagues](http://aka.ms/technicalspeakers) and I'm sure we can help.
