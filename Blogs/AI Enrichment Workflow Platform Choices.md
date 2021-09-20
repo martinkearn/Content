@@ -16,7 +16,7 @@ categories:
   - Serverless
 ---
 
-.An AI enrichment pipeline is something that takes data and creates additional insights on that data by processing it through AI services before submitting it to a final data store or index. This type of system is also known as \"knowledge mining\" and the process of getting this additional data from AI services is called "enrichment".
+.An AI enrichment pipeline is something that creates additional insights on data by processing it through AI services before submitting it to a final data store or index. This type of system is also known as \"knowledge mining\" and the process of getting this additional data from AI services is called "enrichment".
 
 The data could be anything from a database, images, videos, documents or even just JSON. In this context, the term \"AI services\" refers mainly to [Azure Cognitive Services](https://docs.microsoft.com/en-us/azure/cognitive-services/) but in theory these services could be substituted with any AI service that provides enrichment including AI services by other vendors and home-grown APIs or machine learning systems.
 
