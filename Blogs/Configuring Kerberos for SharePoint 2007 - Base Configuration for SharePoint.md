@@ -123,7 +123,7 @@ SPNs are used by Kerberos to ensure that only certain accounts have permission t
 *   Navigate to the 'Delegation' tab
 *   Choose 'Trust this user/computer for delegation to any service (Kerberos)'
 
-**Step 3: Enable Kerberos on your web applications** In MOSS 2007, the switch between Kerberos and NTLM is very simple and is undertaken via Central Administration. If you are creating your farm from scratch, be sure to set Central Administration itself to use Kerberos which you can set as part of the 'SharePoint Products and Technologies Configuration Wizard', however if the farm is pre-created you can easily enable Kerberos by following these steps:
+**Step 3: Enable Kerberos on your web applications** In SharePoint 2007, the switch between Kerberos and NTLM is very simple and is undertaken via Central Administration. If you are creating your farm from scratch, be sure to set Central Administration itself to use Kerberos which you can set as part of the 'SharePoint Products and Technologies Configuration Wizard', however if the farm is pre-created you can easily enable Kerberos by following these steps:
 
 *   Open Central Administration
 *   Navigation to Application Management > Authentication Providers
