@@ -44,7 +44,7 @@ SPNs are used by Kerberos to ensure that only certain accounts have permission t
 
 <tr>
 
-<td>Command</td>
+  <td><b>Command</b></td>
 
 <td>Notes</td>
 
