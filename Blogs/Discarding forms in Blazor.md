@@ -1,5 +1,5 @@
 ---
-title: Are you Sure? Discarding forms in Blazor
+title: Discarding forms in Blazor
 author: Martin Kearn
 description: This article will discuss how to check what a user wants to do with an unsubmitted form if they attempt to navigate away in Blazor.
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/forms.jpg
@@ -12,9 +12,7 @@ categories:
   - Forms
 ---
 
-# Are you Sure? Discarding forms in Blazor
-
-Blazor has some very rich capabilities with regard to the HTML `<form>`, how it validates data and handles submission.
+.Blazor has some very rich capabilities with regard to the HTML `<form>`, how it validates data and handles submission.
 
 You can read about the general capabilities in [ASP.NET Core Blazor forms and validation](https://docs.microsoft.com/en-us/aspnet/core/blazor/forms-validation?view=aspnetcore-3.1).
 
