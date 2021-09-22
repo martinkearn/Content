@@ -11,9 +11,7 @@ categories:
   - SharePoint 2007
 ---
 
-# Configuring Kerberos for SharePoint 2007 - Base Configuration for SharePoint
-
-(UPDATED on 04/06/07 as per feedback from two different subscribers (thank-you). Updates in Italic) 
+.(UPDATED on 04/06/07 as per feedback from two different subscribers (thank-you). Updates in Italic) 
 (UPDATED on 20/08/07: My colleauge James World has just published an excellent article which is a kind of follow-up to this one. It goes a bit deeper on Kerberos basics and covers some real-world tips that relate specifically to SharePoint. Check it out here: [http://blogs.msdn.com/james_world/archive/2007/08/20/essential-guide-to-kerberos-in-sharepoint.aspx](http://blogs.msdn.com/james_world/archive/2007/08/20/essential-guide-to-kerberos-in-sharepoint.aspx) ) 
 
 At some point during a career working with SharePoint, everyone will be given the dubious task of configuring Kerberos authentication. I've done this a few times with SPS 2003 in the past, but despite my previous experience, it is a complex and difficult task to undertake if you don't know how. As with most things, if you have the right info, it is really quite easy. This is the first of a several-part series that outlines what you need to do to enable Kerberos in a MOSS 2007 environment. This article (part 1) will focus on how to get Kerberos working for just MOSS; the later articles will then expand on that to include Excel Services, Data Connections and SQL Server 2005 Analysis Services. 
