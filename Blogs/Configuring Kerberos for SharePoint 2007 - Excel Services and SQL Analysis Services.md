@@ -33,7 +33,7 @@ In order that users can access your SQL AS cube, you need to configure permissio
 *   Go to the Security tab
 *   Give the relevant users access. If you want everyone to have access, add 'authenticated users'
 
-This will means that user have access to actually read the data from eth AS cube
+This means that user have access to actually read the data from the AS cube
 
 **Step 3: Configure Excel Services for Delegation**
 
