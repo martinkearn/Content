@@ -12,9 +12,7 @@ categories:
   - Forms
 ---
 
-# Blazor Checkbox Group
-
-Sometimes in a HTML form you need to present a choice of options and you need the user to select at least one. It may not matter which one or if more than one is selected, but at least one choice is mandatory.
+.Sometimes in a HTML form you need to present a choice of options and you need the user to select at least one. It may not matter which one or if more than one is selected, but at least one choice is mandatory.
 
 Examples could include toppings on a pizza or permissions for a user.
 
