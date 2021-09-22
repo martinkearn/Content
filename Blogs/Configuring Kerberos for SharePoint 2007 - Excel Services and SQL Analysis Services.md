@@ -11,9 +11,7 @@ categories:
   - SharePoint 2007
 ---
 
-# Configuring Kerberos for SharePoint 2007 - Excel Services and SQL Analysis Services
-
-This is the second of my several-part series on how to configure Kerberos for MOSS 2007\. In the [first article](http://blogs.msdn.com/martinkearn/archive/2007/04/23/configuring-kerberos-for-sharepoint-2007-part-1-base-configuration-for-sharepoint.aspx), I outlined the steps that are required in order to get Kerberos working for a basic MOSS installation. In this article I am going to address one of the most common scenarios that actually requires Kerberos in order to work; that is using Excel Services to display data from a SQL Analysis Services Cube (or a normal SQL database) via SharePoint.
+.This is the second of my several-part series on how to configure Kerberos for MOSS 2007\. In the [first article](http://blogs.msdn.com/martinkearn/archive/2007/04/23/configuring-kerberos-for-sharepoint-2007-part-1-base-configuration-for-sharepoint.aspx), I outlined the steps that are required in order to get Kerberos working for a basic MOSS installation. In this article I am going to address one of the most common scenarios that actually requires Kerberos in order to work; that is using Excel Services to display data from a SQL Analysis Services Cube (or a normal SQL database) via SharePoint.
 
 **Why does this scenario require Kerberos?**
 
