@@ -259,4 +259,4 @@ Here are some resource that you may find useful.
 - [Pulumi's Examples GitHub for Azure and C#](https://github.com/pulumi/examples#c-1)
 - [martinkearn/Pulumi-Playpen: A playpen for experimenting and learning about Pulumi for Azure. (github.com)](https://github.com/martinkearn/Pulumi-Playpen)
 
-More articles from me: http://martink.me/articles
+Read more articles from me: http://martink.me/articles
