@@ -21,3 +21,8 @@ categories:
 - Bullets
 
 ### H3
+
+Here is some code
+```
+var code = "looks like this";
+```
