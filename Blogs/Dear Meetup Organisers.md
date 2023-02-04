@@ -9,6 +9,7 @@ status: published
 published: 2016/11/09 09:30:00
 categories: 
   - Events
+  - Meetups
 ---
 
 # Dear Meetup Organisers
