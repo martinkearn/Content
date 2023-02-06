@@ -1,7 +1,7 @@
 ---
 title: Test article
 author: Martin Kearn
-description: My test article
+description: My test article. Updated 6th Feb 18:54
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
