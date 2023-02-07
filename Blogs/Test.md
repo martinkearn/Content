@@ -25,4 +25,5 @@ categories:
 Here is some code
 ```
 var code = "looks like this";
+var foo = "bar";
 ```
