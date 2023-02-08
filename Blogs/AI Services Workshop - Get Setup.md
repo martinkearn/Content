@@ -1,5 +1,5 @@
 ---
-title: AI Services Workshop - Get Setup
+title: AI Services Workshop Setup
 author: Martin Kearn
 description: If you are attending our AI Services Workshop, you'll need to get a few bits of software on your laptop in order to take part in the labs.
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
