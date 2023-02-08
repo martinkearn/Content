@@ -314,7 +314,7 @@ CS has various pricing tiers which each offer increasing quotas for things like 
 
 ## In Summary
 
-There is no \"best choice\" for which platform will work best for your AI-enrichment pipeline. Each of the platforms listed in this article have their own distinct advantages and disadvantages and it may be that some combination of some/all of them works best for your scenario.
+There is no best choice for which platform will work best for your AI-enrichment pipeline. Each of the platforms listed in this article have their own distinct advantages and disadvantages and it may be that some combination of some/all of them works best for your scenario.
 
 For some companies, the development skills and experience may be critical, but for others the freshness of the content could be a driving factor; all these consideration must be taken into account when choosing the right workflow platform for your scenario.
 
