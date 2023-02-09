@@ -11,9 +11,7 @@ categories:
   - Events
 ---
 
-# AI Services Workshop - Get Setup
-
-If you are attending our AI Services Workshop, you'll need to get a few bits of software on your laptop in order to take part in the labs.
+.If you are attending our AI Services Workshop, you'll need to get a few bits of software on your laptop in order to take part in the labs.
 
 You've probably got most of this stuff already but worth double checking.
 
