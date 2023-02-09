@@ -10,7 +10,6 @@ published: 2021/03/08 07:00:00
 categories: 
   - Durable Functions
   - Azure Functions
-  - Cognitive Search
   - Logic Apps
   - Cognitive Services
   - Serverless
