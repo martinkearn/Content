@@ -9,7 +9,6 @@ status: published
 published: 2020/07/10 15:00:00
 categories: 
   - Blazor
-  - Realtime
   - SignalR
 ---
 
