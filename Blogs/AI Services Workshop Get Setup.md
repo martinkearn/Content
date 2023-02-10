@@ -15,7 +15,7 @@ categories:
 
 You've probably got most of this stuff already but worth double checking.
 
-You will need:
+You will need the following:
 <ul>
  	<li>Visual Studio Code from <a href="https://code.visualstudio.com">https://code.visualstudio.com</a></li>
  	<li>GitHub Desktop from <a href="https://desktop.github.com/">https://desktop.github.com </a>(or some other GitHub client)</li>
