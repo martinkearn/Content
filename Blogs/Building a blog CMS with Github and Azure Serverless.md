@@ -10,9 +10,7 @@ published: 2020/01/08 19:30:00
 categories: 
   - GitHub
   - Azure Functions
-  - Azure Logic Apps
-  - Serverless
-  - Content Management
+  - Logic Apps
 ---
 
 # Building blog CMS with Github and Azure Serverless
