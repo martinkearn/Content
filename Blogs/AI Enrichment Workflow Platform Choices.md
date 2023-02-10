@@ -12,7 +12,6 @@ categories:
   - Azure Functions
   - Logic Apps
   - Cognitive Services
-  - Serverless
 ---
 .An AI enrichment pipeline is something that creates additional insights on data by processing it through AI services before submitting it to a final data store or index. This type of system is also known as knowledge mining and the process of getting this additional data from AI services is called "enrichment".
 
