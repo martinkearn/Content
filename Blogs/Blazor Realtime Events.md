@@ -13,8 +13,6 @@ categories:
   - SignalR
 ---
 
-# Blazor Real-time Events
-
 .net has had the ability to handle and raise events for several years now. Events allows a service to inform subscribing code when something happens in the service, allowing the subscribing code to take action.
 
 You can read about the basic of [handling and raising events in .net](https://docs.microsoft.com/en-us/dotnet/standard/events/) if you are not familiar with the `event` keyword.
