@@ -43,7 +43,7 @@ thing though!
 </speak>
 ```
 
-You'll notice that I've used two different voices above. One ends in 'Neural' and one ends with 'RUS'.
+You will notice that I've used two different voices above. One ends in 'Neural' and one ends with 'RUS'.
 
 The 'Neural' voice is a new range of voice fonts that use neural-network algorithms to create a more natural, engaging and realistic voice compared to the previous 'RUS' voices. You can read all about it on [Microsoft previews neural network text-to-speech](https://azure.microsoft.com/en-gb/blog/microsoft-previews-neural-network-text-to-speech/). 'RUS' stands for "rich unit of speech" which is a more traditional way to construct artificial voice fonts by effectively combining individual words.
 
