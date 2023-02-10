@@ -1,5 +1,5 @@
 ---
-title: Bot Framework v4.3 Template
+title: Bot Framework v4-3 Template
 author: Martin Kearn
 description: There is no official template for starting a Bot Framework V4.3 project. So colleagues and I created one. This articles outlines what it does and how to use it.
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/BotVSIX.JPG
