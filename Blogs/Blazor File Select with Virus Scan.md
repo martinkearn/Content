@@ -10,7 +10,6 @@ published: 2020/07/07 17:10:00
 categories: 
   - Blazor
   - ClamAV
-  - nClam
 ---
 
 # Blazor File Select with Virus Scan
