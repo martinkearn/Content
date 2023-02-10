@@ -44,7 +44,7 @@ The simplest way to setup a ClamAV server is to use a docker container.
 
 There are many prebuilt containers available but I used [filefrog/clamav](https://hub.docker.com/r/filefrog/clamav) because it includes all the ClamAV services and is self-updating.
 
-You can host the container in any way you see fit. I find that the simplest approach is to host using Azure Container Instances (ACI). 
+You can host the container anywhere. I find that the simplest approach is to host using Azure Container Instances (ACI). 
 
 These are the high level steps on how to do that.
 
