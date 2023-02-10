@@ -150,7 +150,7 @@ SPNs are used by Kerberos to ensure that only certain accounts have permission t
 *   Keep an eye on your System event log on both your MOSS and SQL servers. Kerberos related errors are logged here.
 *   Make sure all the servers in the loop (MOSS, SQL and Domain Controllers) have the same time set. Inconsistent time settings are one of the primary causes of Kerberos related issues.
 
-If you have further difficulties, try these articles:
+If you have further issues, try these articles:
 
 *   Troubleshooting Kerberos Errors: [http://www.microsoft.com/technet/prodtechnol/windowsserver2003/technologies/security/tkerberr.mspx](http://www.microsoft.com/technet/prodtechnol/windowsserver2003/technologies/security/tkerberr.mspx)
 *   How to configure a Windows SharePoint Services virtual server to use Kerberos authentication and how to switch from Kerberos authentication back to NTLM authentication: [http://support.microsoft.com/?kbid=832769](http://support.microsoft.com/?kbid=832769)
