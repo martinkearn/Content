@@ -49,7 +49,7 @@ In the context of Azure, there are a few options for how you architect an AI enr
 
 -   [Azure Durable Functions](https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp)
 
-Microsoft Flow is also worth a mention but it is really an end user variation of Logic Apps and shares much of the functionality with Logic apps so is not covered in this article.
+Microsoft Flow is also worth mentioning but it is really an end user variation of Logic Apps and shares much of the functionality with Logic apps so is not covered in this article.
 
 This article seeks to provide an overview of these options to help you understand the pros and cons of each and determine which is most suitable for your application.
 
