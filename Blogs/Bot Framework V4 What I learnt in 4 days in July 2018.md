@@ -11,9 +11,7 @@ categories:
   - Bots
 ---
 
-# Bot Framework V4 What I learnt in 4 days in July 2018
-
-**This is out of date content. This article was written as a point-in-time snap-shot of the pre-released version of Bot Fraemwork V4 as it was in July 2018. The Bot Framework has now been fully released and you should refer to https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0 for the doucmentation. Many of the concepts in this articles have now bene retired or moved on. Please contact me if you have questions**
+.**This is out of date content. This article was written as a point-in-time snap-shot of the pre-released version of Bot Fraemwork V4 as it was in July 2018. The Bot Framework has now been fully released and you should refer to https://docs.microsoft.com/en-us/azure/bot-service/?view=azure-bot-service-4.0 for the doucmentation. Many of the concepts in this articles have now bene retired or moved on. Please contact me if you have questions**
 
 I was recently involved in a short, 4-day customer hack based on Microsoft Bot Framework V4 (C# SDK), Azure Bot Service and Language Understanding Intelligence Service (LUIS, part of Cognitive Services).
 
