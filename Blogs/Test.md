@@ -9,6 +9,7 @@ status: draft
 published: 2023/02/08 09:30:00
 categories: 
   - Testing
+  - Experimentation etc
 ---
 .This article is just for testing purposes
 
