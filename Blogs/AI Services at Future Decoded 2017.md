@@ -14,7 +14,7 @@ categories:
   - Machine Learning
 ---
 
-.The nights are drawing in, you've purchased your 'big coat' for the winter and Christmas adverts have started already.... it must be time for Future Decoded again!
+.The nights are drawing in, you've purchased your big coat for the winter and Christmas adverts have started already.... it must be time for Future Decoded again!
 
 [Future Decoded](https://futuredecoded.com/) is Microsoft's annual UK conference which describes itself as _"A vision of the modern digital business for today and tomorrow"_. This year, the conference is held on 31st October & 1st November 2017 at the ExCeL, London. If you are not already registered, you can register for free at https://futuredecoded.com. Unlike previous years, technical content is split across both days so register for both days if you want the complete picture.
 
