@@ -9,7 +9,6 @@ status: published
 published: 2020/07/09 17:00:00
 categories: 
   - Blazor
-  - Forms
 ---
 
 .Sometimes in a HTML form you need to present a choice of options and you need the user to select at least one. It may not matter which one or if more than one is selected, but at least one choice is mandatory.
