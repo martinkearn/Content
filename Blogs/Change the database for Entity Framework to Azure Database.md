@@ -14,7 +14,7 @@ categories:
 
 # Change the database for Entity Framework to Azure Database
 
-I've spent a little time trying to change the database that Entity Framework uses so that I could developer against an Azure database rather than the local default one. It is fairly simple, but took me a while to figure out so I thought I'd capture it....
+I spent a little time trying to change the database that Entity Framework uses so that I could developer against an Azure database rather than the local default one. It is fairly simple, but took me a while to figure out so I thought I'd capture it....
 
 By default, Visual Studio creates an MDF file in the 'app_data' folder in your project; this is where Entity Framework stores the data that gets generated from your application. The MDF file will be named after the data context you created when you first setup your project or controller, if you followed all the default suggestions, it will be something like 'WebApplication1Context-[datestamp].mdf'. If you double click this file (it is hidden so you'll have to 'show all files'), you'll be able to explore the database.
 
