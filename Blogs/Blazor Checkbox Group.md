@@ -142,4 +142,4 @@ See [Built-in forms components](https://docs.microsoft.com/en-us/aspnet/core/bla
 
 This is an elegant Blazor solution for ensuring that at least one of many checkboxes are checked.
 
-The solution uses built-in validation, conventions and data annotations.
+The solution uses built in validation, conventions and data annotations.
