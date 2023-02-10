@@ -33,7 +33,7 @@ I've certainly seen the headlines about BFv4 and seen a few conference videos, b
     * [Python SDK](https://github.com/Microsoft/botbuilder-python)
     * [Java SDK](https://github.com/Microsoft/botbuilder-java)
 * **Overall service architecture remains the same**. The concept of the bot as a single code base which is published to multiple channels (Skype, Cortana, Facebook etc) remains the same. The Azure Bot Service idea also remains the same.
-* **.net Core 2**. For the .netters amongst you, you’ll be glad to learn that the C# BFv4 SDK is built on .net core 2.0 which means that you get to use all those cool .net core features like middleware and DI. [See the open source .net core SDK here](https://github.com/Microsoft/botbuilder-dotnet)
+* **.net Core 2.0**. For the .netters amongst you, you’ll be glad to learn that the C# BFv4 SDK is built on .net core 2.0 which means that you get to use all those cool .net core features like middleware and DI. [See the open source .net core SDK here](https://github.com/Microsoft/botbuilder-dotnet)
 
 ## Key Learnings
 These are just some of the key learnings about BFv4. These are things I had not already gleaned before starting my 4 day project and things I may have spent slightly longer than I'd have expected figuring out.
