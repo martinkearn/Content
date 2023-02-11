@@ -6,7 +6,7 @@ image: https://dummyimage.com/800x600/000/fff&text=placeholder.jpg
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
-published: 2018/07/17 09:35:00
+published: 2018/07/17 09:30:00
 categories: 
   - Bots
 ---
