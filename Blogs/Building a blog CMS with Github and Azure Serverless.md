@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/GitHubCMS.
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/GitHubCMS_thumb.jpg
 type: article
 status: draft
-published: 2020/01/08 19:30:00
+published: 2020/01/08 19:40:00
 categories: 
   - GitHub
   - Azure Functions
