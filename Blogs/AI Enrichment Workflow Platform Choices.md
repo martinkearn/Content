@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Enrichment
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/EnrichmentPipline_thumb.png
 type: article
 status: published
-published: 2021/03/08 07:00:00
+published: 2021/03/08 07:30:00
 categories: 
   - Durable Functions
   - Azure Functions
