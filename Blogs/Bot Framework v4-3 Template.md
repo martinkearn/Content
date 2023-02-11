@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/BotVSIX.JP
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/BotVSIX_thumb.JPG
 type: article
 status: published
-published: 2019/04/11 12:00:00
+published: 2019/04/11 12:30:00
 categories: 
   - Bot Framework
   - Bots
