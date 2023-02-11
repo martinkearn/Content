@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/ChecboxGro
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/ChecboxGroup_thumb.png
 type: article
 status: published
-published: 2020/07/09 17:00:00
+published: 2020/07/09 17:30:00
 categories: 
   - Blazor
 ---
