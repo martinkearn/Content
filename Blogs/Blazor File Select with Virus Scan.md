@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/virus_thumb.jpg
 type: article
 status: published
-published: 2020/07/07 17:10:00
+published: 2020/07/07 17:30:00
 categories: 
   - Blazor
   - ClamAV
