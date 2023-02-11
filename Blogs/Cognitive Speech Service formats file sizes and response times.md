@@ -5,7 +5,7 @@ description: The Cognitive Speech Service provide the ability to convert text to
 image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 status: draft
-published: 2018/12/18 09:00:00
+published: 2018/12/18 09:30:00
 type: article
 categories: 
   - Cognitive Services
