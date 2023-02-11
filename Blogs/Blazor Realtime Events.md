@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/RealtimeEv
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/RealtimeEvents_thumb.jpg
 type: article
 status: published
-published: 2020/07/10 15:00:00
+published: 2020/07/10 15:30:00
 categories: 
   - Blazor
   - SignalR
