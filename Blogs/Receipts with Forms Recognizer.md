@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/till_recei
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/till_receipts-1200.jpg
 type: article
 status: published
-published: 2019/09/09 09:00:00
+published: 2019/09/09 09:40:00
 categories: 
   - Cognitive Services
   - Document Recognition
