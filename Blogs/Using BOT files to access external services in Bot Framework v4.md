@@ -2,8 +2,8 @@
 title: Using BOT files to access external services in Bot Framework v4  
 author: Martin Kearn
 description: The way you access external services has changed in Bot Framework V4. We now use .BOT files. This article explains all about it
-image: https://dummyimage.com/800x600/000/fff&text=placeholder
-thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/DALL%C2%B7E%202023-02-13%2009.15.40%20-%20a%20photorealistic%20picture%20of%20a%20chatbot%20using%20external%20services.png
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/DALL%C2%B7E%202023-02-13%2009.15.40%20-%20a%20photorealistic%20picture%20of%20a%20chatbot%20using%20external%20services_thumb.png
 type: article
 status: published
 published: 2018/10/04 09:40:00
