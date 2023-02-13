@@ -6,7 +6,7 @@ image: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images
 thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/concierge_thumb.jpg
 type: article
 status: published
-published: 2017/03/06 09:30:00
+published: 2017/03/06 09:40:00
 categories: 
   - Cognitive Services
   - Recommendations
