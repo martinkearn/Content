@@ -8,7 +8,7 @@ type: article
 status: published
 published: 2015/06/29 09:40:00
 categories: 
-  - ASP.net core
+  - ASP.net
   - Bower
   - Gulp
 ---
