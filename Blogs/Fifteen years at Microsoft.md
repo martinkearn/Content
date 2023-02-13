@@ -9,6 +9,7 @@ status: published
 published: 2020/12/11 09:40:00
 categories: 
   - Personal
+  - Microsoft Anniversary
 ---
 
 # Fifteen years at Microsoft and still loving it
