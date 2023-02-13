@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTesting
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/IntTestingLogicApps.jpg
 type: article
 status: published
-published: 2021/03/01 08:00:00
+published: 2021/03/01 08:40:00
 categories: 
   - Pester
   - Testing
