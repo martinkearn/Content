@@ -6,9 +6,10 @@ image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
-published: 2015/12/08 09:30:00
+published: 2015/12/08 09:40:00
 categories: 
   - Personal
+  - Microsoft Anniversary
 ---
 
 # Ten years at the best company in the world
