@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/forms.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/forms_thumb.jpg
 type: article
 status: draft
-published: 2020/07/13 17:00:00
+published: 2020/07/13 17:40:00
 categories: 
   - Blazor
   - Forms
