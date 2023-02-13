@@ -6,7 +6,7 @@ image: https://dummyimage.com/800x600/000/fff&text=placeholder
 thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
 type: article
 status: published
-published: 2006/03/15 09:30:00
+published: 2006/03/15 09:40:00
 categories: 
   - SharePoint 2003
 ---
