@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Apple-Oran
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Apple-Orange_thumb.jpg
 type: article
 status: published
-published: 2020/01/03 16:30:00
+published: 2020/01/03 16:40:00
 categories: 
 - Cognitive Services
 - Localisation
