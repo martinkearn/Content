@@ -6,7 +6,7 @@ image: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images
 thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/hack24_thumb.jpg
 type: article
 status: published
-published: 2018/02/05 09:30:00
+published: 2018/02/05 09:40:00
 categories: 
   - Events
   - Cognitive Services
