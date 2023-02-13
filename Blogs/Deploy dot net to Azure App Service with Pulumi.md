@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blocks.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blocks-Thumb.jpg
 type: article
 status: published
-published: 2021/09/10 13:00:00
+published: 2021/09/10 13:40:00
 categories: 
   - Blazor
   - Azure Functions
