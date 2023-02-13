@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppPr
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/LogicAppPreview-thumb.jpg
 type: article
 status: published
-published: 2021/04/01 16:00:00
+published: 2021/04/01 16:40:00
 categories: 
   - Logic Apps
   - Serverless
