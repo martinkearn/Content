@@ -6,11 +6,10 @@ image: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images
 thumbnail: https://raw.githubusercontent.com/martinkearn/Content/master/Blogs/Images/HowHappyScreenShot_thumb.png
 type: article
 status: published
-published: 2016/03/22 09:30:00
+published: 2016/03/22 09:40:00
 categories: 
   - Cognitive Services
   - Emotion API
-  - ASP.net
 ---
 
 # Introducing HowHappy
