@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/microsoft-graph.png
 type: article
 status: published
-published: 2019/08/29 13:00:00
+published: 2019/08/29 13:40:00
 categories: 
   - Logic Apps
   - Microsoft Graph
