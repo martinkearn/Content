@@ -2,8 +2,8 @@
 title: Processing Github Webhooks with Azure Functions
 author: Martin Kearn
 description: WebHooks are an interesting way to approach building a serverless application. learn how I used the GitHub webhooks API with Azure Functions to build this blog
-image: https://msdnshared.blob.core.windows.net/media/2018/11/thumb_2354dfe5-30ea-457f-ac57-194dc2c3c057_200x200_crop_center.jpg
-thumbnail:  https://msdnshared.blob.core.windows.net/media/2018/11/thumb_2354dfe5-30ea-457f-ac57-194dc2c3c057_200x200_crop_center.jpg
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/DALL%C2%B7E%202023-02-13%2009.41.56%20-%20a%20programmer%20sending%20data%20to%20the%20cloud%2C%20digital%20art.png
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/DALL%C2%B7E%202023-02-13%2009.41.56%20-%20a%20programmer%20sending%20data%20to%20the%20cloud%2C%20digital%20art_thumb.png
 status: published
 published: 2018/11/07 09:40:00
 type: article
