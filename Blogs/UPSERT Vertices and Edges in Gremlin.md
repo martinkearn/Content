@@ -6,7 +6,7 @@ image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blocks.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Blocks-Thumb.jpg
 type: article
 status: draft
-published: 2022/03/09 13:00:00
+published: 2022/03/09 13:40:00
 categories: 
   - Gremlin
   - Cosmos
