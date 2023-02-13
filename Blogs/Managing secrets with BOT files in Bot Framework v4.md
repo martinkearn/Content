@@ -2,8 +2,8 @@
 title: Managing secrets with BOT files in Bot Framework v4
 author: Martin Kearn
 description: How to securely manage secrets in Bot Framework V4 projects using the all new .BOT file
-image: https://dummyimage.com/800x600/000/fff&text=placeholder
-thumbnail: https://dummyimage.com/200x200/000/fff&text=placeholder
+image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/DALL%C2%B7E%202023-02-13%2009.27.16%20-%20a%20picture%20of%20a%20robot%20having%20a%20secret%20conversation%20with%20another%20robot.png
+thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/DALL%C2%B7E%202023-02-13%2009.27.16%20-%20a%20picture%20of%20a%20robot%20having%20a%20secret%20conversation%20with%20another%20robot_thumb.png
 type: article
 status: published
 published: 2018/09/27 09:40:00
