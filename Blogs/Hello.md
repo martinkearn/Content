@@ -19,4 +19,4 @@ I've just started a new job with Microsoft UK working as an MCS consultant and h
 
 Some of you may have seen my old blog on MSN spaces (http://spaces.msn.com/members/martin-kearn). That blog is now in-active, but does still have some usefull stuff on there so from time-to-time I may occasionally refer to it.
 
-That'll do for now - happy reading
+That'll do for now - happy reading.
