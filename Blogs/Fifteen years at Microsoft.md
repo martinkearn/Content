@@ -1,7 +1,7 @@
 ---
 title: Fifteen years at Microsoft and still loving it
 author: Martin Kearn
-description: On 12th December 20202 I celebrate 15 years working at Microsoft. This article contains a short reflection, some interesting facts and some predictions that I hope to look back on at my 20 year celebratory blog post.
+description: On 12th December 2020 I celebrate 15 years working at Microsoft. This article contains a short reflection, some interesting facts and some predictions that I hope to look back on at my 20 year celebratory blog post.
 image: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Microsoft%20Service%20Award%2015%20years.jpg
 thumbnail: https://github.com/martinkearn/Content/raw/master/Blogs/Images/Microsoft%20Service%20Award%2015%20years-thumb.jpg
 type: article
